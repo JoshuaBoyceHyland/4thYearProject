@@ -131,6 +131,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="4thYear.cpp" />
+    <ClCompile Include="CollisionChecker.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CollisionChecker.h" />
+    <ClInclude Include="Globals.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
