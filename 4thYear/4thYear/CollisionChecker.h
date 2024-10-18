@@ -2,15 +2,17 @@
 
 #include "raylib.h"
 #include "raymath.h"  
+#include "Dimesnions.h"
+
 class CollisionChecker
 {
 	public:
 
 		Vector3 m_position;
 		float m_rotation;
-		float m_width;
-		float m_height;
-		float m_length;
+
+
+		bool haveCollided(Vector3 t_position1, Dimensions t_dimension1, Vector3 t_position2, Dimensions t_dimension2);
 
 };
 

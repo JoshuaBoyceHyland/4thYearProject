@@ -30,7 +30,7 @@ int main()
 	Mesh colliderMesh = GenMeshCube(width, height, z);
 	Model colliders[4];
 
-
+	Color col = RED;
 	Model walls[4];
 	Vector3 positions[4] = { {-15.9f, 0.0f, 0.0f}, { 0.0f, 0.0f, 15.9f}, { 15.9f, 0, 0} , { 0.0f, 0.0f, -15.9f} };
 	Vector3 rotations[4] = { { 1.5708 * 3,0.0f, 1.5708 },  { 1.5708 * 3,0.0f, 1.5708  *2}, { 1.5708 * 3,0.0f, 1.5708 * 3 }, { 1.5708 * 3,0.0f, 1.5708 * 4} };
@@ -46,6 +46,7 @@ int main()
 		colliders[i] = LoadModelFromMesh(colliderMesh);
 		colliders[i].transform = walls[i].transform;
 
+
 	}
 
 	
@@ -58,8 +59,7 @@ int main()
 	while (!WindowShouldClose())
 	{
 		
-		Color col = RED;
-
+		
 
 
 		UpdateCamera(&camera, currentCameraMode);
