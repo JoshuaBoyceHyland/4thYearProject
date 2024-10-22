@@ -10,7 +10,6 @@ class Player
 		void draw(sf::RenderWindow& t_window);
 		sf::Vector2f getPosition();
 		sf::Vector2f getVelocity();
-		bool checkForEnemy(sf::Vector2f t_target);
 
 	private:
 		void input();
@@ -24,7 +23,5 @@ class Player
 		sf::Texture m_spriteTexture;
 
 		Body bod;
-	
-
 };
 

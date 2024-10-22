@@ -10,7 +10,6 @@ bod("ASSETS/IMAGES/")
 	}
 	
 	m_body.setTexture(m_spriteTexture); 
-
 	m_body.setScale({ 0.25f, 0.25f });
 	m_body.setOrigin({ static_cast<float>(m_spriteTexture.getSize().x/2) ,static_cast<float>(m_spriteTexture.getSize().y / 2 )});
 }
@@ -28,13 +27,10 @@ void Player::update( float deltaTime )
 	m_body.setPosition(m_position);
 	m_speed *= 0.99f;
 
-	m_visionCone.update();
-
 }
 
 void Player::draw(sf::RenderWindow& t_window)
 {
-	m_visionCone.draw(t_window);
 	t_window.draw(m_body);
 }
 
@@ -47,13 +43,6 @@ sf::Vector2f Player::getVelocity()
 {
 	return m_velocity;
 }
-
-bool Player::checkForEnemy(sf::Vector2f t_target)
-{
-	return m_visionCone.checkForCollision(t_target);
-}
-
-
 
 void Player::input()
 {
