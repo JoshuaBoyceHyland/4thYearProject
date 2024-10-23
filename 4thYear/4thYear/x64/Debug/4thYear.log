@@ -1,11 +1,14 @@
 ﻿  4thYear.cpp
-C:\Users\gameuser\Desktop\4thYearProject\4thYear\4thYear\4thYear.cpp(36,36): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\gameuser\Desktop\4thYearProject\4thYear\4thYear\4thYear.cpp(36,46): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\gameuser\Desktop\4thYearProject\4thYear\4thYear\4thYear.cpp(36,66): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\gameuser\Desktop\4thYearProject\4thYear\4thYear\4thYear.cpp(36,84): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\gameuser\Desktop\4thYearProject\4thYear\4thYear\4thYear.cpp(36,98): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\gameuser\Desktop\4thYearProject\4thYear\4thYear\4thYear.cpp(36,115): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\gameuser\Desktop\4thYearProject\4thYear\4thYear\4thYear.cpp(36,131): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\gameuser\Desktop\4thYearProject\4thYear\4thYear\4thYear.cpp(36,148): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\gameuser\Desktop\4thYearProject\4thYear\4thYear\4thYear.cpp(44,51): warning C4305: 'argument': truncation from 'double' to 'float'
-  4thYear.vcxproj -> C:\Users\gameuser\Desktop\4thYearProject\4thYear\x64\Debug\4thYear.exe
+C:\Users\Joshua\Desktop\4thYearProject\4thYear\4thYear\4thYear.cpp(36,36): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Joshua\Desktop\4thYearProject\4thYear\4thYear\4thYear.cpp(36,46): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Joshua\Desktop\4thYearProject\4thYear\4thYear\4thYear.cpp(36,66): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Joshua\Desktop\4thYearProject\4thYear\4thYear\4thYear.cpp(36,84): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Joshua\Desktop\4thYearProject\4thYear\4thYear\4thYear.cpp(36,98): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Joshua\Desktop\4thYearProject\4thYear\4thYear\4thYear.cpp(36,115): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Joshua\Desktop\4thYearProject\4thYear\4thYear\4thYear.cpp(36,131): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Joshua\Desktop\4thYearProject\4thYear\4thYear\4thYear.cpp(36,148): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Joshua\Desktop\4thYearProject\4thYear\4thYear\4thYear.cpp(44,51): warning C4305: 'argument': truncation from 'double' to 'float'
+  CollisionChecker.cpp
+  Generating Code...
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+  4thYear.vcxproj -> C:\Users\Joshua\Desktop\4thYearProject\4thYear\x64\Debug\4thYear.exe
