@@ -2,7 +2,7 @@
 
 Player::Player(sf::Vector2f t_position) :
 m_position( t_position ), 
-bod("ASSETS/IMAGES/")
+bod("ASSETS/IMAGES/texture.jpg")
 {
 	if (!m_spriteTexture.loadFromFile("ASSETS/IMAGES/ship.png"));
 	{
@@ -17,12 +17,14 @@ bod("ASSETS/IMAGES/")
 void Player::update( float deltaTime )
 {
 	input();
-
+	bod.update();
 	float radian = m_rotation * (3.14159265359f / 180.0f);
 	m_velocity.x = std::cos(radian) * m_speed * (deltaTime / 1000);
 	m_velocity.y = std::sin(radian) * m_speed * (deltaTime / 1000);
 
 	m_position += m_velocity;
+	bod.setPostion(m_position);
+	bod.setRotation(m_rotation);
 	m_body.setRotation(m_rotation);
 	m_body.setPosition(m_position);
 	m_speed *= 0.99f;
@@ -31,7 +33,7 @@ void Player::update( float deltaTime )
 
 void Player::draw(sf::RenderWindow& t_window)
 {
-	t_window.draw(m_body);
+	bod.draw(t_window);
 }
 
 sf::Vector2f Player::getPosition()

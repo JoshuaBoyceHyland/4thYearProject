@@ -18,7 +18,8 @@
 /// </summary>
 Game::Game() :
 	m_window{ sf::VideoMode{ Globals::SCREEN_WIDTH, Globals::SCREEN_HEIGHT, 32U }, "SFML Game" },
-	m_exitGame{ false }
+	m_exitGame{ false }, 
+	m_player( {100,100})
 {
 
 }
@@ -118,7 +119,7 @@ void Game::update(sf::Time t_deltaTime)
 		m_window.close();
 	}
 
-
+	m_player.update(t_deltaTime.asMilliseconds());
 	
 }
 
@@ -128,6 +129,7 @@ void Game::update(sf::Time t_deltaTime)
 void Game::render()
 {
 	m_window.clear(sf::Color::Black);
+	m_player.draw(m_window);
 	m_window.display();
 }
 

@@ -1,5 +1,5 @@
 #pragma once
-#include "Globals.h"
+#include <SFML/Graphics.hpp>
 
 /// <summary>
 /// Holds the various variables that will effect flights

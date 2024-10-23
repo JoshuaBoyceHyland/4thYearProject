@@ -11,6 +11,17 @@ Body::Body(Attributes t_attributes, std::string t_texturePath) : m_attributes( t
 	setUpBody(t_texturePath);
 }
 
+void Body::update()
+{
+	m_body.setRotation(m_rotation);
+	m_body.setPosition(m_position);
+	for (int i = 0; i < m_connectionCircles.size(); i++)
+	{
+		m_connectionCircles[i].setRotation(m_rotation);
+		m_connectionCircles[i].setPosition(m_position + RotationMath::rotatedVector(m_attributes.connectionPoints[i], m_rotation));
+	}
+}
+
 void Body::draw(sf::RenderWindow& t_window)
 {
 	t_window.draw(m_body);
@@ -18,6 +29,17 @@ void Body::draw(sf::RenderWindow& t_window)
 	{
 		t_window.draw(m_connectionCircles[i]);
 	}
+}
+
+void Body::setRotation(float t_rotation)
+{
+	m_rotation = t_rotation;
+}
+
+void Body::setPostion(sf::Vector2f t_position)
+{
+	m_position = t_position;
+
 }
 
 void Body::setUpBody(std::string t_texturePath)
@@ -34,15 +56,15 @@ void Body::setUpBody(std::string t_texturePath)
 	m_body.setOrigin({ m_body.getSize().x / 2, m_body.getSize().y / 2 });
 	
 
-	m_attributes.connectionPoints.push_back({ m_body.getPosition().x - (m_body.getSize().x / 2), m_body.getPosition().y });
-	m_attributes.connectionPoints.push_back({ m_body.getPosition().x + (m_body.getSize().x / 2), m_body.getPosition().y });
+	m_attributes.connectionPoints.push_back({  - (m_body.getSize().x / 2), 0 });
+	m_attributes.connectionPoints.push_back({ ( m_body.getSize().x / 2), 0 });
 
 	for (int i = 0; i < m_attributes.connectionPoints.size(); i++)
 	{
 		sf::CircleShape circle;
 		circle.setRadius(10);
 		circle.setFillColor(sf::Color::Red);
-		circle.setPosition(m_attributes.connectionPoints[i]);
+		circle.setPosition(m_body.getPosition() + m_attributes.connectionPoints[i]);
 		circle.setOrigin({ circle.getRadius() / 2, circle.getRadius() / 2 });
 		m_connectionCircles.push_back(circle);
 	}

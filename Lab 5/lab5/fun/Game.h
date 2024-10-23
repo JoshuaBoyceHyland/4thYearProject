@@ -11,8 +11,9 @@
 /// </summary>
 
 #include "Globals.h"
+#include "Player.h"
 #include "Body.h"
-
+#include <SFML/Graphics.hpp>
 
 class Game
 {
@@ -42,6 +43,7 @@ private:
 	sf::VertexArray m_points;// vertext arry for ourt drawings
 	sf::Color m_colour; // colour ofr next vertex
 
+	Player m_player;
 };
 
 

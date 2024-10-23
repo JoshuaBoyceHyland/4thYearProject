@@ -1,9 +1,10 @@
 #pragma once
-#include <iostream>
-#include <string>
-#include <SFML/Graphics.hpp>
+//#include <iostream>
+//#include <string>
+//#include <SFML/Graphics.hpp>
 
 #include "VectorMath.h"
+
 
 namespace Globals {
 	const int SCREEN_WIDTH = 1280;

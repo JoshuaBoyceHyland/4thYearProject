@@ -1,6 +1,7 @@
 #pragma once
-#include "Globals.h"
+#include <iostream>
 #include "Body.h"
+#include <SFML/Graphics.hpp>
 
 class Player 
 {
