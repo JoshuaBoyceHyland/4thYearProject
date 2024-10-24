@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include "Body.h"
+#include "CockPit.h"
 #include <SFML/Graphics.hpp>
 
 class Player 
@@ -15,6 +16,8 @@ class Player
 	private:
 		void input();
 		void boundCheck();
+
+
 		sf::Vector2f m_position;
 		sf::Vector2f m_velocity;
 		float m_rotation;
@@ -24,5 +27,7 @@ class Player
 		sf::Texture m_spriteTexture;
 
 		Body bod;
+		CockPit pit;
+
 };
 

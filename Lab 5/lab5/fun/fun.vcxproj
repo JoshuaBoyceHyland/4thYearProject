@@ -20,20 +20,24 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Body.cpp" />
+    <ClCompile Include="CockPit.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="RotationMath.cpp" />
     <ClCompile Include="VectorMath.cpp" />
+    <ClCompile Include="Wings.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Atttibutes.h" />
     <ClInclude Include="Body.h" />
+    <ClInclude Include="CockPit.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="RotationMath.h" />
     <ClInclude Include="VectorMath.h" />
+    <ClInclude Include="Wings.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="ASSETS\IMAGES\SFML-LOGO.png">

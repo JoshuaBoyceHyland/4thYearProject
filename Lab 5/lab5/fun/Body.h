@@ -14,10 +14,12 @@ class Body
 		void draw(sf::RenderWindow& t_window);
 		void setRotation(float t_rotation);
 		void setPostion(sf::Vector2f t_position);
+		sf::Vector2f getConnectionPount(int t_index);
 
 	private:
 
 		void setUpBody(std::string t_texturePath);
+		void setUpConnectionPoints();
 
 		sf::Texture m_texture;
 		sf::RectangleShape m_body;

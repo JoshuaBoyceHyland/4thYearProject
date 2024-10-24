@@ -39,6 +39,12 @@
     <ClCompile Include="RotationMath.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CockPit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Wings.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -60,6 +66,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="RotationMath.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CockPit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Wings.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
