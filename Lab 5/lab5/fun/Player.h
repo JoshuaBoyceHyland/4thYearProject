@@ -2,6 +2,7 @@
 #include <iostream>
 #include "Body.h"
 #include "CockPit.h"
+#include "Wings.h"
 #include <SFML/Graphics.hpp>
 
 class Player 
@@ -28,6 +29,7 @@ class Player
 
 		Body bod;
 		CockPit pit;
+		Wings wing;
 
 };
 

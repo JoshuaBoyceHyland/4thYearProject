@@ -1,11 +1,12 @@
 #pragma once
+#include <iostream>
 #include "Atttibutes.h"
 #include "RotationMath.h"
 
 class Wings
 {
 	public:
-		Wings(std::string t_texturePath, sf::ConvexShape t_body );
+		Wings(std::string t_texturePath );
 		Wings(Attributes t_attributes, std::string t_texturePath);
 
 		void update();

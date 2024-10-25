@@ -3,7 +3,8 @@
 Player::Player(sf::Vector2f t_position) :
 m_position( t_position ), 
 bod("ASSETS/IMAGES/texture.jpg"), 
-pit("ASSETS/IMAGES/texture.jpg")
+pit("ASSETS/IMAGES/texture.jpg"), 
+wing("ASSETS/IMAGES/texture.jpg")
 {
 	if (!m_spriteTexture.loadFromFile("ASSETS/IMAGES/ship.png"));
 	{
@@ -29,6 +30,8 @@ void Player::update( float deltaTime )
 	bod.setPostion(m_position);
 	bod.setRotation(m_rotation);
 
+	wing.setPostion(m_position + bod.getConnectionPount(1));
+	wing.setRotation(m_rotation);
 
 	pit.setPostion( m_position + pit.getConnectionPount(2) +  bod.getConnectionPount(2));
 	pit.setRotation(m_rotation);
@@ -40,6 +43,7 @@ void Player::update( float deltaTime )
 
 	bod.update();
 	pit.update();
+	wing.update();
 
 }
 
@@ -47,6 +51,7 @@ void Player::draw(sf::RenderWindow& t_window)
 {
 	bod.draw(t_window);
 	pit.draw(t_window);
+	wing.draw(t_window);
 }
 
 sf::Vector2f Player::getPosition()
