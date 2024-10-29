@@ -2,7 +2,7 @@
 #include <iostream>
 #include "Atttibutes.h"
 #include "RotationMath.h"
-
+#include "Loader.h"
 class CockPit
 {
 
@@ -21,7 +21,7 @@ class CockPit
 		void setUpConnectionPoints();
 
 		sf::Texture m_texture;
-		sf::CircleShape m_body;
+		sf::Sprite m_body;
 
 
 		Attributes m_attributes;

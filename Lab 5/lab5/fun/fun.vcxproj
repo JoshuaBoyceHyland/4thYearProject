@@ -22,9 +22,12 @@
     <ClCompile Include="Body.cpp" />
     <ClCompile Include="CockPit.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Loader.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="RotationMath.cpp" />
+    <ClCompile Include="ShipPart.cpp" />
+    <ClCompile Include="Thruster.cpp" />
     <ClCompile Include="VectorMath.cpp" />
     <ClCompile Include="Wings.cpp" />
   </ItemGroup>
@@ -34,8 +37,11 @@
     <ClInclude Include="CockPit.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Globals.h" />
+    <ClInclude Include="Loader.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="RotationMath.h" />
+    <ClInclude Include="ShipPart.h" />
+    <ClInclude Include="Thruster.h" />
     <ClInclude Include="VectorMath.h" />
     <ClInclude Include="Wings.h" />
   </ItemGroup>

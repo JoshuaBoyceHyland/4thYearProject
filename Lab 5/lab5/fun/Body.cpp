@@ -50,32 +50,32 @@ sf::Vector2f Body::getConnectionPount(int t_index)
 
 void Body::setUpBody(std::string t_texturePath)
 {
-	if (!m_texture.loadFromFile(t_texturePath))
-	{
-		std::cout << "Cannot load body texture" << std::endl;
-	}
+	Loader* loader = Loader::getInstance();
+	m_texture = loader->loadTexture(t_texturePath);
 
-	m_body.setTexture(&m_texture);
+	m_body.setTexture(m_texture);
 	m_body.setRotation(m_rotation);
-	m_body.setSize({ 90, 100 });
+	m_body.setScale({ 2, 2 });
 	m_body.setPosition({ 100, 100 });
-	m_body.setOrigin({ m_body.getSize().x / 2, m_body.getSize().y / 2 });
+	m_body.setOrigin({ 
+						static_cast<float>(m_texture.getSize().x ) / 2,
+						static_cast<float>(m_texture.getSize().y ) / 2
+					});
 	
 
 }
 
 void Body::setUpConnectionPoints()
 {
-	m_attributes.connectionPoints.push_back({ -(m_body.getSize().x / 2), 0 });
-	m_attributes.connectionPoints.push_back({ (m_body.getSize().x / 2), 0 });
-
-	m_attributes.connectionPoints.push_back({ 0, -(m_body.getSize().y / 2) });
-	m_attributes.connectionPoints.push_back({ 0, (m_body.getSize().y / 2) });
+	m_attributes.connectionPoints.push_back({ -(static_cast<float>(m_texture.getSize().x * m_body.getScale().x) / 2), 0 });// left
+	m_attributes.connectionPoints.push_back({ 0, static_cast<float>(m_texture.getSize().y * m_body.getScale().y) / 2 });// top
+	m_attributes.connectionPoints.push_back({ (static_cast<float>(m_texture.getSize().x * m_body.getScale().x) / 2), 0 });// right
+	m_attributes.connectionPoints.push_back({ 0, -(static_cast<float>(m_texture.getSize().y * m_body.getScale().y) / 2) });// bottom
 
 	for (int i = 0; i < m_attributes.connectionPoints.size(); i++)
 	{
 		sf::CircleShape circle;
-		circle.setRadius(1);
+		circle.setRadius(2);
 		circle.setFillColor(sf::Color::Red);
 		circle.setPosition(m_body.getPosition() + m_attributes.connectionPoints[i]);
 		circle.setOrigin({ circle.getRadius() / 2, circle.getRadius() / 2 });

@@ -1,10 +1,11 @@
 #include "Player.h"
 
 Player::Player(sf::Vector2f t_position) :
-m_position( t_position ), 
-bod("ASSETS/IMAGES/texture.jpg"), 
-pit("ASSETS/IMAGES/texture.jpg"), 
-wing("ASSETS/IMAGES/texture.jpg")
+m_position( t_position )
+//bod("ASSETS/IMAGES/hull/hull_1.png"), 
+//pit("ASSETS/IMAGES/cockpits/cockpit_1.png"), 
+//wing("ASSETS/IMAGES/right_wings/right_wing_1.png"), 
+//thruster("ASSETS/IMAGES/thruster/thruster_1.png")
 {
 	if (!m_spriteTexture.loadFromFile("ASSETS/IMAGES/ship.png"));
 	{
@@ -14,6 +15,23 @@ wing("ASSETS/IMAGES/texture.jpg")
 	m_body.setTexture(m_spriteTexture); 
 	m_body.setScale({ 0.25f, 0.25f });
 	m_body.setOrigin({ static_cast<float>(m_spriteTexture.getSize().x/2) ,static_cast<float>(m_spriteTexture.getSize().y / 2 )});
+
+	Loader* loader = Loader::getInstance();
+
+	sf::Texture texture = loader->loadTexture("ASSETS/IMAGES/hull/hull_1.png");
+	Attributes attributes;
+	attributes.connectionPoints.push_back({ -(static_cast<float>(texture.getSize().x * m_body.getScale().x) / 2), 0 });// left
+	attributes.connectionPoints.push_back({ 0, static_cast<float>(texture.getSize().y * m_body.getScale().y) / 2 });// top
+	attributes.connectionPoints.push_back({ (static_cast<float>(texture.getSize().x * m_body.getScale().x) / 2), 0 });// right
+	attributes.connectionPoints.push_back({ 0, -(static_cast<float>(texture.getSize().y * m_body.getScale().y) / 2) });// bottom
+
+	attributes.anchorPoint = &m_position;
+	bod.setRotation(&m_rotation);
+	bod.setPotation(&m_position);
+
+	bod.setUp(texture, &attributes);
+
+
 }
 
 void Player::update( float deltaTime )
@@ -27,31 +45,38 @@ void Player::update( float deltaTime )
 
 	m_position += m_velocity;
 
-	bod.setPostion(m_position);
-	bod.setRotation(m_rotation);
+	//bod.setPostion(m_position);
+	//bod.setRotation(m_rotation);
 
-	wing.setPostion(m_position + bod.getConnectionPount(1));
-	wing.setRotation(m_rotation);
 
-	pit.setPostion( m_position + pit.getConnectionPount(2) +  bod.getConnectionPount(2));
-	pit.setRotation(m_rotation);
+	//wing.setPostion(m_position + bod.getConnectionPount(2) );
+	//wing.setRotation(m_rotation);
 
-	m_body.setPosition(m_position);
-	m_body.setRotation(m_rotation);
-	
+	//pit.setPostion( m_position + pit.getConnectionPount(3) +  bod.getConnectionPount(3));
+	//pit.setRotation(m_rotation);
+
+	//m_body.setPosition(m_position);
+	//m_body.setRotation(m_rotation);
+
+	//thruster.setPostion(m_position + thruster.getConnectionPount(1) + bod.getConnectionPount(1));
+	//thruster.setRotation(m_rotation);
+
 	m_speed *= 0.99f;
-
 	bod.update();
-	pit.update();
-	wing.update();
+	//bod.update();
+	//pit.update();
+	//wing.update();
+	//thruster.update();
 
 }
 
 void Player::draw(sf::RenderWindow& t_window)
 {
 	bod.draw(t_window);
-	pit.draw(t_window);
-	wing.draw(t_window);
+	//bod.draw(t_window);
+	//pit.draw(t_window);
+	////wing.draw(t_window);
+	//thruster.draw(t_window);
 }
 
 sf::Vector2f Player::getPosition()

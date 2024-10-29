@@ -49,26 +49,22 @@ sf::Vector2f CockPit::getConnectionPount(int t_index)
 
 void CockPit::setUpBody(std::string t_texturePath)
 {
-	if (!m_texture.loadFromFile(t_texturePath))
-	{
-		std::cout << "Cannot load body texture" << std::endl;
-	}
+	Loader* loader = Loader::getInstance();
+	m_texture = loader->loadTexture(t_texturePath);
 
-	m_body.setTexture(&m_texture);
+	m_body.setTexture(m_texture);
 	m_body.setRotation(m_rotation);
-	m_body.setRadius(50);
-	m_body.setPointCount( 3);
+	m_body.setScale({2, 2});
 	m_body.setPosition({ 100, 100 });
-	m_body.setOrigin({ 50, 50 });
+	m_body.setOrigin({ static_cast<float>(m_texture.getSize().x) / 2,static_cast<float>(m_texture.getSize().y) / 2 });
 }
 
 void CockPit::setUpConnectionPoints()
 {
-	m_attributes.connectionPoints.push_back({ -(m_body.getRadius() / 2), 0 });
-	m_attributes.connectionPoints.push_back({ (m_body.getRadius() / 2), 0 });
-
-	m_attributes.connectionPoints.push_back({ 0, -(m_body.getRadius() / 2) });
-	m_attributes.connectionPoints.push_back({ 0, (m_body.getRadius() / 2) });
+	m_attributes.connectionPoints.push_back({ -(static_cast<float>(m_texture.getSize().x * m_body.getScale().x) / 2), 0 });// left
+	m_attributes.connectionPoints.push_back({ 0, static_cast<float>(m_texture.getSize().y * m_body.getScale().y) / 2 });// top
+	m_attributes.connectionPoints.push_back({ (static_cast<float>(m_texture.getSize().x * m_body.getScale().x) / 2), 0 });// right
+	m_attributes.connectionPoints.push_back({ 0, -(static_cast<float>(m_texture.getSize().y * m_body.getScale().y) / 2) });// bottom
 
 	for (int i = 0; i < m_attributes.connectionPoints.size(); i++)
 	{

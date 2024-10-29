@@ -2,7 +2,7 @@
 #include <iostream>
 #include "Atttibutes.h"
 #include "RotationMath.h"
-
+#include "Loader.h"
 class Body
 {
 	public:
@@ -22,7 +22,7 @@ class Body
 		void setUpConnectionPoints();
 
 		sf::Texture m_texture;
-		sf::RectangleShape m_body;
+		sf::Sprite m_body;
 		
 
 		Attributes m_attributes;

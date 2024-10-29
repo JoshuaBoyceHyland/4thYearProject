@@ -4,6 +4,10 @@
 #include "CockPit.h"
 #include "Wings.h"
 #include <SFML/Graphics.hpp>
+#include "Atttibutes.h"
+#include "Thruster.h"
+#include "ShipPart.h"
+#include "Atttibutes.h"
 
 class Player 
 {
@@ -18,7 +22,6 @@ class Player
 		void input();
 		void boundCheck();
 
-
 		sf::Vector2f m_position;
 		sf::Vector2f m_velocity;
 		float m_rotation;
@@ -27,9 +30,11 @@ class Player
 
 		sf::Texture m_spriteTexture;
 
-		Body bod;
-		CockPit pit;
-		Wings wing;
+		ShipPart bod;
+		//Body bod;
+		//CockPit pit;
+		//Wings wing;
+		//Thruster thruster;
 
 };
 

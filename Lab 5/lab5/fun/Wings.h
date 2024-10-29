@@ -2,6 +2,7 @@
 #include <iostream>
 #include "Atttibutes.h"
 #include "RotationMath.h"
+#include "Loader.h"
 
 class Wings
 {
@@ -21,7 +22,7 @@ class Wings
 		void setUpConnectionPoints();
 
 		sf::Texture m_texture;
-		sf::ConvexShape m_body;
+		sf::Sprite m_body;
 
 
 		Attributes m_attributes;
