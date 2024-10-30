@@ -18,10 +18,19 @@
 /// </summary>
 Game::Game() :
 	m_window{ sf::VideoMode{ Globals::SCREEN_WIDTH, Globals::SCREEN_HEIGHT, 32U }, "SFML Game" },
-	m_exitGame{ false }, 
-	m_player( {100,100})
+	m_exitGame{ false }/*,
+	m_player({ 100,100 })*/
 {
+	m_mousePosition = new Vector2f(static_cast<float>(sf::Mouse::getPosition(m_window).x), static_cast<float>(sf::Mouse::getPosition(m_window).y));
+	Loader* loader = Loader::getInstance();
 
+	m_texture = loader->loadTexture("ASSETS/IMAGES/hull/hull_1.png");
+	//Attributes attributes;
+
+	m_part.setRotation(m_rotation);
+	m_part.setPosition(m_position);
+
+	m_part.setUp(m_texture);
 }
 
 /// <summary>
@@ -95,6 +104,8 @@ void Game::processKeys(sf::Event t_event)
 	{
 		m_exitGame = true;
 	}
+
+
 	
 }
 
@@ -103,7 +114,11 @@ void Game::processMouse(sf::Event t_event)
 
 	sf::Vector2f mousePosition = { static_cast<float>(sf::Mouse::getPosition(m_window).x), static_cast<float>(sf::Mouse::getPosition(m_window).y) };
 
-
+	if (sf::Mouse::Left == t_event.key.code)
+	{
+		std::cout << "click" << std::endl;
+		m_part.PickUp(mousePosition);
+	}
 
 }
 
@@ -119,7 +134,7 @@ void Game::update(sf::Time t_deltaTime)
 		m_window.close();
 	}
 
-	m_player.update(t_deltaTime.asMilliseconds());
+	//m_player.update(t_deltaTime.asMilliseconds());
 	
 }
 
@@ -129,7 +144,7 @@ void Game::update(sf::Time t_deltaTime)
 void Game::render()
 {
 	m_window.clear(sf::Color::Black);
-	m_player.draw(m_window);
+	m_part.draw(m_window);
 	m_window.display();
 }
 

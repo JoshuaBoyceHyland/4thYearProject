@@ -11,9 +11,9 @@
 /// </summary>
 
 #include "Globals.h"
-#include "Player.h"
-#include "Body.h"
 #include <SFML/Graphics.hpp>
+#include "ShipPart.h"
+#include "Loader.h"
 
 class Game
 {
@@ -43,7 +43,12 @@ private:
 	sf::VertexArray m_points;// vertext arry for ourt drawings
 	sf::Color m_colour; // colour ofr next vertex
 
-	Player m_player;
+	//Player m_player;
+	sf::Texture m_texture;
+	float m_rotation = 0;
+	sf::Vector2f* m_mousePosition;
+	sf::Vector2f m_position = { 100, 100 };
+	ShipPart m_part;
 };
 
 
