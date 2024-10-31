@@ -9,6 +9,7 @@ struct Connectors
 {
 
 	sf::Vector2f* anchorPoint;
+	std::vector<sf::Vector2f> connectionOffsets;
 	std::vector<sf::Vector2f> connectionPoints;
 
 	Connectors(){}

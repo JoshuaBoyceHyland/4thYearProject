@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\EditorMouse.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|solutionrelative:fun\\EditorMouse.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|solutionrelative:fun\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\EditorMouse.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|solutionrelative:fun\\EditorMouse.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\EditorMouse.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|solutionrelative:fun\\EditorMouse.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\ShipPart.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -17,6 +17,14 @@
     {
       "AbsoluteMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\ShipPart.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|solutionrelative:fun\\ShipPart.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|solutionrelative:fun\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\EditorMouse.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|solutionrelative:fun\\EditorMouse.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Atttibutes.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -30,8 +38,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Game.cpp",
+              "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Game.cpp",
+              "RelativeDocumentMoniker": "fun\\Game.cpp",
+              "ToolTip": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Game.cpp",
+              "RelativeToolTip": "fun\\Game.cpp",
+              "ViewState": "AQIAAGAAAAAAAAAAAAAAAGoAAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-31T15:08:38.314Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Game.h",
+              "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Game.h",
+              "RelativeDocumentMoniker": "fun\\Game.h",
+              "ToolTip": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Game.h",
+              "RelativeToolTip": "fun\\Game.h",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAADUAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-31T15:08:27.309Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 3,
@@ -40,7 +74,7 @@
               "RelativeDocumentMoniker": "fun\\ShipPart.h",
               "ToolTip": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\ShipPart.h",
               "RelativeToolTip": "fun\\ShipPart.h",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABYAAAATAAAA",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAABgAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-10-31T12:27:33.506Z",
               "EditorCaption": ""
@@ -53,33 +87,33 @@
               "RelativeDocumentMoniker": "fun\\ShipPart.cpp",
               "ToolTip": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\ShipPart.cpp",
               "RelativeToolTip": "fun\\ShipPart.cpp",
-              "ViewState": "AQIAACoAAAAAAAAAAAAcwD4AAAABAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACUAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-10-31T12:27:53.507Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "EditorMouse.h",
               "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\EditorMouse.h",
               "RelativeDocumentMoniker": "fun\\EditorMouse.h",
               "ToolTip": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\EditorMouse.h",
               "RelativeToolTip": "fun\\EditorMouse.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAYAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-10-31T12:19:37.439Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "EditorMouse.cpp",
               "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\EditorMouse.cpp",
               "RelativeDocumentMoniker": "fun\\EditorMouse.cpp",
               "ToolTip": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\EditorMouse.cpp",
               "RelativeToolTip": "fun\\EditorMouse.cpp",
-              "ViewState": "AQIAABoAAAAAAAAAAAAcwC0AAAALAAAA",
+              "ViewState": "AQIAAC0AAAAAAAAAAAAAACMAAABCAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-10-31T12:17:24.321Z",
               "EditorCaption": ""
@@ -107,13 +141,13 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "Atttibutes.h",
               "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Atttibutes.h",
               "RelativeDocumentMoniker": "fun\\Atttibutes.h",
               "ToolTip": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Atttibutes.h",
               "RelativeToolTip": "fun\\Atttibutes.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAACAAAA",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAsAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-10-31T11:24:49.538Z",
               "EditorCaption": ""

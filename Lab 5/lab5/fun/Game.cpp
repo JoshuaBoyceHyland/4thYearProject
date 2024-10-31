@@ -115,7 +115,12 @@ void Game::processKeys(sf::Event t_event)
 		m_exitGame = true;
 	}
 
-
+	if (sf::Keyboard::E == t_event.key.code)
+	{
+		m_parts.push_back(new ShipPart(m_texture, { 100, 100 }));
+		NUM_OF_PARTS++;
+		m_mouse.m_partsInScene = m_parts;
+	}
 	
 }
 

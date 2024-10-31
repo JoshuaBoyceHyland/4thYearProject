@@ -29,23 +29,15 @@ void EditorMouse::releaseSelectedPart()
 			// get closests points connections
 			Connectors* partsConnector = closestPart->getConnectors();
 
-			getClosestConnection(partsConnector, m_position);
-			
-			std::vector<sf::Vector2f> connectionPoints = partsConnector->getAnchoredConnectionPoint();
+			sf::Vector2f closestPart = getClosestConnectionPos(partsConnector, m_position);
 
-			// go through the points 
-			for (int i = 0; i < connectionPoints.size(); i++)
-			{
-				// find point which is closest
-				float distance = VectorMath::vectorLength(connectionPoints[i], m_position);
+			std::cout << getClosestConnectionIndex(m_selectedPart->getConnectors(), closestPart) << std::endl;
 
-				if (distance < 50)
-				{
-					m_selectedPart->setPosition(connectionPoints[i]);
+			int selectedClosestPart = getClosestConnectionIndex(m_selectedPart->getConnectors(), closestPart);
 
-					break;
-				}
-			}
+
+			m_selectedPart->setPositionRelativeToConnectorPoint( closestPart, selectedClosestPart);
+
 		}
 
 		m_selectedPart = nullptr;
@@ -72,7 +64,8 @@ ShipPart* EditorMouse::getClosestPart()
 		{
 			float distance = VectorMath::vectorLength(m_partsInScene[i]->getPosition(), m_position);
 
-			if (distance < 100)
+			std::cout << distance << std::endl;
+			if (distance < 75)
 			{
 				return m_partsInScene[i];
 			}
@@ -82,20 +75,46 @@ ShipPart* EditorMouse::getClosestPart()
 	return nullptr;
 }
 
-sf::Vector2f EditorMouse::getClosestConnection(Connectors* t_connector, sf::Vector2f t_point)
+sf::Vector2f EditorMouse::getClosestConnectionPos(Connectors* t_connector, sf::Vector2f t_point)
 {
 
 	std::vector<sf::Vector2f> connectionPoints = t_connector->getAnchoredConnectionPoint();
+	float shortestDistance = 75;
+	sf::Vector2f closestConnection;
 
 	for (int i = 0; i < connectionPoints.size(); i++)
 	{
 		// find point which is closest
-		float distance = VectorMath::vectorLength(connectionPoints[i], m_position);
+		float distance = VectorMath::vectorLength(connectionPoints[i], t_point);
 
-		if (distance < 50)
+		if (distance < shortestDistance)
 		{
-			return connectionPoints[i];
+			shortestDistance = distance;
+			closestConnection = connectionPoints[i];
+			
 		}
 	}
 
+	return closestConnection;
+}
+
+int EditorMouse::getClosestConnectionIndex(Connectors* t_connector, sf::Vector2f t_point)
+{
+	std::vector<sf::Vector2f> connectionPoints = t_connector->getAnchoredConnectionPoint();
+	float shortestDistance = 75;
+	int closestConnection;
+
+	for (int i = 0; i < connectionPoints.size(); i++)
+	{
+		// find point which is closest
+		float distance = VectorMath::vectorLength(connectionPoints[i], t_point);
+
+		if (distance < shortestDistance)
+		{
+			shortestDistance = distance;
+			closestConnection=  i;
+		}
+	}
+	
+	return closestConnection;
 }

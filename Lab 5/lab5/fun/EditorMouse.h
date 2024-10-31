@@ -23,7 +23,8 @@ class EditorMouse
 
 	private:
 		ShipPart* getClosestPart();
-		sf::Vector2f getClosestConnection(Connectors* t_connector, sf::Vector2f t_point);
+		sf::Vector2f getClosestConnectionPos(Connectors* t_connector, sf::Vector2f t_point);
+		int getClosestConnectionIndex(Connectors* t_connector, sf::Vector2f t_point);
 		
 		ShipPart* m_selectedPart = nullptr;
 };

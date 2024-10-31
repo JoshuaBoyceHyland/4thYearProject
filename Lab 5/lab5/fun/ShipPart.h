@@ -22,6 +22,8 @@ class ShipPart
 
 		Connectors* getConnectors();
 
+		void setPositionRelativeToConnectorPoint(sf::Vector2f t_position, int t_index);
+
 		sf::Vector2f getPosition();
 
 		sf::Sprite m_body;

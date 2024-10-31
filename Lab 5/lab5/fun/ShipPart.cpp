@@ -34,7 +34,7 @@ void ShipPart::update()
 void ShipPart::draw(sf::RenderWindow& t_window)
 {
 	t_window.draw(m_body);
-	m_connectors->visualisePoints(t_window);
+	//m_connectors->visualisePoints(t_window);
 }
 
 void ShipPart::setUp(sf::Texture t_texture)
@@ -60,6 +60,12 @@ void ShipPart::setPosition(sf::Vector2f t_position)
 Connectors* ShipPart::getConnectors()
 {
 	return m_connectors;
+}
+
+void ShipPart::setPositionRelativeToConnectorPoint(sf::Vector2f t_position, int t_index)
+{
+
+	m_position = t_position - m_connectors->connectionPoints[t_index];
 }
 
 sf::Vector2f ShipPart::getPosition()

@@ -51,7 +51,7 @@ private:
 	float m_rotation = 0;
 	sf::Vector2f m_position = { 100, 100 };
 
-	const int NUM_OF_PARTS = 2;
+	int NUM_OF_PARTS = 2;
 	std::vector<ShipPart*> m_parts;
 
 	EditorMouse m_mouse;
