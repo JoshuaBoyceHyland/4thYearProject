@@ -7,7 +7,7 @@ Body::Body(std::string t_texturePath)
 	setUpConnectionPoints();
 }
 
-Body::Body(Attributes t_attributes, std::string t_texturePath) : m_attributes( t_attributes)
+Body::Body(Connectors t_attributes, std::string t_texturePath) : m_attributes( t_attributes)
 {
 	setUpBody(t_texturePath);
 }

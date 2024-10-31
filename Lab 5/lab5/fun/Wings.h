@@ -8,7 +8,7 @@ class Wings
 {
 	public:
 		Wings(std::string t_texturePath );
-		Wings(Attributes t_attributes, std::string t_texturePath);
+		Wings(Connectors t_attributes, std::string t_texturePath);
 
 		void update();
 		void draw(sf::RenderWindow& t_window);
@@ -25,7 +25,7 @@ class Wings
 		sf::Sprite m_body;
 
 
-		Attributes m_attributes;
+		Connectors m_attributes;
 		std::vector<sf::CircleShape> m_connectionCircles;
 
 		sf::Vector2f m_position;

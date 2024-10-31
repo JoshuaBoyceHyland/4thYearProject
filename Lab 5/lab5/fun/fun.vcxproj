@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="Body.cpp" />
     <ClCompile Include="CockPit.cpp" />
+    <ClCompile Include="EditorMouse.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Loader.cpp" />
     <ClCompile Include="main.cpp" />
@@ -35,6 +36,7 @@
     <ClInclude Include="Atttibutes.h" />
     <ClInclude Include="Body.h" />
     <ClInclude Include="CockPit.h" />
+    <ClInclude Include="EditorMouse.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="Loader.h" />

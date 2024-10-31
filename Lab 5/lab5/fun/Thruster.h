@@ -9,7 +9,7 @@ class Thruster
 	public:
 
 		Thruster(std::string t_texturePath);
-		Thruster(Attributes t_attributes, std::string t_texturePath);
+		Thruster(Connectors t_attributes, std::string t_texturePath);
 
 		void update();
 		void draw(sf::RenderWindow& t_window);
@@ -26,7 +26,7 @@ class Thruster
 		sf::Sprite m_body;
 
 
-		Attributes m_attributes;
+		Connectors m_attributes;
 		std::vector<sf::CircleShape> m_connectionCircles;
 
 		sf::Vector2f m_position;

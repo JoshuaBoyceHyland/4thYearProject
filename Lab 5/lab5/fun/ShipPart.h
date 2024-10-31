@@ -7,32 +7,39 @@ class ShipPart
 {
 	public:
 		ShipPart();
-		ShipPart(sf::Texture t_texture);
-		ShipPart(sf::Texture t_texture, Attributes t_attributes);
+		ShipPart(sf::Texture t_texture, sf::Vector2f t_position);
+		ShipPart(sf::Texture t_texture, Connectors t_attributes);
+
+		bool operator ==(const ShipPart& other);
 
 		void update();
 		void draw(sf::RenderWindow& t_window);
-		void setConnectionPoint(sf::Vector2f* t_point);
 
-		void setRotation(float t_rotation);
-		void setPosition(sf::Vector2f t_position);
 		void setUp(sf::Texture t_texture);
-		void setUp(sf::Texture t_texture, Attributes* t_attributes);
+		void setUp(sf::Texture t_texture, Connectors* t_attributes);
+		
+		void setPosition(sf::Vector2f t_position);
 
-		void PickUp(sf::Vector2f &t_position);
+		Connectors* getConnectors();
 
+		sf::Vector2f getPosition();
+
+		sf::Sprite m_body;
 	private:
 		void setUpSprite();
+		void setUpConnectionPoints();
 
 		sf::Vector2f m_scale = { 2, 2 };
 		sf::Texture m_texture;
-		sf::Sprite m_body;
+		
 
 		float* m_rotation;
 
-		sf::Vector2f* m_connectionPoint;
-		sf::Vector2f* m_position;
-		Attributes* m_attributes;
+		
+		sf::Vector2f m_position = { 100, 100 };
+		Connectors* m_connectors;
+
+		
 		
 
 };

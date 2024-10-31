@@ -12,6 +12,7 @@
 
 #include "Globals.h"
 #include <SFML/Graphics.hpp>
+#include "EditorMouse.h"
 #include "ShipPart.h"
 #include "Loader.h"
 
@@ -29,7 +30,9 @@ private:
 
 	void processEvents();
 	void processKeys(sf::Event t_event);
-	void processMouse(sf::Event t_event);
+	void processMousePress(sf::Event t_event);
+	void processMouseRelease(sf::Event t_event);
+	void processMouseMove(sf::Event t_event);
 	void update(sf::Time t_deltaTime);
 	void render();
 
@@ -46,9 +49,12 @@ private:
 	//Player m_player;
 	sf::Texture m_texture;
 	float m_rotation = 0;
-	sf::Vector2f* m_mousePosition;
 	sf::Vector2f m_position = { 100, 100 };
-	ShipPart m_part;
+
+	const int NUM_OF_PARTS = 2;
+	std::vector<ShipPart*> m_parts;
+
+	EditorMouse m_mouse;
 };
 
 

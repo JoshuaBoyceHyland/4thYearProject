@@ -6,7 +6,7 @@ Wings::Wings(std::string t_texturePath)
 	setUpConnectionPoints();
 }
 
-Wings::Wings(Attributes t_attributes, std::string t_texturePath)
+Wings::Wings(Connectors t_attributes, std::string t_texturePath)
 {
 	setUpBody(t_texturePath);
 }

@@ -5,29 +5,32 @@
 /// Holds the various variables that will effect flights
 /// @param span 
 /// </summary>
-struct Attributes 
+struct Connectors 
 {
-	//float span;
-	//float weight;
-	//float rotation;
 
 	sf::Vector2f* anchorPoint;
 	std::vector<sf::Vector2f> connectionPoints;
 
-	Attributes(){}
+	Connectors(){}
 
-	Attributes( std::vector<sf::Vector2f> t_connectionPoints)
+	Connectors( std::vector<sf::Vector2f> t_connectionPoints)
 		:  connectionPoints(t_connectionPoints) {}
 
-	Attributes(const Attributes& other)
+	Connectors(const Connectors& other)
 	{
 		this->anchorPoint = other.anchorPoint;
 		this->connectionPoints = connectionPoints;
 	}
 
-	sf::Vector2f getAnchoredConnectionPoint(int t_index)
+	std::vector<sf::Vector2f> getAnchoredConnectionPoint()
 	{
-		return (*anchorPoint) + connectionPoints[t_index];
+		std::vector<sf::Vector2f> anchoredPoints;
+
+		for (int i = 0; i < connectionPoints.size(); i++)
+		{
+			anchoredPoints.push_back((*anchorPoint) + connectionPoints[i]);
+		}
+		return anchoredPoints;
 	}
 
 	void visualisePoints(sf::RenderWindow& t_window)
@@ -39,7 +42,7 @@ struct Attributes
 			circle.setRadius(2);
 			circle.setFillColor(sf::Color::Red);
 			circle.setOrigin({ 1, 1 });
-			circle.setPosition(getAnchoredConnectionPoint(i));
+			circle.setPosition(getAnchoredConnectionPoint()[i]);
 			t_window.draw(circle);
 		}
 	}

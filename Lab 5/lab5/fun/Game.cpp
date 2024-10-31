@@ -21,16 +21,18 @@ Game::Game() :
 	m_exitGame{ false }/*,
 	m_player({ 100,100 })*/
 {
-	m_mousePosition = new Vector2f(static_cast<float>(sf::Mouse::getPosition(m_window).x), static_cast<float>(sf::Mouse::getPosition(m_window).y));
+	m_mouse.m_position= { static_cast<float>(sf::Mouse::getPosition(m_window).x), static_cast<float>(sf::Mouse::getPosition(m_window).y) };
 	Loader* loader = Loader::getInstance();
 
 	m_texture = loader->loadTexture("ASSETS/IMAGES/hull/hull_1.png");
-	//Attributes attributes;
+	sf::Vector2f pos = { 100, 100 };
+	for (int i = 0; i < NUM_OF_PARTS; i++)
+	{
 
-	m_part.setRotation(m_rotation);
-	m_part.setPosition(m_position);
-
-	m_part.setUp(m_texture);
+		m_parts.push_back(new ShipPart(m_texture, pos));
+		pos.x += 300;
+	}
+	m_mouse.m_partsInScene = m_parts;
 }
 
 /// <summary>
@@ -86,9 +88,17 @@ void Game::processEvents()
 		{
 			processKeys(newEvent);
 		}
-		if ( sf::Event::MouseButtonReleased == newEvent.type)
+		if ( sf::Event::MouseButtonPressed == newEvent.type)
 		{
-			processMouse(newEvent);
+			processMousePress(newEvent);
+		}
+		if (sf::Event::MouseButtonReleased == newEvent.type)
+		{
+			processMouseRelease(newEvent);
+		}
+		if (sf::Event::MouseMoved == newEvent.type)
+		{
+			processMouseMove(newEvent);
 		}
 	}
 }
@@ -109,17 +119,30 @@ void Game::processKeys(sf::Event t_event)
 	
 }
 
-void Game::processMouse(sf::Event t_event)
+void Game::processMousePress(sf::Event t_event)
 {
-
-	sf::Vector2f mousePosition = { static_cast<float>(sf::Mouse::getPosition(m_window).x), static_cast<float>(sf::Mouse::getPosition(m_window).y) };
 
 	if (sf::Mouse::Left == t_event.key.code)
 	{
-		std::cout << "click" << std::endl;
-		m_part.PickUp(mousePosition);
+		m_mouse.checkForPartSelection();
+		
 	}
+}
 
+void Game::processMouseRelease(sf::Event t_event)
+{
+	if (sf::Mouse::Left == t_event.key.code)
+	{
+		m_mouse.releaseSelectedPart();
+
+	}
+	
+}
+
+void Game::processMouseMove(sf::Event t_event)
+{
+	//std::cout << "Mouse move" << std::endl;
+	m_mouse.m_position = { static_cast<float>(sf::Mouse::getPosition(m_window).x), static_cast<float>(sf::Mouse::getPosition(m_window).y) };
 }
 
 /// <summary>
@@ -134,7 +157,13 @@ void Game::update(sf::Time t_deltaTime)
 		m_window.close();
 	}
 
-	//m_player.update(t_deltaTime.asMilliseconds());
+	m_mouse.update();
+
+	for (int i = 0; i < NUM_OF_PARTS; i++)
+	{
+		m_parts[i]->update();
+	}
+
 	
 }
 
@@ -144,7 +173,10 @@ void Game::update(sf::Time t_deltaTime)
 void Game::render()
 {
 	m_window.clear(sf::Color::Black);
-	m_part.draw(m_window);
+	for (int i = 0; i < NUM_OF_PARTS; i++)
+	{
+		m_parts[i]->draw(m_window);
+	}
 	m_window.display();
 }
 

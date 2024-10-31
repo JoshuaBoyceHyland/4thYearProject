@@ -4,72 +4,84 @@ ShipPart::ShipPart()
 {
 }
 
-ShipPart::ShipPart(sf::Texture t_texture) : m_texture(t_texture)
+ShipPart::ShipPart(sf::Texture t_texture, sf::Vector2f t_position) : m_texture(t_texture), m_position( t_position)
+{
+
+	setUpSprite();
+	setUpConnectionPoints();
+}
+
+ShipPart::ShipPart(sf::Texture t_texture, Connectors t_attributes) : m_texture(t_texture), m_connectors(&t_attributes)
 {
 	setUpSprite();
 }
 
-ShipPart::ShipPart(sf::Texture t_texture, Attributes t_attributes) : m_texture(t_texture), m_attributes(&t_attributes)
+bool ShipPart::operator==(const ShipPart& other)
 {
-	setUpSprite();
+	bool sameX = this->m_position.x == other.m_position.x;
+	bool sameY = this->m_position.y == other.m_position.y;
+
+	return sameX && sameY;
 }
 
 void ShipPart::update()
 {
 
-	/*m_body.setRotation((*m_rotation));
-	m_body.setPosition((*m_position));*/
+	m_body.setPosition(m_position);
+	
 }
 
 void ShipPart::draw(sf::RenderWindow& t_window)
 {
 	t_window.draw(m_body);
-	//m_attributes->visualisePoints(t_window);
-}
-
-void ShipPart::setConnectionPoint(sf::Vector2f* t_point)
-{
-	m_connectionPoint = t_point;
-}
-
-void ShipPart::setRotation(float t_rotation)
-{
-	m_body.setRotation(t_rotation);
-}
-
-void ShipPart::setPosition(sf::Vector2f t_position)
-{
-	m_body.setPosition(t_position);
+	m_connectors->visualisePoints(t_window);
 }
 
 void ShipPart::setUp(sf::Texture t_texture)
 {
 	m_texture = t_texture;
 	setUpSprite();
+	setUpConnectionPoints();
 }
 
-void ShipPart::setUp(sf::Texture t_texture, Attributes *t_attributes) 
+void ShipPart::setUp(sf::Texture t_texture, Connectors *t_attributes) 
 {
 	m_texture = t_texture;
-	m_attributes = t_attributes;
+	m_connectors = t_attributes;
 	setUpSprite();
+
 }
 
-void ShipPart::PickUp(sf::Vector2f& t_position)
+void ShipPart::setPosition(sf::Vector2f t_position)
 {
-	if (m_body.getGlobalBounds().contains(t_position))
-	{
-		std::cout << "in bounds" << std::endl;
-		m_body.setColor(sf::Color::Green);
-	}
-
+	m_position = t_position;
 }
+
+Connectors* ShipPart::getConnectors()
+{
+	return m_connectors;
+}
+
+sf::Vector2f ShipPart::getPosition()
+{
+	return m_position;
+}
+
 
 void ShipPart::setUpSprite()
 {
 	m_body.setTexture(m_texture);
 	m_body.setScale(m_scale);
-
 	m_body.setOrigin({static_cast<float>( m_texture.getSize().x) / 2,static_cast<float>(m_texture.getSize().y) / 2 });
 
+}
+
+void ShipPart::setUpConnectionPoints()
+{
+	m_connectors = new Connectors();
+	m_connectors->connectionPoints.push_back({ -(static_cast<float>(m_texture.getSize().x * m_body.getScale().x) / 2), 0 });// left
+	m_connectors->connectionPoints.push_back({ 0, static_cast<float>(m_texture.getSize().y * m_body.getScale().y) / 2 });// top
+	m_connectors->connectionPoints.push_back({ (static_cast<float>(m_texture.getSize().x * m_body.getScale().x) / 2), 0 });// right
+	m_connectors->connectionPoints.push_back({ 0, -(static_cast<float>(m_texture.getSize().y * m_body.getScale().y) / 2) });// bottom
+	m_connectors->anchorPoint = &m_position;
 }

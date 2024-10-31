@@ -7,7 +7,7 @@ Thruster::Thruster(std::string t_texturePath)
 	setUpConnectionPoints();
 }
 
-Thruster::Thruster(Attributes t_attributes, std::string t_texturePath) : m_attributes(t_attributes)
+Thruster::Thruster(Connectors t_attributes, std::string t_texturePath) : m_attributes(t_attributes)
 {
 	setUpBody(t_texturePath);
 }

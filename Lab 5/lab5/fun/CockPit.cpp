@@ -6,7 +6,7 @@ CockPit::CockPit(std::string t_texturePath)
 	setUpConnectionPoints();
 }
 
-CockPit::CockPit(Attributes t_attributes, std::string t_texturePath)
+CockPit::CockPit(Connectors t_attributes, std::string t_texturePath)
 {
 	setUpBody(t_texturePath);
 }
