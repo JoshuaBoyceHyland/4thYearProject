@@ -24,12 +24,15 @@ Game::Game() :
 	m_mouse.m_position= { static_cast<float>(sf::Mouse::getPosition(m_window).x), static_cast<float>(sf::Mouse::getPosition(m_window).y) };
 	Loader* loader = Loader::getInstance();
 
-	m_texture = loader->loadTexture("ASSETS/IMAGES/hull/hull_1.png");
+	m_hullTexture = loader->loadTexture("ASSETS/IMAGES/hull/hull_1.png");
+	m_thrusterTexture = loader->loadTexture("ASSETS/IMAGES/thruster/thruster_1.png");
+	m_pitTexture = loader->loadTexture("ASSETS/IMAGES/cockpits/cockpit_1.png");
+
 	sf::Vector2f pos = { 100, 100 };
 	for (int i = 0; i < NUM_OF_PARTS; i++)
 	{
 
-		m_parts.push_back(new ShipPart(m_texture, pos));
+		m_parts.push_back(new ShipPart(m_hullTexture, pos));
 		pos.x += 300;
 	}
 	m_mouse.m_partsInScene = m_parts;
@@ -117,7 +120,21 @@ void Game::processKeys(sf::Event t_event)
 
 	if (sf::Keyboard::E == t_event.key.code)
 	{
-		m_parts.push_back(new ShipPart(m_texture, { 100, 100 }));
+		m_parts.push_back(new ShipPart(m_hullTexture, { 100, 100 }));
+		NUM_OF_PARTS++;
+		m_mouse.m_partsInScene = m_parts;
+	}
+
+	if (sf::Keyboard::Q == t_event.key.code)
+	{
+		m_parts.push_back(new ShipPart(m_thrusterTexture, { 100, 100 }));
+		NUM_OF_PARTS++;
+		m_mouse.m_partsInScene = m_parts;
+	}
+
+	if (sf::Keyboard::W == t_event.key.code)
+	{
+		m_parts.push_back(new ShipPart(m_pitTexture, { 100, 100 }));
 		NUM_OF_PARTS++;
 		m_mouse.m_partsInScene = m_parts;
 	}

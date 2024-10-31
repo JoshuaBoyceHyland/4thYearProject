@@ -47,7 +47,10 @@ private:
 	sf::Color m_colour; // colour ofr next vertex
 
 	//Player m_player;
-	sf::Texture m_texture;
+	sf::Texture m_pitTexture;
+	sf::Texture m_hullTexture;
+	sf::Texture m_thrusterTexture;
+
 	float m_rotation = 0;
 	sf::Vector2f m_position = { 100, 100 };
 

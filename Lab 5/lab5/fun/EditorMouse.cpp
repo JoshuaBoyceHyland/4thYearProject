@@ -29,14 +29,22 @@ void EditorMouse::releaseSelectedPart()
 			// get closests points connections
 			Connectors* partsConnector = closestPart->getConnectors();
 
-			sf::Vector2f closestPart = getClosestConnectionPos(partsConnector, m_position);
+			sf::Vector2f closestPartPos = getClosestConnectionPos(partsConnector, m_position);
 
-			std::cout << getClosestConnectionIndex(m_selectedPart->getConnectors(), closestPart) << std::endl;
+			std::cout << getClosestConnectionIndex(m_selectedPart->getConnectors(), closestPartPos) << std::endl;
 
-			int selectedClosestPart = getClosestConnectionIndex(m_selectedPart->getConnectors(), closestPart);
+			int selectedClosestPart = getClosestConnectionIndex(m_selectedPart->getConnectors(), closestPartPos);
 
 
-			m_selectedPart->setPositionRelativeToConnectorPoint( closestPart, selectedClosestPart);
+			m_selectedPart->setPositionRelativeToConnectorPoint(closestPartPos, selectedClosestPart);
+
+			m_selectedPart->m_body.setPosition(m_selectedPart->getPosition());
+
+			// checking if this is valid
+			if (m_selectedPart->m_body.getGlobalBounds().intersects(closestPart->m_body.getGlobalBounds()))
+			{
+				m_selectedPart->setPosition(m_position);
+			}
 
 		}
 
@@ -65,7 +73,7 @@ ShipPart* EditorMouse::getClosestPart()
 			float distance = VectorMath::vectorLength(m_partsInScene[i]->getPosition(), m_position);
 
 			std::cout << distance << std::endl;
-			if (distance < 75)
+			if (distance < 100)
 			{
 				return m_partsInScene[i];
 			}
@@ -79,7 +87,7 @@ sf::Vector2f EditorMouse::getClosestConnectionPos(Connectors* t_connector, sf::V
 {
 
 	std::vector<sf::Vector2f> connectionPoints = t_connector->getAnchoredConnectionPoint();
-	float shortestDistance = 75;
+	float shortestDistance = 150;
 	sf::Vector2f closestConnection;
 
 	for (int i = 0; i < connectionPoints.size(); i++)
@@ -101,7 +109,7 @@ sf::Vector2f EditorMouse::getClosestConnectionPos(Connectors* t_connector, sf::V
 int EditorMouse::getClosestConnectionIndex(Connectors* t_connector, sf::Vector2f t_point)
 {
 	std::vector<sf::Vector2f> connectionPoints = t_connector->getAnchoredConnectionPoint();
-	float shortestDistance = 75;
+	float shortestDistance = 150;
 	int closestConnection;
 
 	for (int i = 0; i < connectionPoints.size(); i++)
