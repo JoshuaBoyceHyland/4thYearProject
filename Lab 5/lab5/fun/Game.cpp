@@ -27,12 +27,14 @@ Game::Game() :
 	m_hullTexture = loader->loadTexture("ASSETS/IMAGES/hull/hull_1.png");
 	m_thrusterTexture = loader->loadTexture("ASSETS/IMAGES/thruster/thruster_1.png");
 	m_pitTexture = loader->loadTexture("ASSETS/IMAGES/cockpits/cockpit_1.png");
+	m_leftWingTexture = loader->loadTexture("ASSETS/IMAGES/left_wings/left_wing_1.png");
+	m_rightWingTexture = loader->loadTexture("ASSETS/IMAGES/right_wings/right_wing_1.png");
 
 	sf::Vector2f pos = { 100, 100 };
 	for (int i = 0; i < NUM_OF_PARTS; i++)
 	{
 
-		m_parts.push_back(new ShipPart(m_hullTexture, pos));
+		m_parts.push_back(new ShipPart(m_hullTexture,PartType::Hull, pos));
 		pos.x += 300;
 	}
 	m_mouse.m_partsInScene = m_parts;
@@ -118,27 +120,38 @@ void Game::processKeys(sf::Event t_event)
 		m_exitGame = true;
 	}
 
-	if (sf::Keyboard::E == t_event.key.code)
+	if (sf::Keyboard::Num1 == t_event.key.code)
 	{
-		m_parts.push_back(new ShipPart(m_hullTexture, { 100, 100 }));
+		m_parts.push_back(new ShipPart(m_hullTexture,PartType::Hull, { 100, 100 }));
 		NUM_OF_PARTS++;
 		m_mouse.m_partsInScene = m_parts;
 	}
 
-	if (sf::Keyboard::Q == t_event.key.code)
+	if (sf::Keyboard::Num2 == t_event.key.code)
 	{
-		m_parts.push_back(new ShipPart(m_thrusterTexture, { 100, 100 }));
+		m_parts.push_back(new ShipPart(m_thrusterTexture,PartType::Thruster ,{ 100, 100 }));
 		NUM_OF_PARTS++;
 		m_mouse.m_partsInScene = m_parts;
 	}
 
-	if (sf::Keyboard::W == t_event.key.code)
+	if (sf::Keyboard::Num3 == t_event.key.code)
 	{
-		m_parts.push_back(new ShipPart(m_pitTexture, { 100, 100 }));
+		m_parts.push_back(new ShipPart(m_pitTexture, PartType::CockPit,{ 100, 100 }));
 		NUM_OF_PARTS++;
 		m_mouse.m_partsInScene = m_parts;
 	}
-	
+	if (sf::Keyboard::Num4 == t_event.key.code)
+	{
+		m_parts.push_back(new ShipPart(m_leftWingTexture, PartType::Left_Wing, { 100, 100 }));
+		NUM_OF_PARTS++;
+		m_mouse.m_partsInScene = m_parts;
+	}
+	if (sf::Keyboard::Num5 == t_event.key.code)
+	{
+		m_parts.push_back(new ShipPart(m_rightWingTexture, PartType::Right_Wing, { 100, 100 }));
+		NUM_OF_PARTS++;
+		m_mouse.m_partsInScene = m_parts;
+	}
 }
 
 void Game::processMousePress(sf::Event t_event)

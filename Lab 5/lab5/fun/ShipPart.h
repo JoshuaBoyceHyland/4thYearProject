@@ -3,11 +3,12 @@
 #include "Atttibutes.h"
 #include "RotationMath.h"
 
+enum PartType { CockPit, Hull, Left_Wing, Right_Wing, Thruster};
 class ShipPart
 {
 	public:
 		ShipPart();
-		ShipPart(sf::Texture t_texture, sf::Vector2f t_position);
+		ShipPart(sf::Texture t_texture,PartType t_type, sf::Vector2f t_position);
 		ShipPart(sf::Texture t_texture, Connectors t_attributes);
 
 		bool operator ==(const ShipPart& other);
@@ -36,7 +37,7 @@ class ShipPart
 		
 
 		float* m_rotation;
-
+		PartType m_type;
 		
 		sf::Vector2f m_position = { 100, 100 };
 		Connectors* m_connectors;

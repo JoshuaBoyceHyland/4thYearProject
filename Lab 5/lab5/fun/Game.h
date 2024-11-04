@@ -50,6 +50,8 @@ private:
 	sf::Texture m_pitTexture;
 	sf::Texture m_hullTexture;
 	sf::Texture m_thrusterTexture;
+	sf::Texture m_leftWingTexture;
+	sf::Texture m_rightWingTexture;
 
 	float m_rotation = 0;
 	sf::Vector2f m_position = { 100, 100 };

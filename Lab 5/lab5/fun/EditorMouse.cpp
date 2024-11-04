@@ -33,17 +33,22 @@ void EditorMouse::releaseSelectedPart()
 
 			std::cout << getClosestConnectionIndex(m_selectedPart->getConnectors(), closestPartPos) << std::endl;
 
+			// need to check if this point is valid or else it will cl
 			int selectedClosestPart = getClosestConnectionIndex(m_selectedPart->getConnectors(), closestPartPos);
 
 
-			m_selectedPart->setPositionRelativeToConnectorPoint(closestPartPos, selectedClosestPart);
-
-			m_selectedPart->m_body.setPosition(m_selectedPart->getPosition());
-
-			// checking if this is valid
-			if (m_selectedPart->m_body.getGlobalBounds().intersects(closestPart->m_body.getGlobalBounds()))
+			if (selectedClosestPart != -1)
 			{
-				m_selectedPart->setPosition(m_position);
+
+				m_selectedPart->setPositionRelativeToConnectorPoint(closestPartPos, selectedClosestPart);
+
+				m_selectedPart->m_body.setPosition(m_selectedPart->getPosition());
+
+				// checking if this is valid
+				if (m_selectedPart->m_body.getGlobalBounds().intersects(closestPart->m_body.getGlobalBounds()))
+				{
+					m_selectedPart->setPosition(m_position);
+				}
 			}
 
 		}
@@ -66,6 +71,9 @@ void EditorMouse::update()
 ShipPart* EditorMouse::getClosestPart()
 {
 
+	ShipPart* closestPart = nullptr;
+	float closestDistance = 150;
+
 	for (int i = 0; i < m_partsInScene.size(); i++)
 	{
 		if (m_selectedPart != m_partsInScene[i])
@@ -73,14 +81,15 @@ ShipPart* EditorMouse::getClosestPart()
 			float distance = VectorMath::vectorLength(m_partsInScene[i]->getPosition(), m_position);
 
 			std::cout << distance << std::endl;
-			if (distance < 100)
+			if (distance < closestDistance)
 			{
-				return m_partsInScene[i];
+				closestDistance = distance;
+				closestPart = m_partsInScene[i];
 			}
 		}
 	}
 
-	return nullptr;
+	return closestPart;
 }
 
 sf::Vector2f EditorMouse::getClosestConnectionPos(Connectors* t_connector, sf::Vector2f t_point)
@@ -110,7 +119,7 @@ int EditorMouse::getClosestConnectionIndex(Connectors* t_connector, sf::Vector2f
 {
 	std::vector<sf::Vector2f> connectionPoints = t_connector->getAnchoredConnectionPoint();
 	float shortestDistance = 150;
-	int closestConnection;
+	int closestConnection = -1;
 
 	for (int i = 0; i < connectionPoints.size(); i++)
 	{
