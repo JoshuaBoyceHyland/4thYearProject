@@ -22,7 +22,7 @@ class Thruster
 		void setUpBody(std::string t_texturePath);
 		void setUpConnectionPoints();
 
-		sf::Texture m_texture;
+		sf::Texture* m_texture;
 		sf::Sprite m_body;
 
 

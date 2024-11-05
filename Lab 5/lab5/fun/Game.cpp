@@ -24,11 +24,12 @@ Game::Game() :
 	m_mouse.m_position= { static_cast<float>(sf::Mouse::getPosition(m_window).x), static_cast<float>(sf::Mouse::getPosition(m_window).y) };
 	Loader* loader = Loader::getInstance();
 
-	m_hullTexture = loader->loadTexture("ASSETS/IMAGES/hull/hull_1.png");
-	m_thrusterTexture = loader->loadTexture("ASSETS/IMAGES/thruster/thruster_1.png");
-	m_pitTexture = loader->loadTexture("ASSETS/IMAGES/cockpits/cockpit_1.png");
-	m_leftWingTexture = loader->loadTexture("ASSETS/IMAGES/left_wings/left_wing_1.png");
-	m_rightWingTexture = loader->loadTexture("ASSETS/IMAGES/right_wings/right_wing_1.png");
+	//partsLibarary* libarary = get
+	m_hullTexture = loader->loadTexture("ASSETS/IMAGES/hulls/hull_2.png");
+	m_thrusterTexture = loader->loadTexture("ASSETS/IMAGES/thrusters/thruster_2.png");
+	m_pitTexture = loader->loadTexture("ASSETS/IMAGES/cockpits/cockpit_2.png");
+	m_leftWingTexture = loader->loadTexture("ASSETS/IMAGES/left_wings/left_wing_2.png");
+	m_rightWingTexture = loader->loadTexture("ASSETS/IMAGES/right_wings/right_wing_2.png");
 
 	sf::Vector2f pos = { 100, 100 };
 	for (int i = 0; i < NUM_OF_PARTS; i++)

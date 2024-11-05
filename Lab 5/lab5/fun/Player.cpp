@@ -18,7 +18,7 @@ m_position( t_position )
 
 	Loader* loader = Loader::getInstance();
 
-	sf::Texture texture = loader->loadTexture("ASSETS/IMAGES/hull/hull_1.png");
+	//sf::Texture texture = loader->loadTexture("ASSETS/IMAGES/hull/hull_1.png");
 	////Attributes attributes;
 	////attributes.connectionPoints.push_back({ -(static_cast<float>(texture.getSize().x * m_body.getScale().x) / 2), 0 });// left
 	////attributes.connectionPoints.push_back({ 0, static_cast<float>(texture.getSize().y * m_body.getScale().y) / 2 });// top

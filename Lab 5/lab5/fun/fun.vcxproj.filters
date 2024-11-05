@@ -30,31 +30,22 @@
     <ClCompile Include="VectorMath.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Body.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="RotationMath.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CockPit.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Wings.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Loader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Thruster.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ShipPart.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="EditorMouse.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PartsLibarary.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -71,31 +62,22 @@
     <ClInclude Include="Atttibutes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Body.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="RotationMath.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CockPit.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Wings.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Loader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Thruster.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ShipPart.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="EditorMouse.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PartsLibarary.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

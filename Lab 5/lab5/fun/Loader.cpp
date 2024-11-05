@@ -11,12 +11,12 @@ Loader* Loader::getInstance()
 	return instance;
 }
 
-sf::Font Loader::loadFont(std::string t_path)
+sf::Font* Loader::loadFont(std::string t_path)
 {
 
 	if (m_fonts.count(t_path) > 0)
 	{
-		return m_fonts[t_path];
+		return &m_fonts[t_path];
 	}
 
 	sf::Font font;
@@ -26,14 +26,14 @@ sf::Font Loader::loadFont(std::string t_path)
 	}
 	m_fonts[t_path] = font;
 
-	return font;
+	return &m_fonts[t_path];
 }
 
-sf::Texture Loader::loadTexture(std::string t_path)
+sf::Texture* Loader::loadTexture(std::string t_path)
 {
 	if (m_textures.count(t_path) > 0)
 	{
-		return m_textures[t_path];
+		return &m_textures[t_path];
 	}
 
 	sf::Texture texture;
@@ -43,6 +43,6 @@ sf::Texture Loader::loadTexture(std::string t_path)
 	}
 	m_textures[t_path] = texture;
 
-	return m_textures[t_path];
+	return &m_textures[t_path];
 }
 

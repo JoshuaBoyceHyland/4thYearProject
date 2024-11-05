@@ -53,13 +53,13 @@ void Thruster::setUpBody(std::string t_texturePath)
 	Loader* loader = Loader::getInstance();
 	m_texture = loader->loadTexture(t_texturePath);
 
-	m_body.setTexture(m_texture);
+	m_body.setTexture((*m_texture));
 	m_body.setRotation(m_rotation);
 	m_body.setScale({ 2, 2 });
 	m_body.setPosition({ 100, 100 });
 	m_body.setOrigin({
-						static_cast<float>(m_texture.getSize().x) / 2,
-						static_cast<float>(m_texture.getSize().y) / 2
+						static_cast<float>((*m_texture).getSize().x) / 2,
+						static_cast<float>((*m_texture).getSize().y) / 2
 		});
 
 
@@ -67,10 +67,10 @@ void Thruster::setUpBody(std::string t_texturePath)
 
 void Thruster::setUpConnectionPoints()
 {
-	m_attributes.connectionPoints.push_back({ -(static_cast<float>(m_texture.getSize().x * m_body.getScale().x) / 2), 0 });// left
-	m_attributes.connectionPoints.push_back({ 0, static_cast<float>(m_texture.getSize().y * m_body.getScale().y) / 2 });// top
-	m_attributes.connectionPoints.push_back({ (static_cast<float>(m_texture.getSize().x * m_body.getScale().x) / 2), 0 });// right
-	m_attributes.connectionPoints.push_back({ 0, -(static_cast<float>(m_texture.getSize().y * m_body.getScale().y) / 2) });// bottom
+	m_attributes.connectionPoints.push_back({ -(static_cast<float>((*m_texture).getSize().x * m_body.getScale().x) / 2), 0 });// left
+	m_attributes.connectionPoints.push_back({ 0, static_cast<float>((*m_texture).getSize().y * m_body.getScale().y) / 2 });// top
+	m_attributes.connectionPoints.push_back({ (static_cast<float>((*m_texture).getSize().x * m_body.getScale().x) / 2), 0 });// right
+	m_attributes.connectionPoints.push_back({ 0, -(static_cast<float>((*m_texture).getSize().y * m_body.getScale().y) / 2) });// bottom
 
 	for (int i = 0; i < m_attributes.connectionPoints.size(); i++)
 	{

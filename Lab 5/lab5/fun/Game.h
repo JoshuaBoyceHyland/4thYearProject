@@ -15,6 +15,7 @@
 #include "EditorMouse.h"
 #include "ShipPart.h"
 #include "Loader.h"
+#include "PartsLibarary.h"
 
 class Game
 {
@@ -47,11 +48,11 @@ private:
 	sf::Color m_colour; // colour ofr next vertex
 
 	//Player m_player;
-	sf::Texture m_pitTexture;
-	sf::Texture m_hullTexture;
-	sf::Texture m_thrusterTexture;
-	sf::Texture m_leftWingTexture;
-	sf::Texture m_rightWingTexture;
+	sf::Texture* m_pitTexture;
+	sf::Texture* m_hullTexture;
+	sf::Texture* m_thrusterTexture;
+	sf::Texture* m_leftWingTexture;
+	sf::Texture* m_rightWingTexture;
 
 	float m_rotation = 0;
 	sf::Vector2f m_position = { 100, 100 };
