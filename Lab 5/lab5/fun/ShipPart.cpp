@@ -10,11 +10,20 @@ ShipPart::ShipPart(sf::Texture* t_texture, PartType t_type, sf::Vector2f t_posit
 	setUpSprite();
 	setUpConnectionPoints();
 }
-//
-//ShipPart::ShipPart(sf::Texture t_texture, Connectors t_attributes) : m_texture(t_texture), m_connectors(&t_attributes)
-//{
-//	setUpSprite();
-//}
+ShipPart::ShipPart(const ShipPart& other)
+{
+	this->m_position = other.m_position;
+	this->m_body = other.m_body;
+	this->m_rotation = other.m_rotation;
+	this->m_type = other.m_type;
+	this->m_connectors = other.m_connectors;
+	this->m_texture = other.m_texture;
+	this->m_scale = other.m_scale;
+	this->m_connectors->anchorPoint = &m_position;
+	this->m_body.setTexture((*m_texture));
+
+}
+
 
 bool ShipPart::operator==(const ShipPart& other)
 {
@@ -26,9 +35,7 @@ bool ShipPart::operator==(const ShipPart& other)
 
 void ShipPart::update()
 {
-
-	m_body.setPosition(m_position);
-	
+	m_body.setPosition(m_position);	
 }
 
 void ShipPart::draw(sf::RenderWindow& t_window)
@@ -36,21 +43,6 @@ void ShipPart::draw(sf::RenderWindow& t_window)
 	t_window.draw(m_body);
 	m_connectors->visualisePoints(t_window);
 }
-
-//void ShipPart::setUp(sf::Texture t_texture)
-//{
-//	m_texture = (*t_texture;
-//	setUpSprite();
-//	setUpConnectionPoints();
-//}
-
-//void ShipPart::setUp(sf::Texture t_texture, Connectors *t_attributes) 
-//{
-//	m_texture = t_texture;
-//	m_connectors = t_attributes;
-//	setUpSprite();
-//
-//}
 
 void ShipPart::setPosition(sf::Vector2f t_position)
 {
@@ -90,24 +82,24 @@ void ShipPart::setUpConnectionPoints()
 	
 	switch (m_type)
 	{
-	case CockPit:
+	case PartType::CockPit:
 		m_connectors->connectionPoints.push_back({ 0, static_cast<float>((*m_texture).getSize().y * m_body.getScale().y) / 2 });// top
 	
 		break;
-	case Hull:
+	case PartType::Hull:
 		m_connectors->connectionPoints.push_back({ -(static_cast<float>((*m_texture).getSize().x * m_body.getScale().x) / 2), 0 });// left
 		m_connectors->connectionPoints.push_back({ 0, static_cast<float>((*m_texture).getSize().y * m_body.getScale().y) / 2 });// top
 		m_connectors->connectionPoints.push_back({ (static_cast<float>((*m_texture).getSize().x * m_body.getScale().x) / 2), 0 });// right
 		m_connectors->connectionPoints.push_back({ 0, -(static_cast<float>((*m_texture).getSize().y * m_body.getScale().y) / 2) });// bottom
 		break;
-	case Left_Wing:
+	case PartType::Left_Wing:
 		m_connectors->connectionPoints.push_back({ (static_cast<float>((*m_texture).getSize().x * m_body.getScale().x) / 2), 0 });// right
 		break;
 		
-	case Right_Wing:
+	case PartType::Right_Wing:
 		m_connectors->connectionPoints.push_back({ -(static_cast<float>((*m_texture).getSize().x * m_body.getScale().x) / 2), 0 });// left
 		break;
-	case Thruster:
+	case PartType::Thruster:
 		m_connectors->connectionPoints.push_back({ 0, -(static_cast<float>((*m_texture).getSize().y * m_body.getScale().y) / 2) });// bottom
 		break;
 	default:

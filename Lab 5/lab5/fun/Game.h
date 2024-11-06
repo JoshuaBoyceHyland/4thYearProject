@@ -16,6 +16,7 @@
 #include "ShipPart.h"
 #include "Loader.h"
 #include "PartsLibarary.h"
+#include "UIBox.h"
 
 class Game
 {
@@ -61,6 +62,7 @@ private:
 	std::vector<ShipPart*> m_parts;
 
 	EditorMouse m_mouse;
+	UIBox ui;
 };
 
 

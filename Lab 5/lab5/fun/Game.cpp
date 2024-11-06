@@ -17,7 +17,7 @@
 /// load and setup thne image
 /// </summary>
 Game::Game() :
-	m_window{ sf::VideoMode{ Globals::SCREEN_WIDTH, Globals::SCREEN_HEIGHT, 32U }, "SFML Game" },
+	m_window{ sf::VideoMode{ Globals::SCREEN_WIDTH, Globals::SCREEN_HEIGHT, 32U }, "SFML Game", sf::Style::Fullscreen },
 	m_exitGame{ false }/*,
 	m_player({ 100,100 })*/
 {
@@ -31,12 +31,17 @@ Game::Game() :
 	m_leftWingTexture = loader->loadTexture("ASSETS/IMAGES/left_wings/left_wing_2.png");
 	m_rightWingTexture = loader->loadTexture("ASSETS/IMAGES/right_wings/right_wing_2.png");
 
-	sf::Vector2f pos = { 100, 100 };
-	for (int i = 0; i < NUM_OF_PARTS; i++)
-	{
+	PartsLibarary* library = PartsLibarary::getInstance();
 
-		m_parts.push_back(new ShipPart(m_hullTexture,PartType::Hull, pos));
-		pos.x += 300;
+	sf::Vector2f pos = { 100, 100 };
+
+	for (int i = 0; i < 2; i++)
+	{
+		m_parts.push_back(library->getCockpit(i));
+		m_parts.push_back(library->getHullPart(i));
+		m_parts.push_back(library->getGetThruster(i));
+		m_parts.push_back(library->getLeftWing(i));
+		m_parts.push_back(library->getRightWing(i));
 	}
 	m_mouse.m_partsInScene = m_parts;
 }
@@ -161,6 +166,7 @@ void Game::processMousePress(sf::Event t_event)
 	if (sf::Mouse::Left == t_event.key.code)
 	{
 		m_mouse.checkForPartSelection();
+		ui.checkForButtonInteraction(m_mouse.m_position);
 		
 	}
 }
@@ -195,11 +201,12 @@ void Game::update(sf::Time t_deltaTime)
 
 	m_mouse.update();
 
-	for (int i = 0; i < NUM_OF_PARTS; i++)
+	for (int i = 0; i < 10; i++)
 	{
 		m_parts[i]->update();
 	}
 
+	
 	
 }
 
@@ -208,8 +215,9 @@ void Game::update(sf::Time t_deltaTime)
 /// </summary>
 void Game::render()
 {
-	m_window.clear(sf::Color::Black);
-	for (int i = 0; i < NUM_OF_PARTS; i++)
+	m_window.clear(sf::Color::White);
+	ui.draw(m_window);
+	for (int i = 0; i < 10; i++)
 	{
 		m_parts[i]->draw(m_window);
 	}

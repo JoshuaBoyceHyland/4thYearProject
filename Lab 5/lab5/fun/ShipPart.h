@@ -3,21 +3,18 @@
 #include "Atttibutes.h"
 #include "RotationMath.h"
 
-enum PartType { CockPit, Hull, Left_Wing, Right_Wing, Thruster};
+enum class PartType { CockPit = 0, Hull = 1, Left_Wing = 2, Right_Wing = 3, Thruster = 4};
+
 class ShipPart
 {
 	public:
 		ShipPart();
 		ShipPart(sf::Texture* t_texture,PartType t_type, sf::Vector2f t_position);
-		//ShipPart(sf::Texture t_texture, Connectors t_attributes);
-
+		ShipPart(const ShipPart& other);
 		bool operator ==(const ShipPart& other);
 
 		void update();
 		void draw(sf::RenderWindow& t_window);
-
-		//void setUp(sf::Texture t_texture);
-		//void setUp(sf::Texture t_texture, Connectors* t_attributes);
 		
 		void setPosition(sf::Vector2f t_position);
 
@@ -28,9 +25,12 @@ class ShipPart
 		sf::Vector2f getPosition();
 
 		sf::Sprite m_body;
+
 		PartType m_type;
+
 	private:
 		void setUpSprite();
+
 		void setUpConnectionPoints();
 
 		sf::Vector2f m_scale = { 2, 2 };

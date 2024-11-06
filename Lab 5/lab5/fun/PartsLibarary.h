@@ -9,7 +9,12 @@ class PartsLibarary
 
 		static PartsLibarary* getInstance();
 
-		ShipPart getShipPart(int t_index);
+		ShipPart* getCockpit(int t_index);
+		ShipPart* getHullPart(int t_index);
+		ShipPart* getGetThruster(int t_index);
+		ShipPart* getLeftWing(int t_index);
+		ShipPart* getRightWing(int t_index);
+		
 	private:
 
 		PartsLibarary();
@@ -20,9 +25,10 @@ class PartsLibarary
 
 		const int NUM_OF_EACH_PART = 2;
 
-		std::vector<ShipPart> m_thrusters;
+		
 		std::vector<ShipPart> m_cockpits;
 		std::vector<ShipPart> m_hulls;
+		std::vector<ShipPart> m_thrusters;
 		std::vector<ShipPart> m_leftWings;
 		std::vector<ShipPart> m_rightWings;
 };
