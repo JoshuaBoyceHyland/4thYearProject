@@ -1,8 +1,9 @@
 # 4th Year game project
 ## Progress videos:
-<videos open>
+<Videos open>
+<Contents</summary>
 <br>
-https://setuo365-my.sharepoint.com/:f:/g/personal/c00270917_setu_ie/EsNqaKzqJsdJp3SQyrf9cQYB3eYEMjIr7CWq6N_w2anbNg?e=OEFbLL
-</videos>
+[Well, you asked for it!](https://outlook.office.com/host/377c982d-9686-450e-9a7c-22aeaf1bc162/7211f19f-262a-42eb-a02e-289956491741)
+</Videos>
 
 
