@@ -11,7 +11,7 @@ class UIBox
 		UIBox();
 		void draw(sf::RenderWindow& t_window);
 		void checkForButtonInteraction(sf::Vector2f t_mousePosition);
-
+		ShipPart* partSelectionCheck(sf::Vector2f t_mousePosition);
 	private:
 		
 		void SetUpText();

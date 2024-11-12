@@ -55,6 +55,21 @@ void UIBox::checkForButtonInteraction(sf::Vector2f t_mousePosition)
 	m_title.setOrigin(textSize.width / 2, textSize.height / 2);
 }
 
+ShipPart* UIBox::partSelectionCheck(sf::Vector2f t_mousePosition)
+{
+	ShipPart* part = nullptr;
+
+	for (int i = 0; i < PartsLibarary::NUM_OF_EACH_PART; i++)
+	{
+		if (m_uiSprites[static_cast<int>(current)][i].getGlobalBounds().contains(t_mousePosition))
+		{
+			PartsLibarary* library = PartsLibarary::getInstance();
+			part = library->getPart(current, i);
+		}
+	}
+	return part;
+}
+
 void UIBox::SetUpText()
 {
 	Loader* loader = Loader::getInstance();
@@ -106,7 +121,7 @@ void UIBox::setUpUiSprites()
 
 	PartsLibarary* library = PartsLibarary::getInstance();
 
-	sf::Vector2f pos = { 220, 200 };
+	sf::Vector2f pos = { m_uiBox.getPosition().x +(  m_uiBox.getSize().x /2 ), 200};
 	
 	for (int i = 0; i < library->NUM_OF_EACH_PART; i++)
 	{
