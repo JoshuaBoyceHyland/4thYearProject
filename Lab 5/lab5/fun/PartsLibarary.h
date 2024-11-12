@@ -15,6 +15,7 @@ class PartsLibarary
 		ShipPart* getLeftWing(int t_index);
 		ShipPart* getRightWing(int t_index);
 		
+		static const int NUM_OF_EACH_PART = 2;
 	private:
 
 		PartsLibarary();
@@ -23,7 +24,7 @@ class PartsLibarary
 
 		static PartsLibarary* instance;
 
-		const int NUM_OF_EACH_PART = 2;
+		
 
 		
 		std::vector<ShipPart> m_cockpits;

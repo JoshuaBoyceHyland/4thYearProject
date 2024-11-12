@@ -5,6 +5,7 @@ UIBox::UIBox()
 	setUpRect();
 	SetUpText();
 	setUpButton();
+	setUpUiSprites();
 }
 
 void UIBox::draw(sf::RenderWindow& t_window)
@@ -13,6 +14,11 @@ void UIBox::draw(sf::RenderWindow& t_window)
 	t_window.draw(m_title);
 	t_window.draw(m_button);
 	t_window.draw(m_button2);
+
+	for (int i = 0; i < PartsLibarary::NUM_OF_EACH_PART; i++)
+	{
+		t_window.draw(m_uiSprites[static_cast<int>(current)][i]);
+	}
 }
 
 void UIBox::checkForButtonInteraction(sf::Vector2f t_mousePosition)
@@ -85,4 +91,31 @@ void UIBox::setUpButton()
 	m_button2.setPosition({ m_title.getPosition().x - 150 , m_title.getPosition().y + 20 });
 	m_button2.setRadius(10);
 	m_button2.setRotation(270.0f);
+}
+
+void UIBox::setUpUiSprites()
+{
+
+	PartsLibarary* library = PartsLibarary::getInstance();
+
+	sf::Vector2f pos = { 220, 200 };
+	
+	for (int i = 0; i < library->NUM_OF_EACH_PART; i++)
+	{
+		m_uiSprites[static_cast<int>(PartType::CockPit)].push_back((*library->getCockpit(i)).m_body);
+		m_uiSprites[static_cast<int>(PartType::CockPit)][i].setPosition(pos);
+
+		m_uiSprites[static_cast<int>(PartType::Hull)].push_back((*library->getHullPart(i)).m_body);
+		m_uiSprites[static_cast<int>(PartType::Hull)][i].setPosition(pos);
+
+		m_uiSprites[static_cast<int>(PartType::Thruster)].push_back((*library->getGetThruster(i)).m_body);
+		m_uiSprites[static_cast<int>(PartType::Thruster)][i].setPosition(pos);
+
+		m_uiSprites[static_cast<int>(PartType::Left_Wing)].push_back((*library->getLeftWing(i)).m_body);
+		m_uiSprites[static_cast<int>(PartType::Left_Wing)][i].setPosition(pos);
+
+		m_uiSprites[static_cast<int>(PartType::Right_Wing)].push_back((*library->getRightWing(i)).m_body);
+		m_uiSprites[static_cast<int>(PartType::Right_Wing)][i].setPosition(pos);
+		pos.y += 200;
+	}
 }

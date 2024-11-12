@@ -60,6 +60,7 @@ void PartsLibarary::initialiseVectors()
 		
 
 		texture = loader->loadTexture(basePath + cockpitPath + std::to_string(i + 1) + ".png");
+
 		m_cockpits.emplace_back(ShipPart(texture, PartType::CockPit, pos));
 
 		pos.y += 100;

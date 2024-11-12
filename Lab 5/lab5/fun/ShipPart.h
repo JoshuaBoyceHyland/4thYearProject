@@ -26,15 +26,18 @@ class ShipPart
 
 		sf::Sprite m_body;
 
+		sf::Texture* m_texture;
+
 		PartType m_type;
 
+		
 	private:
 		void setUpSprite();
 
 		void setUpConnectionPoints();
 
 		sf::Vector2f m_scale = { 2, 2 };
-		sf::Texture* m_texture;
+		
 		
 
 		float* m_rotation;

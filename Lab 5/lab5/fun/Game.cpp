@@ -201,10 +201,10 @@ void Game::update(sf::Time t_deltaTime)
 
 	m_mouse.update();
 
-	for (int i = 0; i < 10; i++)
-	{
-		m_parts[i]->update();
-	}
+	//for (int i = 0; i < 10; i++)
+	//{
+	//	m_parts[i]->update();
+	//}
 
 	
 	
@@ -217,10 +217,10 @@ void Game::render()
 {
 	m_window.clear(sf::Color::White);
 	ui.draw(m_window);
-	for (int i = 0; i < 10; i++)
-	{
-		m_parts[i]->draw(m_window);
-	}
+	//for (int i = 0; i < 10; i++)
+	//{
+	//	m_parts[i]->draw(m_window);
+	//}
 	m_window.display();
 }
 
