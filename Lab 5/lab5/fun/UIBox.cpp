@@ -49,8 +49,10 @@ void UIBox::checkForButtonInteraction(sf::Vector2f t_mousePosition)
 		current = PartType(part);
 	}
 
-
+	
 	m_title.setString(partTypeString[current]);
+	sf::FloatRect textSize = m_title.getLocalBounds();
+	m_title.setOrigin(textSize.width / 2, textSize.height / 2);
 }
 
 void UIBox::SetUpText()
@@ -58,13 +60,19 @@ void UIBox::SetUpText()
 	Loader* loader = Loader::getInstance();
 
 	m_font = loader->loadFont("ASSETS/FONTS/nulshock.otf");
+	
 
 	m_title.setString("Hulls");
 	m_title.setFont((*m_font));
 	m_title.setFillColor(sf::Color::Black);
-	
-	m_title.setCharacterSize(Globals::SCREEN_WIDTH / 100);
-	m_title.setPosition({ m_uiBox.getPosition().x + (m_uiBox.getSize().x / 2) - m_title.getCharacterSize() - Globals::SCREEN_WIDTH / 100, Globals::SCREEN_WIDTH / 100});
+	m_title.setCharacterSize(Globals::SCREEN_WIDTH / SCALING);
+	sf::FloatRect textSize = m_title.getLocalBounds();
+	m_title.setOrigin(textSize.width / 2, textSize.height / 2);
+
+	m_title.setPosition({ 
+							(m_uiBox.getPosition().x + (m_uiBox.getSize().x / 2))  /*- m_title.getCharacterSize() - Globals::SCREEN_WIDTH / SCALING*/, 
+							m_uiBox.getPosition().y + ( Globals::SCREEN_WIDTH / 100 ) 
+						});
 
 }
 
@@ -82,13 +90,13 @@ void UIBox::setUpButton()
 {
 	m_button.setPointCount(3);
 	m_button.setFillColor(m_darkBlue);
-	m_button.setPosition({ m_title.getPosition().x + 220, m_title.getPosition().y });
+	m_button.setPosition({ m_uiBox.getPosition().x + m_uiBox.getSize().x - (Globals::SCREEN_WIDTH  / 200 ), m_title.getPosition().y});
 	m_button.setRadius(10);
 	m_button.setRotation(90.0f);
 
 	m_button2.setPointCount(3);
 	m_button2.setFillColor(m_darkBlue);
-	m_button2.setPosition({ m_title.getPosition().x - 150 , m_title.getPosition().y + 20 });
+	m_button2.setPosition({ m_uiBox.getPosition().x  + (Globals::SCREEN_WIDTH / 200)  , m_title.getPosition().y + 20});
 	m_button2.setRadius(10);
 	m_button2.setRotation(270.0f);
 }
