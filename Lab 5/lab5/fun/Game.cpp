@@ -18,12 +18,10 @@
 /// </summary>
 Game::Game() :
 	m_window{ sf::VideoMode{ Globals::SCREEN_WIDTH, Globals::SCREEN_HEIGHT, 32U }, "SFML Game"/*, sf::Style::Fullscreen*/ },
-	m_exitGame{ false }/*,
-	m_player({ 100,100 })*/
+	m_exitGame{ false }, 
+	m_scene( new EditorScene(m_window))
 {
-	m_mouse.m_position= { static_cast<float>(sf::Mouse::getPosition(m_window).x), static_cast<float>(sf::Mouse::getPosition(m_window).y) };
 
-	m_mouse.m_partsInScene = m_parts;
 }
 
 /// <summary>
@@ -56,9 +54,9 @@ void Game::run()
 		{
 			timeSinceLastUpdate -= timePerFrame;
 			processEvents(); // at least 60 fps
-			update(timePerFrame); //60 fps
+			m_scene->update(timePerFrame); //60 fps
 		}
-		render(); // as many as possible
+		m_scene->render(); // as many as possible
 	}
 }
 /// <summary>
@@ -71,114 +69,23 @@ void Game::processEvents()
 	sf::Event newEvent;
 	while (m_window.pollEvent(newEvent))
 	{
-		if ( sf::Event::Closed == newEvent.type) // window message
-		{
-			m_exitGame = true;
-		}
 		if (sf::Event::KeyPressed == newEvent.type) //user pressed a key
 		{
-			processKeys(newEvent);
+			m_scene->processKeys(newEvent);
 		}
 		if ( sf::Event::MouseButtonPressed == newEvent.type)
 		{
-			processMousePress(newEvent);
+			m_scene->processMousePress(newEvent);
 		}
 		if (sf::Event::MouseButtonReleased == newEvent.type)
 		{
-			processMouseRelease(newEvent);
+			m_scene->processMouseRelease(newEvent);
 		}
 		if (sf::Event::MouseMoved == newEvent.type)
 		{
-			processMouseMove(newEvent);
+			m_scene->processMouseMove(newEvent);
 		}
 	}
 }
 
-//
-///// <summary>
-///// deal with key presses from the user
-///// </summary>
-///// <param name="t_event">key press event</param>
-void Game::processKeys(sf::Event t_event)
-{
-	if (sf::Keyboard::Escape == t_event.key.code)
-	{
-		m_exitGame = true;
-	}
-}
-
-void Game::processMousePress(sf::Event t_event)
-{
-
-	if (sf::Mouse::Left == t_event.key.code)
-	{
-		
-		m_mouse.checkForPartSelection();
-
-
-		ui.checkForButtonInteraction(m_mouse.m_position);
-		ShipPart* possiblePart = ui.partSelectionCheck(m_mouse.m_position);
-
-		if (possiblePart != nullptr)
-		{
-			m_parts.push_back(new ShipPart(*possiblePart));
-			m_mouse.m_partsInScene = m_parts;//update the parts in scene for mouse
-			m_mouse.selectPiece(m_parts.size() - 1);
-		}
-
-	}
-}
-
-void Game::processMouseRelease(sf::Event t_event)
-{
-	if (sf::Mouse::Left == t_event.key.code)
-	{
-		m_mouse.releaseSelectedPart();
-
-	}
-	
-}
-
-void Game::processMouseMove(sf::Event t_event)
-{
-	m_mouse.m_position = { static_cast<float>(sf::Mouse::getPosition(m_window).x), static_cast<float>(sf::Mouse::getPosition(m_window).y) };
-}
-
-/// <summary>
-/// Update the game world
-/// </summary>
-/// <param name="t_deltaTime">time interval per frame</param>
-void Game::update(sf::Time t_deltaTime)
-{
-	
-	if (m_exitGame)
-	{
-		m_window.close();
-	}
-
-	m_mouse.update();
-
-	for (int i = 0; i < m_parts.size(); i++)
-	{
-		m_parts[i]->update();
-	}
-
-	
-	
-}
-
-/// <summary>
-/// draw the frame and then switch buffers
-/// </summary>
-void Game::render()
-{
-	m_window.clear(sf::Color::White);
-	ui.draw(m_window);
-
-	for (int i = 0; i < m_parts.size(); i++)
-	{
-		m_parts[i]->draw(m_window);
-	}
-	m_window.display();
-}
 

@@ -12,12 +12,8 @@
 
 #include "Globals.h"
 #include <SFML/Graphics.hpp>
-#include "EditorMouse.h"
-#include "ShipPart.h"
-#include "Loader.h"
-#include "PartsLibarary.h"
-#include "UIBox.h"
 
+#include "EditorScene.h"
 class Game
 {
 public:
@@ -43,11 +39,7 @@ private:
 	bool m_exitGame; // control exiting game
 
 
-
-	std::vector<ShipPart*> m_parts;
-
-	EditorMouse m_mouse;
-	UIBox ui;
+	Scene* m_scene;
 };
 
 

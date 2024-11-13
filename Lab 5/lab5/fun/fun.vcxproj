@@ -35,6 +35,7 @@
     <ClInclude Include="Atttibutes.h" />
     <ClInclude Include="EditorMouse.h" />
     <ClInclude Include="EditorScene.h" />
+    <ClInclude Include="Scene.h" />
     <ClInclude Include="UIBox.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Globals.h" />
