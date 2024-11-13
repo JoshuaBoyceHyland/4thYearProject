@@ -65,6 +65,7 @@ ShipPart* UIBox::partSelectionCheck(sf::Vector2f t_mousePosition)
 		{
 			PartsLibarary* library = PartsLibarary::getInstance();
 			part = library->getPart(current, i);
+			//part->setPosition(m_uiSprites[static_cast<int>(current)][i].getPosition());
 		}
 	}
 	return part;

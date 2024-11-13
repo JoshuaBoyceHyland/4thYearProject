@@ -10,8 +10,10 @@ class EditorMouse
 	public:
 		EditorMouse();
 
-
-
+		void selectPiece(int t_index);
+		/// <summary>
+		/// Check if we are picking up an already existing piece in the scene
+		/// </summary>
 		void checkForPartSelection();
 		void releaseSelectedPart();
 

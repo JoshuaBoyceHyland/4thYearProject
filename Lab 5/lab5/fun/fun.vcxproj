@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EditorMouse.cpp" />
+    <ClCompile Include="EditorScene.cpp" />
     <ClCompile Include="UIBox.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Loader.cpp" />
@@ -33,6 +34,7 @@
   <ItemGroup>
     <ClInclude Include="Atttibutes.h" />
     <ClInclude Include="EditorMouse.h" />
+    <ClInclude Include="EditorScene.h" />
     <ClInclude Include="UIBox.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Globals.h" />

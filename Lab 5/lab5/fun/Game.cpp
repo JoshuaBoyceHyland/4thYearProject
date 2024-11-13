@@ -17,32 +17,12 @@
 /// load and setup thne image
 /// </summary>
 Game::Game() :
-	m_window{ sf::VideoMode{ Globals::SCREEN_WIDTH, Globals::SCREEN_HEIGHT, 32U }, "SFML Game", sf::Style::Fullscreen },
+	m_window{ sf::VideoMode{ Globals::SCREEN_WIDTH, Globals::SCREEN_HEIGHT, 32U }, "SFML Game"/*, sf::Style::Fullscreen*/ },
 	m_exitGame{ false }/*,
 	m_player({ 100,100 })*/
 {
 	m_mouse.m_position= { static_cast<float>(sf::Mouse::getPosition(m_window).x), static_cast<float>(sf::Mouse::getPosition(m_window).y) };
-	Loader* loader = Loader::getInstance();
 
-	//partsLibarary* libarary = get
-	m_hullTexture = loader->loadTexture("ASSETS/IMAGES/hulls/hull_2.png");
-	m_thrusterTexture = loader->loadTexture("ASSETS/IMAGES/thrusters/thruster_2.png");
-	m_pitTexture = loader->loadTexture("ASSETS/IMAGES/cockpits/cockpit_2.png");
-	m_leftWingTexture = loader->loadTexture("ASSETS/IMAGES/left_wings/left_wing_2.png");
-	m_rightWingTexture = loader->loadTexture("ASSETS/IMAGES/right_wings/right_wing_2.png");
-
-	PartsLibarary* library = PartsLibarary::getInstance();
-
-	sf::Vector2f pos = { 100, 100 };
-
-	//for (int i = 0; i < 2; i++)
-	//{
-	//	m_parts.push_back(library->getCockpit(i));
-	//	m_parts.push_back(library->getHullPart(i));
-	//	m_parts.push_back(library->getGetThruster(i));
-	//	m_parts.push_back(library->getLeftWing(i));
-	//	m_parts.push_back(library->getRightWing(i));
-	//}
 	m_mouse.m_partsInScene = m_parts;
 }
 
@@ -125,39 +105,6 @@ void Game::processKeys(sf::Event t_event)
 	{
 		m_exitGame = true;
 	}
-
-	//if (sf::Keyboard::Num1 == t_event.key.code)
-	//{
-	//	m_parts.push_back(new ShipPart(m_hullTexture,PartType::Hull, { 100, 100 }));
-	//	NUM_OF_PARTS++;
-	//	m_mouse.m_partsInScene = m_parts;
-	//}
-
-	//if (sf::Keyboard::Num2 == t_event.key.code)
-	//{
-	//	m_parts.push_back(new ShipPart(m_thrusterTexture,PartType::Thruster ,{ 100, 100 }));
-	//	NUM_OF_PARTS++;
-	//	m_mouse.m_partsInScene = m_parts;
-	//}
-
-	//if (sf::Keyboard::Num3 == t_event.key.code)
-	//{
-	//	m_parts.push_back(new ShipPart(m_pitTexture, PartType::CockPit,{ 100, 100 }));
-	//	NUM_OF_PARTS++;
-	//	m_mouse.m_partsInScene = m_parts;
-	//}
-	//if (sf::Keyboard::Num4 == t_event.key.code)
-	//{
-	//	m_parts.push_back(new ShipPart(m_leftWingTexture, PartType::Left_Wing, { 100, 100 }));
-	//	NUM_OF_PARTS++;
-	//	m_mouse.m_partsInScene = m_parts;
-	//}
-	//if (sf::Keyboard::Num5 == t_event.key.code)
-	//{
-	//	m_parts.push_back(new ShipPart(m_rightWingTexture, PartType::Right_Wing, { 100, 100 }));
-	//	NUM_OF_PARTS++;
-	//	m_mouse.m_partsInScene = m_parts;
-	//}
 }
 
 void Game::processMousePress(sf::Event t_event)
@@ -165,21 +112,20 @@ void Game::processMousePress(sf::Event t_event)
 
 	if (sf::Mouse::Left == t_event.key.code)
 	{
+		
 		m_mouse.checkForPartSelection();
-		ui.checkForButtonInteraction(m_mouse.m_position);
 
+
+		ui.checkForButtonInteraction(m_mouse.m_position);
 		ShipPart* possiblePart = ui.partSelectionCheck(m_mouse.m_position);
 
 		if (possiblePart != nullptr)
 		{
 			m_parts.push_back(new ShipPart(*possiblePart));
-			m_mouse.m_partsInScene = m_parts;
-			std::cout << "Part added" << std::endl; 
+			m_mouse.m_partsInScene = m_parts;//update the parts in scene for mouse
+			m_mouse.selectPiece(m_parts.size() - 1);
 		}
-		else
-		{
-			std::cout << "no clicky on party" << std::endl;
-		}
+
 	}
 }
 

@@ -4,13 +4,18 @@ EditorMouse::EditorMouse()
 {
 }
 
+void EditorMouse::selectPiece(int t_index)
+{
+	m_selectedPart = m_partsInScene[t_index];
+}
+
 void EditorMouse::checkForPartSelection()
 {
 	for ( int i = 0; i <m_partsInScene.size(); i++)
 	{
 		if (m_partsInScene[i]->m_body.getGlobalBounds().contains(m_position))
 		{
-			m_selectedPart = m_partsInScene[i];
+			selectPiece(i);
 			break;
 		}
 	}

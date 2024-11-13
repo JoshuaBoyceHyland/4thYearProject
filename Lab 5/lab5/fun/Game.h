@@ -40,25 +40,10 @@ private:
 
 
 	sf::RenderWindow m_window; // main SFML window
-	sf::Font m_ArialBlackfont; // font used by message
-	sf::Text m_welcomeMessage; // text used for message on screen
-	sf::Texture m_logoTexture; // texture used for sfml logo
-	sf::Sprite m_logoSprite; // sprite used for sfml logo
 	bool m_exitGame; // control exiting game
-	sf::VertexArray m_points;// vertext arry for ourt drawings
-	sf::Color m_colour; // colour ofr next vertex
 
-	//Player m_player;
-	sf::Texture* m_pitTexture;
-	sf::Texture* m_hullTexture;
-	sf::Texture* m_thrusterTexture;
-	sf::Texture* m_leftWingTexture;
-	sf::Texture* m_rightWingTexture;
 
-	float m_rotation = 0;
-	sf::Vector2f m_position = { 100, 100 };
 
-	int NUM_OF_PARTS = 2;
 	std::vector<ShipPart*> m_parts;
 
 	EditorMouse m_mouse;

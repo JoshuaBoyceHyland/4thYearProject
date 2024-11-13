@@ -44,7 +44,7 @@ class ShipPart
 		
 		
 		sf::Vector2f m_position = { 100, 100 };
-		Connectors* m_connectors;
+		Connectors m_connectors;
 
 		
 		
