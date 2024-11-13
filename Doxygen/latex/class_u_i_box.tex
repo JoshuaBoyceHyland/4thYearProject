@@ -1,0 +1,108 @@
+\doxysection{UIBox Class Reference}
+\hypertarget{class_u_i_box}{}\label{class_u_i_box}\index{UIBox@{UIBox}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_u_i_box_a5aa6631c539165985d211183ea03b8f6}\label{class_u_i_box_a5aa6631c539165985d211183ea03b8f6} 
+void {\bfseries draw} (sf\+::\+Render\+Window \&t\+\_\+window)
+\item 
+\Hypertarget{class_u_i_box_a53bb2b1e5d4a073c62eb83032458f690}\label{class_u_i_box_a53bb2b1e5d4a073c62eb83032458f690} 
+void {\bfseries check\+For\+Button\+Interaction} (sf\+::\+Vector2f t\+\_\+mouse\+Position)
+\item 
+\Hypertarget{class_u_i_box_a3ae45a73aaa3559afcdcc86bdb5cdcc0}\label{class_u_i_box_a3ae45a73aaa3559afcdcc86bdb5cdcc0} 
+\mbox{\hyperlink{class_ship_part}{Ship\+Part}} \texorpdfstring{$\ast$}{*} {\bfseries part\+Selection\+Check} (sf\+::\+Vector2f t\+\_\+mouse\+Position)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_u_i_box_aa2781cf76be98f6bf4877aec55ac3c5f}\label{class_u_i_box_aa2781cf76be98f6bf4877aec55ac3c5f} 
+void {\bfseries Set\+Up\+Text} ()
+\item 
+\Hypertarget{class_u_i_box_a84ad0ca2d747f6ad63aef6074ea20429}\label{class_u_i_box_a84ad0ca2d747f6ad63aef6074ea20429} 
+void {\bfseries set\+Up\+Rect} ()
+\item 
+\Hypertarget{class_u_i_box_ad4374b9b1c95b244ccd520adb99675cd}\label{class_u_i_box_ad4374b9b1c95b244ccd520adb99675cd} 
+void {\bfseries set\+Up\+Button} ()
+\item 
+\Hypertarget{class_u_i_box_a1afe0322424cac04a0db3b8e6ab1eb7a}\label{class_u_i_box_a1afe0322424cac04a0db3b8e6ab1eb7a} 
+void {\bfseries set\+Up\+Ui\+Sprites} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_u_i_box_a3dedc4b3c499f3bacb5208ec4be7d68b}\label{class_u_i_box_a3dedc4b3c499f3bacb5208ec4be7d68b} 
+sf\+::\+Color {\bfseries m\+\_\+light\+Blue} = sf\+::\+Color(21, 255, 255, 50)
+\item 
+\Hypertarget{class_u_i_box_ae252cf1d7ad5092241bffaa91a5c21f8}\label{class_u_i_box_ae252cf1d7ad5092241bffaa91a5c21f8} 
+sf\+::\+Color {\bfseries m\+\_\+dark\+Blue} = sf\+::\+Color(14, 34, 99)
+\item 
+\Hypertarget{class_u_i_box_ae0c3e509d6d3b38dd0af441f395e6790}\label{class_u_i_box_ae0c3e509d6d3b38dd0af441f395e6790} 
+sf\+::\+Rectangle\+Shape {\bfseries m\+\_\+ui\+Box}
+\item 
+\Hypertarget{class_u_i_box_a06adf0f5b409b3006ea95a2399774625}\label{class_u_i_box_a06adf0f5b409b3006ea95a2399774625} 
+sf\+::\+Circle\+Shape {\bfseries m\+\_\+button}
+\item 
+\Hypertarget{class_u_i_box_ace8491ed1a31e0a575f2d9a2be1ab704}\label{class_u_i_box_ace8491ed1a31e0a575f2d9a2be1ab704} 
+sf\+::\+Circle\+Shape {\bfseries m\+\_\+button2}
+\item 
+\Hypertarget{class_u_i_box_a70ff4abf77cd5b3e8a85004f53295f0a}\label{class_u_i_box_a70ff4abf77cd5b3e8a85004f53295f0a} 
+sf\+::\+Text {\bfseries m\+\_\+title}
+\item 
+\Hypertarget{class_u_i_box_a6b50e26da6199f9ada3f0eac575f8c8e}\label{class_u_i_box_a6b50e26da6199f9ada3f0eac575f8c8e} 
+sf\+::\+Text {\bfseries m\+\_\+text}
+\item 
+\Hypertarget{class_u_i_box_a7eafbc41b9d0f33be308950e280fdc91}\label{class_u_i_box_a7eafbc41b9d0f33be308950e280fdc91} 
+sf\+::\+Font \texorpdfstring{$\ast$}{*} {\bfseries m\+\_\+font}
+\item 
+\Hypertarget{class_u_i_box_adec0d499c7352d7082c5d88301fec16a}\label{class_u_i_box_adec0d499c7352d7082c5d88301fec16a} 
+const float {\bfseries SCALING} = 100
+\item 
+\Hypertarget{class_u_i_box_a874e1c3e930f7821774722eff21c9f25}\label{class_u_i_box_a874e1c3e930f7821774722eff21c9f25} 
+std\+::vector$<$ sf\+::\+Texture \texorpdfstring{$\ast$}{*} $>$ {\bfseries m\+\_\+part\+Textures}
+\item 
+\Hypertarget{class_u_i_box_ac4f064dc925263fc557e8ca823b1daed}\label{class_u_i_box_ac4f064dc925263fc557e8ca823b1daed} 
+Part\+Type {\bfseries current} = Part\+Type\+::\+Hull
+\item 
+std\+::map$<$ Part\+Type, std\+::string $>$ \mbox{\hyperlink{class_u_i_box_a32be03f8bf8cef7f3a4c504baad8697d}{part\+Type\+String}}
+\item 
+std\+::vector$<$ std\+::vector$<$ sf\+::\+Sprite $>$ $>$ \mbox{\hyperlink{class_u_i_box_ae3fad027aab9f96c14fd28987f4d854f}{m\+\_\+ui\+Sprites}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_u_i_box_ae3fad027aab9f96c14fd28987f4d854f}\index{UIBox@{UIBox}!m\_uiSprites@{m\_uiSprites}}
+\index{m\_uiSprites@{m\_uiSprites}!UIBox@{UIBox}}
+\doxysubsubsection{\texorpdfstring{m\_uiSprites}{m\_uiSprites}}
+{\footnotesize\ttfamily \label{class_u_i_box_ae3fad027aab9f96c14fd28987f4d854f} 
+std\+::vector$<$std\+::vector$<$sf\+::\+Sprite$>$ $>$ UIBox\+::m\+\_\+ui\+Sprites\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{\ std::vector<sf::Sprite>(),\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<sf::Sprite>()\ ,\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<sf::Sprite>()\ ,\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<sf::Sprite>()\ ,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<sf::Sprite>()\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_i_box_a32be03f8bf8cef7f3a4c504baad8697d}\index{UIBox@{UIBox}!partTypeString@{partTypeString}}
+\index{partTypeString@{partTypeString}!UIBox@{UIBox}}
+\doxysubsubsection{\texorpdfstring{partTypeString}{partTypeString}}
+{\footnotesize\ttfamily \label{class_u_i_box_a32be03f8bf8cef7f3a4c504baad8697d} 
+std\+::map$<$Part\+Type, std\+::string$>$ UIBox\+::part\+Type\+String\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{\ \{PartType::CockPit,\ \textcolor{stringliteral}{"{}Cockpit"{}}\ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{PartType::Hull,\textcolor{stringliteral}{"{}Hull"{}}\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{PartType::Thruster,\ \textcolor{stringliteral}{"{}Thruster"{}}\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{PartType::Left\_Wing,\ \textcolor{stringliteral}{"{}Left\ Wing"{}}\ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{PartType::Right\_Wing,\ \textcolor{stringliteral}{"{}Right\ Wing"{}}\}\ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Joshua/\+Desktop/4th\+Year\+Project/\+Lab 5/lab5/fun/UIBox.\+h\item 
+C\+:/\+Users/\+Joshua/\+Desktop/4th\+Year\+Project/\+Lab 5/lab5/fun/UIBox.\+cpp\end{DoxyCompactItemize}

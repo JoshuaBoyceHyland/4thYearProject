@@ -1,0 +1,206 @@
+\doxysection{Ship\+Part Class Reference}
+\hypertarget{class_ship_part}{}\label{class_ship_part}\index{ShipPart@{ShipPart}}
+
+
+Individual ship parts that can be connected to each other.  
+
+
+
+
+{\ttfamily \#include $<$Ship\+Part.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_ship_part_ac727b43a7a1fd918c70390dfa0e1ee99}{Ship\+Part}} (sf\+::\+Texture \texorpdfstring{$\ast$}{*}t\+\_\+texture, Part\+Type t\+\_\+type, sf\+::\+Vector2f t\+\_\+position)
+\begin{DoxyCompactList}\small\item\em Creats a ship part. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_ship_part_a408b230dbc22ff24b59ba5ed0791911b}{Ship\+Part}} (const \mbox{\hyperlink{class_ship_part}{Ship\+Part}} \&other)
+\begin{DoxyCompactList}\small\item\em Copy Constructor. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_ship_part_adcc6ec5e4003267351275742365ea8f2}{operator==}} (const \mbox{\hyperlink{class_ship_part}{Ship\+Part}} \&other)
+\begin{DoxyCompactList}\small\item\em Compares if ship are the same depending on ship position and type. \end{DoxyCompactList}\item 
+\Hypertarget{class_ship_part_af0da050546e098efc7717d6bfd4e8ecd}\label{class_ship_part_af0da050546e098efc7717d6bfd4e8ecd} 
+void {\bfseries update} ()
+\begin{DoxyCompactList}\small\item\em Update position of the ship part. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_ship_part_ade52a7c9379a3a049a642fe466d76ba2}{draw}} (sf\+::\+Render\+Window \&t\+\_\+window)
+\begin{DoxyCompactList}\small\item\em Draws the ship part and its connection points. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_ship_part_a097b073445a15c92c6946550d0291673}{set\+Position}} (sf\+::\+Vector2f t\+\_\+position)
+\begin{DoxyCompactList}\small\item\em Sets the position of the part. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_ship_part_aa1d798125df4c84ed719e78898c680aa}{set\+Position\+Relative\+To\+Connector\+Point}} (sf\+::\+Vector2f t\+\_\+position, int t\+\_\+index)
+\begin{DoxyCompactList}\small\item\em Sets the position of the shipart relative to the desired connection point. \end{DoxyCompactList}\item 
+sf\+::\+Vector2f \mbox{\hyperlink{class_ship_part_a99b9493445bb84ce2a1c62715fa00e19}{get\+Position}} ()
+\begin{DoxyCompactList}\small\item\em Gets the current positon ship. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_connector}{Connector}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_ship_part_a396d68491ee95fcb75e4a0bbe6fe08f2}{get\+Connectors}} ()
+\begin{DoxyCompactList}\small\item\em Gets the ship\+Parts connector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_ship_part_a9b091514dad0837bc00b7ec5bce27635}\label{class_ship_part_a9b091514dad0837bc00b7ec5bce27635} 
+sf\+::\+Sprite {\bfseries m\+\_\+body}
+\begin{DoxyCompactList}\small\item\em Ship sprite. \end{DoxyCompactList}\item 
+\Hypertarget{class_ship_part_a94b01a72708d223e515e7f3a4f36c8a7}\label{class_ship_part_a94b01a72708d223e515e7f3a4f36c8a7} 
+sf\+::\+Texture \texorpdfstring{$\ast$}{*} {\bfseries m\+\_\+texture}
+\begin{DoxyCompactList}\small\item\em Reference to ship part texture. \end{DoxyCompactList}\item 
+\Hypertarget{class_ship_part_aac9059b5ffa91f64cba11023061a3474}\label{class_ship_part_aac9059b5ffa91f64cba11023061a3474} 
+Part\+Type {\bfseries m\+\_\+type}
+\begin{DoxyCompactList}\small\item\em What type of ship part it is. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_ship_part_a3b0305cf5ea07ab1dda33b81a61d65e9}\label{class_ship_part_a3b0305cf5ea07ab1dda33b81a61d65e9} 
+void {\bfseries set\+Up\+Sprite} ()
+\begin{DoxyCompactList}\small\item\em Sets up the sprite. Origin, texture, position . \end{DoxyCompactList}\item 
+\Hypertarget{class_ship_part_a6c235bb8f4f3aa4d6a87dfc45bc66a24}\label{class_ship_part_a6c235bb8f4f3aa4d6a87dfc45bc66a24} 
+void {\bfseries set\+Up\+Connection\+Points} ()
+\begin{DoxyCompactList}\small\item\em Sets up the connection points dependent on what type of shpart it is. Cockpit having 1 on the bottom. Hull haveing 4, 1 on each side. \doxylink{class_thruster}{Thruster} having 1 on the top. Left Wing having 1 on the right. Right Wing having 1 on the left. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_ship_part_a68a6777ff0a05506c726d55960e53c64}\label{class_ship_part_a68a6777ff0a05506c726d55960e53c64} 
+sf\+::\+Vector2f {\bfseries m\+\_\+scale} = \{ 2, 2 \}
+\begin{DoxyCompactList}\small\item\em Scale of sprite. \end{DoxyCompactList}\item 
+\Hypertarget{class_ship_part_adafbe0d9fd2ba75fbaf228d745838800}\label{class_ship_part_adafbe0d9fd2ba75fbaf228d745838800} 
+sf\+::\+Vector2f {\bfseries m\+\_\+position} = \{ 100, 100 \}
+\begin{DoxyCompactList}\small\item\em Position of Sprite. \end{DoxyCompactList}\item 
+\Hypertarget{class_ship_part_a580ccf0af37c95f412e0f136de5147f7}\label{class_ship_part_a580ccf0af37c95f412e0f136de5147f7} 
+\mbox{\hyperlink{struct_connector}{Connector}} {\bfseries m\+\_\+connectors}
+\begin{DoxyCompactList}\small\item\em Ships part connection points. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Individual ship parts that can be connected to each other. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_ship_part_ac727b43a7a1fd918c70390dfa0e1ee99}\index{ShipPart@{ShipPart}!ShipPart@{ShipPart}}
+\index{ShipPart@{ShipPart}!ShipPart@{ShipPart}}
+\doxysubsubsection{\texorpdfstring{ShipPart()}{ShipPart()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_ship_part_ac727b43a7a1fd918c70390dfa0e1ee99} 
+Ship\+Part\+::\+Ship\+Part (\begin{DoxyParamCaption}\item[{sf\+::\+Texture \texorpdfstring{$\ast$}{*}}]{t\+\_\+texture}{, }\item[{Part\+Type}]{t\+\_\+type}{, }\item[{sf\+::\+Vector2f}]{t\+\_\+position}{}\end{DoxyParamCaption})}
+
+
+
+Creats a ship part. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+texture} & Reference texture in loader\\
+\hline
+{\em t\+\_\+type} & Type of ship part it will be\\
+\hline
+{\em t\+\_\+position} & Where it will spawn\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_ship_part_a408b230dbc22ff24b59ba5ed0791911b}\index{ShipPart@{ShipPart}!ShipPart@{ShipPart}}
+\index{ShipPart@{ShipPart}!ShipPart@{ShipPart}}
+\doxysubsubsection{\texorpdfstring{ShipPart()}{ShipPart()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_ship_part_a408b230dbc22ff24b59ba5ed0791911b} 
+Ship\+Part\+::\+Ship\+Part (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_ship_part}{Ship\+Part}} \&}]{other}{}\end{DoxyParamCaption})}
+
+
+
+Copy Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Other Ship\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_ship_part_ade52a7c9379a3a049a642fe466d76ba2}\index{ShipPart@{ShipPart}!draw@{draw}}
+\index{draw@{draw}!ShipPart@{ShipPart}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily \label{class_ship_part_ade52a7c9379a3a049a642fe466d76ba2} 
+void Ship\+Part\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{t\+\_\+window}{}\end{DoxyParamCaption})}
+
+
+
+Draws the ship part and its connection points. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+window} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_ship_part_a396d68491ee95fcb75e4a0bbe6fe08f2}\index{ShipPart@{ShipPart}!getConnectors@{getConnectors}}
+\index{getConnectors@{getConnectors}!ShipPart@{ShipPart}}
+\doxysubsubsection{\texorpdfstring{getConnectors()}{getConnectors()}}
+{\footnotesize\ttfamily \label{class_ship_part_a396d68491ee95fcb75e4a0bbe6fe08f2} 
+Connectors \texorpdfstring{$\ast$}{*} Ship\+Part\+::get\+Connectors (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Gets the ship\+Parts connector. 
+
+\begin{DoxyReturn}{Returns}
+Ships connectos
+\end{DoxyReturn}
+\Hypertarget{class_ship_part_a99b9493445bb84ce2a1c62715fa00e19}\index{ShipPart@{ShipPart}!getPosition@{getPosition}}
+\index{getPosition@{getPosition}!ShipPart@{ShipPart}}
+\doxysubsubsection{\texorpdfstring{getPosition()}{getPosition()}}
+{\footnotesize\ttfamily \label{class_ship_part_a99b9493445bb84ce2a1c62715fa00e19} 
+sf\+::\+Vector2f Ship\+Part\+::get\+Position (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Gets the current positon ship. 
+
+\begin{DoxyReturn}{Returns}
+Current position
+\end{DoxyReturn}
+\Hypertarget{class_ship_part_adcc6ec5e4003267351275742365ea8f2}\index{ShipPart@{ShipPart}!operator==@{operator==}}
+\index{operator==@{operator==}!ShipPart@{ShipPart}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily \label{class_ship_part_adcc6ec5e4003267351275742365ea8f2} 
+bool Ship\+Part\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_ship_part}{Ship\+Part}} \&}]{other}{}\end{DoxyParamCaption})}
+
+
+
+Compares if ship are the same depending on ship position and type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_ship_part_a097b073445a15c92c6946550d0291673}\index{ShipPart@{ShipPart}!setPosition@{setPosition}}
+\index{setPosition@{setPosition}!ShipPart@{ShipPart}}
+\doxysubsubsection{\texorpdfstring{setPosition()}{setPosition()}}
+{\footnotesize\ttfamily \label{class_ship_part_a097b073445a15c92c6946550d0291673} 
+void Ship\+Part\+::set\+Position (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{t\+\_\+position}{}\end{DoxyParamCaption})}
+
+
+
+Sets the position of the part. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+position} & Desired position\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_ship_part_aa1d798125df4c84ed719e78898c680aa}\index{ShipPart@{ShipPart}!setPositionRelativeToConnectorPoint@{setPositionRelativeToConnectorPoint}}
+\index{setPositionRelativeToConnectorPoint@{setPositionRelativeToConnectorPoint}!ShipPart@{ShipPart}}
+\doxysubsubsection{\texorpdfstring{setPositionRelativeToConnectorPoint()}{setPositionRelativeToConnectorPoint()}}
+{\footnotesize\ttfamily \label{class_ship_part_aa1d798125df4c84ed719e78898c680aa} 
+void Ship\+Part\+::set\+Position\+Relative\+To\+Connector\+Point (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{t\+\_\+position}{, }\item[{int}]{t\+\_\+index}{}\end{DoxyParamCaption})}
+
+
+
+Sets the position of the shipart relative to the desired connection point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+position} & Where the position is being set\\
+\hline
+{\em t\+\_\+index} & Which connection point we are position in relative to\\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Joshua/\+Desktop/4th\+Year\+Project/\+Lab 5/lab5/fun/Ship\+Part.\+h\item 
+C\+:/\+Users/\+Joshua/\+Desktop/4th\+Year\+Project/\+Lab 5/lab5/fun/Ship\+Part.\+cpp\end{DoxyCompactItemize}

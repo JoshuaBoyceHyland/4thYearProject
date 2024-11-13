@@ -1,0 +1,60 @@
+\doxysection{Ship\+Part.\+h}
+\hypertarget{_ship_part_8h_source}{}\label{_ship_part_8h_source}\index{C:/Users/Joshua/Desktop/4thYearProject/Lab 5/lab5/fun/ShipPart.h@{C:/Users/Joshua/Desktop/4thYearProject/Lab 5/lab5/fun/ShipPart.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Atttibutes.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}RotationMath.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{enum\ class}\ PartType\ \{\ \mbox{\hyperlink{class_cock_pit}{CockPit}}\ =\ 0,\ Hull\ =\ 1,\ Left\_Wing\ =\ 2,\ Right\_Wing\ =\ 3,\ \mbox{\hyperlink{class_thruster}{Thruster}}\ =\ 4\};}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_ship_part}{ShipPart}}}
+\DoxyCodeLine{00015\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ship_part}{ShipPart}}();}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ship_part}{ShipPart}}(sf::Texture*\ t\_texture,PartType\ t\_type,\ sf::Vector2f\ t\_position);}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ship_part}{ShipPart}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_ship_part}{ShipPart}}\&\ other);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_ship_part_adcc6ec5e4003267351275742365ea8f2}{operator\ ==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_ship_part}{ShipPart}}\&\ other);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_ship_part_af0da050546e098efc7717d6bfd4e8ecd}{update}}();}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_ship_part_ade52a7c9379a3a049a642fe466d76ba2}{draw}}(sf::RenderWindow\&\ t\_window);}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_ship_part_a097b073445a15c92c6946550d0291673}{setPosition}}(sf::Vector2f\ t\_position);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_ship_part_aa1d798125df4c84ed719e78898c680aa}{setPositionRelativeToConnectorPoint}}(sf::Vector2f\ t\_position,\ \textcolor{keywordtype}{int}\ t\_index);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ sf::Vector2f\ \mbox{\hyperlink{class_ship_part_a99b9493445bb84ce2a1c62715fa00e19}{getPosition}}();}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_connector}{Connector}}*\ \mbox{\hyperlink{class_ship_part_a396d68491ee95fcb75e4a0bbe6fe08f2}{getConnectors}}();}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ sf::Sprite\ \mbox{\hyperlink{class_ship_part_a9b091514dad0837bc00b7ec5bce27635}{m\_body}};}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ sf::Texture*\ \mbox{\hyperlink{class_ship_part_a94b01a72708d223e515e7f3a4f36c8a7}{m\_texture}};}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ PartType\ \mbox{\hyperlink{class_ship_part_aac9059b5ffa91f64cba11023061a3474}{m\_type}};}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_ship_part_a3b0305cf5ea07ab1dda33b81a61d65e9}{setUpSprite}}();}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_ship_part_a6c235bb8f4f3aa4d6a87dfc45bc66a24}{setUpConnectionPoints}}();}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ sf::Vector2f\ \mbox{\hyperlink{class_ship_part_a68a6777ff0a05506c726d55960e53c64}{m\_scale}}\ =\ \{\ 2,\ 2\ \};}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ sf::Vector2f\ \mbox{\hyperlink{class_ship_part_adafbe0d9fd2ba75fbaf228d745838800}{m\_position}}\ =\ \{\ 100,\ 100\ \};}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_connector}{Connector}}\ \mbox{\hyperlink{class_ship_part_a580ccf0af37c95f412e0f136de5147f7}{m\_connectors}};}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \};}
+\DoxyCodeLine{00129\ }
+
+\end{DoxyCode}

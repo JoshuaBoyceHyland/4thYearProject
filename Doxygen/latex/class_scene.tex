@@ -1,0 +1,103 @@
+\doxysection{Scene Class Reference}
+\hypertarget{class_scene}{}\label{class_scene}\index{Scene@{Scene}}
+
+
+Interface Class that all scenes that will inherit from.  
+
+
+
+
+{\ttfamily \#include $<$Scene.\+h$>$}
+
+Inheritance diagram for Scene\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_scene}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_scene_a9051811bf2604d662c8acceadd594891}{update}} (sf\+::\+Time t\+\_\+delta\+Time)=0
+\item 
+virtual void \mbox{\hyperlink{class_scene_a823f4cd60d27932ee16f74adb0421ff6}{render}} ()=0
+\item 
+virtual void \mbox{\hyperlink{class_scene_a9f05553d4734f77bfcded994937fda8f}{process\+Keys}} (sf\+::\+Event t\+\_\+event)=0
+\item 
+virtual void \mbox{\hyperlink{class_scene_a3e046a4fd4b5a430bd416aea746f4f2b}{process\+Mouse\+Press}} (sf\+::\+Event t\+\_\+event)=0
+\item 
+virtual void \mbox{\hyperlink{class_scene_aaddcb0a440a6bcbf1c6e27678907380d}{process\+Mouse\+Release}} (sf\+::\+Event t\+\_\+event)=0
+\item 
+virtual void \mbox{\hyperlink{class_scene_acb23f62f66e992e9671e889cec2acee2}{process\+Mouse\+Move}} (sf\+::\+Event t\+\_\+event)=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface Class that all scenes that will inherit from. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_scene_a9f05553d4734f77bfcded994937fda8f}\index{Scene@{Scene}!processKeys@{processKeys}}
+\index{processKeys@{processKeys}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{processKeys()}{processKeys()}}
+{\footnotesize\ttfamily \label{class_scene_a9f05553d4734f77bfcded994937fda8f} 
+virtual void Scene\+::process\+Keys (\begin{DoxyParamCaption}\item[{sf\+::\+Event}]{t\+\_\+event}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_editor_scene_acfc247df4ab7b6fbf7f331bc0ffad65b}{Editor\+Scene}}.
+
+\Hypertarget{class_scene_acb23f62f66e992e9671e889cec2acee2}\index{Scene@{Scene}!processMouseMove@{processMouseMove}}
+\index{processMouseMove@{processMouseMove}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{processMouseMove()}{processMouseMove()}}
+{\footnotesize\ttfamily \label{class_scene_acb23f62f66e992e9671e889cec2acee2} 
+virtual void Scene\+::process\+Mouse\+Move (\begin{DoxyParamCaption}\item[{sf\+::\+Event}]{t\+\_\+event}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_editor_scene_a04dc8fc892964c5e2878ab794e8b1dd5}{Editor\+Scene}}.
+
+\Hypertarget{class_scene_a3e046a4fd4b5a430bd416aea746f4f2b}\index{Scene@{Scene}!processMousePress@{processMousePress}}
+\index{processMousePress@{processMousePress}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{processMousePress()}{processMousePress()}}
+{\footnotesize\ttfamily \label{class_scene_a3e046a4fd4b5a430bd416aea746f4f2b} 
+virtual void Scene\+::process\+Mouse\+Press (\begin{DoxyParamCaption}\item[{sf\+::\+Event}]{t\+\_\+event}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_editor_scene_abad49ee50d8610d3a9a4c00289d20ece}{Editor\+Scene}}.
+
+\Hypertarget{class_scene_aaddcb0a440a6bcbf1c6e27678907380d}\index{Scene@{Scene}!processMouseRelease@{processMouseRelease}}
+\index{processMouseRelease@{processMouseRelease}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{processMouseRelease()}{processMouseRelease()}}
+{\footnotesize\ttfamily \label{class_scene_aaddcb0a440a6bcbf1c6e27678907380d} 
+virtual void Scene\+::process\+Mouse\+Release (\begin{DoxyParamCaption}\item[{sf\+::\+Event}]{t\+\_\+event}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_editor_scene_ac4f760a16caf8976000e5b4c077966b2}{Editor\+Scene}}.
+
+\Hypertarget{class_scene_a823f4cd60d27932ee16f74adb0421ff6}\index{Scene@{Scene}!render@{render}}
+\index{render@{render}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{class_scene_a823f4cd60d27932ee16f74adb0421ff6} 
+virtual void Scene\+::render (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_editor_scene_a69b288fb6a93d5298178c74aec67f2ce}{Editor\+Scene}}.
+
+\Hypertarget{class_scene_a9051811bf2604d662c8acceadd594891}\index{Scene@{Scene}!update@{update}}
+\index{update@{update}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_scene_a9051811bf2604d662c8acceadd594891} 
+virtual void Scene\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Time}]{t\+\_\+delta\+Time}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_editor_scene_a3fd89ec4f5097768cc8170f98c1fc355}{Editor\+Scene}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Joshua/\+Desktop/4th\+Year\+Project/\+Lab 5/lab5/fun/Scene.\+h\end{DoxyCompactItemize}

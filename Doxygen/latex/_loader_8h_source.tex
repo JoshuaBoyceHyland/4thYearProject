@@ -1,0 +1,35 @@
+\doxysection{Loader.\+h}
+\hypertarget{_loader_8h_source}{}\label{_loader_8h_source}\index{C:/Users/Joshua/Desktop/4thYearProject/Lab 5/lab5/fun/Loader.h@{C:/Users/Joshua/Desktop/4thYearProject/Lab 5/lab5/fun/Loader.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <map>};}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_loader}{Loader}}}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_loader_ab6f66971fb81008ea26c165b81656a21}{Loader}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_loader}{Loader}}\&\ other)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_loader}{Loader}}*\ \mbox{\hyperlink{class_loader_a1a5bb30605489282e45ddaf9e2565735}{getInstance}}();}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ sf::Font*\ \mbox{\hyperlink{class_loader_a22ddf36a9909f20f7acee49c9d84908e}{loadFont}}(std::string\ t\_path);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ sf::Texture*\ \mbox{\hyperlink{class_loader_a81f2914c548cdb90f461e195f28ece9d}{loadTexture}}(std::string\ t\_path);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_loader_ab6f66971fb81008ea26c165b81656a21}{Loader}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_loader}{Loader}}*\ \mbox{\hyperlink{class_loader_ace0564035dfcb861f68b2ab5c12ffbc3}{instance}};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ std::map\ <\ std::string,\ sf::Font>\ \mbox{\hyperlink{class_loader_ad904b72baa333b78664da059d017c7b8}{m\_fonts}};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ std::map\ <\ std::string,\ sf::Texture>\ \mbox{\hyperlink{class_loader_a47a64f044f45125af05b0bf68e0c29b5}{m\_textures}};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \};}
+\DoxyCodeLine{00065\ }
+
+\end{DoxyCode}

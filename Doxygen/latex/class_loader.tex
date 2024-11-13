@@ -1,0 +1,108 @@
+\doxysection{Loader Class Reference}
+\hypertarget{class_loader}{}\label{class_loader}\index{Loader@{Loader}}
+
+
+Singleton font and texture loading class Ensures a resource will only be loaded once.  
+
+
+
+
+{\ttfamily \#include $<$Loader.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_loader_a93d97665273be3c52906266eb111b54b}\label{class_loader_a93d97665273be3c52906266eb111b54b} 
+{\bfseries Loader} (const \mbox{\hyperlink{class_loader}{Loader}} \&other)=delete
+\item 
+sf\+::\+Font \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_loader_a22ddf36a9909f20f7acee49c9d84908e}{load\+Font}} (std\+::string t\+\_\+path)
+\begin{DoxyCompactList}\small\item\em Loads the font at the the file path given. Checks if the font has already been loaded by checking the font map. If it was already loaded it will return the previously loaded font. Otherwise it will load the font as expected. \end{DoxyCompactList}\item 
+sf\+::\+Texture \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_loader_a81f2914c548cdb90f461e195f28ece9d}{load\+Texture}} (std\+::string t\+\_\+path)
+\begin{DoxyCompactList}\small\item\em Loads the texture at the the file path given. Checks if the texture has already been loaded by checking the texture map. If it was already loaded it will return the previously loaded texture. Otherwise it will load the texture as expected. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_loader}{Loader}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_loader_a1a5bb30605489282e45ddaf9e2565735}{get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em Gets the single instance of this class, if class instance doesn\textquotesingle{}t exist it instaniates it. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_loader_ab6f66971fb81008ea26c165b81656a21}\label{class_loader_ab6f66971fb81008ea26c165b81656a21} 
+{\bfseries Loader} ()=default
+\begin{DoxyCompactList}\small\item\em Private constructor so it can only created be internally by the get\+Instance function if needed to. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_loader_ad904b72baa333b78664da059d017c7b8}\label{class_loader_ad904b72baa333b78664da059d017c7b8} 
+std\+::map$<$ std\+::string, sf\+::\+Font $>$ {\bfseries m\+\_\+fonts}
+\begin{DoxyCompactList}\small\item\em Map of fonts, where each font has a associated string key, the string being s file location of the font. This allows the load\+Font function to see if te font has been previously loaded. \end{DoxyCompactList}\item 
+\Hypertarget{class_loader_a47a64f044f45125af05b0bf68e0c29b5}\label{class_loader_a47a64f044f45125af05b0bf68e0c29b5} 
+std\+::map$<$ std\+::string, sf\+::\+Texture $>$ {\bfseries m\+\_\+textures}
+\begin{DoxyCompactList}\small\item\em /\+Map of textures, where each texture has a associated string key, the string being a file location of the texture. This allows the loadtexture function to see if te texture has been previously loaded. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_loader_ace0564035dfcb861f68b2ab5c12ffbc3}\label{class_loader_ace0564035dfcb861f68b2ab5c12ffbc3} 
+static \mbox{\hyperlink{class_loader}{Loader}} \texorpdfstring{$\ast$}{*} {\bfseries instance} = nullptr
+\begin{DoxyCompactList}\small\item\em Single instance of the loader. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Singleton font and texture loading class Ensures a resource will only be loaded once. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_loader_a1a5bb30605489282e45ddaf9e2565735}\index{Loader@{Loader}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!Loader@{Loader}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily \label{class_loader_a1a5bb30605489282e45ddaf9e2565735} 
+\mbox{\hyperlink{class_loader}{Loader}} \texorpdfstring{$\ast$}{*} Loader\+::get\+Instance (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Gets the single instance of this class, if class instance doesn\textquotesingle{}t exist it instaniates it. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to instance of \doxylink{class_loader}{Loader}
+\end{DoxyReturn}
+\Hypertarget{class_loader_a22ddf36a9909f20f7acee49c9d84908e}\index{Loader@{Loader}!loadFont@{loadFont}}
+\index{loadFont@{loadFont}!Loader@{Loader}}
+\doxysubsubsection{\texorpdfstring{loadFont()}{loadFont()}}
+{\footnotesize\ttfamily \label{class_loader_a22ddf36a9909f20f7acee49c9d84908e} 
+sf\+::\+Font \texorpdfstring{$\ast$}{*} Loader\+::load\+Font (\begin{DoxyParamCaption}\item[{std\+::string}]{t\+\_\+path}{}\end{DoxyParamCaption})}
+
+
+
+Loads the font at the the file path given. Checks if the font has already been loaded by checking the font map. If it was already loaded it will return the previously loaded font. Otherwise it will load the font as expected. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+path} & File location of font\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the font
+\end{DoxyReturn}
+\Hypertarget{class_loader_a81f2914c548cdb90f461e195f28ece9d}\index{Loader@{Loader}!loadTexture@{loadTexture}}
+\index{loadTexture@{loadTexture}!Loader@{Loader}}
+\doxysubsubsection{\texorpdfstring{loadTexture()}{loadTexture()}}
+{\footnotesize\ttfamily \label{class_loader_a81f2914c548cdb90f461e195f28ece9d} 
+sf\+::\+Texture \texorpdfstring{$\ast$}{*} Loader\+::load\+Texture (\begin{DoxyParamCaption}\item[{std\+::string}]{t\+\_\+path}{}\end{DoxyParamCaption})}
+
+
+
+Loads the texture at the the file path given. Checks if the texture has already been loaded by checking the texture map. If it was already loaded it will return the previously loaded texture. Otherwise it will load the texture as expected. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+path} & File location of texture\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to texture
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Joshua/\+Desktop/4th\+Year\+Project/\+Lab 5/lab5/fun/Loader.\+h\item 
+C\+:/\+Users/\+Joshua/\+Desktop/4th\+Year\+Project/\+Lab 5/lab5/fun/Loader.\+cpp\end{DoxyCompactItemize}

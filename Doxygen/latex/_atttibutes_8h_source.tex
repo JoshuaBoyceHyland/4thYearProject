@@ -1,0 +1,52 @@
+\doxysection{Atttibutes.\+h}
+\hypertarget{_atttibutes_8h_source}{}\label{_atttibutes_8h_source}\index{C:/Users/Joshua/Desktop/4thYearProject/Lab 5/lab5/fun/Atttibutes.h@{C:/Users/Joshua/Desktop/4thYearProject/Lab 5/lab5/fun/Atttibutes.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_connector}{Connector}}\ }
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \ \ sf::Vector2f*\ anchorPoint;}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ std::vector<sf::Vector2f>\ connectionPoints;}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{struct_connector}{Connector}}()\{\}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{struct_connector}{Connector}}(\ std::vector<sf::Vector2f>\ t\_connectionPoints)}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ :\ \ connectionPoints(t\_connectionPoints)\ \{\}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{struct_connector}{Connector}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_connector}{Connector}}\&\ other)}
+\DoxyCodeLine{00021\ \ \ \ \ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ this-\/>anchorPoint\ =\ other.anchorPoint;}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ this-\/>connectionPoints\ =\ connectionPoints;}
+\DoxyCodeLine{00024\ \ \ \ \ \}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ std::vector<sf::Vector2f>\ getAnchoredConnectionPoint()}
+\DoxyCodeLine{00027\ \ \ \ \ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ std::vector<sf::Vector2f>\ anchoredPoints;}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ connectionPoints.size();\ i++)}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ anchoredPoints.push\_back((*anchorPoint)\ +\ connectionPoints[i]);}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ anchoredPoints;}
+\DoxyCodeLine{00035\ \ \ \ \ \}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ visualisePoints(sf::RenderWindow\&\ t\_window)}
+\DoxyCodeLine{00038\ \ \ \ \ \{}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ connectionPoints.size();\ i++)}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ sf::CircleShape\ circle;}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ circle.setRadius(2);}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ circle.setFillColor(sf::Color::Red);}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ circle.setOrigin(\{\ 1,\ 1\ \});}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ circle.setPosition(getAnchoredConnectionPoint()[i]);}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ t\_window.draw(circle);}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00049\ \ \ \ \ \}}
+\DoxyCodeLine{00050\ \};}
+
+\end{DoxyCode}

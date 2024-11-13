@@ -4,7 +4,7 @@ PartsLibarary* PartsLibarary::instance = nullptr;
 
 PartsLibarary::PartsLibarary()
 {
-	initialiseVectors();
+	fillLibrary();
 }
 
 PartsLibarary* PartsLibarary::getInstance()
@@ -46,7 +46,7 @@ ShipPart* PartsLibarary::getPart(PartType t_type, int t_index)
 	return &m_parts[static_cast<int>(t_type)][t_index];
 }
 
-void PartsLibarary::initialiseVectors()
+void PartsLibarary::fillLibrary()
 {
 
 

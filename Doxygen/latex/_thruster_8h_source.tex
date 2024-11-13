@@ -1,0 +1,41 @@
+\doxysection{Thruster.\+h}
+\hypertarget{_thruster_8h_source}{}\label{_thruster_8h_source}\index{C:/Users/Joshua/Desktop/4thYearProject/Lab 5/lab5/fun/Thruster.h@{C:/Users/Joshua/Desktop/4thYearProject/Lab 5/lab5/fun/Thruster.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Atttibutes.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}RotationMath.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Loader.h"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_thruster}{Thruster}}}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_thruster}{Thruster}}(std::string\ t\_texturePath);}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_thruster}{Thruster}}(Connectors\ t\_attributes,\ std::string\ t\_texturePath);}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ update();}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ draw(sf::RenderWindow\&\ t\_window);}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setRotation(\textcolor{keywordtype}{float}\ t\_rotation);}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setPostion(sf::Vector2f\ t\_position);}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ sf::Vector2f\ getConnectionPount(\textcolor{keywordtype}{int}\ t\_index);}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setUpBody(std::string\ t\_texturePath);}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setUpConnectionPoints();}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ sf::Texture*\ m\_texture;}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ sf::Sprite\ m\_body;}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ Connectors\ m\_attributes;}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ std::vector<sf::CircleShape>\ m\_connectionCircles;}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ sf::Vector2f\ m\_position;}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ m\_rotation;}
+\DoxyCodeLine{00034\ \};}
+\DoxyCodeLine{00035\ }
+
+\end{DoxyCode}

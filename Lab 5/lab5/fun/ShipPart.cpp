@@ -6,23 +6,19 @@ ShipPart::ShipPart()
 
 ShipPart::ShipPart(sf::Texture* t_texture, PartType t_type, sf::Vector2f t_position) : m_texture(t_texture),m_type(t_type), m_position( t_position)
 {
-
 	setUpSprite();
 	setUpConnectionPoints();
 }
 ShipPart::ShipPart(const ShipPart& other)
 {
-	std::cout << "Copy constructor called" << std::endl;
 	this->m_position = other.m_position;
 	this->m_body = other.m_body;
-	this->m_rotation = other.m_rotation;
 	this->m_type = other.m_type;
 	this->m_connectors = other.m_connectors;
 	this->m_texture = other.m_texture;
 	this->m_scale = other.m_scale;
 	this->m_connectors.anchorPoint = &m_position;
-	this->m_body.setTexture((*m_texture));
-
+	this->m_body.setTexture((*m_texture)); // reseting texture
 }
 
 
@@ -30,8 +26,9 @@ bool ShipPart::operator==(const ShipPart& other)
 {
 	bool sameX = this->m_position.x == other.m_position.x;
 	bool sameY = this->m_position.y == other.m_position.y;
+	bool sameType = this->m_type == other.m_type;
 
-	return sameX && sameY;
+	return sameX && sameY && sameType;
 }
 
 void ShipPart::update()
@@ -50,11 +47,6 @@ void ShipPart::setPosition(sf::Vector2f t_position)
 	m_position = t_position;
 }
 
-Connectors* ShipPart::getConnectors()
-{
-	return &m_connectors;
-}
-
 void ShipPart::setPositionRelativeToConnectorPoint(sf::Vector2f t_position, int t_index)
 {
 
@@ -66,6 +58,10 @@ sf::Vector2f ShipPart::getPosition()
 	return m_position;
 }
 
+Connector* ShipPart::getConnectors()
+{
+	return &m_connectors;
+}
 
 void ShipPart::setUpSprite()
 {

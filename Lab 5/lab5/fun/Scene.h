@@ -1,5 +1,9 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+
+/// <summary>
+/// Interface Class that all scenes that will inherit from
+/// </summary>
 class Scene
 {
 	public:

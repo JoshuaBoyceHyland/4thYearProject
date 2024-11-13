@@ -5,19 +5,19 @@
 /// Holds the various variables that will effect flights
 /// @param span 
 /// </summary>
-struct Connectors 
+struct Connector 
 {
 
 	sf::Vector2f* anchorPoint;
 
 	std::vector<sf::Vector2f> connectionPoints;
 
-	Connectors(){}
+	Connector(){}
 
-	Connectors( std::vector<sf::Vector2f> t_connectionPoints)
+	Connector( std::vector<sf::Vector2f> t_connectionPoints)
 		:  connectionPoints(t_connectionPoints) {}
 
-	Connectors(const Connectors& other)
+	Connector(const Connector& other)
 	{
 		this->anchorPoint = other.anchorPoint;
 		this->connectionPoints = connectionPoints;

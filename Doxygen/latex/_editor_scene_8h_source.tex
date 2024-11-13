@@ -1,0 +1,40 @@
+\doxysection{Editor\+Scene.\+h}
+\hypertarget{_editor_scene_8h_source}{}\label{_editor_scene_8h_source}\index{C:/Users/Joshua/Desktop/4thYearProject/Lab 5/lab5/fun/EditorScene.h@{C:/Users/Joshua/Desktop/4thYearProject/Lab 5/lab5/fun/EditorScene.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}Scene.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}EditorMouse.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}PartsLibarary.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}UIBox.h"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_editor_scene}{EditorScene}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_scene}{Scene}}}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_editor_scene_ad94d1d8c44391260f905dbe18fb242d0}{EditorScene}}(sf::RenderWindow\ \&\ t\_window);}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_editor_scene_a3fd89ec4f5097768cc8170f98c1fc355}{update}}(sf::Time\ t\_deltaTime);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_editor_scene_a69b288fb6a93d5298178c74aec67f2ce}{render}}();}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_editor_scene_acfc247df4ab7b6fbf7f331bc0ffad65b}{processKeys}}(sf::Event\ t\_event);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_editor_scene_abad49ee50d8610d3a9a4c00289d20ece}{processMousePress}}(sf::Event\ t\_event);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_editor_scene_ac4f760a16caf8976000e5b4c077966b2}{processMouseRelease}}(sf::Event\ t\_event);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_editor_scene_a04dc8fc892964c5e2878ab794e8b1dd5}{processMouseMove}}(sf::Event\ t\_event);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ sf::RenderWindow\&\ \mbox{\hyperlink{class_editor_scene_ab702b8241cd2b6fa6aca0b590370a322}{m\_window}};\ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ std::vector<ShipPart*>\ \mbox{\hyperlink{class_editor_scene_a64afd46341fd2f17675c94e6bca6f49f}{m\_parts}};\ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_editor_mouse}{EditorMouse}}\ \mbox{\hyperlink{class_editor_scene_a399232cdce1241d48b1fa61920b848f2}{m\_mouse}};}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_u_i_box}{UIBox}}\ \mbox{\hyperlink{class_editor_scene_abc9445d316822ee825d2af82542d5e0f}{ui}};\ }
+\DoxyCodeLine{00076\ \};}
+\DoxyCodeLine{00077\ }
+
+\end{DoxyCode}

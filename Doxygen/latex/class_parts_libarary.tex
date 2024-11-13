@@ -1,0 +1,196 @@
+\doxysection{Parts\+Libarary Class Reference}
+\hypertarget{class_parts_libarary}{}\label{class_parts_libarary}\index{PartsLibarary@{PartsLibarary}}
+
+
+Holds every ship part that can be made.  
+
+
+
+
+{\ttfamily \#include $<$Parts\+Libarary.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_parts_libarary_a6c96c319c2899bcedded6a174c5137e5}\label{class_parts_libarary_a6c96c319c2899bcedded6a174c5137e5} 
+{\bfseries Parts\+Libarary} (const \mbox{\hyperlink{class_parts_libarary}{Parts\+Libarary}} \&other)=delete
+\item 
+\mbox{\hyperlink{class_ship_part}{Ship\+Part}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_parts_libarary_a3a498e80a90fe64f5e3fbe77c751f828}{get\+Cockpit}} (int t\+\_\+index)
+\begin{DoxyCompactList}\small\item\em Gets a specific cockpit part using an index. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_ship_part}{Ship\+Part}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_parts_libarary_a7987333b4ac531ac0a244629f7b2a082}{get\+Hull\+Part}} (int t\+\_\+index)
+\begin{DoxyCompactList}\small\item\em Gets a specific hull part using an index. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_ship_part}{Ship\+Part}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_parts_libarary_a8507a3e2c730cf160fbf04ecd82e9026}{get\+Get\+Thruster}} (int t\+\_\+index)
+\begin{DoxyCompactList}\small\item\em Gets a specific thruster part using an index. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_ship_part}{Ship\+Part}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_parts_libarary_aa1117e8c65f4e76b0f0bd052398bc01c}{get\+Left\+Wing}} (int t\+\_\+index)
+\begin{DoxyCompactList}\small\item\em Gets a specific left wing part using an index. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_ship_part}{Ship\+Part}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_parts_libarary_a59084acb16b8c154ab882eef88ed855b}{get\+Right\+Wing}} (int t\+\_\+index)
+\begin{DoxyCompactList}\small\item\em Gets a specific right wing part using an index. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_ship_part}{Ship\+Part}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_parts_libarary_a1e3010ecc5503cd52fc7ed588ddd81b3}{get\+Part}} (Part\+Type t\+\_\+type, int t\+\_\+index)
+\begin{DoxyCompactList}\small\item\em Gets a specific part from the the Ship\+Parts vector using the type and index. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_parts_libarary}{Parts\+Libarary}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_parts_libarary_ae25adc365057d9b9af35c6ac940878f8}{get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em Gets the single instance of this class, if class instance doesn\textquotesingle{}t exist it instaniates it. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_parts_libarary_ad84ba012f6de5a64bf70d235a09d85f8}\label{class_parts_libarary_ad84ba012f6de5a64bf70d235a09d85f8} 
+static const int {\bfseries NUM\+\_\+\+OF\+\_\+\+EACH\+\_\+\+PART} = 2
+\begin{DoxyCompactList}\small\item\em Amount of each type of ship part. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_parts_libarary_a6a507597da104b7f40512697c979203b}\label{class_parts_libarary_a6a507597da104b7f40512697c979203b} 
+{\bfseries Parts\+Libarary} ()
+\begin{DoxyCompactList}\small\item\em Private constructor so it can only be created internally by the get\+Instance function if needed to. Calls \doxylink{class_parts_libarary_a6c6e80898dba7486906bd0baad552336}{fill\+Library()}. \end{DoxyCompactList}\item 
+\Hypertarget{class_parts_libarary_a6c6e80898dba7486906bd0baad552336}\label{class_parts_libarary_a6c6e80898dba7486906bd0baad552336} 
+void {\bfseries fill\+Library} ()
+\begin{DoxyCompactList}\small\item\em Fills each Vector with every type of ship part using the loader. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_parts_libarary_ac6323dcc8fdaba1d0a20f88800606a4f}\label{class_parts_libarary_ac6323dcc8fdaba1d0a20f88800606a4f} 
+std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{class_ship_part}{Ship\+Part}} $>$ $>$ {\bfseries m\+\_\+parts} = \{ std\+::vector$<$\mbox{\hyperlink{class_ship_part}{Ship\+Part}}$>$(), std\+::vector$<$\mbox{\hyperlink{class_ship_part}{Ship\+Part}}$>$(), std\+::vector$<$\mbox{\hyperlink{class_ship_part}{Ship\+Part}}$>$(), std\+::vector$<$\mbox{\hyperlink{class_ship_part}{Ship\+Part}}$>$(), std\+::vector$<$\mbox{\hyperlink{class_ship_part}{Ship\+Part}}$>$() \}
+\begin{DoxyCompactList}\small\item\em A vector of \doxylink{class_ship_part}{Ship\+Part} vectors, each specific \doxylink{class_ship_part}{Ship\+Part} type Vector being accessable using the Part\+Type enum. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_parts_libarary_a028f56641cfd8970cb4623d535bd374c}\label{class_parts_libarary_a028f56641cfd8970cb4623d535bd374c} 
+static \mbox{\hyperlink{class_parts_libarary}{Parts\+Libarary}} \texorpdfstring{$\ast$}{*} {\bfseries instance} = nullptr
+\begin{DoxyCompactList}\small\item\em Single instance of the Parts\+Library. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Holds every ship part that can be made. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_parts_libarary_a3a498e80a90fe64f5e3fbe77c751f828}\index{PartsLibarary@{PartsLibarary}!getCockpit@{getCockpit}}
+\index{getCockpit@{getCockpit}!PartsLibarary@{PartsLibarary}}
+\doxysubsubsection{\texorpdfstring{getCockpit()}{getCockpit()}}
+{\footnotesize\ttfamily \label{class_parts_libarary_a3a498e80a90fe64f5e3fbe77c751f828} 
+\mbox{\hyperlink{class_ship_part}{Ship\+Part}} \texorpdfstring{$\ast$}{*} Parts\+Libarary\+::get\+Cockpit (\begin{DoxyParamCaption}\item[{int}]{t\+\_\+index}{}\end{DoxyParamCaption})}
+
+
+
+Gets a specific cockpit part using an index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+index} & Index of cockpit part.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Desired cockpit
+\end{DoxyReturn}
+\Hypertarget{class_parts_libarary_a8507a3e2c730cf160fbf04ecd82e9026}\index{PartsLibarary@{PartsLibarary}!getGetThruster@{getGetThruster}}
+\index{getGetThruster@{getGetThruster}!PartsLibarary@{PartsLibarary}}
+\doxysubsubsection{\texorpdfstring{getGetThruster()}{getGetThruster()}}
+{\footnotesize\ttfamily \label{class_parts_libarary_a8507a3e2c730cf160fbf04ecd82e9026} 
+\mbox{\hyperlink{class_ship_part}{Ship\+Part}} \texorpdfstring{$\ast$}{*} Parts\+Libarary\+::get\+Get\+Thruster (\begin{DoxyParamCaption}\item[{int}]{t\+\_\+index}{}\end{DoxyParamCaption})}
+
+
+
+Gets a specific thruster part using an index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+index} & Index of thruster part.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Desired thruster
+\end{DoxyReturn}
+\Hypertarget{class_parts_libarary_a7987333b4ac531ac0a244629f7b2a082}\index{PartsLibarary@{PartsLibarary}!getHullPart@{getHullPart}}
+\index{getHullPart@{getHullPart}!PartsLibarary@{PartsLibarary}}
+\doxysubsubsection{\texorpdfstring{getHullPart()}{getHullPart()}}
+{\footnotesize\ttfamily \label{class_parts_libarary_a7987333b4ac531ac0a244629f7b2a082} 
+\mbox{\hyperlink{class_ship_part}{Ship\+Part}} \texorpdfstring{$\ast$}{*} Parts\+Libarary\+::get\+Hull\+Part (\begin{DoxyParamCaption}\item[{int}]{t\+\_\+index}{}\end{DoxyParamCaption})}
+
+
+
+Gets a specific hull part using an index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+index} & Index of hull part.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Desired hull.
+\end{DoxyReturn}
+\Hypertarget{class_parts_libarary_ae25adc365057d9b9af35c6ac940878f8}\index{PartsLibarary@{PartsLibarary}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!PartsLibarary@{PartsLibarary}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily \label{class_parts_libarary_ae25adc365057d9b9af35c6ac940878f8} 
+\mbox{\hyperlink{class_parts_libarary}{Parts\+Libarary}} \texorpdfstring{$\ast$}{*} Parts\+Libarary\+::get\+Instance (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Gets the single instance of this class, if class instance doesn\textquotesingle{}t exist it instaniates it. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to instance of Parts\+Library
+\end{DoxyReturn}
+\Hypertarget{class_parts_libarary_aa1117e8c65f4e76b0f0bd052398bc01c}\index{PartsLibarary@{PartsLibarary}!getLeftWing@{getLeftWing}}
+\index{getLeftWing@{getLeftWing}!PartsLibarary@{PartsLibarary}}
+\doxysubsubsection{\texorpdfstring{getLeftWing()}{getLeftWing()}}
+{\footnotesize\ttfamily \label{class_parts_libarary_aa1117e8c65f4e76b0f0bd052398bc01c} 
+\mbox{\hyperlink{class_ship_part}{Ship\+Part}} \texorpdfstring{$\ast$}{*} Parts\+Libarary\+::get\+Left\+Wing (\begin{DoxyParamCaption}\item[{int}]{t\+\_\+index}{}\end{DoxyParamCaption})}
+
+
+
+Gets a specific left wing part using an index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+index} & Index of left wing part.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Desired left wing
+\end{DoxyReturn}
+\Hypertarget{class_parts_libarary_a1e3010ecc5503cd52fc7ed588ddd81b3}\index{PartsLibarary@{PartsLibarary}!getPart@{getPart}}
+\index{getPart@{getPart}!PartsLibarary@{PartsLibarary}}
+\doxysubsubsection{\texorpdfstring{getPart()}{getPart()}}
+{\footnotesize\ttfamily \label{class_parts_libarary_a1e3010ecc5503cd52fc7ed588ddd81b3} 
+\mbox{\hyperlink{class_ship_part}{Ship\+Part}} \texorpdfstring{$\ast$}{*} Parts\+Libarary\+::get\+Part (\begin{DoxyParamCaption}\item[{Part\+Type}]{t\+\_\+type}{, }\item[{int}]{t\+\_\+index}{}\end{DoxyParamCaption})}
+
+
+
+Gets a specific part from the the Ship\+Parts vector using the type and index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+type} & Type of ship part desired.\\
+\hline
+{\em t\+\_\+index} & Index of ship part.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Desired ship\+Part
+\end{DoxyReturn}
+\Hypertarget{class_parts_libarary_a59084acb16b8c154ab882eef88ed855b}\index{PartsLibarary@{PartsLibarary}!getRightWing@{getRightWing}}
+\index{getRightWing@{getRightWing}!PartsLibarary@{PartsLibarary}}
+\doxysubsubsection{\texorpdfstring{getRightWing()}{getRightWing()}}
+{\footnotesize\ttfamily \label{class_parts_libarary_a59084acb16b8c154ab882eef88ed855b} 
+\mbox{\hyperlink{class_ship_part}{Ship\+Part}} \texorpdfstring{$\ast$}{*} Parts\+Libarary\+::get\+Right\+Wing (\begin{DoxyParamCaption}\item[{int}]{t\+\_\+index}{}\end{DoxyParamCaption})}
+
+
+
+Gets a specific right wing part using an index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+index} & Index of right wing part.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Desired right wing
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Joshua/\+Desktop/4th\+Year\+Project/\+Lab 5/lab5/fun/Parts\+Libarary.\+h\item 
+C\+:/\+Users/\+Joshua/\+Desktop/4th\+Year\+Project/\+Lab 5/lab5/fun/Parts\+Libarary.\+cpp\end{DoxyCompactItemize}

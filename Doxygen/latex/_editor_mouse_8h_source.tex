@@ -1,0 +1,41 @@
+\doxysection{Editor\+Mouse.\+h}
+\hypertarget{_editor_mouse_8h_source}{}\label{_editor_mouse_8h_source}\index{C:/Users/Joshua/Desktop/4thYearProject/Lab 5/lab5/fun/EditorMouse.h@{C:/Users/Joshua/Desktop/4thYearProject/Lab 5/lab5/fun/EditorMouse.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}ShipPart.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}VectorMath.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Atttibutes.h"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_editor_mouse}{EditorMouse}}}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_editor_mouse}{EditorMouse}}();}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_editor_mouse_aa26a97695f3e2fd111ff9ab3bf8f34be}{selectPiece}}(\textcolor{keywordtype}{int}\ t\_index);}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_editor_mouse_a71d941287ec9397fd0443fc96ba4b480}{checkForPartSelection}}();}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_editor_mouse_a8f959c89ddcd036c4786961af886d9fa}{releaseSelectedPart}}();}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_editor_mouse_a53a0e0aadb97caea9aecd2ee58f67f0d}{update}}();}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ sf::Vector2f\ \mbox{\hyperlink{class_editor_mouse_a3741c0d11d5ed7d0ba109c7c7410bd59}{m\_position}};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ std::vector<ShipPart*>\ \mbox{\hyperlink{class_editor_mouse_ad50c7825ecb2d6b8f036c8aac49531fe}{m\_partsInScene}};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ship_part}{ShipPart}}*\ \mbox{\hyperlink{class_editor_mouse_a78afb6fd5a86d863f41ea230276d59d3}{getClosestPart}}();}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ sf::Vector2f\ \mbox{\hyperlink{class_editor_mouse_ae987004bbf2a81f4e2efc3548bbbec62}{getClosestConnectionPos}}(\mbox{\hyperlink{struct_connector}{Connector}}*\ t\_connector,\ sf::Vector2f\ t\_point);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_editor_mouse_a08efccf36e55015471456b0f71465f91}{getClosestConnectionIndex}}(\mbox{\hyperlink{struct_connector}{Connector}}*\ t\_connector,\ sf::Vector2f\ t\_point);}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ship_part}{ShipPart}}*\ \mbox{\hyperlink{class_editor_mouse_a95fecb9931bcd7287896bb78cb74e6c2}{m\_selectedPart}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00075\ \};}
+\DoxyCodeLine{00076\ }
+
+\end{DoxyCode}

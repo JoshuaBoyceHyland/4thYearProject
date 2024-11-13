@@ -1,0 +1,189 @@
+\doxysection{Editor\+Scene Class Reference}
+\hypertarget{class_editor_scene}{}\label{class_editor_scene}\index{EditorScene@{EditorScene}}
+
+
+Class for.  
+
+
+
+
+{\ttfamily \#include $<$Editor\+Scene.\+h$>$}
+
+Inheritance diagram for Editor\+Scene\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_editor_scene}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_editor_scene_ad94d1d8c44391260f905dbe18fb242d0}{Editor\+Scene}} (sf\+::\+Render\+Window \&t\+\_\+window)
+\begin{DoxyCompactList}\small\item\em constructor for Editor scene Updates the mouses vector of scene parts \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_editor_scene_a3fd89ec4f5097768cc8170f98c1fc355}{update}} (sf\+::\+Time t\+\_\+delta\+Time)
+\begin{DoxyCompactList}\small\item\em Updates our objects in the scene. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_editor_scene_a69b288fb6a93d5298178c74aec67f2ce}{render}} ()
+\begin{DoxyCompactList}\small\item\em Renders all objects. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_editor_scene_acfc247df4ab7b6fbf7f331bc0ffad65b}{process\+Keys}} (sf\+::\+Event t\+\_\+event)
+\begin{DoxyCompactList}\small\item\em Handles Key presses. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_editor_scene_abad49ee50d8610d3a9a4c00289d20ece}{process\+Mouse\+Press}} (sf\+::\+Event t\+\_\+event)
+\begin{DoxyCompactList}\small\item\em Handles what to do with on mouse press. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_editor_scene_ac4f760a16caf8976000e5b4c077966b2}{process\+Mouse\+Release}} (sf\+::\+Event t\+\_\+event)
+\begin{DoxyCompactList}\small\item\em Handles what to do with mouse release event. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_editor_scene_a04dc8fc892964c5e2878ab794e8b1dd5}{process\+Mouse\+Move}} (sf\+::\+Event t\+\_\+event)
+\begin{DoxyCompactList}\small\item\em Handles what to do withe a mouse move event. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_scene}{Scene}}}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_editor_scene_ab702b8241cd2b6fa6aca0b590370a322}\label{class_editor_scene_ab702b8241cd2b6fa6aca0b590370a322} 
+sf\+::\+Render\+Window \& {\bfseries m\+\_\+window}
+\begin{DoxyCompactList}\small\item\em Reference to main game window. \end{DoxyCompactList}\item 
+\Hypertarget{class_editor_scene_a64afd46341fd2f17675c94e6bca6f49f}\label{class_editor_scene_a64afd46341fd2f17675c94e6bca6f49f} 
+std\+::vector$<$ \mbox{\hyperlink{class_ship_part}{Ship\+Part}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries m\+\_\+parts}
+\begin{DoxyCompactList}\small\item\em Vector of all parts in the scene. \end{DoxyCompactList}\item 
+\Hypertarget{class_editor_scene_a399232cdce1241d48b1fa61920b848f2}\label{class_editor_scene_a399232cdce1241d48b1fa61920b848f2} 
+\mbox{\hyperlink{class_editor_mouse}{Editor\+Mouse}} {\bfseries m\+\_\+mouse}
+\begin{DoxyCompactList}\small\item\em Editor mouse for the scene. \end{DoxyCompactList}\item 
+\Hypertarget{class_editor_scene_abc9445d316822ee825d2af82542d5e0f}\label{class_editor_scene_abc9445d316822ee825d2af82542d5e0f} 
+\mbox{\hyperlink{class_u_i_box}{UIBox}} {\bfseries ui}
+\begin{DoxyCompactList}\small\item\em Ui for this scene. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_editor_scene_ad94d1d8c44391260f905dbe18fb242d0}\index{EditorScene@{EditorScene}!EditorScene@{EditorScene}}
+\index{EditorScene@{EditorScene}!EditorScene@{EditorScene}}
+\doxysubsubsection{\texorpdfstring{EditorScene()}{EditorScene()}}
+{\footnotesize\ttfamily \label{class_editor_scene_ad94d1d8c44391260f905dbe18fb242d0} 
+Editor\+Scene\+::\+Editor\+Scene (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{t\+\_\+window}{}\end{DoxyParamCaption})}
+
+
+
+constructor for Editor scene Updates the mouses vector of scene parts 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+window} & Assigns to our reference so we can draw to the main window\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_editor_scene_acfc247df4ab7b6fbf7f331bc0ffad65b}\index{EditorScene@{EditorScene}!processKeys@{processKeys}}
+\index{processKeys@{processKeys}!EditorScene@{EditorScene}}
+\doxysubsubsection{\texorpdfstring{processKeys()}{processKeys()}}
+{\footnotesize\ttfamily \label{class_editor_scene_acfc247df4ab7b6fbf7f331bc0ffad65b} 
+void Editor\+Scene\+::process\+Keys (\begin{DoxyParamCaption}\item[{sf\+::\+Event}]{t\+\_\+event}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Handles Key presses. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+event} & Key Press Event\\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_scene}{Scene}}.
+
+\Hypertarget{class_editor_scene_a04dc8fc892964c5e2878ab794e8b1dd5}\index{EditorScene@{EditorScene}!processMouseMove@{processMouseMove}}
+\index{processMouseMove@{processMouseMove}!EditorScene@{EditorScene}}
+\doxysubsubsection{\texorpdfstring{processMouseMove()}{processMouseMove()}}
+{\footnotesize\ttfamily \label{class_editor_scene_a04dc8fc892964c5e2878ab794e8b1dd5} 
+void Editor\+Scene\+::process\+Mouse\+Move (\begin{DoxyParamCaption}\item[{sf\+::\+Event}]{t\+\_\+event}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Handles what to do withe a mouse move event. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+event} & Mouse move event\\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_scene}{Scene}}.
+
+\Hypertarget{class_editor_scene_abad49ee50d8610d3a9a4c00289d20ece}\index{EditorScene@{EditorScene}!processMousePress@{processMousePress}}
+\index{processMousePress@{processMousePress}!EditorScene@{EditorScene}}
+\doxysubsubsection{\texorpdfstring{processMousePress()}{processMousePress()}}
+{\footnotesize\ttfamily \label{class_editor_scene_abad49ee50d8610d3a9a4c00289d20ece} 
+void Editor\+Scene\+::process\+Mouse\+Press (\begin{DoxyParamCaption}\item[{sf\+::\+Event}]{t\+\_\+event}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Handles what to do with on mouse press. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+event} & Mouse Press Event\\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_scene}{Scene}}.
+
+\Hypertarget{class_editor_scene_ac4f760a16caf8976000e5b4c077966b2}\index{EditorScene@{EditorScene}!processMouseRelease@{processMouseRelease}}
+\index{processMouseRelease@{processMouseRelease}!EditorScene@{EditorScene}}
+\doxysubsubsection{\texorpdfstring{processMouseRelease()}{processMouseRelease()}}
+{\footnotesize\ttfamily \label{class_editor_scene_ac4f760a16caf8976000e5b4c077966b2} 
+void Editor\+Scene\+::process\+Mouse\+Release (\begin{DoxyParamCaption}\item[{sf\+::\+Event}]{t\+\_\+event}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Handles what to do with mouse release event. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+event} & Mouse release event\\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_scene}{Scene}}.
+
+\Hypertarget{class_editor_scene_a69b288fb6a93d5298178c74aec67f2ce}\index{EditorScene@{EditorScene}!render@{render}}
+\index{render@{render}!EditorScene@{EditorScene}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{class_editor_scene_a69b288fb6a93d5298178c74aec67f2ce} 
+void Editor\+Scene\+::render (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Renders all objects. 
+
+
+
+Implements \mbox{\hyperlink{class_scene}{Scene}}.
+
+\Hypertarget{class_editor_scene_a3fd89ec4f5097768cc8170f98c1fc355}\index{EditorScene@{EditorScene}!update@{update}}
+\index{update@{update}!EditorScene@{EditorScene}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_editor_scene_a3fd89ec4f5097768cc8170f98c1fc355} 
+void Editor\+Scene\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Time}]{t\+\_\+delta\+Time}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Updates our objects in the scene. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+delta\+Time} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_scene}{Scene}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Joshua/\+Desktop/4th\+Year\+Project/\+Lab 5/lab5/fun/Editor\+Scene.\+h\item 
+C\+:/\+Users/\+Joshua/\+Desktop/4th\+Year\+Project/\+Lab 5/lab5/fun/Editor\+Scene.\+cpp\end{DoxyCompactItemize}

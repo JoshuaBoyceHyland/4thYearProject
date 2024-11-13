@@ -1,0 +1,129 @@
+\doxysection{Editor\+Mouse Class Reference}
+\hypertarget{class_editor_mouse}{}\label{class_editor_mouse}\index{EditorMouse@{EditorMouse}}
+
+
+Will track mouse position and is in charge of selecting any \doxylink{class_ship_part}{Ship\+Part} and connecting it to another.  
+
+
+
+
+{\ttfamily \#include $<$Editor\+Mouse.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_editor_mouse_aa26a97695f3e2fd111ff9ab3bf8f34be}{select\+Piece}} (int t\+\_\+index)
+\begin{DoxyCompactList}\small\item\em Assigns a \doxylink{class_ship_part}{Ship\+Part} as being the current one being held by user. \end{DoxyCompactList}\item 
+\Hypertarget{class_editor_mouse_a71d941287ec9397fd0443fc96ba4b480}\label{class_editor_mouse_a71d941287ec9397fd0443fc96ba4b480} 
+void {\bfseries check\+For\+Part\+Selection} ()
+\begin{DoxyCompactList}\small\item\em Checks if we are picking up a \doxylink{class_ship_part}{Ship\+Part} in the sciene. \end{DoxyCompactList}\item 
+\Hypertarget{class_editor_mouse_a8f959c89ddcd036c4786961af886d9fa}\label{class_editor_mouse_a8f959c89ddcd036c4786961af886d9fa} 
+void {\bfseries release\+Selected\+Part} ()
+\begin{DoxyCompactList}\small\item\em Releases a \doxylink{class_ship_part}{Ship\+Part} from being the selected part ( m\+\_\+selected\+Part ) and also checks if it should be connected to another \doxylink{class_ship_part}{Ship\+Part}. \end{DoxyCompactList}\item 
+\Hypertarget{class_editor_mouse_a53a0e0aadb97caea9aecd2ee58f67f0d}\label{class_editor_mouse_a53a0e0aadb97caea9aecd2ee58f67f0d} 
+void {\bfseries update} ()
+\begin{DoxyCompactList}\small\item\em Sets the position of the selected part ( m\+\_\+selected\+Part ) if its not nullptr. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_editor_mouse_a3741c0d11d5ed7d0ba109c7c7410bd59}\label{class_editor_mouse_a3741c0d11d5ed7d0ba109c7c7410bd59} 
+sf\+::\+Vector2f {\bfseries m\+\_\+position}
+\begin{DoxyCompactList}\small\item\em Position of the mouse. \end{DoxyCompactList}\item 
+\Hypertarget{class_editor_mouse_ad50c7825ecb2d6b8f036c8aac49531fe}\label{class_editor_mouse_ad50c7825ecb2d6b8f036c8aac49531fe} 
+std\+::vector$<$ \mbox{\hyperlink{class_ship_part}{Ship\+Part}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries m\+\_\+parts\+In\+Scene}
+\begin{DoxyCompactList}\small\item\em A vector of all the Ship\+Parts in the scene. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_ship_part}{Ship\+Part}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_editor_mouse_a78afb6fd5a86d863f41ea230276d59d3}{get\+Closest\+Part}} ()
+\begin{DoxyCompactList}\small\item\em Using the \doxylink{class_ship_part}{Ship\+Part} \doxylink{struct_connector}{Connector}, checks which \doxylink{class_ship_part}{Ship\+Part} is closest to the selected part. \end{DoxyCompactList}\item 
+sf\+::\+Vector2f \mbox{\hyperlink{class_editor_mouse_ae987004bbf2a81f4e2efc3548bbbec62}{get\+Closest\+Connection\+Pos}} (\mbox{\hyperlink{struct_connector}{Connector}} \texorpdfstring{$\ast$}{*}t\+\_\+connector, sf\+::\+Vector2f t\+\_\+point)
+\begin{DoxyCompactList}\small\item\em Gets the given \doxylink{struct_connector}{Connector} points closest point to the given t\+\_\+point. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_editor_mouse_a08efccf36e55015471456b0f71465f91}{get\+Closest\+Connection\+Index}} (\mbox{\hyperlink{struct_connector}{Connector}} \texorpdfstring{$\ast$}{*}t\+\_\+connector, sf\+::\+Vector2f t\+\_\+point)
+\begin{DoxyCompactList}\small\item\em Gets the given \doxylink{struct_connector}{Connector} points closest point Index to the given t\+\_\+point. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_editor_mouse_a95fecb9931bcd7287896bb78cb74e6c2}\label{class_editor_mouse_a95fecb9931bcd7287896bb78cb74e6c2} 
+\mbox{\hyperlink{class_ship_part}{Ship\+Part}} \texorpdfstring{$\ast$}{*} {\bfseries m\+\_\+selected\+Part} = nullptr
+\begin{DoxyCompactList}\small\item\em The \doxylink{class_ship_part}{Ship\+Part} in the scene which is currently being held by the \doxylink{class_editor_mouse}{Editor\+Mouse}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Will track mouse position and is in charge of selecting any \doxylink{class_ship_part}{Ship\+Part} and connecting it to another. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_editor_mouse_a08efccf36e55015471456b0f71465f91}\index{EditorMouse@{EditorMouse}!getClosestConnectionIndex@{getClosestConnectionIndex}}
+\index{getClosestConnectionIndex@{getClosestConnectionIndex}!EditorMouse@{EditorMouse}}
+\doxysubsubsection{\texorpdfstring{getClosestConnectionIndex()}{getClosestConnectionIndex()}}
+{\footnotesize\ttfamily \label{class_editor_mouse_a08efccf36e55015471456b0f71465f91} 
+int Editor\+Mouse\+::get\+Closest\+Connection\+Index (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_connector}{Connector}} \texorpdfstring{$\ast$}{*}}]{t\+\_\+connector}{, }\item[{sf\+::\+Vector2f}]{t\+\_\+point}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Gets the given \doxylink{struct_connector}{Connector} points closest point Index to the given t\+\_\+point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+connector} & \doxylink{struct_connector}{Connector} points being checked.\\
+\hline
+{\em t\+\_\+point} & Position being checked which point is closest to\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Closest connection point Index
+\end{DoxyReturn}
+\Hypertarget{class_editor_mouse_ae987004bbf2a81f4e2efc3548bbbec62}\index{EditorMouse@{EditorMouse}!getClosestConnectionPos@{getClosestConnectionPos}}
+\index{getClosestConnectionPos@{getClosestConnectionPos}!EditorMouse@{EditorMouse}}
+\doxysubsubsection{\texorpdfstring{getClosestConnectionPos()}{getClosestConnectionPos()}}
+{\footnotesize\ttfamily \label{class_editor_mouse_ae987004bbf2a81f4e2efc3548bbbec62} 
+sf\+::\+Vector2f Editor\+Mouse\+::get\+Closest\+Connection\+Pos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_connector}{Connector}} \texorpdfstring{$\ast$}{*}}]{t\+\_\+connector}{, }\item[{sf\+::\+Vector2f}]{t\+\_\+point}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Gets the given \doxylink{struct_connector}{Connector} points closest point to the given t\+\_\+point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+connector} & \doxylink{struct_connector}{Connector} points being checked.\\
+\hline
+{\em t\+\_\+point} & Position being checked which point is closest to\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Closest connection point position
+\end{DoxyReturn}
+\Hypertarget{class_editor_mouse_a78afb6fd5a86d863f41ea230276d59d3}\index{EditorMouse@{EditorMouse}!getClosestPart@{getClosestPart}}
+\index{getClosestPart@{getClosestPart}!EditorMouse@{EditorMouse}}
+\doxysubsubsection{\texorpdfstring{getClosestPart()}{getClosestPart()}}
+{\footnotesize\ttfamily \label{class_editor_mouse_a78afb6fd5a86d863f41ea230276d59d3} 
+\mbox{\hyperlink{class_ship_part}{Ship\+Part}} \texorpdfstring{$\ast$}{*} Editor\+Mouse\+::get\+Closest\+Part (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Using the \doxylink{class_ship_part}{Ship\+Part} \doxylink{struct_connector}{Connector}, checks which \doxylink{class_ship_part}{Ship\+Part} is closest to the selected part. 
+
+\begin{DoxyReturn}{Returns}
+The Closest \doxylink{class_ship_part}{Ship\+Part}.
+\end{DoxyReturn}
+\Hypertarget{class_editor_mouse_aa26a97695f3e2fd111ff9ab3bf8f34be}\index{EditorMouse@{EditorMouse}!selectPiece@{selectPiece}}
+\index{selectPiece@{selectPiece}!EditorMouse@{EditorMouse}}
+\doxysubsubsection{\texorpdfstring{selectPiece()}{selectPiece()}}
+{\footnotesize\ttfamily \label{class_editor_mouse_aa26a97695f3e2fd111ff9ab3bf8f34be} 
+void Editor\+Mouse\+::select\+Piece (\begin{DoxyParamCaption}\item[{int}]{t\+\_\+index}{}\end{DoxyParamCaption})}
+
+
+
+Assigns a \doxylink{class_ship_part}{Ship\+Part} as being the current one being held by user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+index} & Index used to identify which \doxylink{class_ship_part}{Ship\+Part} in the scene we are assigning\\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Joshua/\+Desktop/4th\+Year\+Project/\+Lab 5/lab5/fun/Editor\+Mouse.\+h\item 
+C\+:/\+Users/\+Joshua/\+Desktop/4th\+Year\+Project/\+Lab 5/lab5/fun/Editor\+Mouse.\+cpp\end{DoxyCompactItemize}

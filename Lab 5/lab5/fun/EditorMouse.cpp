@@ -32,7 +32,7 @@ void EditorMouse::releaseSelectedPart()
 		{
 			
 			// get closests points connections
-			Connectors* partsConnector = closestPart->getConnectors();
+			Connector* partsConnector = closestPart->getConnectors();
 
 			sf::Vector2f closestPartPos = getClosestConnectionPos(partsConnector, m_position);
 
@@ -97,7 +97,7 @@ ShipPart* EditorMouse::getClosestPart()
 	return closestPart;
 }
 
-sf::Vector2f EditorMouse::getClosestConnectionPos(Connectors* t_connector, sf::Vector2f t_point)
+sf::Vector2f EditorMouse::getClosestConnectionPos(Connector* t_connector, sf::Vector2f t_point)
 {
 
 	std::vector<sf::Vector2f> connectionPoints = t_connector->getAnchoredConnectionPoint();
@@ -120,7 +120,7 @@ sf::Vector2f EditorMouse::getClosestConnectionPos(Connectors* t_connector, sf::V
 	return closestConnection;
 }
 
-int EditorMouse::getClosestConnectionIndex(Connectors* t_connector, sf::Vector2f t_point)
+int EditorMouse::getClosestConnectionIndex(Connector* t_connector, sf::Vector2f t_point)
 {
 	std::vector<sf::Vector2f> connectionPoints = t_connector->getAnchoredConnectionPoint();
 	float shortestDistance = 150;

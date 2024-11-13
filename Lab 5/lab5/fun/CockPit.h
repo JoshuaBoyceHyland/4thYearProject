@@ -8,7 +8,7 @@ class CockPit
 
 	public:
 		CockPit(std::string t_texturePath);
-		CockPit(Connectors t_attributes, std::string t_texturePath);
+		CockPit(Connector t_attributes, std::string t_texturePath);
 
 		void update();
 		void draw(sf::RenderWindow& t_window);
@@ -24,7 +24,7 @@ class CockPit
 		sf::Sprite m_body;
 
 
-		Connectors m_attributes;
+		Connector m_attributes;
 		std::vector<sf::CircleShape> m_connectionCircles;
 
 		sf::Vector2f m_position;

@@ -2,7 +2,7 @@
 
 EditorScene::EditorScene(sf::RenderWindow& t_window) : m_window( t_window)
 {
-	m_mouse.m_partsInScene = m_parts;
+	m_mouse.m_partsInScene = m_parts; 
 }
 
 void EditorScene::update(sf::Time t_deltaTime)
