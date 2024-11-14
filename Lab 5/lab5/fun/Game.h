@@ -10,6 +10,8 @@
 #include <SFML/Graphics.hpp>
 
 #include "EditorScene.h"
+#include "Ship.h"
+
 class Game
 {
 public:
@@ -27,8 +29,9 @@ private:
 	sf::RenderWindow m_window; // main SFML window
 	bool m_exitGame; // control exiting game
 
-
+	Ship m_player;
 	Scene* m_scene;
+	SceneState m_currentScene;
 };
 
 

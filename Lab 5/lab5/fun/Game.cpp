@@ -19,7 +19,7 @@
 Game::Game() :
 	m_window{ sf::VideoMode{ Globals::SCREEN_WIDTH, Globals::SCREEN_HEIGHT, 32U }, "SFML Game"/*, sf::Style::Fullscreen*/ },
 	m_exitGame{ false }, 
-	m_scene( new EditorScene(m_window))
+	m_currentScene(new EditorScene(&m_window, &m_currentScene))
 {
 
 }
@@ -54,9 +54,9 @@ void Game::run()
 		{
 			timeSinceLastUpdate -= timePerFrame;
 			processEvents(); // at least 60 fps
-			m_scene->update(timePerFrame); //60 fps
+			//m_scene->update(timePerFrame); //60 fps
 		}
-		m_scene->render(); // as many as possible
+		//m_scene->render(); // as many as possible
 	}
 }
 /// <summary>

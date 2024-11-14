@@ -17,7 +17,7 @@ class EditorScene : public Scene
 		/// Updates the mouses vector of scene parts
 		/// </summary>
 		/// <param name="t_window">Assigns to our reference so we can draw to the main window</param>
-		EditorScene(sf::RenderWindow & t_window);
+		EditorScene(sf::RenderWindow &t_window, SceneState* t_currentScene);
 
 		/// <summary>
 		/// Updates our objects in the scene
