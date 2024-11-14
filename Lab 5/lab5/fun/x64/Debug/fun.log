@@ -1,42 +1,4 @@
-﻿  EditorScene.cpp
+﻿  Game.cpp
 C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\SceneState.h(8,14): error C2061: syntax error: identifier 'Scene'
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\SceneState.h(9,20): error C2061: syntax error: identifier 'Scene'
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\SceneState.h(12,8): error C2143: syntax error: missing ';' before '*'
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\SceneState.h(12,3): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\SceneState.h(12,22): error C2238: unexpected token(s) preceding ';'
 C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\EditorScene.cpp(54,39): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-  Scene.cpp
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\SceneState.h(8,14): error C2061: syntax error: identifier 'Scene'
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\SceneState.h(9,20): error C2061: syntax error: identifier 'Scene'
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\SceneState.h(12,8): error C2143: syntax error: missing ';' before '*'
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\SceneState.h(12,3): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\SceneState.h(12,22): error C2238: unexpected token(s) preceding ';'
-  SceneState.cpp
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Scene.h(13,9): error C2061: syntax error: identifier 'SceneState'
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Scene.h(29,13): error C2143: syntax error: missing ';' before '*'
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Scene.h(29,3): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Scene.h(29,29): error C2238: unexpected token(s) preceding ';'
-  Game.cpp
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\SceneState.h(8,14): error C2061: syntax error: identifier 'Scene'
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\SceneState.h(9,20): error C2061: syntax error: identifier 'Scene'
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\SceneState.h(12,8): error C2143: syntax error: missing ';' before '*'
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\SceneState.h(12,3): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\SceneState.h(12,22): error C2238: unexpected token(s) preceding ';'
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Game.cpp(22,32): error C2665: 'EditorScene::EditorScene': no overloaded function could convert all the argument types
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Game.cpp(22,16): error C2665: 'SceneState::SceneState': no overloaded function could convert all the argument types
-  main.cpp
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\SceneState.h(8,14): error C2061: syntax error: identifier 'Scene'
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\SceneState.h(9,20): error C2061: syntax error: identifier 'Scene'
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\SceneState.h(12,8): error C2143: syntax error: missing ';' before '*'
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\SceneState.h(12,3): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\SceneState.h(12,22): error C2238: unexpected token(s) preceding ';'
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\main.cpp(33,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Generating Code...
+  fun.vcxproj -> C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\x64\Debug\fun.exe

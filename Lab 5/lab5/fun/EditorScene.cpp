@@ -1,6 +1,6 @@
 #include "EditorScene.h"
 
-EditorScene::EditorScene(sf::RenderWindow& t_window, SceneState* t_currentScene) : m_window(t_window), Scene( t_currentScene)
+EditorScene::EditorScene(sf::RenderWindow& t_window/*, SceneState* t_currentScene*/) : m_window(t_window)/*, Scene( t_currentScene)*/
 {
 	m_mouse.m_partsInScene = m_parts; 
 }

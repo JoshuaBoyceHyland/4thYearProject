@@ -31,7 +31,6 @@ private:
 
 	Ship m_player;
 	Scene* m_scene;
-	SceneState m_currentScene;
 };
 
 
