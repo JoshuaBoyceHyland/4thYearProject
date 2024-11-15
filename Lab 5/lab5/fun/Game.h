@@ -30,7 +30,7 @@ private:
 	bool m_exitGame; // control exiting game
 
 	Ship m_player;
-	Scene* m_scene;
+	Scene* m_sceneState;
 };
 
 

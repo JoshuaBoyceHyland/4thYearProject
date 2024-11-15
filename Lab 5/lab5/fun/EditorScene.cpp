@@ -1,6 +1,6 @@
 #include "EditorScene.h"
 
-EditorScene::EditorScene(sf::RenderWindow& t_window/*, SceneState* t_currentScene*/) : m_window(t_window)/*, Scene( t_currentScene)*/
+EditorScene::EditorScene(sf::RenderWindow& t_window, Scene* t_currentScene) : m_window(t_window), m_sceneState( t_currentScene)
 {
 	m_mouse.m_partsInScene = m_parts; 
 }
@@ -33,6 +33,11 @@ void EditorScene::processKeys(sf::Event t_event)
 	if (sf::Keyboard::Escape == t_event.key.code)
 	{
 		m_window.close();
+	}
+
+	if(sf::Keyboard::S== t_event.key.code)
+	{
+		m_sceneState->switchScene(new EditorScene(m_window, m_sceneState));
 	}
 }
 

@@ -22,6 +22,7 @@
     <ClCompile Include="EditorMouse.cpp" />
     <ClCompile Include="EditorScene.cpp" />
     <ClCompile Include="MenuScene.cpp" />
+    <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Ship.cpp" />
     <ClCompile Include="UIBox.cpp" />
     <ClCompile Include="Game.cpp" />

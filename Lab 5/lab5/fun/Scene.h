@@ -11,17 +11,24 @@ class Scene
 
 	public:
 
+		Scene();
 
-		virtual void update(sf::Time t_deltaTime) = 0;
+		Scene* getCurrentScene();
 
-		virtual void render() = 0;
+		void switchScene(Scene* t_newScene);
 
-		virtual void processKeys(sf::Event t_event)=0;
+		virtual void update(sf::Time t_deltaTime);
 
-		virtual void processMousePress(sf::Event t_event)=0;
+		virtual void render();
 
-		virtual void processMouseRelease(sf::Event t_event) =0;
+		virtual void processKeys(sf::Event t_event);
 
-		virtual void processMouseMove(sf::Event t_event)=0;
-		
+		virtual void processMousePress(sf::Event t_event);
+
+		virtual void processMouseRelease(sf::Event t_event);
+
+		virtual void processMouseMove(sf::Event t_event);
+
+	private:
+		Scene* m_currentScene = nullptr;
 };
