@@ -1,8 +1,13 @@
 #pragma once
-//#include "MenuScene.h"
-#include "EditorScene.h"
 
-enum SceneType{ Menu, Editor };
+
+//#include "MenuScene.h"
+
+#include "EditorScene.h"
+#include "ShipPart.h"
+#include "GameplayScene.h"
+
+enum SceneType{ Menu, Editor, Gameplay };
 
 class SceneManager
 {
@@ -14,6 +19,7 @@ class SceneManager
 
 	private:
 
+		SceneType m_currentSceneType;
 		Scene* m_currentScene = nullptr;
 		sf::RenderWindow& m_window;
 };

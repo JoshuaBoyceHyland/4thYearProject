@@ -71,3 +71,8 @@ void EditorScene::processMouseMove(sf::Event t_event)
 {
 	m_mouse.m_position = { static_cast<float>(sf::Mouse::getPosition(m_window).x), static_cast<float>(sf::Mouse::getPosition(m_window).y) };
 }
+
+Ship EditorScene::getCreatedShip()
+{
+	return Ship();
+}

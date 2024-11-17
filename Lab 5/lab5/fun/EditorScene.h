@@ -4,6 +4,7 @@
 #include "PartsLibarary.h"
 #include "UIEditorBox.h"
 #include "UIScreenBorder.h"
+#include "Ship.h"
 
 /// <summary>
 /// Class for
@@ -54,6 +55,11 @@ class EditorScene : public Scene
 		/// <param name="t_event">Mouse move event</param>
 		virtual void processMouseMove(sf::Event t_event) override;
 
+		/// <summary>
+		/// Returns the ship the player created
+		/// </summary>
+		/// <returns></returns>
+		Ship getCreatedShip();
 
 	private: 
 		/// <summary>

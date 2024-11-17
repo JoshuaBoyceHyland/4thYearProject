@@ -1,11 +1,18 @@
 #include "GameplayScene.h"
 
+GameplayScene::GameplayScene(sf::RenderWindow& t_window, Ship t_player) : Scene(t_window), m_uiBorder( "Gameplay")
+{
+}
+
 void GameplayScene::update(sf::Time t_deltaTime)
 {
 }
 
 void GameplayScene::render()
 {
+	m_window.clear(sf::Color::Black);
+	m_uiBorder.draw(m_window);
+	m_window.display();
 }
 
 void GameplayScene::processKeys(sf::Event t_event)

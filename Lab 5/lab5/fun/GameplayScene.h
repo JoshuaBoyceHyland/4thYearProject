@@ -1,9 +1,13 @@
 #pragma once
+#include "Ship.h"
 #include "Scene.h"
+#include "UIEditorBox.h"
+#include "UIScreenBorder.h"
 
 class GameplayScene : public Scene
 {
 	public:
+		GameplayScene(sf::RenderWindow& t_window, Ship t_player);
 		void update(sf::Time t_deltaTime) override;
 		void render() override;
 		void processKeys(sf::Event t_event) override;
@@ -13,6 +17,6 @@ class GameplayScene : public Scene
 
 	private:
 
-
+		UIScreenBorder m_uiBorder;
 };
 

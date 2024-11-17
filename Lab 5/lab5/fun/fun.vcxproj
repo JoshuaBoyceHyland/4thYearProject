@@ -39,6 +39,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Atttibutes.h" />
+    <ClInclude Include="Deprecated\Player.h" />
     <ClInclude Include="EditorMouse.h" />
     <ClInclude Include="EditorScene.h" />
     <ClInclude Include="GameplayScene.h" />
@@ -51,7 +52,6 @@
     <ClInclude Include="Globals.h" />
     <ClInclude Include="Loader.h" />
     <ClInclude Include="PartsLibarary.h" />
-    <ClInclude Include="Player.h" />
     <ClInclude Include="RotationMath.h" />
     <ClInclude Include="ShipPart.h" />
     <ClInclude Include="UIEditorBox.h" />
