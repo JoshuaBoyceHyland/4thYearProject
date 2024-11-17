@@ -9,7 +9,7 @@
 #include "Globals.h"
 #include <SFML/Graphics.hpp>
 
-#include "EditorScene.h"
+#include "SceneManager.h"
 #include "Ship.h"
 
 class Game
@@ -30,7 +30,7 @@ private:
 	bool m_exitGame; // control exiting game
 
 
-	Scene* m_sceneState;
+	SceneManager m_sceneManager;
 };
 
 

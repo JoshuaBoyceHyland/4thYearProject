@@ -21,8 +21,10 @@
   <ItemGroup>
     <ClCompile Include="EditorMouse.cpp" />
     <ClCompile Include="EditorScene.cpp" />
+    <ClCompile Include="GameplayScene.cpp" />
     <ClCompile Include="MenuScene.cpp" />
     <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Ship.cpp" />
     <ClCompile Include="UIBox.cpp" />
     <ClCompile Include="Game.cpp" />
@@ -38,8 +40,10 @@
     <ClInclude Include="Atttibutes.h" />
     <ClInclude Include="EditorMouse.h" />
     <ClInclude Include="EditorScene.h" />
+    <ClInclude Include="GameplayScene.h" />
     <ClInclude Include="MenuScene.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Ship.h" />
     <ClInclude Include="UIBox.h" />
     <ClInclude Include="Game.h" />

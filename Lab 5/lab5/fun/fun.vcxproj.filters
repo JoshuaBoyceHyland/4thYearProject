@@ -19,6 +19,12 @@
     <Filter Include="Resource Files\IMAGES">
       <UniqueIdentifier>{1d793ccc-0d22-4eea-8d0e-c5b5a5270a40}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Scenes">
+      <UniqueIdentifier>{c188dd52-d7c9-41a1-a743-655d8776d7e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scenes">
+      <UniqueIdentifier>{1cefbba8-1196-4cea-9ed2-a3ffd7cf94cd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -42,25 +48,31 @@
     <ClCompile Include="ShipPart.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="EditorMouse.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="PartsLibarary.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="UIBox.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="EditorScene.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MenuScene.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Ship.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>Source Files\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="EditorScene.cpp">
+      <Filter>Source Files\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="EditorMouse.cpp">
+      <Filter>Source Files\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuScene.cpp">
+      <Filter>Source Files\Scenes</Filter>
+    </ClCompile>
     <ClCompile Include="Scene.cpp">
+      <Filter>Source Files\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="GameplayScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -89,25 +101,31 @@
     <ClInclude Include="ShipPart.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="EditorMouse.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="PartsLibarary.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="UIBox.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="EditorScene.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="MenuScene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Ship.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>Header Files\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Header Files\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="EditorScene.h">
+      <Filter>Header Files\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="EditorMouse.h">
+      <Filter>Header Files\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="GameplayScene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

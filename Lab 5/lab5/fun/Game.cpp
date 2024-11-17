@@ -18,11 +18,10 @@
 /// </summary>
 Game::Game() :
 	m_window{ sf::VideoMode{ Globals::SCREEN_WIDTH, Globals::SCREEN_HEIGHT, 32U }, "SFML Game"/*, sf::Style::Fullscreen*/ },
-	m_exitGame{ false }
+	m_exitGame{ false },
+	m_sceneManager(m_window)
 {
-	m_sceneState = new Scene();
-
-	m_sceneState->switchScene( new EditorScene(m_window, m_sceneState));
+	m_sceneManager.switchScene(Editor);
 }
 
 /// <summary>
@@ -55,9 +54,9 @@ void Game::run()
 		{
 			timeSinceLastUpdate -= timePerFrame;
 			processEvents(); // at least 60 fps
-			m_sceneState->getCurrentScene()->update(timePerFrame); //60 fps
+			m_sceneManager.getCurrentScene()->update(timePerFrame); //60 fps
 		}
-		m_sceneState->getCurrentScene()->render(); // as many as possible
+		m_sceneManager.getCurrentScene()->render(); // as many as possible
 	}
 }
 /// <summary>
@@ -72,19 +71,19 @@ void Game::processEvents()
 	{
 		if (sf::Event::KeyPressed == newEvent.type) //user pressed a key
 		{
-			m_sceneState->getCurrentScene()->processKeys(newEvent);
+			m_sceneManager.getCurrentScene()->processKeys(newEvent);
 		}
 		if ( sf::Event::MouseButtonPressed == newEvent.type)
 		{
-			m_sceneState->getCurrentScene()->processMousePress(newEvent);
+			m_sceneManager.getCurrentScene()->processMousePress(newEvent);
 		}
 		if (sf::Event::MouseButtonReleased == newEvent.type)
 		{
-			m_sceneState->getCurrentScene()->processMouseRelease(newEvent);
+			m_sceneManager.getCurrentScene()->processMouseRelease(newEvent);
 		}
 		if (sf::Event::MouseMoved == newEvent.type)
 		{
-			m_sceneState->getCurrentScene()->processMouseMove(newEvent);
+			m_sceneManager.getCurrentScene()->processMouseMove(newEvent);
 		}
 	}
 }
