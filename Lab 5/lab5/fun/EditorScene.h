@@ -2,7 +2,7 @@
 #include "Scene.h"
 #include "EditorMouse.h"
 #include "PartsLibarary.h"
-#include "UIBox.h"
+#include "UIEditorBox.h"
 
 
 /// <summary>
@@ -67,6 +67,6 @@ class EditorScene : public Scene
 		/// <summary>
 		///  Ui for this scene
 		/// </summary>
-		UIBox ui; 
+		UIEditorBox m_ui;
 };
 

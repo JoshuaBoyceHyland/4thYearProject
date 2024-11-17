@@ -26,14 +26,14 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Ship.cpp" />
-    <ClCompile Include="UIBox.cpp" />
+    <ClCompile Include="UI.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Loader.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PartsLibarary.cpp" />
-    <ClCompile Include="Player.cpp" />
     <ClCompile Include="RotationMath.cpp" />
     <ClCompile Include="ShipPart.cpp" />
+    <ClCompile Include="UIEditorBox.cpp" />
     <ClCompile Include="VectorMath.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -45,7 +45,7 @@
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Ship.h" />
-    <ClInclude Include="UIBox.h" />
+    <ClInclude Include="UI.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="Loader.h" />
@@ -53,6 +53,7 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="RotationMath.h" />
     <ClInclude Include="ShipPart.h" />
+    <ClInclude Include="UIEditorBox.h" />
     <ClInclude Include="VectorMath.h" />
   </ItemGroup>
   <ItemGroup>

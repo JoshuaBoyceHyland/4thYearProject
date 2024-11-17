@@ -19,7 +19,7 @@ void EditorScene::update(sf::Time t_deltaTime)
 void EditorScene::render()
 {
 	m_window.clear(sf::Color::White);
-	ui.draw(m_window);
+	m_ui.draw(m_window);
 
 	for (int i = 0; i < m_parts.size(); i++)
 	{
@@ -44,8 +44,9 @@ void EditorScene::processMousePress(sf::Event t_event)
 		m_mouse.checkForPartSelection();
 
 
-		ui.checkForButtonInteraction(m_mouse.m_position);
-		ShipPart* possiblePart = ui.partSelectionCheck(m_mouse.m_position);
+		m_ui.checkForInteraction(m_mouse.m_position);
+
+		ShipPart* possiblePart = m_ui.partSelectionCheck(m_mouse.m_position);
 
 		if (possiblePart != nullptr)
 		{
