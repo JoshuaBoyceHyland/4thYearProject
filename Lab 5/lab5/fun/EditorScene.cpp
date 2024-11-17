@@ -1,6 +1,6 @@
 #include "EditorScene.h"
 
-EditorScene::EditorScene(sf::RenderWindow& t_window) : Scene(t_window)
+EditorScene::EditorScene(sf::RenderWindow& t_window) : Scene(t_window), m_uiBorder( "Editor")
 {
 	m_mouse.m_partsInScene = m_parts; 
 }
@@ -18,7 +18,8 @@ void EditorScene::update(sf::Time t_deltaTime)
 
 void EditorScene::render()
 {
-	m_window.clear(sf::Color::White);
+	m_window.clear(sf::Color::Black);
+	m_uiBorder.draw(m_window);
 	m_ui.draw(m_window);
 
 	for (int i = 0; i < m_parts.size(); i++)

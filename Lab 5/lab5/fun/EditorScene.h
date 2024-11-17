@@ -3,7 +3,7 @@
 #include "EditorMouse.h"
 #include "PartsLibarary.h"
 #include "UIEditorBox.h"
-
+#include "UIScreenBorder.h"
 
 /// <summary>
 /// Class for
@@ -68,5 +68,7 @@ class EditorScene : public Scene
 		///  Ui for this scene
 		/// </summary>
 		UIEditorBox m_ui;
+
+		UIScreenBorder m_uiBorder;
 };
 

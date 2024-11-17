@@ -34,6 +34,7 @@
     <ClCompile Include="RotationMath.cpp" />
     <ClCompile Include="ShipPart.cpp" />
     <ClCompile Include="UIEditorBox.cpp" />
+    <ClCompile Include="UIScreenBorder.cpp" />
     <ClCompile Include="VectorMath.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -54,6 +55,7 @@
     <ClInclude Include="RotationMath.h" />
     <ClInclude Include="ShipPart.h" />
     <ClInclude Include="UIEditorBox.h" />
+    <ClInclude Include="UIScreenBorder.h" />
     <ClInclude Include="VectorMath.h" />
   </ItemGroup>
   <ItemGroup>
