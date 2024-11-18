@@ -72,6 +72,11 @@ void Game::processEvents()
 		if (sf::Event::KeyPressed == newEvent.type) //user pressed a key
 		{
 			m_sceneManager.getCurrentScene()->processKeys(newEvent);
+
+			if (sf::Keyboard::G == newEvent.key.code)
+			{
+				m_sceneManager.switchScene(Gameplay);
+			}
 		}
 		if ( sf::Event::MouseButtonPressed == newEvent.type)
 		{

@@ -74,5 +74,12 @@ void EditorScene::processMouseMove(sf::Event t_event)
 
 Ship EditorScene::getCreatedShip()
 {
-	return Ship();
+	Ship createdShip;
+	
+	for (ShipPart* part : m_parts)
+	{
+		createdShip.setPart((*part));
+	}
+	
+	return createdShip;
 }

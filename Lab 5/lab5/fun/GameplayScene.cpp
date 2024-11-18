@@ -1,6 +1,6 @@
 #include "GameplayScene.h"
 
-GameplayScene::GameplayScene(sf::RenderWindow& t_window, Ship t_player) : Scene(t_window), m_uiBorder( "Gameplay")
+GameplayScene::GameplayScene(sf::RenderWindow& t_window, Ship t_player) : Scene(t_window), m_uiBorder( "Gameplay"), m_player( t_player)
 {
 }
 
@@ -12,6 +12,7 @@ void GameplayScene::render()
 {
 	m_window.clear(sf::Color::Black);
 	m_uiBorder.draw(m_window);
+	m_player.draw(m_window);
 	m_window.display();
 }
 

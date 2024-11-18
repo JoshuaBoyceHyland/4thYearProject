@@ -18,5 +18,6 @@ class GameplayScene : public Scene
 	private:
 
 		UIScreenBorder m_uiBorder;
+		Ship m_player;
 };
 
