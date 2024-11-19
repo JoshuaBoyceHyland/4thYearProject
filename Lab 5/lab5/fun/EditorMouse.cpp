@@ -16,6 +16,15 @@ void EditorMouse::checkForPartSelection()
 		if (m_partsInScene[i]->m_body.getGlobalBounds().contains(m_position))
 		{
 			selectPiece(i);
+			for (int i = 0; i < m_selectedPart->getConnectors()->connectionPoints.size(); i++)
+			{
+				// check if we are connected to anything first
+				if (m_selectedPart->getConnectors()->connectionPoints[i].connectedTo != nullptr)
+				{
+					m_selectedPart->getConnectors()->connectionPoints[i].connectedTo->connectedTo = nullptr;
+					m_selectedPart->getConnectors()->connectionPoints[i].connectedTo = nullptr;
+				}
+			}
 			break;
 		}
 	}
@@ -39,13 +48,13 @@ void EditorMouse::releaseSelectedPart()
 			std::cout << getClosestConnectionIndex(m_selectedPart->getConnectors(), closestPartPos) << std::endl;
 
 			// need to check if this point is valid or else it will cl
-			int selectedClosestPart = getClosestConnectionIndex(m_selectedPart->getConnectors(), closestPartPos);
+			int selectedClosestConnectionPoint = getClosestConnectionIndex(m_selectedPart->getConnectors(), closestPartPos);
 
 
-			if (selectedClosestPart != -1)
+			if (selectedClosestConnectionPoint != -1)
 			{
 
-				m_selectedPart->setPositionRelativeToConnectorPoint(closestPartPos, selectedClosestPart);
+				m_selectedPart->setPositionRelativeToConnectorPoint(closestPartPos, selectedClosestConnectionPoint);
 
 				m_selectedPart->m_body.setPosition(m_selectedPart->getPosition());
 
@@ -53,6 +62,12 @@ void EditorMouse::releaseSelectedPart()
 				if (m_selectedPart->m_body.getGlobalBounds().intersects(closestPart->m_body.getGlobalBounds()))
 				{
 					m_selectedPart->setPosition(m_position);
+				}
+				else
+				{
+					// asssign they are connected to each other
+					m_selectedPart->getConnectors()->connectionPoints[selectedClosestConnectionPoint].connectedTo = &closestPart->getConnectors()->connectionPoints[getClosestConnectionIndex(partsConnector, m_position)];
+					m_selectedPart->getConnectors()->connectionPoints[selectedClosestConnectionPoint].connectedTo->connectedTo = &m_selectedPart->getConnectors()->connectionPoints[selectedClosestConnectionPoint];
 				}
 			}
 

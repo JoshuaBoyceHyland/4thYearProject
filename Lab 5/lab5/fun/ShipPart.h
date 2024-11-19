@@ -1,6 +1,6 @@
 #pragma once
 #include <iostream>
-#include "Atttibutes.h"
+#include "Connector.h"
 #include "RotationMath.h"
 
 /// <summary>

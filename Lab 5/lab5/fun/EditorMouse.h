@@ -2,7 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "ShipPart.h"
 #include "VectorMath.h"
-#include "Atttibutes.h"
+#include "Connector.h"
 
 /// <summary>
 /// Will track mouse position and is in charge of selecting any ShipPart and connecting it to another.

@@ -78,7 +78,15 @@ Ship EditorScene::getCreatedShip()
 	
 	for (ShipPart* part : m_parts)
 	{
-		createdShip.setPart((*part));
+		for (int i = 0; i < part->getConnectors()->connectionPoints.size(); i++)
+		{
+			if (part->getConnectors()->connectionPoints[i].connectedTo != nullptr)
+			{
+				createdShip.setPart((*part));
+				break;
+			}
+		}
+		
 	}
 	
 	return createdShip;
