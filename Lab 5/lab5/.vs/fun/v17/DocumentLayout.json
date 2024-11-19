@@ -7,12 +7,20 @@
       "RelativeMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|solutionrelative:fun\\EditorScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\EditorMouse.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|solutionrelative:fun\\EditorMouse.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\EditorScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|solutionrelative:fun\\EditorScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\EditorMouse.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|solutionrelative:fun\\EditorMouse.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Ship.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|solutionrelative:fun\\Ship.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Scene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|solutionrelative:fun\\Scene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\GameplayScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|solutionrelative:fun\\GameplayScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\ShipPart.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -23,24 +31,20 @@
       "RelativeMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|solutionrelative:fun\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\SceneManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|solutionrelative:fun\\SceneManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\ShipPart.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|solutionrelative:fun\\ShipPart.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Ship.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|solutionrelative:fun\\Ship.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Connector.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|solutionrelative:fun\\Connector.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|solutionrelative:fun\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\EditorScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|solutionrelative:fun\\EditorScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Scene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|solutionrelative:fun\\Scene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Scene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|solutionrelative:fun\\Scene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,71 +54,20 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "EditorMouse.cpp",
-              "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\EditorMouse.cpp",
-              "RelativeDocumentMoniker": "fun\\EditorMouse.cpp",
-              "ToolTip": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\EditorMouse.cpp",
-              "RelativeToolTip": "fun\\EditorMouse.cpp",
-              "ViewState": "AQIAACcAAAAAAAAAAAAAAEMAAAAwAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-11-19T09:26:27.278Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Connector.h",
-              "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Connector.h",
-              "RelativeDocumentMoniker": "fun\\Connector.h",
-              "ToolTip": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Connector.h",
-              "RelativeToolTip": "fun\\Connector.h",
-              "ViewState": "AQIAADUAAAAAAAAAAAAQwEUAAAACAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-19T09:13:42.173Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ShipPart.h",
-              "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\ShipPart.h",
-              "RelativeDocumentMoniker": "fun\\ShipPart.h",
-              "ToolTip": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\ShipPart.h",
-              "RelativeToolTip": "fun\\ShipPart.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAHAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-19T09:13:25.2Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "EditorMouse.h",
-              "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\EditorMouse.h",
-              "RelativeDocumentMoniker": "fun\\EditorMouse.h",
-              "ToolTip": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\EditorMouse.h",
-              "RelativeToolTip": "fun\\EditorMouse.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-19T09:13:09.275Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "EditorScene.h",
-              "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\EditorScene.h",
-              "RelativeDocumentMoniker": "fun\\EditorScene.h",
-              "ToolTip": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\EditorScene.h",
-              "RelativeToolTip": "fun\\EditorScene.h",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAwAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-15T09:25:56.018Z",
+              "Title": "Ship.cpp",
+              "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Ship.cpp",
+              "RelativeDocumentMoniker": "fun\\Ship.cpp",
+              "ToolTip": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Ship.cpp",
+              "RelativeToolTip": "fun\\Ship.cpp",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAACUAAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-11-19T10:14:46.959Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
@@ -125,59 +78,126 @@
               "RelativeDocumentMoniker": "fun\\EditorScene.cpp",
               "ToolTip": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\EditorScene.cpp",
               "RelativeToolTip": "fun\\EditorScene.cpp",
-              "ViewState": "AQIAAEUAAAAAAAAAAAAAAE8AAAACAAAA",
+              "ViewState": "AQIAACcAAAAAAAAAAAAAAEgAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-11-15T09:25:47.876Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Scene.h",
-              "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Scene.h",
-              "RelativeDocumentMoniker": "fun\\Scene.h",
-              "ToolTip": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Scene.h",
-              "RelativeToolTip": "fun\\Scene.h",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAACAAAAALAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-15T09:25:32.418Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Scene.cpp",
-              "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Scene.cpp",
-              "RelativeDocumentMoniker": "fun\\Scene.cpp",
-              "ToolTip": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Scene.cpp",
-              "RelativeToolTip": "fun\\Scene.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-11-15T09:24:28.101Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Game.h",
-              "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Game.h",
-              "RelativeDocumentMoniker": "fun\\Game.h",
-              "ToolTip": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Game.h",
-              "RelativeToolTip": "fun\\Game.h",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAAB4AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-15T09:28:57.317Z",
+              "WhenOpened": "2024-11-19T12:46:19.505Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "GameplayScene.h",
+              "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\GameplayScene.h",
+              "RelativeDocumentMoniker": "fun\\GameplayScene.h",
+              "ToolTip": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\GameplayScene.h",
+              "RelativeToolTip": "fun\\GameplayScene.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-19T12:46:28.373Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "SceneManager.h",
+              "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\SceneManager.h",
+              "RelativeDocumentMoniker": "fun\\SceneManager.h",
+              "ToolTip": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\SceneManager.h",
+              "RelativeToolTip": "fun\\SceneManager.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-19T12:45:50.803Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "Game.cpp",
               "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Game.cpp",
               "RelativeDocumentMoniker": "fun\\Game.cpp",
               "ToolTip": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Game.cpp",
               "RelativeToolTip": "fun\\Game.cpp",
-              "ViewState": "AQIAACcAAAAAAAAAAADgvzsAAAACAAAA",
+              "ViewState": "AQIAAD8AAAAAAAAAAAAAAFMAAAADAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-11-15T08:25:56.307Z",
+              "WhenOpened": "2024-11-19T12:39:18.015Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Connector.h",
+              "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Connector.h",
+              "RelativeDocumentMoniker": "fun\\Connector.h",
+              "ToolTip": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Connector.h",
+              "RelativeToolTip": "fun\\Connector.h",
+              "ViewState": "AQIAACoAAAAAAAAAAAAAADYAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-19T10:47:56.115Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Ship.h",
+              "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Ship.h",
+              "RelativeDocumentMoniker": "fun\\Ship.h",
+              "ToolTip": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Ship.h",
+              "RelativeToolTip": "fun\\Ship.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAABWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-19T10:35:09.432Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ShipPart.h",
+              "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\ShipPart.h",
+              "RelativeDocumentMoniker": "fun\\ShipPart.h",
+              "ToolTip": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\ShipPart.h",
+              "RelativeToolTip": "fun\\ShipPart.h",
+              "ViewState": "AQIAACcAAAAAAAAAAAAAADkAAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-19T09:13:25.2Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ShipPart.cpp",
+              "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\ShipPart.cpp",
+              "RelativeDocumentMoniker": "fun\\ShipPart.cpp",
+              "ToolTip": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\ShipPart.cpp",
+              "RelativeToolTip": "fun\\ShipPart.cpp",
+              "ViewState": "AQIAABwAAAAAAAAAAAD4vzEAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-11-19T09:57:51.176Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EditorScene.h",
+              "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\EditorScene.h",
+              "RelativeDocumentMoniker": "fun\\EditorScene.h",
+              "ToolTip": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\EditorScene.h",
+              "RelativeToolTip": "fun\\EditorScene.h",
+              "ViewState": "AQIAAC4AAAAAAAAAAAAIwEcAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-15T09:25:56.018Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Scene.h",
+              "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Scene.h",
+              "RelativeDocumentMoniker": "fun\\Scene.h",
+              "ToolTip": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Scene.h",
+              "RelativeToolTip": "fun\\Scene.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-15T09:25:32.418Z",
               "EditorCaption": ""
             }
           ]

@@ -6,6 +6,7 @@ GameplayScene::GameplayScene(sf::RenderWindow& t_window, Ship t_player) : Scene(
 
 void GameplayScene::update(sf::Time t_deltaTime)
 {
+	m_player.update(t_deltaTime.asMilliseconds());
 }
 
 void GameplayScene::render()

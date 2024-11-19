@@ -52,13 +52,15 @@
 struct Connection
 {
 	sf::Vector2f position;
+	sf::Vector2f* anchorPoint = nullptr;
 	Connection* connectedTo = nullptr;
 
-	Connection(sf::Vector2f t_position) : position(t_position) {}
+	Connection(sf::Vector2f t_position, sf::Vector2f* t_anchorPoint) : position(t_position), anchorPoint( t_anchorPoint) {}
 	Connection(const Connection& t_other)
 	{
 		this->position = t_other.position;
 		this->connectedTo = t_other.connectedTo;
+		this->anchorPoint = t_other.anchorPoint;
 	}
 };
 
@@ -75,8 +77,6 @@ class Connector
 		void visualisePoints(sf::RenderWindow& t_window);
 
 		std::vector<sf::Vector2f> getAnchoredConnectionPoint();
-
-		
 
 		sf::Vector2f* anchorPoint;
 

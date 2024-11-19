@@ -1,5 +1,6 @@
 #pragma once
 #include "ShipPart.h"
+#include "Globals.h"
 class Ship
 {
 
@@ -14,6 +15,10 @@ class Ship
 		void boundCheck();
 
 		std::vector<ShipPart> m_parts;
+		float m_speed = 0;
+		float m_rotation = 0; 
+		sf::Vector2f m_velocity = { 0, 0 };
+		sf::Vector2f m_position = { Globals::SCREEN_WIDTH / 2, Globals::SCREEN_HEIGHT / 2 };
 	
 };
 

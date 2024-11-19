@@ -43,6 +43,12 @@ class ShipPart
 		void update();
 
 		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="t_moveBy"></param>
+		void move(sf::Vector2f t_moveBy, float t_float);
+
+		/// <summary>
 		/// Draws the ship part and its connection points.
 		/// </summary>
 		/// <param name="t_window"></param>
@@ -54,6 +60,7 @@ class ShipPart
 		/// <param name="t_position">Desired position</param>
 		void setPosition(sf::Vector2f t_position);
 
+		void setPositionRelativeToPoint(sf::Vector2f t_position, float t_rotation);
 		/// <summary>
 		/// Sets the position of the shipart relative to the desired connection point.
 		/// </summary>
@@ -122,7 +129,7 @@ class ShipPart
 		/// </summary>
 		Connector m_connectors;
 
-		
+		float m_rotation;
 		
 
 };
