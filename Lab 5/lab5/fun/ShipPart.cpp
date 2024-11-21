@@ -41,15 +41,15 @@ void ShipPart::move(sf::Vector2f t_moveBy, float t_rotation)
 {
 	m_rotation = t_rotation;
 
-	for (int i = 0; i < m_connectors.connectionPoints.size(); i++)
-	{
-		if (m_connectors.connectionPoints[i].connectedTo != nullptr)
-		{
-			sf::Vector2f t = { 400, 400 };
-			m_position = t_moveBy + (*m_connectors.connectionPoints[i].anchorPoint) + RotationMath::rotatedVector( m_connectors.connectionPoints[i].connectedTo->position, m_rotation);
-			break;
-		}
-	}
+	//for (int i = 0; i < m_connectors.connectionPoints.size(); i++)
+	//{
+	//	if (m_connectors.connectionPoints[i].connectedTo != nullptr)
+	//	{
+	//		sf::Vector2f t = { 400, 400 };
+	//		m_position = t_moveBy - RotationMath::rotatedVector( m_connectors.connectionPoints[i].connectedTo->position, m_rotation);
+	//		break;
+	//	}
+	//}
 	
 }
 

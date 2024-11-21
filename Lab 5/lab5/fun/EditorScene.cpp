@@ -19,6 +19,7 @@ void EditorScene::update(sf::Time t_deltaTime)
 void EditorScene::render()
 {
 	m_window.clear(sf::Color::Black);
+
 	m_uiBorder.draw(m_window);
 	m_ui.draw(m_window);
 
@@ -26,6 +27,7 @@ void EditorScene::render()
 	{
 		m_parts[i]->draw(m_window);
 	}
+
 	m_window.display();
 }
 
@@ -89,5 +91,6 @@ Ship EditorScene::getCreatedShip()
 		
 	}
 	
+	createdShip.creatOrigin();
 	return createdShip;
 }

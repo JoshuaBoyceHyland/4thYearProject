@@ -10,7 +10,9 @@ class Ship
 		void update(float deltaTime);
 		void draw(sf::RenderWindow& t_window);
 		void setPart(ShipPart t_part);
+		void creatOrigin();
 	private:
+		
 		void input();
 		void boundCheck();
 

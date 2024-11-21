@@ -19,6 +19,12 @@ void Connector::visualisePoints(sf::RenderWindow& t_window)
 		circle.setPosition(getAnchoredConnectionPoint()[i]);
 		t_window.draw(circle);
 	}
+	sf::CircleShape circle;
+	circle.setRadius(2);
+	circle.setFillColor(sf::Color::Red);
+	circle.setOrigin({ 1, 1 });
+	circle.setPosition((*anchorPoint));
+	t_window.draw(circle);
 }
 
 std::vector<sf::Vector2f> Connector::getAnchoredConnectionPoint()
