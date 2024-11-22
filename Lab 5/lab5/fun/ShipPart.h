@@ -122,13 +122,16 @@ class ShipPart
 		/// <summary>
 		/// Position of Sprite.
 		/// </summary>
-		sf::Vector2f m_position = { 100, 100 };
+		sf::Vector2f m_position = { -100, -100 };
 
 		/// <summary>
 		/// Ships part connection points.
 		/// </summary>
 		Connector m_connectors;
 
+		/// <summary>
+		/// 
+		/// </summary>
 		float m_rotation;
 		
 

@@ -55,13 +55,13 @@ void Ship::draw(sf::RenderWindow& t_window)
 	}
 
 
-	sf::RectangleShape display;
+	//sf::RectangleShape display;
 
-	display.setFillColor(sf::Color::Yellow);
-	display.setSize({ 100, 100, });
-	display.setOrigin(50, 50);
-	display.setPosition(m_position);
-	t_window.draw(display);
+	//display.setFillColor(sf::Color::Yellow);
+	//display.setSize({ 100, 100, });
+	//display.setOrigin(50, 50);
+	//display.setPosition(m_position);
+	//t_window.draw(display);
 
 
 
@@ -74,7 +74,7 @@ void Ship::setPart(ShipPart t_part)
 
 void Ship::creatOrigin()
 {
-	std::vector<ShipPart*> hulls;
+	/*std::vector<ShipPart*> hulls;
 
 	for (int i = 0; i < m_parts.size(); i++)
 	{
@@ -127,7 +127,7 @@ void Ship::creatOrigin()
 	int i = 0;
 	i++;
 
-	m_position = (*sortedHulls[static_cast<int>(sortedHulls.size() / 2)]->getConnectors()->anchorPoint);
+	m_position = (*sortedHulls[static_cast<int>(sortedHulls.size() / 2)]->getConnectors()->anchorPoint);*/
 
 }
 

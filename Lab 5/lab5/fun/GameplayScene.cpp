@@ -19,6 +19,10 @@ void GameplayScene::render()
 
 void GameplayScene::processKeys(sf::Event t_event)
 {
+	if (sf::Keyboard::Escape == t_event.key.code)
+	{
+		m_window.close();
+	}
 }
 
 void GameplayScene::processMousePress(sf::Event t_event)

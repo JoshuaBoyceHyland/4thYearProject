@@ -91,6 +91,6 @@ Ship EditorScene::getCreatedShip()
 		
 	}
 	
-	createdShip.creatOrigin();
+	//createdShip.creatOrigin();
 	return createdShip;
 }
