@@ -5,6 +5,11 @@ EditorScene::EditorScene(sf::RenderWindow& t_window) : Scene(t_window), m_uiBord
 	m_mouse.m_partsInScene = m_parts; 
 }
 
+EditorScene::~EditorScene()
+{
+	saveCreatedShip();
+}
+
 void EditorScene::update(sf::Time t_deltaTime)
 {
 	m_mouse.update();
@@ -66,6 +71,12 @@ void EditorScene::processMouseRelease(sf::Event t_event)
 	if (sf::Mouse::Left == t_event.key.code)
 	{
 		m_mouse.releaseSelectedPart();
+		
+	}
+
+	if (sf::Mouse::Right == t_event.key.code)
+	{
+		m_mouse.checkForOriginSelection();
 	}
 }
 
@@ -91,6 +102,33 @@ Ship EditorScene::getCreatedShip()
 		
 	}
 	
-	//createdShip.creatOrigin();
 	return createdShip;
+}
+
+void EditorScene::saveCreatedShip()
+{
+	GameData* gameData = GameData::getInstance();
+
+	gameData->getPlayerShip();
+
+
+	Ship createdShip;
+
+
+	createdShip.setOrigin((*m_mouse.m_shipOrigin).m_body.getPosition());
+
+	for (ShipPart* part : m_parts)
+	{
+		for (int i = 0; i < part->getConnectors()->connectionPoints.size(); i++)
+		{
+			if (part->getConnectors()->connectionPoints[i].connectedTo != nullptr)
+			{
+				createdShip.setPart((*part));
+				break;
+			}
+		}
+
+	}
+
+	gameData->m_player = new Ship(createdShip);
 }

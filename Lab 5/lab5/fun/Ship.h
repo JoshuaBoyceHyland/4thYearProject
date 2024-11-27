@@ -11,11 +11,13 @@ class Ship
 		void draw(sf::RenderWindow& t_window);
 		void setPart(ShipPart t_part);
 		void creatOrigin();
+		void setOrigin(sf::Vector2f t_originPos);
 	private:
 		
 		void input();
 		void boundCheck();
 
+		std::vector<sf::Vector2f> m_offsets;
 		std::vector<ShipPart> m_parts;
 		float m_speed = 0;
 		float m_rotation = 0; 

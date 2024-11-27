@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "GameData.h"
 
 
 /// <summary>
@@ -10,6 +11,8 @@ class Scene
 
 	public:
 		Scene(sf::RenderWindow& t_window);
+
+		virtual ~Scene();
 
 		virtual void update(sf::Time t_deltaTime) = 0;
 
@@ -26,5 +29,4 @@ class Scene
 	protected:
 
 		sf::RenderWindow& m_window;
-
 };

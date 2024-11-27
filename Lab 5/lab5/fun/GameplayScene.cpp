@@ -1,7 +1,10 @@
 #include "GameplayScene.h"
 
-GameplayScene::GameplayScene(sf::RenderWindow& t_window, Ship t_player) : Scene(t_window), m_uiBorder( "Gameplay"), m_player( t_player)
+GameplayScene::GameplayScene(sf::RenderWindow& t_window) : Scene(t_window), m_uiBorder( "Gameplay")
 {
+	GameData* gameData = GameData::getInstance();
+
+	m_player = (*gameData->m_player);
 }
 
 void GameplayScene::update(sf::Time t_deltaTime)
@@ -12,8 +15,8 @@ void GameplayScene::update(sf::Time t_deltaTime)
 void GameplayScene::render()
 {
 	m_window.clear(sf::Color::Black);
-	m_uiBorder.draw(m_window);
 	m_player.draw(m_window);
+	m_uiBorder.draw(m_window);
 	m_window.display();
 }
 

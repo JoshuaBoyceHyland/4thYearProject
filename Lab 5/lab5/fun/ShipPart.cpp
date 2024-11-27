@@ -34,7 +34,7 @@ bool ShipPart::operator==(const ShipPart& other)
 void ShipPart::update()
 {
 	m_body.setPosition(m_position);	
-	m_body.setRotation(m_rotation);
+	//m_body.setRotation(m_rotation);
 }
 
 void ShipPart::move(sf::Vector2f t_moveBy, float t_rotation)

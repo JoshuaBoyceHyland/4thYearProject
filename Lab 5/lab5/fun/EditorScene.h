@@ -21,6 +21,11 @@ class EditorScene : public Scene
 		EditorScene(sf::RenderWindow& t_window );
 
 		/// <summary>
+		/// Editor Scene deconstructor, deletes parts and saves created ship
+		/// </summary>
+		~EditorScene();
+
+		/// <summary>
 		/// Updates our objects in the scene
 		/// </summary>
 		/// <param name="t_deltaTime"></param>
@@ -55,6 +60,8 @@ class EditorScene : public Scene
 		/// <param name="t_event">Mouse move event</param>
 		virtual void processMouseMove(sf::Event t_event) override;
 
+	
+
 		/// <summary>
 		/// Returns the ship the player created
 		/// </summary>
@@ -62,6 +69,11 @@ class EditorScene : public Scene
 		Ship getCreatedShip();
 
 	private: 
+
+		void saveCreatedShip();
+
+		ShipPart* m_origin = nullptr;
+
 		/// <summary>
 		/// Vector of all parts in the scene
 		/// </summary>
@@ -76,5 +88,7 @@ class EditorScene : public Scene
 		UIEditorBox m_ui;
 
 		UIScreenBorder m_uiBorder;
+
+		
 };
 

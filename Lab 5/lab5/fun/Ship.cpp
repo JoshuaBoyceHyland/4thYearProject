@@ -36,7 +36,9 @@ void Ship::update(float deltaTime)
 
 	for (int i = 0; i < m_parts.size(); i++)
 	{
-		m_parts[i].move(m_position, m_rotation);
+		m_parts[i].setPosition(m_position + RotationMath::rotatedVector( m_offsets[i], m_rotation));
+		m_parts[i].m_body.setRotation( m_rotation);
+		//m_parts[i].move(m_position, m_rotation);
 		m_parts[i].update();
 	}
 
@@ -55,13 +57,13 @@ void Ship::draw(sf::RenderWindow& t_window)
 	}
 
 
-	//sf::RectangleShape display;
+	sf::RectangleShape display;
 
-	//display.setFillColor(sf::Color::Yellow);
-	//display.setSize({ 100, 100, });
-	//display.setOrigin(50, 50);
-	//display.setPosition(m_position);
-	//t_window.draw(display);
+	display.setFillColor(sf::Color::Yellow);
+	display.setSize({ 100, 100, });
+	display.setOrigin(50, 50);
+	display.setPosition(m_position);
+	t_window.draw(display);
 
 
 
@@ -69,67 +71,19 @@ void Ship::draw(sf::RenderWindow& t_window)
 
 void Ship::setPart(ShipPart t_part)
 {
+	sf::Vector2f offset = m_position - t_part.m_body.getPosition();
+	offset.x *= -1;
+	offset.y *= -1;
+	m_offsets.push_back(offset);
 	m_parts.push_back(t_part);
+	
 }
 
-void Ship::creatOrigin()
+void Ship::setOrigin(sf::Vector2f t_originPos)
 {
-	/*std::vector<ShipPart*> hulls;
-
-	for (int i = 0; i < m_parts.size(); i++)
-	{
-		if (m_parts[i].m_type == PartType::Hull)
-		{
-			hulls.push_back(&m_parts[i]);
-		}
-	}
-	
-	std::vector<ShipPart*> sortedHulls;
-
-	sortedHulls.reserve(sortedHulls.size());
-
-	sortedHulls.push_back(hulls[0]);
-
-	for (int i = 1; i < hulls.size(); i++)
-	{
-		float current = abs(hulls[i]->getPosition().x + hulls[i]->getPosition().y);
-
-		for (int k = 0; k < sortedHulls.size(); k++)
-		{
-			float list = abs(sortedHulls[k]->getPosition().x + sortedHulls[k]->getPosition().y);
-
-			if (current < list)
-			{
-				ShipPart* prev = &(*sortedHulls[k]);
-				sortedHulls[k] = hulls[i];
-
-				for (int j = k + 1 ; j < sortedHulls.size() + 1; j++)
-				{
-					Ship* next = &(*sortedHulls[j+1]);
-					sortedHulls[j] = prev;
-
-
-				
-				}
-									
-
-
-			}
-	
-		}
-		
-	}
-
-	for (int i = 0; i < sortedHulls.size(); i++)
-	{
-		std::cout << "X: " << sortedHulls[i]->getPosition().x << " Y: " << sortedHulls[i]->getPosition().y << std::endl; 
-	}
-	int i = 0;
-	i++;
-
-	m_position = (*sortedHulls[static_cast<int>(sortedHulls.size() / 2)]->getConnectors()->anchorPoint);*/
-
+	m_position = t_originPos;
 }
+
 
 
 

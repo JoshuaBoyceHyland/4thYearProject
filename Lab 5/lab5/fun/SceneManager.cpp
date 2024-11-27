@@ -7,6 +7,9 @@ SceneManager::SceneManager(sf::RenderWindow& t_window) : m_window( t_window)
 void SceneManager::switchScene(SceneType t_newScene)
 {
 
+
+	delete m_currentScene;
+
 	switch (t_newScene)
 	{
 	case Menu:
@@ -17,7 +20,7 @@ void SceneManager::switchScene(SceneType t_newScene)
 
 		break;
 	case Gameplay:
-		m_currentScene = new GameplayScene(m_window, dynamic_cast<EditorScene*>(m_currentScene)->getCreatedShip());
+		m_currentScene = new GameplayScene(m_window);
 		break;
 	default:
 		break;

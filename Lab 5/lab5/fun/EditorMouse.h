@@ -14,6 +14,11 @@ class EditorMouse
 		EditorMouse();
 
 		/// <summary>
+		/// makes the piece the origin for rotation
+		/// </summary>
+		void checkForOriginSelection();
+
+		/// <summary>
 		/// Assigns a ShipPart as being the current one being held by user.
 		/// </summary>
 		/// <param name="t_index">Index used to identify which ShipPart in the scene we are assigning</param>
@@ -44,6 +49,10 @@ class EditorMouse
 		/// </summary>
 		std::vector<ShipPart*> m_partsInScene;
 
+		/// <summary>
+		/// Where the ship will rotate around
+		/// </summary>
+		ShipPart* m_shipOrigin = nullptr;
 	private:
 
 		/// <summary>
@@ -72,5 +81,7 @@ class EditorMouse
 		/// The ShipPart in the scene which is currently being held by the EditorMouse.
 		/// </summary>
 		ShipPart* m_selectedPart = nullptr;
+		
+
 };
 
