@@ -86,9 +86,6 @@ void PartsLibarary::fillLibrary()
 		m_parts[static_cast<int>(PartType::Right_Wing)].emplace_back(ShipPart(texture, PartType::Right_Wing, pos));
 		pos.y += 100;
 
-
-		//pos.x += 300;
-		//pos.y = 100;
 	}
 
 }

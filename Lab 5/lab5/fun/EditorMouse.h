@@ -3,7 +3,7 @@
 #include "ShipPart.h"
 #include "VectorMath.h"
 #include "Connector.h"
-
+#include "ParticleSystem.h"
 /// <summary>
 /// Will track mouse position and is in charge of selecting any ShipPart and connecting it to another.
 /// </summary>
@@ -39,6 +39,8 @@ class EditorMouse
 		/// </summary>
 		void update();
 
+
+
 		/// <summary>
 		/// Position of the mouse
 		/// </summary>
@@ -53,6 +55,8 @@ class EditorMouse
 		/// Where the ship will rotate around
 		/// </summary>
 		ShipPart* m_shipOrigin = nullptr;
+
+		ParticleSystem* test = nullptr;
 	private:
 
 		/// <summary>
@@ -82,6 +86,6 @@ class EditorMouse
 		/// </summary>
 		ShipPart* m_selectedPart = nullptr;
 		
-
+		
 };
 

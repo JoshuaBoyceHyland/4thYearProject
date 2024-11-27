@@ -18,7 +18,10 @@ void EditorScene::update(sf::Time t_deltaTime)
 	{
 		m_parts[i]->update();
 	}
-
+	if (m_mouse.test != nullptr)
+	{
+		m_mouse.test->update();
+	}
 }
 
 void EditorScene::render()
@@ -33,6 +36,11 @@ void EditorScene::render()
 		m_parts[i]->draw(m_window);
 	}
 
+	if (m_mouse.test != nullptr)
+	{
+		m_mouse.test->draw(m_window);
+	}
+	
 	m_window.display();
 }
 

@@ -33,12 +33,11 @@ void Ship::update(float deltaTime)
 
 
 	m_position += m_velocity;
-
+	std::cout << "X: " << m_velocity.x << " Y: "<<m_velocity.y << std::endl;
 	for (int i = 0; i < m_parts.size(); i++)
 	{
 		m_parts[i].setPosition(m_position + RotationMath::rotatedVector( m_offsets[i], m_rotation));
 		m_parts[i].m_body.setRotation( m_rotation);
-		//m_parts[i].move(m_position, m_rotation);
 		m_parts[i].update();
 	}
 
@@ -60,7 +59,7 @@ void Ship::draw(sf::RenderWindow& t_window)
 	sf::RectangleShape display;
 
 	display.setFillColor(sf::Color::Yellow);
-	display.setSize({ 100, 100, });
+	display.setSize({ 10, 10, });
 	display.setOrigin(50, 50);
 	display.setPosition(m_position);
 	t_window.draw(display);

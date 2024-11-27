@@ -40,6 +40,7 @@ void EditorMouse::checkForPartSelection()
 			break;
 		}
 	}
+	test = new ParticleSystem(m_position);
 }
 
 void EditorMouse::releaseSelectedPart()
