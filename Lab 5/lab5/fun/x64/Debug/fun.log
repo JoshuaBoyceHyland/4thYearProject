@@ -1,3 +1,5 @@
-﻿  ParticleSystem.cpp
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\ParticleSystem.cpp(14,22): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-  fun.vcxproj -> C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\x64\Debug\fun.exe
+﻿  EditorScene.cpp
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\EditorScene.cpp(71,39): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  fun.vcxproj -> C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\x64\Debug\fun.exe

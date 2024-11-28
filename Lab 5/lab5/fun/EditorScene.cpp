@@ -38,7 +38,7 @@ void EditorScene::render()
 
 	if (m_mouse.test != nullptr)
 	{
-		m_mouse.test->draw(m_window);
+		//m_mouse.test->draw(m_window);
 	}
 	
 	m_window.display();
