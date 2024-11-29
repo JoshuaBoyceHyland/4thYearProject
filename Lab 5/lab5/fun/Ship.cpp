@@ -19,12 +19,12 @@ void Ship::update(float deltaTime)
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 	{
-		m_rotation -= 4;
+		m_rotation -= 1;
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 	{
-		m_rotation += 4;
+		m_rotation += 1;
 	}
 
 	float radian = (m_rotation + 270.0f) * (3.14159265359f / 180.0f);

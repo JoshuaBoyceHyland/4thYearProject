@@ -60,7 +60,7 @@ class ShipPart
 		/// <param name="t_position">Desired position</param>
 		void setPosition(sf::Vector2f t_position);
 
-		void setPositionRelativeToPoint(sf::Vector2f t_position, float t_rotation);
+
 		/// <summary>
 		/// Sets the position of the shipart relative to the desired connection point.
 		/// </summary>

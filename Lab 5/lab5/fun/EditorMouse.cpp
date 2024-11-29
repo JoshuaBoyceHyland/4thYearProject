@@ -33,6 +33,7 @@ void EditorMouse::checkForPartSelection()
 				// check if we are connected to anything first
 				if (m_selectedPart->getConnectors()->connectionPoints[i].connectedTo != nullptr)
 				{
+					// disconnect from whatever other part they were connected to
 					m_selectedPart->getConnectors()->connectionPoints[i].connectedTo->connectedTo = nullptr;
 					m_selectedPart->getConnectors()->connectionPoints[i].connectedTo = nullptr;
 				}
@@ -50,24 +51,26 @@ void EditorMouse::releaseSelectedPart()
 
 		ShipPart* closestPart = getClosestPart();
 
+		// check if there is a part close enough to connect to
 		if (closestPart != nullptr)
 		{
 			
-			// get closests points connections
+			// get the closest part connection points
 			Connector* partsConnector = closestPart->getConnectors();
 
-			sf::Vector2f closestPartPos = getClosestConnectionPos(partsConnector, m_position);
+			// get the closest connection point of the closest part which is closest to curretnly selected piece by the mouse
+			sf::Vector2f closestConnectionPos = getClosestConnectionPos(partsConnector, m_position);
 
-			std::cout << getClosestConnectionIndex(m_selectedPart->getConnectors(), closestPartPos) << std::endl;
+			std::cout << getClosestConnectionIndex(m_selectedPart->getConnectors(), closestConnectionPos) << std::endl;
 
-			// need to check if this point is valid or else it will cl
-			int selectedClosestConnectionPoint = getClosestConnectionIndex(m_selectedPart->getConnectors(), closestPartPos);
+			// check if our selected piece has a connection point close enough that is valid
+			int selectedClosestConnectionPoint = getClosestConnectionIndex(m_selectedPart->getConnectors(), closestConnectionPos);
 
-
+			// if valid
 			if (selectedClosestConnectionPoint != -1)
 			{
-
-				m_selectedPart->setPositionRelativeToConnectorPoint(closestPartPos, selectedClosestConnectionPoint);
+				
+				m_selectedPart->setPositionRelativeToConnectorPoint(closestConnectionPos, selectedClosestConnectionPoint);
 
 				m_selectedPart->m_body.setPosition(m_selectedPart->getPosition());
 

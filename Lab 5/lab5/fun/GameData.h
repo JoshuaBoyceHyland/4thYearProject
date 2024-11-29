@@ -14,9 +14,8 @@ class GameData
 
 		static GameData* getInstance();
 
-		
-
 		Ship* m_player;
+
 		Ship* getPlayerShip();
 	private:
 
