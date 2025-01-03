@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BaseBuilderScene.cpp" />
     <ClCompile Include="Connector.cpp" />
     <ClCompile Include="EditorMouse.cpp" />
     <ClCompile Include="EditorScene.cpp" />
@@ -42,6 +43,7 @@
     <ClCompile Include="VectorMath.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BaseBuilderScene.h" />
     <ClInclude Include="Connector.h" />
     <ClInclude Include="Deprecated\Player.h" />
     <ClInclude Include="EditorMouse.h" />

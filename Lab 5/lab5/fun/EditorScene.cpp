@@ -1,16 +1,16 @@
 #include "EditorScene.h"
 
-EditorScene::EditorScene(sf::RenderWindow& t_window) : Scene(t_window), m_uiBorder( "Editor")
+ShipEditorScene::ShipEditorScene(sf::RenderWindow& t_window) : Scene(t_window), m_uiBorder( "Editor")
 {
 	m_mouse.m_partsInScene = m_parts; 
 }
 
-EditorScene::~EditorScene()
+ShipEditorScene::~ShipEditorScene()
 {
 	saveCreatedShip();
 }
 
-void EditorScene::update(sf::Time t_deltaTime)
+void ShipEditorScene::update(sf::Time t_deltaTime)
 {
 	m_mouse.update();
 
@@ -24,7 +24,7 @@ void EditorScene::update(sf::Time t_deltaTime)
 	}
 }
 
-void EditorScene::render()
+void ShipEditorScene::render()
 {
 	m_window.clear(sf::Color::Black);
 
@@ -44,7 +44,7 @@ void EditorScene::render()
 	m_window.display();
 }
 
-void EditorScene::processKeys(sf::Event t_event)
+void ShipEditorScene::processKeys(sf::Event t_event)
 {
 	if (sf::Keyboard::Escape == t_event.key.code)
 	{
@@ -52,7 +52,7 @@ void EditorScene::processKeys(sf::Event t_event)
 	}
 }
 
-void EditorScene::processMousePress(sf::Event t_event)
+void ShipEditorScene::processMousePress(sf::Event t_event)
 {
 	if (sf::Mouse::Left == t_event.key.code)
 	{
@@ -74,7 +74,7 @@ void EditorScene::processMousePress(sf::Event t_event)
 	}
 }
 
-void EditorScene::processMouseRelease(sf::Event t_event)
+void ShipEditorScene::processMouseRelease(sf::Event t_event)
 {
 	if (sf::Mouse::Left == t_event.key.code)
 	{
@@ -88,12 +88,12 @@ void EditorScene::processMouseRelease(sf::Event t_event)
 	}
 }
 
-void EditorScene::processMouseMove(sf::Event t_event)
+void ShipEditorScene::processMouseMove(sf::Event t_event)
 {
 	m_mouse.m_position = { static_cast<float>(sf::Mouse::getPosition(m_window).x), static_cast<float>(sf::Mouse::getPosition(m_window).y) };
 }
 
-Ship EditorScene::getCreatedShip()
+Ship ShipEditorScene::getCreatedShip()
 {
 	Ship createdShip;
 	
@@ -113,7 +113,7 @@ Ship EditorScene::getCreatedShip()
 	return createdShip;
 }
 
-void EditorScene::saveCreatedShip()
+void ShipEditorScene::saveCreatedShip()
 {
 	GameData* gameData = GameData::getInstance();
 
@@ -139,4 +139,8 @@ void EditorScene::saveCreatedShip()
 	}
 
 	gameData->m_player = new Ship(createdShip);
+}
+
+void ShipEditorScene::processMouseWheel(sf::Event t_event)
+{
 }

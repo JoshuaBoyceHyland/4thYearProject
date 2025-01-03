@@ -15,12 +15,17 @@ void SceneManager::switchScene(SceneType t_newScene)
 	case Menu:
 		//m_currentScene = new MenuScene(m_window);
 		break;
+
+	case BaseBuilder:
+		m_currentScene = new BaseBuilderScene(m_window);
+		break;
+
 	case Editor:
-		m_currentScene = new EditorScene(m_window);
+		m_currentScene = new ShipEditorScene(m_window);
 
 		break;
-	case Gameplay:
-		m_currentScene = new GameplayScene(m_window);
+	case ShipGameplay:
+		m_currentScene = new ShipGameplayScene(m_window);
 		break;
 	default:
 		break;

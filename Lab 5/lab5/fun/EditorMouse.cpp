@@ -1,10 +1,10 @@
 #include "EditorMouse.h"
 
-EditorMouse::EditorMouse()
+ShipEditorMouse::ShipEditorMouse()
 {
 }
 
-void EditorMouse::checkForOriginSelection()
+void ShipEditorMouse::checkForOriginSelection()
 {
 	for (int i = 0; i < m_partsInScene.size(); i++)
 	{
@@ -16,12 +16,12 @@ void EditorMouse::checkForOriginSelection()
 	}
 }
 
-void EditorMouse::selectPiece(int t_index)
+void ShipEditorMouse::selectPiece(int t_index)
 {
 	m_selectedPart = m_partsInScene[t_index];
 }
 
-void EditorMouse::checkForPartSelection()
+void ShipEditorMouse::checkForPartSelection()
 {
 	for ( int i = 0; i <m_partsInScene.size(); i++)
 	{
@@ -44,7 +44,7 @@ void EditorMouse::checkForPartSelection()
 	test = new ParticleSystem(m_position);
 }
 
-void EditorMouse::releaseSelectedPart()
+void ShipEditorMouse::releaseSelectedPart()
 {
 	if (m_selectedPart != nullptr)
 	{
@@ -95,7 +95,7 @@ void EditorMouse::releaseSelectedPart()
 
 }
 
-void EditorMouse::update()
+void ShipEditorMouse::update()
 {
 	if (m_selectedPart != nullptr)
 	{
@@ -104,7 +104,7 @@ void EditorMouse::update()
 
 }
 
-ShipPart* EditorMouse::getClosestPart()
+ShipPart* ShipEditorMouse::getClosestPart()
 {
 
 	ShipPart* closestPart = nullptr;
@@ -128,7 +128,7 @@ ShipPart* EditorMouse::getClosestPart()
 	return closestPart;
 }
 
-sf::Vector2f EditorMouse::getClosestConnectionPos(Connector* t_connector, sf::Vector2f t_point)
+sf::Vector2f ShipEditorMouse::getClosestConnectionPos(Connector* t_connector, sf::Vector2f t_point)
 {
 
 	std::vector<sf::Vector2f> connectionPoints = t_connector->getAnchoredConnectionPoint();
@@ -151,7 +151,7 @@ sf::Vector2f EditorMouse::getClosestConnectionPos(Connector* t_connector, sf::Ve
 	return closestConnection;
 }
 
-int EditorMouse::getClosestConnectionIndex(Connector* t_connector, sf::Vector2f t_point)
+int ShipEditorMouse::getClosestConnectionIndex(Connector* t_connector, sf::Vector2f t_point)
 {
 	std::vector<sf::Vector2f> connectionPoints = t_connector->getAnchoredConnectionPoint();
 	float shortestDistance = 150;

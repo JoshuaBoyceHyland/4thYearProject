@@ -9,7 +9,7 @@
 /// <summary>
 /// Class for
 /// </summary>
-class EditorScene : public Scene
+class ShipEditorScene : public Scene
 {
 	public:
 
@@ -18,12 +18,12 @@ class EditorScene : public Scene
 		/// Updates the mouses vector of scene parts
 		/// </summary>
 		/// <param name="t_window">Assigns to our reference so we can draw to the main window</param>
-		EditorScene(sf::RenderWindow& t_window );
+		ShipEditorScene(sf::RenderWindow& t_window );
 
 		/// <summary>
 		/// Editor Scene deconstructor, deletes parts and saves created ship
 		/// </summary>
-		~EditorScene();
+		~ShipEditorScene();
 
 		/// <summary>
 		/// Updates our objects in the scene
@@ -60,7 +60,8 @@ class EditorScene : public Scene
 		/// <param name="t_event">Mouse move event</param>
 		virtual void processMouseMove(sf::Event t_event) override;
 
-	
+		// Inherited via Scene
+		void processMouseWheel(sf::Event t_event) override;
 
 		/// <summary>
 		/// Returns the ship the player created
@@ -81,7 +82,7 @@ class EditorScene : public Scene
 		/// <summary>
 		/// Editor mouse for the scene
 		/// </summary>
-		EditorMouse m_mouse;
+		ShipEditorMouse m_mouse;
 		/// <summary>
 		///  Ui for this scene
 		/// </summary>
@@ -90,5 +91,8 @@ class EditorScene : public Scene
 		UIScreenBorder m_uiBorder;
 
 		
+
+
+
 };
 

@@ -1,18 +1,18 @@
 #include "GameplayScene.h"
 
-GameplayScene::GameplayScene(sf::RenderWindow& t_window) : Scene(t_window), m_uiBorder( "Gameplay")
+ShipGameplayScene::ShipGameplayScene(sf::RenderWindow& t_window) : Scene(t_window), m_uiBorder( "Gameplay")
 {
 	GameData* gameData = GameData::getInstance();
 
 	m_player = (*gameData->m_player);
 }
 
-void GameplayScene::update(sf::Time t_deltaTime)
+void ShipGameplayScene::update(sf::Time t_deltaTime)
 {
 	m_player.update(t_deltaTime.asMilliseconds());
 }
 
-void GameplayScene::render()
+void ShipGameplayScene::render()
 {
 	m_window.clear(sf::Color::Black);
 	m_player.draw(m_window);
@@ -20,7 +20,7 @@ void GameplayScene::render()
 	m_window.display();
 }
 
-void GameplayScene::processKeys(sf::Event t_event)
+void ShipGameplayScene::processKeys(sf::Event t_event)
 {
 	if (sf::Keyboard::Escape == t_event.key.code)
 	{
@@ -28,14 +28,18 @@ void GameplayScene::processKeys(sf::Event t_event)
 	}
 }
 
-void GameplayScene::processMousePress(sf::Event t_event)
+void ShipGameplayScene::processMousePress(sf::Event t_event)
 {
 }
 
-void GameplayScene::processMouseRelease(sf::Event t_event)
+void ShipGameplayScene::processMouseRelease(sf::Event t_event)
 {
 }
 
-void GameplayScene::processMouseMove(sf::Event t_event)
+void ShipGameplayScene::processMouseMove(sf::Event t_event)
+{
+}
+
+void ShipGameplayScene::processMouseWheel(sf::Event t_event)
 {
 }

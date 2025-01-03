@@ -17,11 +17,11 @@
 /// load and setup thne image
 /// </summary>
 Game::Game() :
-	m_window{ sf::VideoMode{ Globals::SCREEN_WIDTH, Globals::SCREEN_HEIGHT, 32U }, "SFML Game", sf::Style::Fullscreen },
+	m_window{ sf::VideoMode{ Globals::SCREEN_WIDTH, Globals::SCREEN_HEIGHT, 32U }, "SFML Game"/*, sf::Style::Fullscreen*/ },
 	m_exitGame{ false },
 	m_sceneManager(m_window)
 {
-	m_sceneManager.switchScene(Editor);
+	m_sceneManager.switchScene(BaseBuilder);
 }
 
 /// <summary>
@@ -75,7 +75,7 @@ void Game::processEvents()
 
 			if (sf::Keyboard::G == newEvent.key.code)
 			{
-				m_sceneManager.switchScene(Gameplay);
+				m_sceneManager.switchScene(ShipGameplay);
 			}
 		}
 		if ( sf::Event::MouseButtonPressed == newEvent.type)
@@ -89,6 +89,11 @@ void Game::processEvents()
 		if (sf::Event::MouseMoved == newEvent.type)
 		{
 			m_sceneManager.getCurrentScene()->processMouseMove(newEvent);
+		}
+
+		if( sf::Event::MouseWheelMoved == newEvent.type)
+		{
+			m_sceneManager.getCurrentScene()->processMouseWheel(newEvent);
 		}
 	}
 }

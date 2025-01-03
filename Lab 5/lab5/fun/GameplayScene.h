@@ -4,10 +4,10 @@
 #include "UIEditorBox.h"
 #include "UIScreenBorder.h"
 
-class GameplayScene : public Scene
+class ShipGameplayScene : public Scene
 {
 	public:
-		GameplayScene(sf::RenderWindow& t_window);
+		ShipGameplayScene(sf::RenderWindow& t_window);
 
 		void update(sf::Time t_deltaTime) override;
 		void render() override;
@@ -15,9 +15,13 @@ class GameplayScene : public Scene
 		void processMousePress(sf::Event t_event) override;
 		void processMouseRelease(sf::Event t_event) override;
 		void processMouseMove(sf::Event t_event) override;
+		void processMouseWheel(sf::Event t_event) override;
 	private:
 
 		UIScreenBorder m_uiBorder;
 		Ship m_player;
+
+		// Inherited via Scene
+		
 };
 

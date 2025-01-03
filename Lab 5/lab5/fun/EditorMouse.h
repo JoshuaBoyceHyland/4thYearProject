@@ -7,11 +7,11 @@
 /// <summary>
 /// Will track mouse position and is in charge of selecting any ShipPart and connecting it to another.
 /// </summary>
-class EditorMouse
+class ShipEditorMouse
 {
 
 	public:
-		EditorMouse();
+		ShipEditorMouse();
 
 		/// <summary>
 		/// makes the piece the origin for rotation

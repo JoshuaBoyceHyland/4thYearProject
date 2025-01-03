@@ -25,6 +25,8 @@ class Scene
 		virtual void processMouseRelease(sf::Event t_event) = 0;
 
 		virtual void processMouseMove(sf::Event t_event) = 0;
+
+		virtual void processMouseWheel(sf::Event t_event) = 0;
 	
 	protected:
 

@@ -31,7 +31,7 @@
 int main()
 {
 	
-	(time(NULL));
+	srand(time(NULL));
 	Game game;
 	game.run();
 
