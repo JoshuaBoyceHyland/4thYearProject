@@ -2,6 +2,11 @@
 #include "Scene.h"
 #include "Globals.h"
 #include "VectorMath.h"
+#include "MovableCamera.h"
+#include "Job.h"
+#include "Room.h"
+//#include "Cell.h"
+#include "Grid.h"
 
 class BaseBuilderScene : public Scene
 {
@@ -25,25 +30,12 @@ class BaseBuilderScene : public Scene
 
 	private:
 
-		sf::View m_camera;
 
 		sf::RectangleShape m_rect;
 
-		bool m_mouseDown = false;
-
-		int m_currentZoom = 0;
-		const int MAX_ZOOM_IN = 10;
-		const int MAX_ZOOM_OUT = -10;
-
-		
-
-
-		sf::Vector2f m_mouseClickPoint;
-		sf::Vector2f m_mouseDelta;
-		sf::Vector2f m_mouseCurrentPosition;
-		
-
-		
-
+		MovableCamera m_camera;
+		Job m_job;
+		Room m_room;
+		Grid m_grid;
 };
 

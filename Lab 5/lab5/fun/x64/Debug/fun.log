@@ -1,4 +1,48 @@
 ﻿  BaseBuilderScene.cpp
 C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\BaseBuilderScene.cpp(67,14): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\BaseBuilderScene.cpp(58,14): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  EditorMouse.cpp
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+  EditorScene.cpp
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\EditorScene.cpp(71,39): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  GameData.cpp
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+  GameplayScene.cpp
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\GameplayScene.cpp(12,44): warning C4244: 'argument': conversion from 'sf::Int32' to 'float', possible loss of data
+  MenuScene.cpp
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Part.cpp
+  Scene.cpp
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+  SceneManager.cpp
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Ship.cpp
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+  ShipPartEditiorBox.cpp
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+  Game.cpp
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  main.cpp
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\main.cpp(34,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  PartsLibarary.cpp
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+  ShipPart.cpp
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+  UIEditorBox.cpp
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\UIEditorBox.cpp(84,49): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
+  Generating Code...
   fun.vcxproj -> C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\x64\Debug\fun.exe

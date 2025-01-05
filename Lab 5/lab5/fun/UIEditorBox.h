@@ -16,6 +16,7 @@ class UIEditorBox : public UI
 		void checkForInteraction(sf::Vector2f t_mousePosition) override;
 
 		ShipPart* partSelectionCheck(sf::Vector2f t_mousePosition);
+
 	private:
 
 		void SetUpText();
