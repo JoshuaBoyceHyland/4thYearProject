@@ -3,13 +3,22 @@
 
 class ShipPartEditiorBox : public UIEditorBox
 {
-	ShipPartEditiorBox();
 
-	ShipPart* partSelectionCheck(sf::Vector2f t_mousePosition);
+	public: 
+		ShipPartEditiorBox();
 
+		void draw(sf::RenderWindow& t_window) override;
+
+		void checkForInteraction(sf::Vector2f t_mousePosition) override;
+
+		ShipPart* partSelectionCheck(sf::Vector2f t_mousePosition);
+		
 	private:
 
+		void setUpUiSprites() override;
+
 		PartType current = PartType::Hull;
+
 		std::map<PartType, std::string> partTypeString = { {PartType::CockPit, "Cockpit" },
 															{PartType::Hull,"Hull"},
 															{PartType::Thruster, "Thruster"},
@@ -18,9 +27,11 @@ class ShipPartEditiorBox : public UIEditorBox
 
 
 		std::vector <std::vector<sf::Sprite>> m_uiSprites = { std::vector<sf::Sprite>(),
-																std::vector<sf::Sprite>() ,
-																std::vector<sf::Sprite>() ,
-																std::vector<sf::Sprite>() ,
-																std::vector<sf::Sprite>() };
+														std::vector<sf::Sprite>() ,
+														std::vector<sf::Sprite>() ,
+														std::vector<sf::Sprite>() ,
+														std::vector<sf::Sprite>() };
+
+
 };
 

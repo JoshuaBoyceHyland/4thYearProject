@@ -17,6 +17,8 @@ class MovableCamera
 		void endMove();
 
 		void zoom(float t_mouseWheelDelta);
+
+		sf::Vector2f getPosition();
 	private:
 
 		/// <summary>

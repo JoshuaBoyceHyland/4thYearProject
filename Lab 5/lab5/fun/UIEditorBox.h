@@ -11,18 +11,20 @@ class UIEditorBox : public UI
 
 		UIEditorBox();
 
-		void draw(sf::RenderWindow& t_window) override;
+		virtual void draw(sf::RenderWindow& t_window) = 0;
 
-		void checkForInteraction(sf::Vector2f t_mousePosition) override;
+		virtual void checkForInteraction(sf::Vector2f t_mousePosition) = 0;
 
-		ShipPart* partSelectionCheck(sf::Vector2f t_mousePosition);
-
-	private:
+	protected:
 
 		void SetUpText();
 		void setUpRect();
 		void setUpButton();
-		void setUpUiSprites();
+
+
+
+		virtual void setUpUiSprites() = 0;
+
 		sf::RectangleShape m_uiBox;
 
 		sf::CircleShape m_button;
@@ -33,21 +35,6 @@ class UIEditorBox : public UI
 		sf::Font* m_font;
 
 		std::vector<sf::Texture*> m_partTextures;
-
-
-		PartType current = PartType::Hull;
-		std::map<PartType, std::string> partTypeString = { {PartType::CockPit, "Cockpit" },
-															{PartType::Hull,"Hull"},
-															{PartType::Thruster, "Thruster"},
-															{PartType::Left_Wing, "Left Wing" },
-															{PartType::Right_Wing, "Right Wing"} };
-
-
-		std::vector <std::vector<sf::Sprite>> m_uiSprites = { std::vector<sf::Sprite>(),
-																std::vector<sf::Sprite>() ,
-																std::vector<sf::Sprite>() ,
-																std::vector<sf::Sprite>() ,
-																std::vector<sf::Sprite>() };
 
 };
 

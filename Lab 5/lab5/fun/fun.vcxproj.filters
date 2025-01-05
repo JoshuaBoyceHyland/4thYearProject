@@ -123,6 +123,9 @@
     <ClCompile Include="Part.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BaseBuilderEditiorBox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -218,7 +221,7 @@
     <ClInclude Include="ShipPartEditiorBox.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Part.h">
+    <ClInclude Include="BaseBuilderEditiorBox.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

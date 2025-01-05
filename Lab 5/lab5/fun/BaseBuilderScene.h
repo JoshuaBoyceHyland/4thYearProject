@@ -7,6 +7,7 @@
 #include "Room.h"
 //#include "Cell.h"
 #include "Grid.h"
+#include "BaseBuilderEditiorBox.h"
 
 class BaseBuilderScene : public Scene
 {
@@ -37,5 +38,6 @@ class BaseBuilderScene : public Scene
 		Job m_job;
 		Room m_room;
 		Grid m_grid;
+		BaseBuilderEditiorBox m_editorBox;
 };
 

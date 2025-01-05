@@ -11,6 +11,8 @@ Scene(t_window), m_camera(m_window), m_job("Water Filtration", { 300, 300 }), m_
 void BaseBuilderScene::update(sf::Time t_deltaTime)
 {
 	m_camera.update();
+	m_editorBox.updatePosition(m_camera.getPosition());
+	std::cout << m_camera.getPosition().x << " " << m_camera.getPosition().y << std::endl;
 }
 
 void BaseBuilderScene::render()
@@ -21,6 +23,7 @@ void BaseBuilderScene::render()
 	m_job.draw(m_window);
 	m_room.draw(m_window);
 	m_grid.draw(m_window);
+	m_editorBox.draw(m_window);
 	m_window.display();
 }
 

@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BaseBuilderEditiorBox.cpp" />
     <ClCompile Include="BaseBuilderScene.cpp" />
     <ClCompile Include="Cell.cpp" />
     <ClCompile Include="Connector.cpp" />
@@ -51,6 +52,7 @@
     <ClCompile Include="VectorMath.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BaseBuilderEditiorBox.h" />
     <ClInclude Include="BaseBuilderScene.h" />
     <ClInclude Include="BasePart.h" />
     <ClInclude Include="Cell.h" />
@@ -65,7 +67,6 @@
     <ClInclude Include="MenuScene.h" />
     <ClInclude Include="MovableCamera.h" />
     <ClInclude Include="NPC.h" />
-    <ClInclude Include="Part.h" />
     <ClInclude Include="Particle.h" />
     <ClInclude Include="ParticleSystem.h" />
     <ClInclude Include="Room.h" />

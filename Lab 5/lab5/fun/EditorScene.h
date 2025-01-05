@@ -2,8 +2,8 @@
 #include "Scene.h"
 #include "EditorMouse.h"
 #include "PartsLibarary.h"
-#include "UIEditorBox.h"
 #include "UIScreenBorder.h"
+#include "ShipPartEditiorBox.h"
 #include "Ship.h"
 
 /// <summary>
@@ -86,7 +86,7 @@ class ShipEditorScene : public Scene
 		/// <summary>
 		///  Ui for this scene
 		/// </summary>
-		UIEditorBox m_ui;
+		ShipPartEditiorBox m_ui;
 
 		UIScreenBorder m_uiBorder;
 

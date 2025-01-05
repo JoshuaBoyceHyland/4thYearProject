@@ -10,6 +10,7 @@ MovableCamera::MovableCamera(sf::RenderWindow& t_window) : m_window( t_window )
 
 void MovableCamera::update()
 {
+	
 	m_window.setView(m_camera);
 
 	if (m_mouseDown)
@@ -72,4 +73,9 @@ void MovableCamera::zoom(float t_mouseWheelDelta)
 
 		m_camera.zoom(zoomValue);
 	}
+}
+
+sf::Vector2f MovableCamera::getPosition() 
+{
+	return {m_camera.getCenter().x - (Globals::SCREEN_WIDTH / 2), m_camera.getCenter().y - (Globals::SCREEN_HEIGHT / 2) };
 }
