@@ -1,17 +1,20 @@
 #pragma once
 #include <iostream>
+#include "EditorPart.h"
 #include "Connector.h"
 #include "RotationMath.h"
+#include <map>
 
 /// <summary>
 /// Uses to check what type of ship part this is
 /// </summary>
 enum class PartType { CockPit = 0, Hull = 1, Left_Wing = 2, Right_Wing = 3, Thruster = 4};
 
+
 /// <summary>
 /// Individual ship parts that can be connected to each other.
 /// </summary>
-class ShipPart
+class ShipPart : public EditorPart
 {
 	public:
 		ShipPart();
@@ -133,6 +136,7 @@ class ShipPart
 		/// 
 		/// </summary>
 		float m_rotation;
+
 		
 
 };

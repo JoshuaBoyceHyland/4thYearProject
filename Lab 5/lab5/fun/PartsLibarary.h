@@ -2,6 +2,9 @@
 #include "Loader.h"
 #include "ShipPart.h"
 
+
+
+
 /// <summary>
 /// Holds every ship part that can be made.
 /// </summary>

@@ -1,5 +1,6 @@
 #pragma once
 #include "UIEditorBox.h"
+#include "PartsLibarary.h"
 
 class ShipPartEditiorBox : public UIEditorBox
 {
@@ -17,21 +18,19 @@ class ShipPartEditiorBox : public UIEditorBox
 
 		void setUpUiSprites() override;
 
-		PartType current = PartType::Hull;
+		PartType m_currentPart = PartType::Hull;
 
+		const int NUM_OF_SECTIONS = 5;
+
+		
+		
+		/// <summary>
+		/// Paps part type to a string
+		/// </summary>
 		std::map<PartType, std::string> partTypeString = { {PartType::CockPit, "Cockpit" },
-															{PartType::Hull,"Hull"},
-															{PartType::Thruster, "Thruster"},
-															{PartType::Left_Wing, "Left Wing" },
-															{PartType::Right_Wing, "Right Wing"} };
-
-
-		std::vector <std::vector<sf::Sprite>> m_uiSprites = { std::vector<sf::Sprite>(),
-														std::vector<sf::Sprite>() ,
-														std::vector<sf::Sprite>() ,
-														std::vector<sf::Sprite>() ,
-														std::vector<sf::Sprite>() };
-
-
+																	{PartType::Hull,"Hull"},
+																	{PartType::Thruster, "Thruster"},
+																	{PartType::Left_Wing, "Left Wing" },
+																	{PartType::Right_Wing, "Right Wing"} };
 };
 

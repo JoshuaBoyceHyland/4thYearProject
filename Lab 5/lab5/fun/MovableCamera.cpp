@@ -6,11 +6,11 @@ MovableCamera::MovableCamera(sf::RenderWindow& t_window) : m_window( t_window )
 	m_camera.setCenter({ Globals::SCREEN_WIDTH / 2, Globals::SCREEN_HEIGHT / 2 });
 
 	m_window.setView(m_camera);
+	
 }
 
 void MovableCamera::update()
 {
-	
 	m_window.setView(m_camera);
 
 	if (m_mouseDown)
@@ -47,8 +47,9 @@ void MovableCamera::endMove()
 	m_mouseDown = false;
 }
 
-void MovableCamera::zoom(float t_mouseWheelDelta)
+float MovableCamera::zoom(float t_mouseWheelDelta)
 {
+	float zoomValue = 1;
 	if (t_mouseWheelDelta != -1)
 	{
 		m_currentZoom++;
@@ -69,10 +70,13 @@ void MovableCamera::zoom(float t_mouseWheelDelta)
 	}
 	else
 	{
-		float zoomValue = 1 + (t_mouseWheelDelta * -0.1f);
+		zoomValue = 1 + (t_mouseWheelDelta * -0.1f);
 
 		m_camera.zoom(zoomValue);
 	}
+
+
+	return zoomValue;
 }
 
 sf::Vector2f MovableCamera::getPosition() 

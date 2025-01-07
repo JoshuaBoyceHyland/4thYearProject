@@ -2,6 +2,10 @@
 
 ShipPartEditiorBox::ShipPartEditiorBox()
 {
+	for (int i = 0; i < NUM_OF_SECTIONS; i++)
+	{
+		m_uiSprites.push_back(std::vector<sf::Sprite>());
+	}
 	setUpUiSprites();
 }
 
@@ -12,10 +16,10 @@ ShipPart* ShipPartEditiorBox::partSelectionCheck(sf::Vector2f t_mousePosition)
 	
 	for (int i = 0; i < PartsLibarary::NUM_OF_EACH_PART; i++)
 	{
-		if (m_uiSprites[static_cast<int>(current)][i].getGlobalBounds().contains(t_mousePosition))
+		if (m_uiSprites[static_cast<int>(m_currentPart)][i].getGlobalBounds().contains(t_mousePosition))
 		{
 			PartsLibarary* library = PartsLibarary::getInstance();
-			part = library->getPart(current, i);
+			part = library->getPart(m_currentPart, i);
 			//part->setPosition(m_uiSprites[static_cast<int>(current)][i].getPosition());
 		}
 	}
@@ -33,7 +37,7 @@ void ShipPartEditiorBox::draw(sf::RenderWindow& t_window)
 
 	for (int i = 0; i < PartsLibarary::NUM_OF_EACH_PART; i++)
 	{
-		t_window.draw(m_uiSprites[static_cast<int>(current)][i]);
+		t_window.draw(m_uiSprites[static_cast<int>(m_currentPart)][i]);
 	}
 }
 
@@ -41,7 +45,7 @@ void ShipPartEditiorBox::checkForInteraction(sf::Vector2f t_mousePosition)
 {
 	if (m_button.getGlobalBounds().contains(t_mousePosition))
 	{
-		int part = static_cast<int>(current);
+		int part = static_cast<int>(m_currentPart);
 
 		part++;
 		if (part > 4)
@@ -49,12 +53,12 @@ void ShipPartEditiorBox::checkForInteraction(sf::Vector2f t_mousePosition)
 			part = 0;
 		}
 
-		current = PartType(part);
+		m_currentPart = PartType(part);
 	}
 
 	if (m_button2.getGlobalBounds().contains(t_mousePosition))
 	{
-		int part = static_cast<int>(current);
+		int part = static_cast<int>(m_currentPart);
 
 		part--;
 		if (part < 0)
@@ -62,11 +66,11 @@ void ShipPartEditiorBox::checkForInteraction(sf::Vector2f t_mousePosition)
 			part = 4;
 		}
 
-		current = PartType(part);
+		m_currentPart = PartType(part);
 	}
 
 
-	m_title.setString(partTypeString[current]);
+	m_title.setString(partTypeString[m_currentPart]);
 	sf::FloatRect textSize = m_title.getLocalBounds();
 	m_title.setOrigin(textSize.width / 2, textSize.height / 2);
 }

@@ -2,8 +2,8 @@
 #include "UI.h"
 #include "Globals.h"
 #include "Loader.h"
-#include "PartsLibarary.h"
-#include <map>
+
+
 
 class UIEditorBox : public UI
 {
@@ -35,6 +35,8 @@ class UIEditorBox : public UI
 		sf::Font* m_font;
 
 		std::vector<sf::Texture*> m_partTextures;
+
+		std::vector <std::vector<sf::Sprite>> m_uiSprites; 
 
 };
 

@@ -40,11 +40,21 @@ class Loader
 		/// <returns>Pointer to texture</returns>
 		sf::Texture* loadTexture(std::string t_path);
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="t_path"></param>
+		/// <returns></returns>
+		std::vector<sf::Texture*> splitAndLoadTexture(std::string t_path);
+
+
 	private:
 		/// <summary>
 		/// Private constructor so it can only created be internally by the getInstance function if needed to.
 		/// </summary>
 		Loader() = default;
+
+		void splitImage(sf::Texture* t_texture, std::string t_path);
 
 		/// <summary>
 		/// Single instance of the loader.
@@ -61,5 +71,10 @@ class Loader
 		/// </summary>
 		std::map < std::string, sf::Texture> m_textures;
 
+
+		/// <summary>
+		/// /Map of split textures, where each texture has a associated string key, the string being a file location of the texture. This allows the loadtexture function to see if te texture has been previously loaded.
+		/// </summary>
+		std::map < std::string, std::vector<sf::Texture>> m_splitTextures;
 };
 

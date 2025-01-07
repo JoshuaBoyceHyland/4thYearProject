@@ -8,6 +8,7 @@
 //#include "Cell.h"
 #include "Grid.h"
 #include "BaseBuilderEditiorBox.h"
+#include "TextureSplitter.h"
 
 class BaseBuilderScene : public Scene
 {
@@ -38,6 +39,8 @@ class BaseBuilderScene : public Scene
 		Job m_job;
 		Room m_room;
 		Grid m_grid;
+		std::vector<sf::Texture*> texture;
+		sf::Sprite sprite;
 		BaseBuilderEditiorBox m_editorBox;
 };
 

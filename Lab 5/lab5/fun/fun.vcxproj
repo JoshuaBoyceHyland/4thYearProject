@@ -24,6 +24,7 @@
     <ClCompile Include="Cell.cpp" />
     <ClCompile Include="Connector.cpp" />
     <ClCompile Include="EditorMouse.cpp" />
+    <ClCompile Include="EditorPart.cpp" />
     <ClCompile Include="EditorScene.cpp" />
     <ClCompile Include="GameData.cpp" />
     <ClCompile Include="GameplayScene.cpp" />
@@ -40,6 +41,7 @@
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Ship.cpp" />
     <ClCompile Include="ShipPartEditiorBox.cpp" />
+    <ClCompile Include="TextureSplitter.cpp" />
     <ClCompile Include="UI.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Loader.cpp" />
@@ -54,11 +56,11 @@
   <ItemGroup>
     <ClInclude Include="BaseBuilderEditiorBox.h" />
     <ClInclude Include="BaseBuilderScene.h" />
-    <ClInclude Include="BasePart.h" />
     <ClInclude Include="Cell.h" />
     <ClInclude Include="Connector.h" />
     <ClInclude Include="Deprecated\Player.h" />
     <ClInclude Include="EditorMouse.h" />
+    <ClInclude Include="EditorPart.h" />
     <ClInclude Include="EditorScene.h" />
     <ClInclude Include="GameData.h" />
     <ClInclude Include="GameplayScene.h" />
@@ -69,11 +71,13 @@
     <ClInclude Include="NPC.h" />
     <ClInclude Include="Particle.h" />
     <ClInclude Include="ParticleSystem.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="Room.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Ship.h" />
     <ClInclude Include="ShipPartEditiorBox.h" />
+    <ClInclude Include="TextureSplitter.h" />
     <ClInclude Include="UI.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Globals.h" />
@@ -98,6 +102,9 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
     </Font>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="fun.rc" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

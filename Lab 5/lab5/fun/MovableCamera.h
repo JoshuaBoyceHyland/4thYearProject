@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <iostream>
 #include "Globals.h"
 
 class MovableCamera
@@ -16,9 +17,11 @@ class MovableCamera
 
 		void endMove();
 
-		void zoom(float t_mouseWheelDelta);
+		float zoom(float t_mouseWheelDelta);
 
 		sf::Vector2f getPosition();
+
+		
 	private:
 
 		/// <summary>
