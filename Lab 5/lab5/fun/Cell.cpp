@@ -8,7 +8,7 @@ Cell::Cell(sf::Vector2f t_position, float t_width, float t_height)
 	m_body.setOutlineColor(sf::Color::Blue);
 	m_body.setOutlineThickness(2.5);
 
-	m_property = NPCProperty::Unwalkable;
+	m_property = TraversalProperty::Unwalkable;
 
 	setUpText();
 }
@@ -33,7 +33,7 @@ void Cell::setTexture(sf::Texture* t_texture)
 	m_body.setOutlineThickness(0.0f);
 }
 
-void Cell::setProperty(NPCProperty t_property)
+void Cell::setProperty(TraversalProperty t_property)
 {
 	m_property = t_property;
 	m_text.setString(m_cellPropertyString[m_property]);

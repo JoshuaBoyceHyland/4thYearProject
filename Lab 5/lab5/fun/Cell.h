@@ -2,7 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "Loader.h"
 
-enum class NPCProperty { Walkable, Unwalkable, Job };
+enum class TraversalProperty { Walkable, Unwalkable, Job };
 
 class Cell
 {
@@ -16,7 +16,7 @@ class Cell
 
 		void setTexture(sf::Texture* t_texture);
 
-		void setProperty(NPCProperty t_property);
+		void setProperty(TraversalProperty t_property);
 
 		void setColor(sf::Color t_color) { m_body.setFillColor(t_color); }
 		
@@ -35,8 +35,8 @@ class Cell
 
 		sf::Vector2f m_position;
 
-		NPCProperty m_property;
+		TraversalProperty m_property;
 
-		std::map<NPCProperty, std::string> m_cellPropertyString{ {NPCProperty::Walkable, "Walkable"}, {NPCProperty::Unwalkable, "Unwalkable"},{NPCProperty::Job, "Job"} };;
+		std::map<TraversalProperty, std::string> m_cellPropertyString{ {TraversalProperty::Walkable, "Walkable"}, {TraversalProperty::Unwalkable, "Unwalkable"},{TraversalProperty::Job, "Job"} };
 };
 

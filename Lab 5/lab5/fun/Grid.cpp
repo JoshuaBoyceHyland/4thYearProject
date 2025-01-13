@@ -41,6 +41,23 @@ void Grid::changeToWalkable(sf::Vector2f t_mouseCLick)
 	if (row < 0 || row > MAX_ROWS) { return; }
 	if (column  < 0 || column > MAX_COLUMS) { return; }
 
-	m_cells[row][column].setProperty(NPCProperty::Walkable);
+	m_cells[row][column].setProperty(TraversalProperty::Walkable);
 	
+}
+
+void Grid::placePiece(sf::Vector2f t_mouseCLick, std::vector<sf::Texture*> t_textures )
+{
+	// ensureing the mouse click is valid
+	if (t_mouseCLick.y < 0) { return; }
+	if (t_mouseCLick.x < 0) { return; }
+
+	int row = t_mouseCLick.y / m_cellHeight;
+	int column = t_mouseCLick.x / m_cellWidth;
+
+	// checking the row and column is in the bounds
+	if (row < 0 || row > MAX_ROWS) { return; }
+	if (column  < 0 || column > MAX_COLUMS) { return; }
+
+	m_cells[row][column].setColor(sf::Color::White);
+	m_cells[row][column].setTexture(t_textures[0]);
 }

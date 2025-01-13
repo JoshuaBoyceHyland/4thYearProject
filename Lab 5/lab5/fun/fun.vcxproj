@@ -42,6 +42,8 @@
     <ClCompile Include="Ship.cpp" />
     <ClCompile Include="ShipPartEditiorBox.cpp" />
     <ClCompile Include="TextureSplitter.cpp" />
+    <ClCompile Include="Tile.cpp" />
+    <ClCompile Include="TileLibrary.cpp" />
     <ClCompile Include="UI.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Loader.cpp" />
@@ -78,6 +80,8 @@
     <ClInclude Include="Ship.h" />
     <ClInclude Include="ShipPartEditiorBox.h" />
     <ClInclude Include="TextureSplitter.h" />
+    <ClInclude Include="Tile.h" />
+    <ClInclude Include="TileLibrary.h" />
     <ClInclude Include="UI.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Globals.h" />

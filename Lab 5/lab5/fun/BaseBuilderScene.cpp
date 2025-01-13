@@ -7,24 +7,7 @@ Scene(t_window), m_camera(m_window), m_job("Water Filtration", { 300, 300 }), m_
 	m_rect.setSize({ 50, 50 });
 	m_rect.setPosition({ Globals::SCREEN_WIDTH / 2,Globals::SCREEN_HEIGHT / 2 });
 
-	Loader* instance = Loader::getInstance();
-	sf::Texture* text = instance->loadTexture("ASSETS/IMAGES/floor.png");
 
-
-	texture = instance->splitAndLoadTexture("ASSETS/IMAGES/floor.png");
-	sf::Texture tt;
-
-	sprite.setTexture((*text));
-	sprite.setPosition(-100, -100);
-
-	m_grid.m_cells[0][0].setColor(sf::Color::White);
-	m_grid.m_cells[0][0].setTexture( texture[0]);
-	m_grid.m_cells[0][1].setColor(sf::Color::White);
-	m_grid.m_cells[0][1].setTexture(texture[1]);
-	m_grid.m_cells[1][0].setColor(sf::Color::White);
-	m_grid.m_cells[1][0].setTexture(texture[2]);
-	m_grid.m_cells[1][1].setColor(sf::Color::White);
-	m_grid.m_cells[1][1].setTexture(texture[3]);
 }
 
 void BaseBuilderScene::update(sf::Time t_deltaTime)
@@ -54,7 +37,16 @@ void BaseBuilderScene::processMousePress(sf::Event t_event)
 
 	if (sf::Mouse::Left == t_event.mouseButton.button)
 	{
+
+		Loader* instance = Loader::getInstance();
+		sf::Texture* text = instance->loadTexture("ASSETS/IMAGES/floor.png");
+
+
+		texture = instance->splitAndLoadTexture("ASSETS/IMAGES/floor.png", 32, 32);
 		
+		m_grid.placePiece(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)), texture);
+
+
 	}
 	if (sf::Mouse::Middle == t_event.mouseButton.button)
 	{
