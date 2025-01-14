@@ -7,7 +7,14 @@
 #include "Room.h"
 //#include "Cell.h"
 #include "Grid.h"
+<<<<<<< Updated upstream
 
+=======
+#include "BaseBuilderEditiorBox.h"
+#include "TextureSplitter.h"
+#include "Tile.h"
+#include "MapSaver.h"
+>>>>>>> Stashed changes
 class BaseBuilderScene : public Scene
 {
 	public:
@@ -37,5 +44,13 @@ class BaseBuilderScene : public Scene
 		Job m_job;
 		Room m_room;
 		Grid m_grid;
+<<<<<<< Updated upstream
+=======
+		std::vector<sf::Texture*> texture;
+		sf::Sprite sprite;
+		BaseBuilderEditiorBox m_editorBox;
+		Tile* tile = nullptr;
+		MapSaver saver;
+>>>>>>> Stashed changes
 };
 

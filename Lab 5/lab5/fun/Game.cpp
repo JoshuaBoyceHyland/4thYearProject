@@ -17,11 +17,12 @@
 /// load and setup thne image
 /// </summary>
 Game::Game() :
-	m_window{ sf::VideoMode{ Globals::SCREEN_WIDTH, Globals::SCREEN_HEIGHT, 32U }, "SFML Game"/*, sf::Style::Fullscreen*/ },
+	m_window{ sf::VideoMode{ Globals::SCREEN_WIDTH, Globals::SCREEN_HEIGHT, 32U }, "SFML Game", sf::Style::Fullscreen },
 	m_exitGame{ false },
 	m_sceneManager(m_window)
 {
 	m_sceneManager.switchScene(BaseBuilder);
+	
 }
 
 /// <summary>
@@ -69,6 +70,12 @@ void Game::processEvents()
 	sf::Event newEvent;
 	while (m_window.pollEvent(newEvent))
 	{
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+		{
+			m_exitGame = true;
+		}
+
 		if (sf::Event::KeyPressed == newEvent.type) //user pressed a key
 		{
 			m_sceneManager.getCurrentScene()->processKeys(newEvent);

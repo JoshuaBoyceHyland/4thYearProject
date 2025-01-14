@@ -71,5 +71,21 @@ void MovableCamera::zoom(float t_mouseWheelDelta)
 		float zoomValue = 1 + (t_mouseWheelDelta * -0.1f);
 
 		m_camera.zoom(zoomValue);
+
 	}
+<<<<<<< Updated upstream
+=======
+
+	
+
+	return zoomValue;
+}
+
+sf::Vector2f MovableCamera::getPosition() 
+{
+
+	sf::Vector2f pos = m_window.mapPixelToCoords({ (int)m_camera.getCenter().x - ((Globals::SCREEN_WIDTH / 2)) , (int)m_camera.getCenter().y - (Globals::SCREEN_HEIGHT / 2) });
+
+	return pos;
+>>>>>>> Stashed changes
 }

@@ -59,7 +59,6 @@ void ShipEditorScene::processMousePress(sf::Event t_event)
 
 		m_mouse.checkForPartSelection();
 
-
 		m_ui.checkForInteraction(m_mouse.m_position);
 
 		ShipPart* possiblePart = m_ui.partSelectionCheck(m_mouse.m_position);

@@ -3,6 +3,7 @@
   "WorkspaceRootPath": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\",
   "Documents": [
     {
+<<<<<<< Updated upstream
       "AbsoluteMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Ship.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|solutionrelative:fun\\Ship.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -25,6 +26,22 @@
     {
       "AbsoluteMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\ParticleSystem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|solutionrelative:fun\\ParticleSystem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+=======
+      "AbsoluteMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\MapSaver.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|solutionrelative:fun\\MapSaver.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Loader.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|solutionrelative:fun\\Loader.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\TileLibrary.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|solutionrelative:fun\\TileLibrary.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Cell.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|solutionrelative:fun\\Cell.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+>>>>>>> Stashed changes
     }
   ],
   "DocumentGroupContainers": [
@@ -33,6 +50,7 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
+<<<<<<< Updated upstream
           "DockedWidth": 200,
           "SelectedChildIndex": 1,
           "Children": [
@@ -73,11 +91,28 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-11-27T12:00:18.155Z",
+=======
+          "DockedWidth": 274,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MapSaver.cpp",
+              "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\MapSaver.cpp",
+              "RelativeDocumentMoniker": "fun\\MapSaver.cpp",
+              "ToolTip": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\MapSaver.cpp",
+              "RelativeToolTip": "fun\\MapSaver.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-01-14T17:31:55.896Z",
+>>>>>>> Stashed changes
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+<<<<<<< Updated upstream
               "Title": "ParticleSystem.h",
               "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\ParticleSystem.h",
               "RelativeDocumentMoniker": "fun\\ParticleSystem.h",
@@ -86,10 +121,21 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-11-27T11:47:47.705Z",
+=======
+              "Title": "Loader.h",
+              "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Loader.h",
+              "RelativeDocumentMoniker": "fun\\Loader.h",
+              "ToolTip": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Loader.h",
+              "RelativeToolTip": "fun\\Loader.h",
+              "ViewState": "AQIAAFcAAAAAAAAAAAAAAGsAAABEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-01-14T17:29:17.795Z",
+>>>>>>> Stashed changes
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+<<<<<<< Updated upstream
               "DocumentIndex": 5,
               "Title": "ParticleSystem.cpp",
               "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\ParticleSystem.cpp",
@@ -111,6 +157,51 @@
               "ViewState": "AQIAAAYAAAAAAAAAAAAAABIAAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-11-27T09:41:43.401Z",
+=======
+              "DocumentIndex": 2,
+              "Title": "TileLibrary.cpp",
+              "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\TileLibrary.cpp",
+              "RelativeDocumentMoniker": "fun\\TileLibrary.cpp",
+              "ToolTip": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\TileLibrary.cpp",
+              "RelativeToolTip": "fun\\TileLibrary.cpp",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAABEAAABAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-01-14T14:22:07.237Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "68fe93b6-e1a2-4c8b-9d0e-f6ca0a9ece50",
+        "Display": 1,
+        "X": -350,
+        "Y": 244,
+        "Width": 1526,
+        "Height": 705,
+        "WindowState": 2
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Cell.h",
+              "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Cell.h",
+              "RelativeDocumentMoniker": "fun\\Cell.h",
+              "ToolTip": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Cell.h",
+              "RelativeToolTip": "fun\\Cell.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-01-14T16:43:08.657Z",
+>>>>>>> Stashed changes
               "EditorCaption": ""
             }
           ]
