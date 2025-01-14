@@ -1,6 +1,6 @@
 #include "Cell.h"
 
-Cell::Cell(sf::Vector2f t_position, float t_width, float t_height)
+Cell::Cell(float t_width, float t_height, sf::Vector2f t_position )
 {
 	m_body.setPosition(t_position);
 	m_body.setSize({t_width, t_height});
@@ -12,6 +12,7 @@ Cell::Cell(sf::Vector2f t_position, float t_width, float t_height)
 
 	setUpText();
 }
+
 
 void Cell::draw(sf::RenderWindow& t_window)
 {

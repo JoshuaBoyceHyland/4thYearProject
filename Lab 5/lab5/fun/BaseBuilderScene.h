@@ -9,6 +9,8 @@
 #include "Grid.h"
 #include "BaseBuilderEditiorBox.h"
 #include "TextureSplitter.h"
+#include "Tile.h"
+#include "MapSaver.h"
 
 class BaseBuilderScene : public Scene
 {
@@ -39,8 +41,11 @@ class BaseBuilderScene : public Scene
 		Job m_job;
 		Room m_room;
 		Grid m_grid;
+
 		std::vector<sf::Texture*> texture;
 		sf::Sprite sprite;
 		BaseBuilderEditiorBox m_editorBox;
+		Tile* tile = nullptr;
+		MapSaver saver;
 };
 

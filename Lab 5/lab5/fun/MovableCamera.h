@@ -39,6 +39,8 @@ class MovableCamera
 		/// </summary>
 		bool m_mouseDown = false;
 
+		float m_literalZoom = 1;
+
 		/// <summary>
 		/// Current zoom of the camera
 		/// </summary>

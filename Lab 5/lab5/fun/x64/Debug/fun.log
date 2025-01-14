@@ -1,3 +1,144 @@
-﻿  Tile.cpp
-C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  fun.vcxproj -> C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\x64\Debug\fun.exe
+﻿  BaseBuilderEditiorBox.cpp
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  BaseBuilderScene.cpp
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\BaseBuilderScene.cpp(98,14): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  Cell.cpp
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Cell.cpp(54,45): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Cell.cpp(54,45): warning C4244:         with
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Cell.cpp(54,45): warning C4244:         [
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Cell.cpp(54,45): warning C4244:             T=float
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Cell.cpp(54,45): warning C4244:         ]
+  Connector.cpp
+  EditorMouse.cpp
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+  EditorPart.cpp
+  EditorScene.cpp
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\EditorScene.cpp(70,39): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  GameData.cpp
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+  GameplayScene.cpp
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\GameplayScene.cpp(12,44): warning C4244: 'argument': conversion from 'sf::Int32' to 'float', possible loss of data
+  Grid.cpp
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(38,10): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(38,10): warning C4244:         with
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(38,10): warning C4244:         [
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(38,10): warning C4244:             T=float
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(38,10): warning C4244:         ]
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(39,13): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(39,13): warning C4244:         with
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(39,13): warning C4244:         [
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(39,13): warning C4244:             T=float
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(39,13): warning C4244:         ]
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(55,10): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(55,10): warning C4244:         with
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(55,10): warning C4244:         [
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(55,10): warning C4244:             T=float
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(55,10): warning C4244:         ]
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(56,13): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(56,13): warning C4244:         with
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(56,13): warning C4244:         [
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(56,13): warning C4244:             T=float
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(56,13): warning C4244:         ]
+  Job.cpp
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  MapSaver.cpp
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  MenuScene.cpp
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  MovableCamera.cpp
+  NPC.cpp
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Particle.cpp
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Particle.cpp(10,22): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  ParticleSystem.cpp
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\ParticleSystem.cpp(14,22): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  Room.cpp
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Scene.cpp
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+  SceneManager.cpp
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Generating Code...
+  Compiling...
+  Ship.cpp
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+  ShipPartEditiorBox.cpp
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+  TextureSplitter.cpp
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\TextureSplitter.cpp(6,21): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\TextureSplitter.cpp(6,21): warning C4244:         with
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\TextureSplitter.cpp(6,21): warning C4244:         [
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\TextureSplitter.cpp(6,21): warning C4244:             T=unsigned int
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\TextureSplitter.cpp(6,21): warning C4244:         ]
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\TextureSplitter.cpp(7,22): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\TextureSplitter.cpp(7,22): warning C4244:         with
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\TextureSplitter.cpp(7,22): warning C4244:         [
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\TextureSplitter.cpp(7,22): warning C4244:             T=unsigned int
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\TextureSplitter.cpp(7,22): warning C4244:         ]
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\TextureSplitter.cpp(9,20): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\TextureSplitter.cpp(10,17): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  Tile.cpp
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  TileLibrary.cpp
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  UI.cpp
+  Game.cpp
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Loader.cpp
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.cpp(114,22): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.cpp(114,22): warning C4244:         with
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.cpp(114,22): warning C4244:         [
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.cpp(114,22): warning C4244:             T=unsigned int
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.cpp(114,22): warning C4244:         ]
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.cpp(115,23): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.cpp(115,23): warning C4244:         with
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.cpp(115,23): warning C4244:         [
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.cpp(115,23): warning C4244:             T=unsigned int
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.cpp(115,23): warning C4244:         ]
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.cpp(117,21): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.cpp(118,18): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.cpp(131,70): warning C4244: 'argument': conversion from 'float' to 'T', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.cpp(131,70): warning C4244:         with
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.cpp(131,70): warning C4244:         [
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.cpp(131,70): warning C4244:             T=int
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.cpp(131,70): warning C4244:         ]
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.cpp(131,57): warning C4244: 'argument': conversion from 'float' to 'T', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.cpp(131,57): warning C4244:         with
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.cpp(131,57): warning C4244:         [
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.cpp(131,57): warning C4244:             T=int
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.cpp(131,57): warning C4244:         ]
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.cpp(150,13): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  main.cpp
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\main.cpp(34,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  PartsLibarary.cpp
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+  RotationMath.cpp
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+  ShipPart.cpp
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+  UIEditorBox.cpp
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\UIEditorBox.cpp(20,49): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
+  UIScreenBorder.cpp
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\UIScreenBorder.cpp(42,49): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
+  VectorMath.cpp
+  Generating Code...
+  fun.vcxproj -> C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\x64\Debug\fun.exe

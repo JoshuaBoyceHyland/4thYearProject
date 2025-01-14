@@ -10,10 +10,12 @@ class Grid
 
 		void changeToWalkable(sf::Vector2f t_mouseCLick);
 
-		void placePiece(sf::Vector2f t_mouseCLick, std::vector<sf::Texture*> t_textures);
+		void placePiece(sf::Vector2f t_mouseCLick, std::vector<sf::Texture*> t_textures, TraversalProperty t_property);
 
 		std::vector<std::vector<Cell>> m_cells;
+
 	private:
+
 		float m_cellHeight;
 		float m_cellWidth;
 

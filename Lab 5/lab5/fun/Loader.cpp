@@ -46,6 +46,7 @@ sf::Texture* Loader::loadTexture(std::string t_path)
 	return &m_textures[t_path];
 }
 
+
 std::vector<sf::Texture*> Loader::loadAllTexturesInFile(std::string t_path)
 {
 	std::vector<sf::Texture*> textures;
@@ -98,7 +99,7 @@ std::vector<std::vector<sf::Texture*>> Loader::loadAllTexturesInFileSplit(std::s
 	for (int i = 0; i < textures.size(); i++)
 	{
 		splitTexttures.push_back(std::vector<sf::Texture*>());
-		splitTexttures[i].push_back( splitImage)
+		//splitTexttures[i].push_back( splitImage)
 	}
 
 
@@ -164,4 +165,3 @@ bool Loader::isPng(std::string t_fileName)
 	
 	return false;
 }
-

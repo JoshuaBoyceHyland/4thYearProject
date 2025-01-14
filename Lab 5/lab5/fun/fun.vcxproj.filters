@@ -120,7 +120,26 @@
     <ClCompile Include="ShipPartEditiorBox.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+<<<<<<< Updated upstream
     <ClCompile Include="Part.cpp">
+=======
+    <ClCompile Include="BaseBuilderEditiorBox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EditorPart.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureSplitter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TileLibrary.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MapSaver.cpp">
+>>>>>>> Stashed changes
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="BaseBuilderEditiorBox.cpp">
@@ -246,6 +265,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="TileLibrary.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MapSaver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

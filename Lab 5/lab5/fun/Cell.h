@@ -8,8 +8,8 @@ class Cell
 {
 	public:
 
-		Cell(sf::Vector2f t_position, float t_width, float t_height);
-		
+		Cell(float t_width, float t_height, sf::Vector2f t_position = { -100, -100 });
+
 		void draw(sf::RenderWindow& t_window);
 
 		void setPosition(sf::Vector2f t_position);
@@ -20,6 +20,7 @@ class Cell
 
 		void setColor(sf::Color t_color) { m_body.setFillColor(t_color); }
 		
+		TraversalProperty getProperty() { return m_property; }
 		
 	protected:
 
