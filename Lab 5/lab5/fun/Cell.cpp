@@ -12,6 +12,25 @@ Cell::Cell(float t_width, float t_height, sf::Vector2f t_position )
 	setUpText();
 }
 
+//Cell::Cell(const Cell& t_other)
+//{
+//	m_body = t_other.m_body;
+//	m_position = t_other.m_position;
+//	m_property = t_other.m_property;
+//	m_text = t_other.m_text;
+//	m_texture = t_other.m_texture;
+//	m_font = t_other.m_font;
+//
+//	if (m_texture != nullptr)
+//	{
+//		m_body.setTexture(&(*m_texture).texture);
+//	}
+//
+//	m_text.setFont((*m_font));
+//	
+//}
+
+
 void Cell::draw(sf::RenderWindow& t_window)
 {
 	t_window.draw(m_body);
@@ -24,10 +43,10 @@ void Cell::setPosition(sf::Vector2f t_position)
 	m_body.setPosition(m_position);
 }
 
-void Cell::setTexture(Texture& t_texture)
+void Cell::setTexture(Texture* t_texture)
 {
 	
-	m_texture = &t_texture;
+	m_texture = t_texture;
 	m_body.setTexture(&(*m_texture).texture);
 	m_body.setOutlineThickness(0.0f);
 }

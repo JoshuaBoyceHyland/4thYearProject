@@ -1,8 +1,10 @@
 #pragma once
 #include "Scene.h"
-#include "GameData.h"
+//#include "GameData.h"
 #include "Grid.h"
-#include "MapSaver.h"
+//#include "MapSaver.h"
+
+
 class BaseGamePlayScene : public Scene
 {
 	public:
@@ -15,7 +17,7 @@ class BaseGamePlayScene : public Scene
 		void processMouseMove(sf::Event t_event) override;
 		void processMouseWheel(sf::Event t_event) override;
 	private: 
-		Grid* m_map;
-		MapSaver saver;
+		Grid m_map;
+		//MapSaver saver;
 };
 

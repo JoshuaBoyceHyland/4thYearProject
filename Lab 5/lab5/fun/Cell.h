@@ -14,7 +14,7 @@ class Cell
 
 		void setPosition(sf::Vector2f t_position);
 
-		void setTexture(Texture& t_texture);
+		void setTexture(Texture* t_texture);
 
 		void setProperty(TraversalProperty t_property);
 

@@ -42,7 +42,7 @@ void MapSaver::loadMap(Grid* t_grid)
         Tile* loadedTile = library->getTile(TraversalProperty(type), texture);
 
         t_grid->m_cells[row][column].setColor(sf::Color::White);
-        t_grid->m_cells[row][column].setTexture((*loadedTile->m_textures[0]));
+        t_grid->m_cells[row][column].setTexture(loadedTile->m_textures[0]);
         t_grid->m_cells[row][column].setProperty((*loadedTile).m_property);
 
     }
