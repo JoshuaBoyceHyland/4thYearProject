@@ -31,7 +31,7 @@ void TileLibrary::loadTextures()
     for (int i = 0; i < types.size(); i++)
     {
         std::string folderPath = basePath + m_cellPropertyString[types[i]];
-        std::vector<sf::Texture*> textures = loader->loadAllTexturesInFile(folderPath);
+        std::vector<Texture*> textures = loader->loadAllTexturesInFile(folderPath);
 
         for (int k = 0; k < textures.size(); k++)
         {

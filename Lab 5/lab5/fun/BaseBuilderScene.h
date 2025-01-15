@@ -17,6 +17,8 @@ class BaseBuilderScene : public Scene
 	public:
 		BaseBuilderScene(sf::RenderWindow& t_window);
 
+		~BaseBuilderScene();
+
 		// Inherited via Scene
 		void update(sf::Time t_deltaTime) override;
 
@@ -38,14 +40,9 @@ class BaseBuilderScene : public Scene
 		sf::RectangleShape m_rect;
 
 		MovableCamera m_camera;
-		Job m_job;
-		Room m_room;
-		Grid m_grid;
-
-		std::vector<sf::Texture*> texture;
-		sf::Sprite sprite;
+		Grid* m_grid;
 		BaseBuilderEditiorBox m_editorBox;
-		Tile* tile = nullptr;
+		Tile* m_selectedTiles = nullptr;
 		MapSaver saver;
 };
 

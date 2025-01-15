@@ -7,12 +7,10 @@ Cell::Cell(float t_width, float t_height, sf::Vector2f t_position )
 	m_body.setFillColor(sf::Color::Transparent);
 	m_body.setOutlineColor(sf::Color::Blue);
 	m_body.setOutlineThickness(2.5);
-
 	m_property = TraversalProperty::Unwalkable;
 
 	setUpText();
 }
-
 
 void Cell::draw(sf::RenderWindow& t_window)
 {
@@ -26,11 +24,11 @@ void Cell::setPosition(sf::Vector2f t_position)
 	m_body.setPosition(m_position);
 }
 
-void Cell::setTexture(sf::Texture* t_texture)
+void Cell::setTexture(Texture& t_texture)
 {
 	
-	m_texture = t_texture;
-	m_body.setTexture(m_texture);
+	m_texture = &t_texture;
+	m_body.setTexture(&(*m_texture).texture);
 	m_body.setOutlineThickness(0.0f);
 }
 

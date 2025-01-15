@@ -1,13 +1,11 @@
 #pragma once
 #include "Ship.h"
-
+#include "Grid.h"
 /// <summary>
 /// Holds pieces of data that need to be transfered between scenes
 /// </summary>
 class GameData
 {
-
-
 	public:
 
 		GameData(const GameData& other) = delete;
@@ -16,14 +14,15 @@ class GameData
 
 		Ship* m_player;
 
+		Grid* m_currentMap;
+
 		Ship* getPlayerShip();
+
 	private:
 
-		GameData() = default;
+		GameData();
 
 		static GameData* instance;
 		
-		
-
 };
 

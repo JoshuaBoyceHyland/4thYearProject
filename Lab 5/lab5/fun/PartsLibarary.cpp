@@ -60,7 +60,7 @@ void PartsLibarary::fillLibrary()
 	std::string rightWingPath = "right_wings/right_wing_";
 
 	sf::Vector2f pos = {100, 100 };
-	sf::Texture* texture;
+	Texture* texture;
 
 	for (int i = 0; i < NUM_OF_EACH_PART; i++)
 	{

@@ -19,6 +19,9 @@ void SceneManager::switchScene(SceneType t_newScene)
 	case BaseBuilder:
 		m_currentScene = new BaseBuilderScene(m_window);
 		break;
+	case BaseGameplay:
+		m_currentScene = new BaseGamePlayScene(m_window);
+		break;
 
 	case Editor:
 		m_currentScene = new ShipEditorScene(m_window);

@@ -2,13 +2,17 @@
 
 BaseBuilderScene::BaseBuilderScene(sf::RenderWindow& t_window) : 
 Scene(t_window), 
-m_camera(m_window), 
-m_job("Water Filtration", { 300, 300 }), 
-m_room({ 500, 500 }), 
-m_grid(50, 50, 100, 100, {0,0})
+m_camera(m_window)
 {	
-	saver.saveMap(m_grid);
+	GameData* gameData = GameData::getInstance();
+	
+	m_grid = gameData->m_currentMap;
+	saver.loadMap(m_grid);
+}
 
+BaseBuilderScene::~BaseBuilderScene()
+{
+	saver.saveMap(m_grid);
 }
 
 void BaseBuilderScene::update(sf::Time t_deltaTime)
@@ -21,12 +25,12 @@ void BaseBuilderScene::update(sf::Time t_deltaTime)
 void BaseBuilderScene::render()
 {
 	m_window.clear();
-	m_grid.draw(m_window);
+	m_grid->draw(m_window);
 	m_editorBox.draw(m_window);
 
-	if (tile != nullptr)
+	if (m_selectedTiles != nullptr)
 	{
-		tile->draw(m_window);
+		m_selectedTiles->draw(m_window);
 	}
 
 	m_window.display();
@@ -50,12 +54,14 @@ void BaseBuilderScene::processMousePress(sf::Event t_event)
 
 			if (possibleTile != nullptr)
 			{
-				tile = possibleTile;
+				m_selectedTiles = possibleTile;
 			}
+
 		}
-		else if (tile != nullptr)
+		else if (m_selectedTiles != nullptr)
 		{
-			m_grid.placePiece(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)), tile->m_textures, tile->m_property);
+			m_grid->placePiece(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)), m_selectedTiles->m_textures, m_selectedTiles->m_property);
+			
 		}
 		
 		
@@ -87,9 +93,9 @@ void BaseBuilderScene::processMouseMove(sf::Event t_event)
 
 	m_camera.move();
 
-	if (tile != nullptr)
+	if (m_selectedTiles != nullptr)
 	{
-		tile->setPosition(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)));
+		m_selectedTiles->setPosition(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)));
 	}
 }
 

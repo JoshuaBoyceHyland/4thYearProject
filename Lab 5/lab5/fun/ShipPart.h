@@ -1,4 +1,5 @@
 #pragma once
+#include "Texture.h"
 #include <iostream>
 #include "EditorPart.h"
 #include "Connector.h"
@@ -25,7 +26,7 @@ class ShipPart : public EditorPart
 		/// <param name="t_texture">Reference texture in loader</param>
 		/// <param name="t_type">Type of ship part it will be</param>
 		/// <param name="t_position">Where it will spawn</param>
-		ShipPart(sf::Texture* t_texture,PartType t_type, sf::Vector2f t_position);
+		ShipPart(Texture* t_texture,PartType t_type, sf::Vector2f t_position);
 
 		/// <summary>
 		/// Copy Constructor.
@@ -91,7 +92,7 @@ class ShipPart : public EditorPart
 		/// <summary>
 		/// Reference to ship part texture.
 		/// </summary>
-		sf::Texture* m_texture;
+		Texture* m_texture;
 
 		/// <summary>
 		/// What type of ship part it is.

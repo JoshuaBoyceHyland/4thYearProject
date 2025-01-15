@@ -1,5 +1,9 @@
 #include "Grid.h"
 
+Grid::Grid()
+{
+}
+
 Grid::Grid(int t_rows, int t_columns, float t_width, float t_height, sf::Vector2f t_startPosition) :
 	MAX_ROWS( t_rows ), MAX_COLUMS( t_columns ), m_cellWidth( t_width ), m_cellHeight( t_height)
 {
@@ -46,7 +50,18 @@ void Grid::changeToWalkable(sf::Vector2f t_mouseCLick)
 	
 }
 
-void Grid::placePiece(sf::Vector2f t_mouseCLick, std::vector<sf::Texture*> t_textures, TraversalProperty t_property)
+void Grid::setForGamePlay()
+{
+	for (int row = 0; row < m_cells.size(); row++)
+	{
+		for (int column = 0; column < m_cells[row].size(); column++)
+		{
+			m_cells[row][column].setColor(sf::Color::White);
+		}
+	}
+}
+
+void Grid::placePiece(sf::Vector2f t_mouseCLick, std::vector<Texture*> t_textures, TraversalProperty t_property)
 {
 	// ensureing the mouse click is valid
 	if (t_mouseCLick.y < 0) { return; }
@@ -60,7 +75,7 @@ void Grid::placePiece(sf::Vector2f t_mouseCLick, std::vector<sf::Texture*> t_tex
 	if (column  < 0 || column > MAX_COLUMS) { return; }
 
 	m_cells[row][column].setColor(sf::Color::White);
-	m_cells[row][column].setTexture(t_textures[0]);
+	m_cells[row][column].setTexture((*t_textures[0]));
 	m_cells[row][column].setProperty(t_property);
 
 }

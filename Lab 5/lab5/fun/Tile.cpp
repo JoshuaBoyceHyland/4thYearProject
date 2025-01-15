@@ -1,14 +1,14 @@
 #include "Tile.h"
 
-Tile::Tile(sf::Texture* t_texture, float t_width, float t_height)
+Tile::Tile(Texture* t_texture, float t_width, float t_height)
 {
 	m_cells.push_back({ t_width,t_height });
 	m_textures.push_back(t_texture);
 	m_cells[0].setColor(sf::Color::White);
-	m_cells[0].setTexture(t_texture);
+	m_cells[0].setTexture((*t_texture));
 }
 
-Tile::Tile(std::vector<sf::Texture*> t_texture, float t_width, float t_height, int t_rows, int t_colums) :m_textures(t_texture)
+Tile::Tile(std::vector<Texture*> t_texture, float t_width, float t_height, int t_rows, int t_colums) :m_textures(t_texture)
 {
 
 

@@ -14,13 +14,16 @@ class Cell
 
 		void setPosition(sf::Vector2f t_position);
 
-		void setTexture(sf::Texture* t_texture);
+		void setTexture(Texture& t_texture);
 
 		void setProperty(TraversalProperty t_property);
 
 		void setColor(sf::Color t_color) { m_body.setFillColor(t_color); }
 		
 		TraversalProperty getProperty() { return m_property; }
+		
+		Texture* getTexture() { return m_texture; };
+
 		
 	protected:
 
@@ -32,7 +35,7 @@ class Cell
 
 		sf::RectangleShape m_body;
 
-		sf::Texture* m_texture;
+		Texture* m_texture = nullptr;
 
 		sf::Vector2f m_position;
 

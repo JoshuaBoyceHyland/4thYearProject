@@ -21,6 +21,7 @@ Game::Game() :
 	m_exitGame{ false },
 	m_sceneManager(m_window)
 {
+
 	m_sceneManager.switchScene(BaseBuilder);
 	
 }
@@ -83,6 +84,12 @@ void Game::processEvents()
 			if (sf::Keyboard::G == newEvent.key.code)
 			{
 				m_sceneManager.switchScene(ShipGameplay);
+			}
+
+
+			if (sf::Keyboard::L == newEvent.key.code)
+			{
+				m_sceneManager.switchScene(BaseGameplay);
 			}
 		}
 		if ( sf::Event::MouseButtonPressed == newEvent.type)

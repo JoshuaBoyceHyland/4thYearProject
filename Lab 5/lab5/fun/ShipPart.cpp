@@ -4,7 +4,7 @@ ShipPart::ShipPart()
 {
 }
 
-ShipPart::ShipPart(sf::Texture* t_texture, PartType t_type, sf::Vector2f t_position) : m_texture(t_texture),m_type(t_type), m_position( t_position)
+ShipPart::ShipPart(Texture* t_texture, PartType t_type, sf::Vector2f t_position) : m_texture(t_texture),m_type(t_type), m_position( t_position)
 {
 	setUpSprite();
 	setUpConnectionPoints();
@@ -18,7 +18,7 @@ ShipPart::ShipPart(const ShipPart& other)
 	this->m_texture = other.m_texture;
 	this->m_scale = other.m_scale;
 	this->m_connectors.anchorPoint = &m_position;
-	this->m_body.setTexture((*m_texture)); // reseting texture
+	this->m_body.setTexture((*m_texture).texture); // reseting texture
 }
 
 
@@ -71,6 +71,7 @@ void ShipPart::setPositionRelativeToConnectorPoint(sf::Vector2f t_position, int 
 
 sf::Vector2f ShipPart::getPosition()
 {
+	
 	return m_position;
 }
 
@@ -81,9 +82,9 @@ Connector* ShipPart::getConnectors()
 
 void ShipPart::setUpSprite()
 {
-	m_body.setTexture((*m_texture));
+	m_body.setTexture((*m_texture).texture);
 	m_body.setScale(m_scale);
-	m_body.setOrigin({static_cast<float>( (*m_texture).getSize().x) / 2,static_cast<float>((*m_texture).getSize().y) / 2 });
+	m_body.setOrigin({static_cast<float>( (*m_texture).texture.getSize().x) / 2,static_cast<float>((*m_texture).texture.getSize().y) / 2 });
 
 }
 
@@ -94,24 +95,24 @@ void ShipPart::setUpConnectionPoints()
 	switch (m_type)
 	{
 	case PartType::CockPit:
-		m_connectors.connectionPoints.emplace_back(Connection({ 0, static_cast<float>((*m_texture).getSize().y * m_body.getScale().y) / 2 }, &m_position));// top
+		m_connectors.connectionPoints.emplace_back(Connection({ 0, static_cast<float>((*m_texture).texture.getSize().y * m_body.getScale().y) / 2 }, &m_position));// top
 	
 		break;
 	case PartType::Hull:
-		m_connectors.connectionPoints.emplace_back(Connection({ -(static_cast<float>((*m_texture).getSize().x * m_body.getScale().x) / 2), 0 }, &m_position));// left
-		m_connectors.connectionPoints.emplace_back(Connection({ 0, static_cast<float>((*m_texture).getSize().y * m_body.getScale().y) / 2 }, &m_position));// top
-		m_connectors.connectionPoints.emplace_back(Connection({ (static_cast<float>((*m_texture).getSize().x * m_body.getScale().x) / 2), 0 }, &m_position));// right
-		m_connectors.connectionPoints.emplace_back(Connection({ 0, -(static_cast<float>((*m_texture).getSize().y * m_body.getScale().y) / 2) }, &m_position));// bottom
+		m_connectors.connectionPoints.emplace_back(Connection({ -(static_cast<float>((*m_texture).texture.getSize().x * m_body.getScale().x) / 2), 0 }, &m_position));// left
+		m_connectors.connectionPoints.emplace_back(Connection({ 0, static_cast<float>((*m_texture).texture.getSize().y * m_body.getScale().y) / 2 }, &m_position));// top
+		m_connectors.connectionPoints.emplace_back(Connection({ (static_cast<float>((*m_texture).texture.getSize().x * m_body.getScale().x) / 2), 0 }, &m_position));// right
+		m_connectors.connectionPoints.emplace_back(Connection({ 0, -(static_cast<float>((*m_texture).texture.getSize().y * m_body.getScale().y) / 2) }, &m_position));// bottom
 		break;
 	case PartType::Left_Wing:
-		m_connectors.connectionPoints.emplace_back(Connection({ (static_cast<float>((*m_texture).getSize().x * m_body.getScale().x) / 2), 0 }, &m_position));// right
+		m_connectors.connectionPoints.emplace_back(Connection({ (static_cast<float>((*m_texture).texture.getSize().x * m_body.getScale().x) / 2), 0 }, &m_position));// right
 		break;
 		
 	case PartType::Right_Wing:
-		m_connectors.connectionPoints.emplace_back(Connection({ -(static_cast<float>((*m_texture).getSize().x * m_body.getScale().x) / 2), 0 }, &m_position));// left
+		m_connectors.connectionPoints.emplace_back(Connection({ -(static_cast<float>((*m_texture).texture.getSize().x * m_body.getScale().x) / 2), 0 }, &m_position));// left
 		break;
 	case PartType::Thruster:
-		m_connectors.connectionPoints.emplace_back(Connection({ 0, -(static_cast<float>((*m_texture).getSize().y * m_body.getScale().y) / 2) }, &m_position));// bottom
+		m_connectors.connectionPoints.emplace_back(Connection({ 0, -(static_cast<float>((*m_texture).texture.getSize().y * m_body.getScale().y) / 2) }, &m_position));// bottom
 		break;
 	default:
 		break;

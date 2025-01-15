@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="BaseBuilderEditiorBox.cpp" />
     <ClCompile Include="BaseBuilderScene.cpp" />
+    <ClCompile Include="BaseGamePlayScene.cpp" />
     <ClCompile Include="Cell.cpp" />
     <ClCompile Include="Connector.cpp" />
     <ClCompile Include="EditorMouse.cpp" />
@@ -58,6 +59,7 @@
   <ItemGroup>
     <ClInclude Include="BaseBuilderEditiorBox.h" />
     <ClInclude Include="BaseBuilderScene.h" />
+    <ClInclude Include="BaseGamePlayScene.h" />
     <ClInclude Include="Cell.h" />
     <ClInclude Include="Connector.h" />
     <ClInclude Include="Deprecated\Player.h" />
@@ -68,6 +70,7 @@
     <ClInclude Include="GameplayScene.h" />
     <ClInclude Include="Grid.h" />
     <ClInclude Include="Job.h" />
+    <ClInclude Include="json.hpp" />
     <ClInclude Include="MapSaver.h" />
     <ClInclude Include="MenuScene.h" />
     <ClInclude Include="MovableCamera.h" />
@@ -80,6 +83,7 @@
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Ship.h" />
     <ClInclude Include="ShipPartEditiorBox.h" />
+    <ClInclude Include="Texture.h" />
     <ClInclude Include="TextureSplitter.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="TileLibrary.h" />
@@ -110,6 +114,9 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="fun.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="map.json" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

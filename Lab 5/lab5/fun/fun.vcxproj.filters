@@ -1,289 +1,95 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="Resource Files\FONTS">
-      <UniqueIdentifier>{b5e82806-bf9b-4fdf-b17c-c35282c021a5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Resource Files\IMAGES">
-      <UniqueIdentifier>{1d793ccc-0d22-4eea-8d0e-c5b5a5270a40}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Scenes">
-      <UniqueIdentifier>{c188dd52-d7c9-41a1-a743-655d8776d7e1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Scenes">
-      <UniqueIdentifier>{1cefbba8-1196-4cea-9ed2-a3ffd7cf94cd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\UI">
-      <UniqueIdentifier>{837747f3-6fa3-4714-90d9-7f6ba72febca}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\UI">
-      <UniqueIdentifier>{0de9c5db-75fc-464b-85ce-dcb06a00cc37}</UniqueIdentifier>
-    </Filter>
+    <ClCompile Include="BaseBuilderEditiorBox.cpp" />
+    <ClCompile Include="BaseBuilderScene.cpp" />
+    <ClCompile Include="Cell.cpp" />
+    <ClCompile Include="Connector.cpp" />
+    <ClCompile Include="EditorMouse.cpp" />
+    <ClCompile Include="EditorPart.cpp" />
+    <ClCompile Include="EditorScene.cpp" />
+    <ClCompile Include="GameData.cpp" />
+    <ClCompile Include="GameplayScene.cpp" />
+    <ClCompile Include="Grid.cpp" />
+    <ClCompile Include="Job.cpp" />
+    <ClCompile Include="MapSaver.cpp" />
+    <ClCompile Include="MenuScene.cpp" />
+    <ClCompile Include="MovableCamera.cpp" />
+    <ClCompile Include="NPC.cpp" />
+    <ClCompile Include="Particle.cpp" />
+    <ClCompile Include="ParticleSystem.cpp" />
+    <ClCompile Include="Room.cpp" />
+    <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="Ship.cpp" />
+    <ClCompile Include="ShipPartEditiorBox.cpp" />
+    <ClCompile Include="TextureSplitter.cpp" />
+    <ClCompile Include="Tile.cpp" />
+    <ClCompile Include="TileLibrary.cpp" />
+    <ClCompile Include="UI.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Loader.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="PartsLibarary.cpp" />
+    <ClCompile Include="RotationMath.cpp" />
+    <ClCompile Include="ShipPart.cpp" />
+    <ClCompile Include="UIEditorBox.cpp" />
+    <ClCompile Include="UIScreenBorder.cpp" />
+    <ClCompile Include="VectorMath.cpp" />
+    <ClCompile Include="BaseGamePlayScene.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VectorMath.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="RotationMath.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Loader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ShipPart.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="PartsLibarary.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Ship.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneManager.cpp">
-      <Filter>Source Files\Scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="EditorScene.cpp">
-      <Filter>Source Files\Scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="EditorMouse.cpp">
-      <Filter>Source Files\Scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="MenuScene.cpp">
-      <Filter>Source Files\Scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene.cpp">
-      <Filter>Source Files\Scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="UI.cpp">
-      <Filter>Source Files\UI</Filter>
-    </ClCompile>
-    <ClCompile Include="UIScreenBorder.cpp">
-      <Filter>Source Files\UI</Filter>
-    </ClCompile>
-    <ClCompile Include="UIEditorBox.cpp">
-      <Filter>Source Files\UI</Filter>
-    </ClCompile>
-    <ClCompile Include="GameplayScene.cpp">
-      <Filter>Source Files\Scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="Connector.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameData.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ParticleSystem.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Particle.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="BaseBuilderScene.cpp">
-      <Filter>Source Files\Scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="MovableCamera.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="NPC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Job.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Room.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Cell.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Grid.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ShipPartEditiorBox.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-<<<<<<< Updated upstream
-    <ClCompile Include="Part.cpp">
-=======
-    <ClCompile Include="BaseBuilderEditiorBox.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="EditorPart.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TextureSplitter.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Tile.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TileLibrary.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MapSaver.cpp">
->>>>>>> Stashed changes
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="BaseBuilderEditiorBox.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="EditorPart.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TextureSplitter.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Tile.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TileLibrary.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+    <ClInclude Include="BaseBuilderEditiorBox.h" />
+    <ClInclude Include="BaseBuilderScene.h" />
+    <ClInclude Include="Cell.h" />
+    <ClInclude Include="Connector.h" />
+    <ClInclude Include="Deprecated\Player.h" />
+    <ClInclude Include="EditorMouse.h" />
+    <ClInclude Include="EditorPart.h" />
+    <ClInclude Include="EditorScene.h" />
+    <ClInclude Include="GameData.h" />
+    <ClInclude Include="GameplayScene.h" />
+    <ClInclude Include="Grid.h" />
+    <ClInclude Include="Job.h" />
+    <ClInclude Include="MapSaver.h" />
+    <ClInclude Include="MenuScene.h" />
+    <ClInclude Include="MovableCamera.h" />
+    <ClInclude Include="NPC.h" />
+    <ClInclude Include="Particle.h" />
+    <ClInclude Include="ParticleSystem.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="Room.h" />
+    <ClInclude Include="Scene.h" />
+    <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="Ship.h" />
+    <ClInclude Include="ShipPartEditiorBox.h" />
+    <ClInclude Include="TextureSplitter.h" />
+    <ClInclude Include="Tile.h" />
+    <ClInclude Include="TileLibrary.h" />
+    <ClInclude Include="UI.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="Globals.h" />
+    <ClInclude Include="Loader.h" />
+    <ClInclude Include="PartsLibarary.h" />
+    <ClInclude Include="RotationMath.h" />
+    <ClInclude Include="ShipPart.h" />
+    <ClInclude Include="UIEditorBox.h" />
+    <ClInclude Include="UIScreenBorder.h" />
+    <ClInclude Include="VectorMath.h" />
+    <ClInclude Include="Texture.h" />
+    <ClInclude Include="json.hpp" />
+    <ClInclude Include="BaseGamePlayScene.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Globals.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VectorMath.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Connector.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="RotationMath.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Loader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ShipPart.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PartsLibarary.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MenuScene.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Ship.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneManager.h">
-      <Filter>Header Files\Scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene.h">
-      <Filter>Header Files\Scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="EditorScene.h">
-      <Filter>Header Files\Scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="EditorMouse.h">
-      <Filter>Header Files\Scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="UI.h">
-      <Filter>Header Files\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="UIScreenBorder.h">
-      <Filter>Header Files\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="UIEditorBox.h">
-      <Filter>Header Files\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="GameplayScene.h">
-      <Filter>Header Files\Scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="Deprecated\Player.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GameData.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ParticleSystem.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Particle.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="BaseBuilderScene.h">
-      <Filter>Header Files\Scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="MovableCamera.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="NPC.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Job.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Room.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Cell.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Grid.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ShipPartEditiorBox.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="BaseBuilderEditiorBox.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="EditorPart.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="resource.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TextureSplitter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Tile.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TileLibrary.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MapSaver.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
+    <ResourceCompile Include="fun.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="ASSETS\IMAGES\SFML-LOGO.png">
-      <Filter>Resource Files\IMAGES</Filter>
-    </Image>
+    <Image Include="ASSETS\IMAGES\SFML-LOGO.png" />
   </ItemGroup>
   <ItemGroup>
-    <Font Include="ASSETS\FONTS\ariblk.ttf">
-      <Filter>Resource Files\FONTS</Filter>
-    </Font>
+    <Font Include="ASSETS\FONTS\ariblk.ttf" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="fun.rc">
-      <Filter>Resource Files</Filter>
-    </ResourceCompile>
+    <None Include="map.json" />
   </ItemGroup>
 </Project>

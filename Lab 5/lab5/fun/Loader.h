@@ -1,8 +1,9 @@
 #pragma once
-#include <SFML/Graphics.hpp>
+#include "Texture.h"
 #include <map>;
 #include <iostream>
 #include <filesystem>
+
 
 /// <summary>
 /// Singleton font and texture loading class
@@ -39,28 +40,28 @@ class Loader
 		/// </summary>
 		/// <param name="t_path">File location of texture</param>
 		/// <returns>Pointer to texture</returns>
-		sf::Texture* loadTexture(std::string t_path);
+		Texture* loadTexture(std::string t_path);
 
 		/// <summary>
 		/// Loads all textures in a certain file that are pngs
 		/// </summary>
 		/// <param name="t_path">Path to folder with pngs</param>
 		/// <returns>A vector of textures</returns>
-		std::vector<sf::Texture*> loadAllTexturesInFile(std::string t_path);
+		std::vector<Texture*> loadAllTexturesInFile(std::string t_path);
 
 		/// <summary>
 		/// Loads all textures in a certain file that are pngs and splits the pm
 		/// </summary>
 		/// <param name="t_path">Path to folder with pngs</param>
 		/// <returns>A vector of textures</returns>
-		std::vector<std::vector<sf::Texture*>> loadAllTexturesInFileSplit(std::string t_path, float t_cellWidth, float t_cellHeight);
+		std::vector<std::vector<Texture*>> loadAllTexturesInFileSplit(std::string t_path, float t_cellWidth, float t_cellHeight);
 
 		/// <summary>
 		/// Splits and loads a texture
 		/// </summary>
 		/// <param name="t_path"></param>
 		/// <returns></returns>
-		std::vector<sf::Texture*> splitAndLoadTexture(std::string t_path, float t_cellWidth, float t_cellHeight);
+		std::vector<Texture*> splitAndLoadTexture(std::string t_path, float t_cellWidth, float t_cellHeight);
 
 		
 
@@ -77,7 +78,7 @@ class Loader
 		/// <param name="t_path"></param>
 		/// <param name="t_cellWidth"></param>
 		/// <param name="t_cellHeight"></param>
-		void splitImage(sf::Texture* t_texture, std::string t_path, float t_cellWidth, float t_cellHeight);
+		void splitImage(Texture* t_texture, std::string t_path, float t_cellWidth, float t_cellHeight);
 #
 		/// <summary>
 		/// Checks whether a file is a png
@@ -99,12 +100,12 @@ class Loader
 		/// <summary>
 		/// /Map of textures, where each texture has a associated string key, the string being a file location of the texture. This allows the loadtexture function to see if te texture has been previously loaded.
 		/// </summary>
-		std::map < std::string, sf::Texture> m_textures;
+		std::map < std::string, Texture> m_textures;
 
 
 		/// <summary>
 		/// /Map of split textures, where each texture has a associated string key, the string being a file location of the texture. This allows the loadtexture function to see if te texture has been previously loaded.
 		/// </summary>
-		std::map < std::string, std::vector<sf::Texture>> m_splitTextures;
+		std::map < std::string, std::vector<Texture>> m_splitTextures;
 };
 

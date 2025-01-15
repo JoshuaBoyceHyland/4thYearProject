@@ -29,15 +29,15 @@ sf::Font* Loader::loadFont(std::string t_path)
 	return &m_fonts[t_path];
 }
 
-sf::Texture* Loader::loadTexture(std::string t_path)
+Texture* Loader::loadTexture(std::string t_path)
 {
 	if (m_textures.count(t_path) > 0)
 	{
 		return &m_textures[t_path];
 	}
 
-	sf::Texture texture;
-	if (!texture.loadFromFile(t_path))
+	Texture texture;
+	if (!texture.texture.loadFromFile(t_path))
 	{
 		std::cout << "Could not load texture from " << t_path << std::endl;
 	}
@@ -47,10 +47,10 @@ sf::Texture* Loader::loadTexture(std::string t_path)
 }
 
 
-std::vector<sf::Texture*> Loader::loadAllTexturesInFile(std::string t_path)
+std::vector<Texture*> Loader::loadAllTexturesInFile(std::string t_path)
 {
-	std::vector<sf::Texture*> textures;
-
+	std::vector<Texture*> textures;
+	int id = 0;
 	if (std::filesystem::exists(t_path))
 	{
 		for (auto file : std::filesystem::directory_iterator(t_path))
@@ -61,6 +61,8 @@ std::vector<sf::Texture*> Loader::loadAllTexturesInFile(std::string t_path)
 			{
 				std::cout << "Loaded: " << file.path().string() << std::endl;
 				textures.push_back(loadTexture(fileName));
+				textures[id]->id = id;
+				id++;
 			}
 		}
 	}
@@ -73,11 +75,11 @@ std::vector<sf::Texture*> Loader::loadAllTexturesInFile(std::string t_path)
 	return textures;
 }
 
-std::vector<sf::Texture*> Loader::splitAndLoadTexture(std::string t_path, float t_cellWidth, float t_cellHeight)
+std::vector<Texture*> Loader::splitAndLoadTexture(std::string t_path, float t_cellWidth, float t_cellHeight)
 {
-	std::vector<sf::Texture*> splitTextures;
+	std::vector<Texture*> splitTextures;
 	// load texture
-	sf::Texture* texture = loadTexture(t_path);
+	Texture* texture = loadTexture(t_path);
 
 	splitImage(texture, t_path, t_cellWidth, t_cellHeight);
 
@@ -89,10 +91,10 @@ std::vector<sf::Texture*> Loader::splitAndLoadTexture(std::string t_path, float 
 	return splitTextures;
 }
 
-std::vector<std::vector<sf::Texture*>> Loader::loadAllTexturesInFileSplit(std::string t_path, float t_cellWidth, float t_cellHeight)
+std::vector<std::vector<Texture*>> Loader::loadAllTexturesInFileSplit(std::string t_path, float t_cellWidth, float t_cellHeight)
 {
 
-	std::vector<sf::Texture*> textures = loadAllTexturesInFile(t_path);
+	std::vector<Texture*> textures = loadAllTexturesInFile(t_path);
 
 	std::vector<std::vector<sf::Texture*>> splitTexttures;
 
@@ -103,16 +105,16 @@ std::vector<std::vector<sf::Texture*>> Loader::loadAllTexturesInFileSplit(std::s
 	}
 
 
-	return std::vector<std::vector<sf::Texture*>>();
+	return std::vector<std::vector<Texture*>>();
 }
 
-void Loader::splitImage(sf::Texture* t_texture, std::string t_path, float t_cellWidth, float t_cellHeight)
+void Loader::splitImage(Texture* t_texture, std::string t_path, float t_cellWidth, float t_cellHeight)
 {
 
 	if (m_splitTextures.count(t_path) == 0)
 	{
-		float textureWidth = t_texture->getSize().x;
-		float textureHeight = t_texture->getSize().y;
+		float textureWidth = t_texture->texture.getSize().x;
+		float textureHeight = t_texture->texture.getSize().y;
 
 		int columnsNeeded = textureWidth / t_cellWidth;
 		int rowsNeeded = textureHeight / t_cellWidth;
@@ -120,17 +122,17 @@ void Loader::splitImage(sf::Texture* t_texture, std::string t_path, float t_cell
 		int startX = 0;
 		int startY = 0;
 
-		sf::Image image = t_texture->copyToImage();
+		sf::Image image = t_texture->texture.copyToImage();
 		std::vector<sf::Texture> textures;
 
 		for (int column = 0; column < columnsNeeded; column++)
 		{
 			for (int row = 0; row < rowsNeeded; row++)
 			{
-				sf::Texture newTexture;
+				Texture newTexture;
 				sf::IntRect imageArea = sf::IntRect(startX, startY, t_cellWidth, t_cellWidth);
 
-				newTexture.loadFromImage(image, imageArea);
+				newTexture.texture.loadFromImage(image, imageArea);
 				m_splitTextures[t_path].push_back(newTexture);
 
 				startX += 32;

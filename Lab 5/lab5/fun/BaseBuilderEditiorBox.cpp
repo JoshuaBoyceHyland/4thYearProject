@@ -139,9 +139,11 @@ void BaseBuilderEditiorBox::setUpUiSprites()
 
 		for (int k = 0; k < library->m_quantity[TraversalProperty(i)]; k++)
 		{
-			m_uiSprites[i].push_back( sf::Sprite(*library->getTile(TraversalProperty(i), k)->m_textures[0]) );
+			Texture* texture = library->getTile(TraversalProperty(i), k)->m_textures[0];
+			
+			m_uiSprites[i].push_back( sf::Sprite(texture->texture) );
 			m_uiSprites[i][k].setPosition(pos);
-			m_uiSprites[i][k].setOrigin({ (float)library->getTile(TraversalProperty(i), k)->m_textures[0]->getSize().x / 2,(float)library->getTile(TraversalProperty(i), k)->m_textures[0]->getSize().y / 2 });
+			m_uiSprites[i][k].setOrigin({ (float)(*texture).texture.getSize().x / 2,(float)(float)(*texture).texture.getSize().y / 2 });
 			pos.y += 100;
 		}
 
