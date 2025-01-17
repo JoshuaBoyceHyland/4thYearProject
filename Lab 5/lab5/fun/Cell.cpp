@@ -7,6 +7,7 @@ Cell::Cell(float t_width, float t_height, sf::Vector2f t_position )
 	m_body.setFillColor(sf::Color::Transparent);
 	m_body.setOutlineColor(sf::Color::Blue);
 	m_body.setOutlineThickness(2.5);
+	//m_body.setOrigin({ t_width / 2, t_height / 2 });
 	m_property = TraversalProperty::Unwalkable;
 
 	setUpText();
@@ -34,7 +35,24 @@ Cell::Cell(float t_width, float t_height, sf::Vector2f t_position )
 void Cell::draw(sf::RenderWindow& t_window)
 {
 	t_window.draw(m_body);
-	t_window.draw(m_text);
+
+	if (m_textActive)
+	{
+		t_window.draw(m_text);
+	}
+	
+}
+
+void Cell::outlineEnabled(bool t_enable)
+{
+	if (t_enable)
+	{
+		m_body.setOutlineThickness(1.0f);
+	}
+	else
+	{
+		m_body.setOutlineThickness(0.0f);
+	}
 }
 
 void Cell::setPosition(sf::Vector2f t_position)

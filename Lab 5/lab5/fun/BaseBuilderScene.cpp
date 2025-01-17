@@ -8,11 +8,11 @@ m_camera(m_window)
 	
 	m_grid = gameData->m_currentMap;
 	saver.loadMap(m_grid);
+
 }
 
 BaseBuilderScene::~BaseBuilderScene()
 {
-	
 	saver.saveMap(m_grid);
 }
 

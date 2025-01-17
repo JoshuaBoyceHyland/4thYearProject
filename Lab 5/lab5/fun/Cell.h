@@ -12,6 +12,8 @@ class Cell
 
 		void draw(sf::RenderWindow& t_window);
 
+		void outlineEnabled(bool t_enabled);
+
 		void setPosition(sf::Vector2f t_position);
 
 		void setTexture(Texture* t_texture);
@@ -19,7 +21,9 @@ class Cell
 		void setProperty(TraversalProperty t_property);
 
 		void setColor(sf::Color t_color) { m_body.setFillColor(t_color); }
-		
+
+		void enableText(bool t_enabled) { m_textActive = t_enabled; }
+	
 		TraversalProperty getProperty() { return m_property; }
 		
 		Texture* getTexture() { return m_texture; };
@@ -28,6 +32,8 @@ class Cell
 	protected:
 
 		void setUpText();
+
+		bool m_textActive = true;
 
 		sf::Font* m_font;
 

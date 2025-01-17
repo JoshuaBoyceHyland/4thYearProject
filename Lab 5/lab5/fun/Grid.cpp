@@ -52,7 +52,13 @@ void Grid::setForGamePlay()
 	{
 		for (int column = 0; column < m_cells[row].size(); column++)
 		{
-			m_cells[row][column].setColor(sf::Color::White);
+			if (m_cells[row][column].getTexture() == nullptr)
+			{
+				m_cells[row][column].setColor(sf::Color::Black);
+				m_cells[row][column].outlineEnabled(false);
+				m_cells[row][column].enableText(false);
+			}
+			
 		}
 	}
 }
@@ -67,9 +73,10 @@ void Grid::placePiece(sf::Vector2f t_mouseCLick, std::vector<Texture*> t_texture
 	int column = t_mouseCLick.x / m_cellWidth;
 
 	// checking the row and column is in the bounds
-	if (row < 0 || row > MAX_ROWS) { return; }
-	if (column  < 0 || column > MAX_COLUMS) { return; }
+	if (row < 0 || row >= MAX_ROWS) { return; }
+	if (column  < 0 || column >= MAX_COLUMS) { return; }
 
+	std::cout << row << " " << column << std::endl;
 	m_cells[row][column].setColor(sf::Color::White);
 	m_cells[row][column].setTexture(t_textures[0]);
 	m_cells[row][column].setProperty(t_property);

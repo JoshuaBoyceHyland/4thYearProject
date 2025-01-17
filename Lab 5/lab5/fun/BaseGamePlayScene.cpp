@@ -1,43 +1,59 @@
-#include "BaseGamePlayScene.h"
+#include "BaseGameplayScene.h"
 
-BaseGamePlayScene::BaseGamePlayScene(sf::RenderWindow& t_window) :
-	Scene(m_window), 
-	m_map(50, 50, 100, 100, { 0, 0 })
+BaseGameplayScene::BaseGameplayScene(sf::RenderWindow& t_window) :
+	Scene(t_window),
+	m_camera(m_window)
 {
-	//GameData* gameData = GameData::getInstance();
-
-	//m_map = gameData->m_currentMap;
-
-	 
-	//saver.loadMap(m_map);
-	
+	GameData* gamedata = GameData::getInstance();
+	m_grid = gamedata->m_currentMap;
+	m_grid->setForGamePlay();
 }
 
-void BaseGamePlayScene::update(sf::Time t_deltaTime)
+
+
+void BaseGameplayScene::update(sf::Time t_deltaTime)
 {
+	m_camera.update();
 }
 
-void BaseGamePlayScene::render()
+void BaseGameplayScene::render()
 {
-	m_map.draw(m_window);
+	m_window.clear();
+	m_grid->draw(m_window);
+
+
+	m_window.display();
 }
 
-void BaseGamePlayScene::processKeys(sf::Event t_event)
-{
-}
 
-void BaseGamePlayScene::processMousePress(sf::Event t_event)
-{
-}
-
-void BaseGamePlayScene::processMouseRelease(sf::Event t_event)
+void BaseGameplayScene::processKeys(sf::Event t_event)
 {
 }
 
-void BaseGamePlayScene::processMouseMove(sf::Event t_event)
+void BaseGameplayScene::processMousePress(sf::Event t_event)
 {
+	if (sf::Mouse::Middle == t_event.mouseButton.button)
+	{
+		m_camera.startMove();
+	}
 }
 
-void BaseGamePlayScene::processMouseWheel(sf::Event t_event)
+void BaseGameplayScene::processMouseRelease(sf::Event t_event)
 {
+	if (sf::Mouse::Middle == t_event.mouseButton.button)
+	{
+		m_camera.endMove();
+	}
+}
+
+void BaseGameplayScene::processMouseMove(sf::Event t_event)
+{
+	m_camera.move();
+}
+
+void BaseGameplayScene::processMouseWheel(sf::Event t_event)
+{
+	float delta = t_event.mouseWheel.delta;
+
+	float zoomValue = m_camera.zoom(delta);
 }

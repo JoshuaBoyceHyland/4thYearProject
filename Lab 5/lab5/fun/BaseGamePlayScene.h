@@ -1,14 +1,16 @@
 #pragma once
 #include "Scene.h"
-//#include "GameData.h"
+#include "GameData.h"
 #include "Grid.h"
-//#include "MapSaver.h"
+#include "MovableCamera.h"
 
-
-class BaseGamePlayScene : public Scene
+class BaseGameplayScene : public Scene
 {
-	public:
-		BaseGamePlayScene(sf::RenderWindow& t_window);
+
+	public :
+		BaseGameplayScene(sf::RenderWindow& t_window);
+
+		// Inherited via Scene
 		void update(sf::Time t_deltaTime) override;
 		void render() override;
 		void processKeys(sf::Event t_event) override;
@@ -16,8 +18,9 @@ class BaseGamePlayScene : public Scene
 		void processMouseRelease(sf::Event t_event) override;
 		void processMouseMove(sf::Event t_event) override;
 		void processMouseWheel(sf::Event t_event) override;
-	private: 
-		Grid m_map;
-		//MapSaver saver;
+	private:
+
+		Grid* m_grid;
+		MovableCamera m_camera;
 };
 
