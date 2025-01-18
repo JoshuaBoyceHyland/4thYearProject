@@ -71,8 +71,20 @@ void Cell::setTexture(Texture* t_texture)
 
 void Cell::setProperty(TraversalProperty t_property)
 {
+	m_occupied = true;
 	m_property = t_property;
 	m_text.setString(m_cellPropertyString[m_property]);
+}
+
+void Cell::setNeighbours(Cell* t_cell)
+{
+	m_neighbours.push_back(t_cell);
+}
+
+void Cell::setCost(int t_cost)
+{
+	m_text.setString(std::to_string(t_cost));
+	m_cost = t_cost;
 }
 
 void Cell::setUpText()

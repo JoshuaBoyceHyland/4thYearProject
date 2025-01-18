@@ -32,9 +32,20 @@ void BaseGameplayScene::processKeys(sf::Event t_event)
 
 void BaseGameplayScene::processMousePress(sf::Event t_event)
 {
+
 	if (sf::Mouse::Middle == t_event.mouseButton.button)
 	{
 		m_camera.startMove();
+	}
+
+
+	if (sf::Mouse::Left == t_event.mouseButton.button)
+	{
+		m_grid->setGridCosts(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)));
+	}
+	if (sf::Mouse::Right == t_event.mouseButton.button)
+	{
+		m_grid->highlightNeighbours(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)));
 	}
 }
 

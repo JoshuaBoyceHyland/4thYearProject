@@ -17,9 +17,17 @@ class Grid
 
 		void placePiece(sf::Vector2f t_mouseCLick, std::vector<Texture*> t_textures, TraversalProperty t_property);
 
+		void highlightNeighbours(sf::Vector2f t_mouseCLick);
+
+		void setGridCosts(sf::Vector2f t_mouseCLick);
+
 		std::vector<std::vector<Cell>> m_cells;
 
 	private:
+
+		void setUpNeighbours();
+
+	
 
 		float m_cellHeight;
 		float m_cellWidth;
