@@ -7,7 +7,7 @@ Cell::Cell(float t_width, float t_height, sf::Vector2f t_position )
 	m_body.setFillColor(sf::Color::Transparent);
 	m_body.setOutlineColor(sf::Color::Blue);
 	m_body.setOutlineThickness(2.5);
-	//m_body.setOrigin({ t_width / 2, t_height / 2 });
+	m_body.setOrigin({ t_width / 2, t_height / 2 });
 	m_property = TraversalProperty::Unwalkable;
 
 	setUpText();
@@ -94,7 +94,7 @@ void Cell::setUpText()
 	m_font = loader->loadFont("ASSETS/FONTS/ariblk.ttf");
 
 	m_text.setFont((*m_font));
-	m_text.setPosition({ m_body.getPosition().x ,  m_body.getPosition().y + (m_body.getSize().y / 2)});
+	m_text.setPosition({ m_body.getPosition().x - (m_body.getSize().x / 2),  m_body.getPosition().y });
 	m_text.setFillColor(sf::Color::Black);
 	m_text.setOutlineColor(sf::Color::Yellow);
 	m_text.setOutlineThickness(1.0f);

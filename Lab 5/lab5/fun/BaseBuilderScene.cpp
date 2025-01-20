@@ -25,6 +25,13 @@ void BaseBuilderScene::update(sf::Time t_deltaTime)
 
 void BaseBuilderScene::render()
 {
+
+	sf::CircleShape t;
+
+	t.setPosition({0,0});
+	t.setFillColor(sf::Color::Yellow);
+	t.setRadius(10);
+	t.setOrigin({ 5, 5 });
 	m_window.clear();
 	m_grid->draw(m_window);
 	m_editorBox.draw(m_window);
@@ -33,7 +40,7 @@ void BaseBuilderScene::render()
 	{
 		m_selectedTiles->draw(m_window);
 	}
-
+	m_window.draw(t);
 	m_window.display();
 }
 
