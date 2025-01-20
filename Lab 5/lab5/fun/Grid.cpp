@@ -9,7 +9,7 @@ Grid::Grid(int t_rows, int t_columns, float t_width, float t_height, sf::Vector2
 		m_cells.push_back(std::vector<Cell>());
 		for (int column = 0; column < MAX_COLUMS; column++)
 		{
-			m_cells[row].push_back({ m_cellHeight, m_cellWidth, t_startPosition });
+			m_cells[row].push_back({ m_cellHeight, m_cellWidth,row, column, t_startPosition });
 			t_startPosition.x += m_cellWidth;
 		}
 		t_startPosition.x = xStart;
@@ -101,11 +101,11 @@ void Grid::highlightNeighbours(sf::Vector2f t_mouseCLick)
 	if (column < 0 || column >= MAX_COLUMS) { return; }
 
 
-	std::vector<Cell*> neighbours = m_cells[row][column].getNeighbours();
+	std::vector<Node*> neighbours = m_cells[row][column].getNode()->getNeighbours();
 
 	for (int i = 0; i < neighbours.size(); i++)
 	{
-		neighbours[i]->setColor(sf::Color::Green);
+		m_cells[neighbours[i]->m_row][neighbours[i]->m_column].setColor(sf::Color::Green);
 	}
 }
 
@@ -124,20 +124,23 @@ void Grid::setGridCosts(sf::Vector2f t_mouseCLick)
 
 	int cost = 0;
 	
-	m_cells[row][column].setCost(cost);
+	Node* current = m_cells[row][column].getNode();
 
+	current->setCost(cost);
 
-	std::vector<Cell*> currentNeightbours;
+	
 
-	for (int i = 0; i < m_cells[row][column].getNeighbours().size(); i++)
+	std::vector<Node*> currentNeightbours;
+
+	for (int i = 0; i < current->getNeighbours().size(); i++)
 	{
-		if (!m_cells[row][column].getNeighbours()[i]->isMarked())
+		if (!current->getNeighbours()[i]->isMarked())
 		{
-			currentNeightbours.push_back(m_cells[row][column].getNeighbours()[i]);
+			currentNeightbours.push_back(current->getNeighbours()[i]);
 		}
 	}
 
-	std::vector<Cell*> nextNeighbours = currentNeightbours;// just for set up
+	std::vector<Node*> nextNeighbours = currentNeightbours;// just for set up
 
 	while (!nextNeighbours.empty())
 	{
@@ -204,7 +207,7 @@ void Grid::setUpNeighbours()
 					if (m_cells[possibleRowNeighbour][possibleColNeighbour].getProperty() == TraversalProperty::Walkable)
 					{
 						std::cout << "Row: " << row << " Col: " << column << " RowN: " << possibleRowNeighbour << " ColN: " << possibleColNeighbour << std::endl;
-						m_cells[row][column].setNeighbours(&m_cells[possibleRowNeighbour][possibleColNeighbour]);
+						m_cells[row][column].getNode()->addNeighbour(m_cells[possibleRowNeighbour][possibleColNeighbour].getNode());
 					}
 					
 				}

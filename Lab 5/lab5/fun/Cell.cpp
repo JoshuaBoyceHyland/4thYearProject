@@ -1,6 +1,9 @@
 #include "Cell.h"
 
-Cell::Cell(float t_width, float t_height, sf::Vector2f t_position )
+Cell::Cell( float t_width, float t_height, int t_row, int t_column, sf::Vector2f t_position ) :
+	m_row(t_row),
+	m_column(t_column),
+	m_node(t_row, t_column)
 {
 	m_body.setPosition(t_position);
 	m_body.setSize({t_width, t_height});
@@ -74,17 +77,6 @@ void Cell::setProperty(TraversalProperty t_property)
 	m_occupied = true;
 	m_property = t_property;
 	m_text.setString(m_cellPropertyString[m_property]);
-}
-
-void Cell::setNeighbours(Cell* t_cell)
-{
-	m_neighbours.push_back(t_cell);
-}
-
-void Cell::setCost(int t_cost)
-{
-	m_text.setString(std::to_string(t_cost));
-	m_cost = t_cost;
 }
 
 void Cell::setUpText()

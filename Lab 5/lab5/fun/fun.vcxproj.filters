@@ -37,6 +37,7 @@
     <ClCompile Include="UIScreenBorder.cpp" />
     <ClCompile Include="VectorMath.cpp" />
     <ClCompile Include="BaseGameplayScene.cpp" />
+    <ClCompile Include="Node.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseBuilderEditiorBox.h" />
@@ -79,6 +80,7 @@
     <ClInclude Include="Texture.h" />
     <ClInclude Include="json.hpp" />
     <ClInclude Include="BaseGameplayScene.h" />
+    <ClInclude Include="Node.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="fun.rc" />
