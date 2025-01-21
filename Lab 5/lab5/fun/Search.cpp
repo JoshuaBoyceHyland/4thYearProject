@@ -37,22 +37,39 @@ std::vector<Node*> Search::breadhFirst(std::vector<Node*> t_neighbours, int& t_c
     return  nextNeighbours;
 }
 
-std::priority_queue<Node*, std::vector<Node*>, NodeComparision > Search::AStar(std::vector<Node*> t_neighbours, int& t_cost)
+std::vector<Node*> Search::AStar(std::vector<Node*> t_neighbours)
 {
 
+	std::queue<Node*> expanded;
 	std::priority_queue<Node*, std::vector<Node*>, NodeComparision > pR;
 
-	for (int i = 0; i < t_neighbours.size(); i++)
+
+	for (Node* node : t_neighbours)
 	{
-		pR.push(t_neighbours[i]);
+		pR.push(node);
 	}
 	
 	while (!pR.empty())
 	{
-		std::cout << pR.top()->getHeurisitic() << std::endl;
+
+		if (pR.top()->getCost() == 0)
+		{
+			break;
+		}
+
+		expanded.push(pR.top());
 
 		pR.pop();
+
+		for (Node* node : expanded.front()->getNeighbours())
+		{
+			node->previous = expanded.front();
+			pR.push(node);
+		}
+
+		
 	}
 
-	return pR;
+	std::vector<Node*> path;
+	return path;
 }

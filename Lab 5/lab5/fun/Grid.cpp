@@ -140,7 +140,7 @@ void Grid::setGridCosts(sf::Vector2f t_mouseCLick)
 	m_cells[row][column].getNode()->setManhattan( startingCost);
 	m_cells[row][column].getNode()->setEudclidian(startingCost);
 	m_cells[row][column].getNode()->setHeuristic(startingCost);
-
+	m_cells[row][column].getNode()->setMarked(true);
 	std::vector<Node*> currentNeightbours = m_cells[row][column].getNode()->getNeighbours();
 	
 	
@@ -152,15 +152,17 @@ void Grid::setGridCosts(sf::Vector2f t_mouseCLick)
 	//		currentNeightbours.push_back(current->getNeighbours()[i]);
 	//	}
 	//}
-
-
 	while (!currentNeightbours.empty())
 	{
 		currentNeightbours = Search::breadhFirst(currentNeightbours, startingCost, m_cells[row][column].getNode()->getPosition());
 		//checkedNodes.push_back(currentNeightbours);
 	}
 
+	
 
+	m_cells[row + 6][column + 6].getNode();
+
+	Search::AStar(m_cells[row + 6][column + 6].getNode()->getNeighbours() );
 
 	// debug
 	for (int row = 0; row < m_cells.size(); row++)
@@ -172,6 +174,8 @@ void Grid::setGridCosts(sf::Vector2f t_mouseCLick)
 		}
 
 	}
+
+
 
 }
 

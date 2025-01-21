@@ -11,6 +11,6 @@ class Search
 
 		static std::vector<Node*> breadhFirst(std::vector<Node*> t_neighbours, int& t_cost, sf::Vector2f t_goalPos);
 
-		static std::priority_queue<Node*, std::vector<Node*>, NodeComparision >AStar (std::vector<Node*> t_neighbours, int& t_cost);
+		static std::vector<Node*>AStar (std::vector<Node*> t_neighbours);
 };
 
