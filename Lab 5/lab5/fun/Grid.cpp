@@ -3,7 +3,11 @@
 Grid::Grid(int t_rows, int t_columns, float t_width, float t_height, sf::Vector2f t_startPosition) :
 	MAX_ROWS( t_rows ), MAX_COLUMS( t_columns ), m_cellWidth( t_width ), m_cellHeight( t_height)
 {
-	float xStart = t_startPosition.x;
+
+	t_startPosition.x += t_width / 2;
+	t_startPosition.y += t_height / 2;
+
+	float xStart = t_startPosition.x ;
 	for (int row = 0; row < MAX_ROWS; row++)
 	{
 		m_cells.push_back(std::vector<Cell>());
@@ -58,12 +62,12 @@ void Grid::setForGamePlay()
 			{
 				m_cells[row][column].setColor(sf::Color::Black);
 				m_cells[row][column].outlineEnabled(false);
-				m_cells[row][column].enableText(false);
+				
 			}
-			
+			m_cells[row][column].enableText(false);
 		}
 	}
-
+	
 
 	setUpNeighbours();
 }
