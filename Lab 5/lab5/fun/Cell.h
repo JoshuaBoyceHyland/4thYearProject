@@ -26,6 +26,8 @@ class Cell
 
 		void enableText(bool t_enabled) { m_textActive = t_enabled; }
 
+		void debug(bool t_debug);
+
 		void setText(std::string t_string) { m_text.setString(t_string); }
 
 		bool isOccupied() { return m_occupied; };

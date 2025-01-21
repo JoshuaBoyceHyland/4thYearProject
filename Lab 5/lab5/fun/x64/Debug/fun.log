@@ -1,20 +1,46 @@
-﻿  Cell.cpp
-C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Node.h(19,55): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Cell.cpp(93,45): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
-          with
-          [
-              T=float
-          ]
-  EditorScene.cpp
-C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Node.h(19,55): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\EditorScene.cpp(70,39): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-  main.cpp
-C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Node.h(19,55): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\main.cpp(34,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Generating Code...
-  fun.vcxproj -> C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\x64\Debug\fun.exe
+﻿  Grid.cpp
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Loader.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Node.h(25,55): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(44,10): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(44,10): warning C4244:         with
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(44,10): warning C4244:         [
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(44,10): warning C4244:             T=float
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(44,10): warning C4244:         ]
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(45,13): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(45,13): warning C4244:         with
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(45,13): warning C4244:         [
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(45,13): warning C4244:             T=float
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(45,13): warning C4244:         ]
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(81,10): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(81,10): warning C4244:         with
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(81,10): warning C4244:         [
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(81,10): warning C4244:             T=float
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(81,10): warning C4244:         ]
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(82,13): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(82,13): warning C4244:         with
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(82,13): warning C4244:         [
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(82,13): warning C4244:             T=float
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(82,13): warning C4244:         ]
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(100,10): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(100,10): warning C4244:         with
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(100,10): warning C4244:         [
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(100,10): warning C4244:             T=float
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(100,10): warning C4244:         ]
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(101,13): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(101,13): warning C4244:         with
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(101,13): warning C4244:         [
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(101,13): warning C4244:             T=float
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(101,13): warning C4244:         ]
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(122,10): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(122,10): warning C4244:         with
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(122,10): warning C4244:         [
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(122,10): warning C4244:             T=float
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(122,10): warning C4244:         ]
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(123,13): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(123,13): warning C4244:         with
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(123,13): warning C4244:         [
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(123,13): warning C4244:             T=float
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(123,13): warning C4244:         ]
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(141,48): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Grid.cpp(142,47): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  fun.vcxproj -> C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\x64\Debug\fun.exe

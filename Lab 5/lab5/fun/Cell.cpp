@@ -3,7 +3,7 @@
 Cell::Cell( float t_width, float t_height, int t_row, int t_column, sf::Vector2f t_position ) :
 	m_row(t_row),
 	m_column(t_column),
-	m_node(t_row, t_column)
+	m_node(t_row, t_column, t_position)
 {
 	m_body.setPosition(t_position);
 	m_body.setSize({t_width, t_height});
@@ -79,6 +79,21 @@ void Cell::setProperty(TraversalProperty t_property)
 	m_text.setString(m_cellPropertyString[m_property]);
 }
 
+void Cell::debug(bool t_debug)
+{
+	if (t_debug)
+	{
+		m_text.setString(std::to_string(m_node.getHeurisitic()));
+		m_body.setOutlineThickness(1.0f);
+	}
+	else
+	{
+		m_text.setString("");
+		m_body.setOutlineThickness(0.0f);
+	}
+	
+}
+
 void Cell::setUpText()
 {
 	Loader* loader = Loader::getInstance();
@@ -86,7 +101,7 @@ void Cell::setUpText()
 	m_font = loader->loadFont("ASSETS/FONTS/ariblk.ttf");
 
 	m_text.setFont((*m_font));
-	m_text.setPosition({ m_body.getPosition().x - (m_body.getSize().x / 2),  m_body.getPosition().y });
+	m_text.setPosition({ m_body.getPosition().x ,  m_body.getPosition().y });
 	m_text.setFillColor(sf::Color::Black);
 	m_text.setOutlineColor(sf::Color::Yellow);
 	m_text.setOutlineThickness(1.0f);

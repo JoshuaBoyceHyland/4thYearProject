@@ -41,6 +41,7 @@
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="Search.cpp" />
     <ClCompile Include="Ship.cpp" />
     <ClCompile Include="ShipPartEditiorBox.cpp" />
     <ClCompile Include="TextureSplitter.cpp" />
@@ -83,6 +84,7 @@
     <ClInclude Include="Room.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="Search.h" />
     <ClInclude Include="Ship.h" />
     <ClInclude Include="ShipPartEditiorBox.h" />
     <ClInclude Include="Texture.h" />

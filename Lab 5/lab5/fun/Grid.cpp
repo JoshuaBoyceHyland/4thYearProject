@@ -62,9 +62,9 @@ void Grid::setForGamePlay()
 			{
 				m_cells[row][column].setColor(sf::Color::Black);
 				m_cells[row][column].outlineEnabled(false);
-				
+				m_cells[row][column].enableText(false);
 			}
-			m_cells[row][column].enableText(false);
+			
 		}
 	}
 	
@@ -126,61 +126,52 @@ void Grid::setGridCosts(sf::Vector2f t_mouseCLick)
 	if (row < 0 || row >= MAX_ROWS) { return; }
 	if (column < 0 || column >= MAX_COLUMS) { return; }
 
-	int cost = 0;
-	
-	Node* current = m_cells[row][column].getNode();
-
-	current->setCost(cost);
-
-	
-
-	std::vector<Node*> currentNeightbours;
-
-	for (int i = 0; i < current->getNeighbours().size(); i++)
+	for (int row = 0; row < m_cells.size(); row++)
 	{
-		if (!current->getNeighbours()[i]->isMarked())
-		{
-			currentNeightbours.push_back(current->getNeighbours()[i]);
-		}
-	}
-
-	std::vector<Node*> nextNeighbours = currentNeightbours;// just for set up
-
-	while (!nextNeighbours.empty())
-	{
-		cost++;
-
-		nextNeighbours.clear();
-
-		// collect next set of neighbours
-		for (int i = 0; i < currentNeightbours.size(); i++)
+		for (int column = 0; column < m_cells[row].size(); column++)
 		{
 
-			// if marked or goal dont set cost
-			if (!currentNeightbours[i]->isMarked() && currentNeightbours[i]->getCost() !=0)
-			{
-				currentNeightbours[i]->setCost(cost);
-				currentNeightbours[i]->setMarked(true);
-			}
-
-
-			for (int k = 0; k < currentNeightbours[i]->getNeighbours().size(); k++)
-			{
-				if (!currentNeightbours[i]->getNeighbours()[k]->isMarked() && !currentNeightbours[i]->getNeighbours()[k]->isBeingChecked())
-				{
-					currentNeightbours[i]->getNeighbours()[k]->setBeingChecked(true);
-					nextNeighbours.push_back(currentNeightbours[i]->getNeighbours()[k]);
-				}
-
-			}
-
+			m_cells[row][column].getNode()->reset();
 		}
-
-		currentNeightbours.clear();
-		currentNeightbours = nextNeighbours;
 
 	}
 
+	int startingCost = 0;
+	m_cells[row][column].getNode()->setManhattan( startingCost);
+	m_cells[row][column].getNode()->setEudclidian(startingCost);
+	m_cells[row][column].getNode()->setHeuristic(startingCost);
+
+	std::vector<Node*> currentNeightbours = m_cells[row][column].getNode()->getNeighbours();
+	
+	
+	// posssibly unneed
+	//for (int i = 0; i < current->getNeighbours().size(); i++)
+	//{
+	//	if (!current->getNeighbours()[i]->isMarked())
+	//	{
+	//		currentNeightbours.push_back(current->getNeighbours()[i]);
+	//	}
+	//}
+
+
+	while (!currentNeightbours.empty())
+	{
+		currentNeightbours = Search::breadhFirst(currentNeightbours, startingCost, m_cells[row][column].getNode()->getPosition());
+		//checkedNodes.push_back(currentNeightbours);
+	}
+
+
+
+	// debug
+	for (int row = 0; row < m_cells.size(); row++)
+	{
+		for (int column = 0; column < m_cells[row].size(); column++)
+		{
+			
+			m_cells[row][column].debug(true);
+		}
+
+	}
 
 }
 
