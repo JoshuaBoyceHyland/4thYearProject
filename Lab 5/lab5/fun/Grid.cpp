@@ -126,15 +126,20 @@ void Grid::setGridCosts(sf::Vector2f t_mouseCLick)
 	if (row < 0 || row >= MAX_ROWS) { return; }
 	if (column < 0 || column >= MAX_COLUMS) { return; }
 
+
+	std::cout << row << " " << column << std::endl;
+
 	for (int row = 0; row < m_cells.size(); row++)
 	{
 		for (int column = 0; column < m_cells[row].size(); column++)
 		{
 
-			m_cells[row][column].getNode()->reset();
+			m_cells[row][column].getNode()->resetCosts();
+			m_cells[row][column].getNode()->resetMarkings();
 		}
 
 	}
+
 
 	int startingCost = 0;
 	m_cells[row][column].getNode()->setManhattan( startingCost);
@@ -159,10 +164,24 @@ void Grid::setGridCosts(sf::Vector2f t_mouseCLick)
 	}
 
 	
+	for (int row = 0; row < m_cells.size(); row++)
+	{
+		for (int column = 0; column < m_cells[row].size(); column++)
+		{
 
-	m_cells[row + 6][column + 6].getNode();
+			m_cells[row][column].getNode()->resetMarkings();
+		}
 
-	Search::AStar(m_cells[row + 6][column + 6].getNode()->getNeighbours() );
+	}
+
+	std::vector<Node*> path = Search::AStar(m_cells[6][18].getNode() );
+
+
+	m_cells[6][18].setColor(sf::Color::Green);
+	for (int i = 0; i < path.size(); i++)
+	{
+		m_cells[path[i]->m_row][path[i]->m_column].setColor(sf::Color::Green);
+	}
 
 	// debug
 	for (int row = 0; row < m_cells.size(); row++)

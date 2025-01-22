@@ -11,12 +11,20 @@
       "RelativeMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|solutionrelative:fun\\Grid.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\BaseBuilderEditiorBox.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|solutionrelative:fun\\BaseBuilderEditiorBox.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\BaseGameplayScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|solutionrelative:fun\\BaseGameplayScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Cell.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|solutionrelative:fun\\Cell.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Node.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|solutionrelative:fun\\Node.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Cell.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|solutionrelative:fun\\Cell.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Node.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -27,20 +35,8 @@
       "RelativeMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|solutionrelative:fun\\Search.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\BaseGameplayScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|solutionrelative:fun\\BaseGameplayScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Cell.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|solutionrelative:fun\\Cell.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\BaseGameplayScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|solutionrelative:fun\\BaseGameplayScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Cell.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B8BCB7EC-F419-4C62-AA60-0B5A3787AF02}|fun\\fun.vcxproj|solutionrelative:fun\\Cell.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,45 +46,73 @@
       "DocumentGroups": [
         {
           "DockedWidth": 274,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Node.cpp",
               "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Node.cpp",
               "RelativeDocumentMoniker": "fun\\Node.cpp",
               "ToolTip": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Node.cpp",
               "RelativeToolTip": "fun\\Node.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-01-21T10:05:25.03Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 3,
               "Title": "Cell.cpp",
               "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Cell.cpp",
               "RelativeDocumentMoniker": "fun\\Cell.cpp",
               "ToolTip": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Cell.cpp",
               "RelativeToolTip": "fun\\Cell.cpp",
-              "ViewState": "AQIAAFQAAAAAAAAAAAAUwHIAAAAAAAAA",
+              "ViewState": "AQIAAFsAAAAAAAAAAAAtwGAAAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-01-21T09:55:07.985Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
               "Title": "BaseGameplayScene.cpp",
               "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\BaseGamePlayScene.cpp",
               "RelativeDocumentMoniker": "fun\\BaseGamePlayScene.cpp",
               "ToolTip": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\BaseGamePlayScene.cpp",
               "RelativeToolTip": "fun\\BaseGamePlayScene.cpp",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABwAAAAhAAAA",
+              "ViewState": "AQIAADAAAAAAAAAAAAAAACwAAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-01-21T09:51:19.691Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Node.h",
+              "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Node.h",
+              "RelativeDocumentMoniker": "fun\\Node.h",
+              "ToolTip": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Node.h",
+              "RelativeToolTip": "fun\\Node.h",
+              "ViewState": "AQIAACEAAAAAAAAAAAAhwDAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-01-21T10:04:59.225Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Search.h",
+              "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Search.h",
+              "RelativeDocumentMoniker": "fun\\Search.h",
+              "ToolTip": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Search.h",
+              "RelativeToolTip": "fun\\Search.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-01-21T08:38:21.761Z",
               "EditorCaption": ""
             },
             {
@@ -99,48 +123,9 @@
               "RelativeDocumentMoniker": "fun\\Search.cpp",
               "ToolTip": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Search.cpp",
               "RelativeToolTip": "fun\\Search.cpp",
-              "ViewState": "AQIAADAAAAAAAAAAAAAiwEgAAAAAAAAA",
+              "ViewState": "AQIAAEwAAAAAAAAAAAAmwFgAAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-01-21T08:52:06.754Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Node.h",
-              "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Node.h",
-              "RelativeDocumentMoniker": "fun\\Node.h",
-              "ToolTip": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Node.h",
-              "RelativeToolTip": "fun\\Node.h",
-              "ViewState": "AQIAAB4AAAAAAAAAAAAAACoAAAARAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-01-21T10:04:59.225Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Grid.cpp",
-              "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Grid.cpp",
-              "RelativeDocumentMoniker": "fun\\Grid.cpp",
-              "ToolTip": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Grid.cpp",
-              "RelativeToolTip": "fun\\Grid.cpp",
-              "ViewState": "AQIAAJYAAAAAAAAAAAAAAKQAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-01-21T17:54:21.278Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Search.h",
-              "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Search.h",
-              "RelativeDocumentMoniker": "fun\\Search.h",
-              "ToolTip": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Search.h",
-              "RelativeToolTip": "fun\\Search.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-01-21T08:38:21.761Z",
               "EditorCaption": ""
             },
             {
@@ -157,28 +142,50 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "BaseBuilderEditiorBox.cpp",
-              "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\BaseBuilderEditiorBox.cpp",
-              "RelativeDocumentMoniker": "fun\\BaseBuilderEditiorBox.cpp",
-              "ToolTip": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\BaseBuilderEditiorBox.cpp",
-              "RelativeToolTip": "fun\\BaseBuilderEditiorBox.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAACAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-01-20T08:41:49.478Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 5,
               "Title": "Cell.h",
               "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Cell.h",
               "RelativeDocumentMoniker": "fun\\Cell.h",
               "ToolTip": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Cell.h",
               "RelativeToolTip": "fun\\Cell.h",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAAAgAAAAKAAAA",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAABwAAAALAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-01-17T10:18:48.24Z"
+              "WhenOpened": "2025-01-17T10:18:48.24Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "38866d55-76a6-400d-a0a1-cc76189c8128",
+        "Display": 0,
+        "X": 132,
+        "Y": 314,
+        "Width": 1291,
+        "Height": 706,
+        "WindowState": 2
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Grid.cpp",
+              "DocumentMoniker": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Grid.cpp",
+              "RelativeDocumentMoniker": "fun\\Grid.cpp",
+              "ToolTip": "C:\\Users\\gameuser\\Desktop\\4thYearProject\\Lab 5\\lab5\\fun\\Grid.cpp",
+              "RelativeToolTip": "fun\\Grid.cpp",
+              "ViewState": "AQIAAJwAAAAAAAAAAAAiwLQAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-01-21T17:54:21.278Z",
+              "EditorCaption": ""
             }
           ]
         }

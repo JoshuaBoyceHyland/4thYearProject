@@ -8,13 +8,14 @@ class Node
 {
 
 	public:
-
-		Node();
+	public:
 		Node(int t_row, int t_column, sf::Vector2f t_position) : m_row(t_row), m_column(t_column), m_position(t_position) {}
 
 		
 
-		void reset();
+		void resetCosts();
+
+		void resetMarkings();
 
 		void addNeighbour(Node* t_neighbour) { m_neighbours.push_back(t_neighbour); }
 
@@ -32,23 +33,24 @@ class Node
 		int getCost() { return m_cost; };
 		int getManhattan() { return m_manhanttan; }
 
-		float getEudclidian() { return m_euclidian; }
-		float getHeurisitic() { return m_heuristic; }
+		int getEudclidian() { return m_euclidian; }
+		int getHeurisitic() { return m_heuristic; }
 
 		sf::Vector2f getPosition() { return m_position; }
 
 		std::vector<Node*> getNeighbours() { return m_neighbours; }
 
 
-		Node* previous;
+		Node* previous = nullptr;
 		int m_row = -1;
 		int m_column = -1;
 	private:
 		sf::Vector2f m_position;
 
-		float m_euclidian = -1;
+		int m_euclidian = -1;
 		int m_manhanttan = -1;
-		float m_heuristic = -1;
+		int m_heuristic = -1;
+
 		int  m_cost = -1;
 
 		bool m_marked = false;
@@ -62,6 +64,6 @@ class Node
 struct NodeComparision {
 	bool operator()(Node* const& n1, Node* const& n2)
 	{
-		return n1->getHeurisitic() < n2->getHeurisitic();
+		return n1->getHeurisitic() > n2->getHeurisitic();
 	}
 };

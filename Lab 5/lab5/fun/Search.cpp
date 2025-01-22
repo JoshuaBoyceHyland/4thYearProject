@@ -13,7 +13,7 @@ std::vector<Node*> Search::breadhFirst(std::vector<Node*> t_neighbours, int& t_c
 	for (int i = 0; i < t_neighbours.size(); i++)
 	{
 		// if marked or goal dont set cost
-		if (!t_neighbours[i]->isMarked() && t_neighbours[i]->getCost() != 0)
+		if (!t_neighbours[i]->isMarked() && t_neighbours[i]->getManhattan() != 0)
 		{
 			t_neighbours[i]->setManhattan(t_cost);
 			t_neighbours[i]->setEudclidian(VectorMath::vectorLength(t_goalPos, t_neighbours[i]->getPosition()));
@@ -37,39 +37,69 @@ std::vector<Node*> Search::breadhFirst(std::vector<Node*> t_neighbours, int& t_c
     return  nextNeighbours;
 }
 
-std::vector<Node*> Search::AStar(std::vector<Node*> t_neighbours)
+std::vector<Node*> Search::AStar(Node* t_startNode)
 {
+	
+	std::queue<Node*> expandedNodes;
+	std::priority_queue<Node*, std::vector<Node*>, NodeComparision > nodePriorityQueue;
 
-	std::queue<Node*> expanded;
-	std::priority_queue<Node*, std::vector<Node*>, NodeComparision > pR;
+	t_startNode->setMarked(true);
+	t_startNode->setBeingChecked(true);
 
-
-	for (Node* node : t_neighbours)
+	for (Node* node : t_startNode->getNeighbours())
 	{
-		pR.push(node);
+		std::cout<< "Checked Node: " << node->m_row << " " << node->m_column << std::endl;
+		node->previous=t_startNode;
+		node->setBeingChecked(true);
+		nodePriorityQueue.push(node);
 	}
 	
-	while (!pR.empty())
+	while (!nodePriorityQueue.empty())
 	{
-
-		if (pR.top()->getCost() == 0)
+		if (nodePriorityQueue.top()->getHeurisitic() == 0)
 		{
 			break;
 		}
 
-		expanded.push(pR.top());
+		expandedNodes.push(nodePriorityQueue.top());
+		expandedNodes.back()->setMarked(true);
+		nodePriorityQueue.pop();
 
-		pR.pop();
+		std::cout << "Expanded Node: " << expandedNodes.back()->m_row << " " << expandedNodes.back()->m_column << std::endl;
 
-		for (Node* node : expanded.front()->getNeighbours())
+		for (Node* node : expandedNodes.back()->getNeighbours())
 		{
-			node->previous = expanded.front();
-			pR.push(node);
+			// we dont want to add the node if its already been expanded or is in the queue to be expanded
+			if (!node->isMarked() && !node->isBeingChecked())
+			{
+				node->previous = expandedNodes.back();
+				node->setBeingChecked(true);
+				nodePriorityQueue.push(node);
+
+				std::cout << "Checked Node: " << node->m_row << " " << node->m_column << std::endl;
+			}
 		}
 
 		
 	}
 
 	std::vector<Node*> path;
+
+	if (!nodePriorityQueue.empty())
+	{
+		Node* pathSteps = nodePriorityQueue.top();
+
+		while (pathSteps->previous != nullptr)
+		{
+			path.push_back(pathSteps);
+
+			pathSteps = pathSteps->previous;
+		}
+		
+
+
+	}
+
+	
 	return path;
 }
