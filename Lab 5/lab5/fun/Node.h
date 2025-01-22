@@ -11,8 +11,6 @@ class Node
 	public:
 		Node(int t_row, int t_column, sf::Vector2f t_position) : m_row(t_row), m_column(t_column), m_position(t_position) {}
 
-		
-
 		void resetCosts();
 
 		void resetMarkings();

@@ -22,6 +22,6 @@ class BaseGameplayScene : public Scene
 
 		Grid* m_grid;
 		MovableCamera m_camera;
-		NPC m_npc;
+		NPC* m_npc;
 };
 

@@ -10,15 +10,15 @@ class NPC
 		NPC(Grid* t_map, sf::Vector2f t_position= {-500, -500});
 
 
+		void goTo(Node* t_goal);
+		void update(float deltatime);
+
 		void draw(sf::RenderWindow& t_window);
 	private:
 		
-		sf::Vector2f m_position;
-
-		
 		Agent m_agent;
 		Animator m_animator;
-		Grid* m_map = nullptr;
+	
 		
 };
 
