@@ -83,14 +83,14 @@ void Cell::debug(bool t_debug)
 {
 	if (t_debug)
 	{
-	/*	m_text.setString(	"M: " + std::to_string(m_node.getManhattan()) + "\n" +
+		m_text.setString(	"M: " + std::to_string(m_node.getManhattan()) + "\n" +
 							"E: " + std::to_string(m_node.getEudclidian()) + "\n" +
 							"H: " + std::to_string(m_node.getHeurisitic())
-						);*/
+						);
 
-		m_text.setString("Row: " + std::to_string(m_row) + "\n" +
+		/*m_text.setString("Row: " + std::to_string(m_row) + "\n" +
 			" Column: " + std::to_string(m_column)
-		);
+		);*/
 		m_body.setOutlineThickness(1.0f);
 	}
 	else

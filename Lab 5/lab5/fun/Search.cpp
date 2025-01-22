@@ -5,6 +5,57 @@ void Search::use()
 
 }
 
+std::vector<Node*> Search::breadhFirstGridCostAssignment(Node* t_goalNode, sf::Vector2f t_goalPos)
+{
+	int cost = 0;
+	std::vector<Node*> nextNeighbours;
+	std::vector<Node*> currentNeightbours = t_goalNode->getNeighbours();
+
+	// setu up the goal node to be 0 before entering loop 
+	t_goalNode->setManhattan(cost);
+	t_goalNode->setEudclidian(cost);
+	t_goalNode->setHeuristic(cost);
+	t_goalNode->setMarked(true);
+
+	// while we still have nodes to go through
+	while (!currentNeightbours.empty())
+	{
+
+		cost++;
+
+		for (int i = 0; i < currentNeightbours.size(); i++)
+		{
+			// if marked or goal dont set cost
+			if (!currentNeightbours[i]->isMarked() && currentNeightbours[i]->getManhattan() != 0)
+			{
+				currentNeightbours[i]->setManhattan(cost);
+				currentNeightbours[i]->setEudclidian(VectorMath::vectorLength(t_goalPos, currentNeightbours[i]->getPosition()));
+				currentNeightbours[i]->setHeuristic(cost + currentNeightbours[i]->getEudclidian());
+				currentNeightbours[i]->setMarked(true);
+			}
+
+			for (int k = 0; k < currentNeightbours[i]->getNeighbours().size(); k++)
+			{
+				if (!currentNeightbours[i]->getNeighbours()[k]->isMarked() && !currentNeightbours[i]->getNeighbours()[k]->isBeingChecked())
+				{
+					currentNeightbours[i]->getNeighbours()[k]->setBeingChecked(true);
+					nextNeighbours.push_back(currentNeightbours[i]->getNeighbours()[k]);
+				}
+
+			}
+
+		}
+
+		
+		currentNeightbours = nextNeighbours;
+		nextNeighbours.clear();
+	}
+	
+
+
+	return nextNeighbours;
+}
+
 std::vector<Node*> Search::breadhFirst(std::vector<Node*> t_neighbours, int& t_cost, sf::Vector2f t_goalPos)
 {
 	std::vector<Node*> nextNeighbours;
@@ -95,11 +146,19 @@ std::vector<Node*> Search::AStar(Node* t_startNode)
 
 			pathSteps = pathSteps->previous;
 		}
-		
 
 
 	}
 
 	
 	return path;
+}
+
+void Search::nodeReset(std::vector<Node*> t_visitedNodes)
+{
+
+	for (Node* node : t_visitedNodes)
+	{
+		node->resetMarkings();
+	}
 }

@@ -1,6 +1,6 @@
 #pragma once
 #include "Cell.h"
-#include"Search.h"
+//#include"Search.h"
 class Grid
 {
 	public:
@@ -19,7 +19,11 @@ class Grid
 
 		void highlightNeighbours(sf::Vector2f t_mouseCLick);
 
-		void setGridCosts(sf::Vector2f t_mouseCLick);
+		Cell* cellSelection(sf::Vector2f t_mouseCLick);
+
+		void resetGridCellForPathFinding( bool t_resetCosts, bool t_resetMarkings);
+
+		void pathFind(sf::Vector2f t_mouseCLick);
 
 		std::vector<std::vector<Cell>> m_cells;
 

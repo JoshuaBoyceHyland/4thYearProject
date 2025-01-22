@@ -1,19 +1,24 @@
 #pragma once
-#include <SFML/Graphics.hpp>
-#include "Job.h"
+#include "Agent.h"
+#include "Animator.h"
 class NPC
 {
 
 
 	public:
 		NPC();
-		void assignJob(Job t_job);
-		void update();
+		NPC(Grid* t_map, sf::Vector2f t_position= {-500, -500});
 
+
+		void draw(sf::RenderWindow& t_window);
 	private:
+		
+		sf::Vector2f m_position;
 
-		Job t_job;
-		sf::CircleShape m_body;
+		
+		Agent m_agent;
+		Animator m_animator;
+		Grid* m_map = nullptr;
 		
 };
 

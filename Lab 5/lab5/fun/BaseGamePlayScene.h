@@ -3,7 +3,7 @@
 #include "GameData.h"
 #include "Grid.h"
 #include "MovableCamera.h"
-
+#include "NPC.h"
 class BaseGameplayScene : public Scene
 {
 
@@ -22,5 +22,6 @@ class BaseGameplayScene : public Scene
 
 		Grid* m_grid;
 		MovableCamera m_camera;
+		NPC m_npc;
 };
 

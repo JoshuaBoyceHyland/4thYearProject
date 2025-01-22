@@ -2,7 +2,8 @@
 
 BaseGameplayScene::BaseGameplayScene(sf::RenderWindow& t_window) :
 	Scene(t_window),
-	m_camera(m_window)
+	m_camera(m_window), 
+	m_npc(m_grid, { 2500, 900 })
 {
 	GameData* gamedata = GameData::getInstance();
 	m_grid = gamedata->m_currentMap;
@@ -20,7 +21,7 @@ void BaseGameplayScene::render()
 {
 	m_window.clear();
 	m_grid->draw(m_window);
-
+	m_npc.draw(m_window);
 
 	m_window.display();
 }
@@ -41,12 +42,14 @@ void BaseGameplayScene::processMousePress(sf::Event t_event)
 
 	if (sf::Mouse::Left == t_event.mouseButton.button)
 	{
-		m_grid->setGridCosts(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)));
+		m_grid->pathFind(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)));
 	}
 	if (sf::Mouse::Right == t_event.mouseButton.button)
 	{
 		m_grid->highlightNeighbours(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)));
 	}
+
+	
 }
 
 void BaseGameplayScene::processMouseRelease(sf::Event t_event)
@@ -64,6 +67,7 @@ void BaseGameplayScene::processMouseMove(sf::Event t_event)
 
 void BaseGameplayScene::processMouseWheel(sf::Event t_event)
 {
+	std::cout << m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)).x << " " << m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)).y << std::endl;
 	float delta = t_event.mouseWheel.delta;
 
 	float zoomValue = m_camera.zoom(delta);

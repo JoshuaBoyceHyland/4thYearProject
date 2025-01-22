@@ -39,6 +39,8 @@
     <ClCompile Include="BaseGameplayScene.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Search.cpp" />
+    <ClCompile Include="Agent.cpp" />
+    <ClCompile Include="Animator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseBuilderEditiorBox.h" />
@@ -83,6 +85,8 @@
     <ClInclude Include="BaseGameplayScene.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="Search.h" />
+    <ClInclude Include="Agent.h" />
+    <ClInclude Include="Animator.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="fun.rc" />

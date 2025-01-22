@@ -74,38 +74,22 @@ void Grid::setForGamePlay()
 
 void Grid::placePiece(sf::Vector2f t_mouseCLick, std::vector<Texture*> t_textures, TraversalProperty t_property)
 {
-	// ensureing the mouse click is valid
-	if (t_mouseCLick.y < 0) { return; }
-	if (t_mouseCLick.x < 0) { return; }
+	Cell* selectedCell = cellSelection(t_mouseCLick);
+	if (selectedCell == nullptr) { return; }
 
-	int row = t_mouseCLick.y / m_cellHeight;
-	int column = t_mouseCLick.x / m_cellWidth;
-
-	// checking the row and column is in the bounds
-	if (row < 0 || row >= MAX_ROWS) { return; }
-	if (column  < 0 || column >= MAX_COLUMS) { return; }
-
-	std::cout << row << " " << column << std::endl;
-	m_cells[row][column].setColor(sf::Color::White);
-	m_cells[row][column].setTexture(t_textures[0]);
-	m_cells[row][column].setProperty(t_property);
+	selectedCell->setColor(sf::Color::White);
+	selectedCell->setTexture(t_textures[0]);
+	selectedCell->setProperty(t_property);
 
 }
 
 void Grid::highlightNeighbours(sf::Vector2f t_mouseCLick)
 {
-	if (t_mouseCLick.y < 0) { return; }
-	if (t_mouseCLick.x < 0) { return; }
-
-	int row = t_mouseCLick.y / m_cellHeight;
-	int column = t_mouseCLick.x / m_cellWidth;
-
-	// checking the row and column is in the bounds
-	if (row < 0 || row >= MAX_ROWS) { return; }
-	if (column < 0 || column >= MAX_COLUMS) { return; }
+	Cell* selectedCell = cellSelection(t_mouseCLick);
+	if (selectedCell == nullptr) { return; }
 
 
-	std::vector<Node*> neighbours = m_cells[row][column].getNode()->getNeighbours();
+	std::vector<Node*> neighbours = selectedCell->getNode()->getNeighbours();
 
 	for (int i = 0; i < neighbours.size(); i++)
 	{
@@ -113,89 +97,83 @@ void Grid::highlightNeighbours(sf::Vector2f t_mouseCLick)
 	}
 }
 
-void Grid::setGridCosts(sf::Vector2f t_mouseCLick)
+Cell* Grid::cellSelection(sf::Vector2f t_mouseCLick)
 {
-
-	if (t_mouseCLick.y < 0) { return; }
-	if (t_mouseCLick.x < 0) { return; }
+	if (t_mouseCLick.y < 0) { return nullptr; }
+	if (t_mouseCLick.x < 0) { return nullptr; }
 
 	int row = t_mouseCLick.y / m_cellHeight;
 	int column = t_mouseCLick.x / m_cellWidth;
 
 	// checking the row and column is in the bounds
-	if (row < 0 || row >= MAX_ROWS) { return; }
-	if (column < 0 || column >= MAX_COLUMS) { return; }
+	if (row < 0 || row >= MAX_ROWS) { return nullptr; }
+	if (column < 0 || column >= MAX_COLUMS) { return nullptr; }
 
 
-	std::cout << row << " " << column << std::endl;
+
+	return &m_cells[row][column];
+}
+
+void Grid::resetGridCellForPathFinding(bool t_resetCosts, bool t_resetMarkings)
+{
 
 	for (int row = 0; row < m_cells.size(); row++)
 	{
 		for (int column = 0; column < m_cells[row].size(); column++)
 		{
 
-			m_cells[row][column].getNode()->resetCosts();
-			m_cells[row][column].getNode()->resetMarkings();
-		}
-
-	}
-
-
-	int startingCost = 0;
-	m_cells[row][column].getNode()->setManhattan( startingCost);
-	m_cells[row][column].getNode()->setEudclidian(startingCost);
-	m_cells[row][column].getNode()->setHeuristic(startingCost);
-	m_cells[row][column].getNode()->setMarked(true);
-	std::vector<Node*> currentNeightbours = m_cells[row][column].getNode()->getNeighbours();
-	
-	
-	// posssibly unneed
-	//for (int i = 0; i < current->getNeighbours().size(); i++)
-	//{
-	//	if (!current->getNeighbours()[i]->isMarked())
-	//	{
-	//		currentNeightbours.push_back(current->getNeighbours()[i]);
-	//	}
-	//}
-	while (!currentNeightbours.empty())
-	{
-		currentNeightbours = Search::breadhFirst(currentNeightbours, startingCost, m_cells[row][column].getNode()->getPosition());
-		//checkedNodes.push_back(currentNeightbours);
-	}
-
-	
-	for (int row = 0; row < m_cells.size(); row++)
-	{
-		for (int column = 0; column < m_cells[row].size(); column++)
-		{
-
-			m_cells[row][column].getNode()->resetMarkings();
-		}
-
-	}
-
-	std::vector<Node*> path = Search::AStar(m_cells[6][18].getNode() );
-
-
-	m_cells[6][18].setColor(sf::Color::Green);
-	for (int i = 0; i < path.size(); i++)
-	{
-		m_cells[path[i]->m_row][path[i]->m_column].setColor(sf::Color::Green);
-	}
-
-	// debug
-	for (int row = 0; row < m_cells.size(); row++)
-	{
-		for (int column = 0; column < m_cells[row].size(); column++)
-		{
+			if (t_resetCosts)
+			{
+				m_cells[row][column].getNode()->resetCosts();
+			}
 			
-			m_cells[row][column].debug(true);
+			if (t_resetMarkings)
+			{
+				m_cells[row][column].getNode()->resetMarkings();
+			}
+			
 		}
 
 	}
+}
+
+void Grid::pathFind(sf::Vector2f t_mouseCLick)
+{
+
+	//Cell* selectedCell = cellSelection(t_mouseCLick);
 
 
+	//if (selectedCell == nullptr){return;}
 
+	//// reset pathfing propertys fully
+	//resetGridCellForPathFinding(true, true);
+
+
+	//Search::breadhFirstGridCostAssignment(selectedCell->getNode(), selectedCell->getNode()->getPosition());
+
+	//// only reset the markings
+	//resetGridCellForPathFinding(false, true);
+
+	//std::vector<Node*> path = Search::AStar(m_cells[6][18].getNode() );
+
+	//for (int i = 0; i < path.size(); i++)
+	//{
+	//	m_cells[path[i]->m_row][path[i]->m_column].setColor(sf::Color::Green);
+	//}
+
+	//// debug
+	//for (int row = 0; row < m_cells.size(); row++)
+	//{
+	//	for (int column = 0; column < m_cells[row].size(); column++)
+	//	{
+	//		
+	//		m_cells[row][column].debug(true);
+	//	}
+
+	//}
+
+
+	
 }
 
 void Grid::setUpNeighbours()

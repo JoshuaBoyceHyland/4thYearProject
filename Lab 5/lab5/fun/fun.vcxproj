@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Agent.cpp" />
+    <ClCompile Include="Animator.cpp" />
     <ClCompile Include="BaseBuilderEditiorBox.cpp" />
     <ClCompile Include="BaseBuilderScene.cpp" />
     <ClCompile Include="BaseGameplayScene.cpp" />
@@ -59,6 +61,8 @@
     <ClCompile Include="VectorMath.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Agent.h" />
+    <ClInclude Include="Animator.h" />
     <ClInclude Include="BaseBuilderEditiorBox.h" />
     <ClInclude Include="BaseBuilderScene.h" />
     <ClInclude Include="BaseGameplayScene.h" />
