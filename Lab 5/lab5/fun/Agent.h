@@ -10,11 +10,15 @@ class Agent
 
 		void update(float t_deltaTime);
 
-		void followPath();
+		void followPath(float t_deltaTime);
 
+		float m_speed = 2.5;
+		float m_rotation;
 		sf::Vector2f m_position;
-		std::vector<Node*> m_currentPath;
-		std::vector<Node*> pathFindTo(Node* t_goalNode);
+
+		std::queue<Node*> m_previousPath;
+		std::deque<Node*> m_currentPath;
+		std::deque<Node*> pathFindTo(Node* t_goalNode);
 
 		Node* m_target = nullptr;
 		Node* m_currentNode = nullptr;

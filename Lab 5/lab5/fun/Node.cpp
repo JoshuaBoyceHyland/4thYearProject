@@ -14,4 +14,5 @@ void Node::resetMarkings()
 {
 	m_marked = false;
 	m_beingChecked = false;
+	previous = nullptr;
 }

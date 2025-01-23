@@ -15,5 +15,5 @@ Animator::Animator()
 
 	m_sprite.setTexture(m_spriteSheets[0]->texture);
 	m_sprite.setTextureRect(m_spriteDimension);
-	m_sprite.setOrigin({(float)m_spriteSheets[0]->texture.getSize().x / 2, (float)m_spriteSheets[0]->texture.getSize().y});
+	m_sprite.setOrigin({(float)m_spriteDimension.width / 2, (float)m_spriteSheets[0]->texture.getSize().y});
 }

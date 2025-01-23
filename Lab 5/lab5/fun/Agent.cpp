@@ -1,6 +1,6 @@
 #include "Agent.h"
 
-Agent::Agent(Grid* t_map, sf::Vector2f t_position) : m_map( t_map), m_position(t_position)
+Agent::Agent(Grid* t_map, sf::Vector2f t_position) : m_map(t_map), m_position(t_position)
 {
 
 }
@@ -8,43 +8,73 @@ Agent::Agent(Grid* t_map, sf::Vector2f t_position) : m_map( t_map), m_position(t
 void Agent::update(float t_deltaTime)
 {
     m_currentNode = m_map->cellSelection(m_position)->getNode();
-  
 
- 
-
-    if (!m_currentPath.empty())
+    if (m_target != nullptr)
     {
-        followPath();
+        followPath(t_deltaTime);
     }
 }
 
 
 
-void Agent::followPath()
+void Agent::followPath(float t_deltaTime)
 {
 
-    if( VectorMath::vectorLength ( m_target->getPosition(), m_position  )  < 10);
+    m_map->m_cells[m_target->m_row][m_target->m_column].setColor(sf::Color::Yellow);
+    sf::Vector2f t_direction = VectorMath::directionVector( m_position, m_target->getPosition());
+
+    m_position += t_direction * m_speed;
+
+
+    if (VectorMath::vectorLength(m_position, m_target->getPosition()) < 2.5)
     {
-        m_currentPath.clear();
+        if (!m_currentPath.empty())
+        {
+            m_previousPath.push(m_target);
+            m_target = m_currentPath.front();
+            m_currentPath.pop_front();
+            
+
+        }
+        else
+        {
+            m_previousPath.push(m_target);
+            m_target = nullptr;
+            
+            while (!m_previousPath.empty())
+            {
+                m_map->m_cells[m_previousPath.front()->m_row][m_previousPath.front()->m_column].setColor(sf::Color::White);
+                m_previousPath.pop();
+            }
+        }
+
     }
 
-    sf::Vector2f t_direction = VectorMath::directionVector(m_target->getPosition(), m_position);
-
-    m_position += t_direction * 10.0f;
 }
 
-std::vector<Node*> Agent::pathFindTo(Node* t_goalNode)
+std::deque<Node*>Agent::pathFindTo(Node* t_goalNode)
 {
-    std::vector<Node*> path;
+    
+    std::deque<Node*> path;
     m_map->resetGridCellForPathFinding(true, true);
     Search::breadhFirstGridCostAssignment(t_goalNode, t_goalNode->getPosition());
+    
+    // visual rep
     m_map->resetGridCellForPathFinding(false, true);
     path = Search::AStar(m_currentNode);
 
+    // path finding
+    m_map->resetGridCellForPathFinding(false, true);
+    m_currentPath = Search::AStar(m_currentNode);
 
-    m_currentPath = path;
+    m_target = m_currentPath.front();
+    m_currentPath.pop_front();
 
-    m_target = m_currentPath.back();
+    while (!path.empty())
+    {
+        m_map->m_cells[path.front()->m_row][path.front()->m_column].setColor(sf::Color::Green);
+        path.pop_front();
+    }
 
 
     return path;

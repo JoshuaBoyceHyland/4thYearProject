@@ -88,7 +88,7 @@ std::vector<Node*> Search::breadhFirst(std::vector<Node*> t_neighbours, int& t_c
     return  nextNeighbours;
 }
 
-std::vector<Node*> Search::AStar(Node* t_startNode)
+std::deque<Node*>Search::AStar(Node* t_startNode)
 {
 	
 	std::queue<Node*> expandedNodes;
@@ -134,7 +134,7 @@ std::vector<Node*> Search::AStar(Node* t_startNode)
 		
 	}
 
-	std::vector<Node*> path;
+	std::deque<Node*> path;
 
 	if (!nodePriorityQueue.empty())
 	{
@@ -142,7 +142,7 @@ std::vector<Node*> Search::AStar(Node* t_startNode)
 
 		while (pathSteps->previous != nullptr)
 		{
-			path.push_back(pathSteps);
+			path.push_front(pathSteps);
 
 			pathSteps = pathSteps->previous;
 		}
