@@ -1,12 +1,13 @@
 #pragma once
 #include "Agent.h"
 #include "Animator.h"
+#include "BehaviourManager.h"
+
 class NPC
 {
 
 
 	public:
-		NPC();
 		NPC(Grid* t_map, sf::Vector2f t_position= {-500, -500});
 
 
@@ -18,7 +19,7 @@ class NPC
 		
 		Agent m_agent;
 		Animator m_animator;
-	
+		BehaviourManager m_behaviourManager;
 		
 };
 

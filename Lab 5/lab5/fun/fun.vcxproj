@@ -24,6 +24,7 @@
     <ClCompile Include="BaseBuilderEditiorBox.cpp" />
     <ClCompile Include="BaseBuilderScene.cpp" />
     <ClCompile Include="BaseGameplayScene.cpp" />
+    <ClCompile Include="BehaviourManager.cpp" />
     <ClCompile Include="Cell.cpp" />
     <ClCompile Include="Connector.cpp" />
     <ClCompile Include="EditorMouse.cpp" />
@@ -66,6 +67,7 @@
     <ClInclude Include="BaseBuilderEditiorBox.h" />
     <ClInclude Include="BaseBuilderScene.h" />
     <ClInclude Include="BaseGameplayScene.h" />
+    <ClInclude Include="BehaviourManager.h" />
     <ClInclude Include="Cell.h" />
     <ClInclude Include="Connector.h" />
     <ClInclude Include="Deprecated\Player.h" />

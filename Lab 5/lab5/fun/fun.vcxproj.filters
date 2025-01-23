@@ -41,6 +41,7 @@
     <ClCompile Include="Search.cpp" />
     <ClCompile Include="Agent.cpp" />
     <ClCompile Include="Animator.cpp" />
+    <ClCompile Include="BehaviourManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseBuilderEditiorBox.h" />
@@ -87,6 +88,7 @@
     <ClInclude Include="Search.h" />
     <ClInclude Include="Agent.h" />
     <ClInclude Include="Animator.h" />
+    <ClInclude Include="BehaviourManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="fun.rc" />

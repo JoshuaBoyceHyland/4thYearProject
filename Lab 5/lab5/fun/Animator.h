@@ -12,8 +12,11 @@ class Animator
 
 		sf::Sprite m_sprite;
 	private:
-		int numOfFrames = 4;
-		
+		int numOfFramesWidth = 12;
+		int numOfFramesHeight = 8;
+
+
+
 		sf::IntRect m_spriteDimension;
 		std::vector<Texture*>m_spriteSheets;
 	
