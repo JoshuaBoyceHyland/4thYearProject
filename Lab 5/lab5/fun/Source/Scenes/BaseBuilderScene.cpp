@@ -25,7 +25,7 @@ void BaseBuilderScene::update(sf::Time t_deltaTime)
 
 void BaseBuilderScene::render()
 {
-
+	
 	sf::CircleShape t;
 
 	t.setPosition({0,0});
@@ -40,6 +40,8 @@ void BaseBuilderScene::render()
 	{
 		m_selectedTiles->draw(m_window);
 	}
+
+	m_room.draw(m_window);
 	m_window.draw(t);
 	m_window.display();
 }

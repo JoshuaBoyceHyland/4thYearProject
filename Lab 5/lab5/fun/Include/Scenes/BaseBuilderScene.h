@@ -5,12 +5,12 @@
 #include "MovableCamera.h"
 #include "Job.h"
 #include "Room.h"
-//#include "Cell.h"
 #include "Grid.h"
 #include "BaseBuilderEditiorBox.h"
 #include "TextureSplitter.h"
 #include "Tile.h"
 #include "MapSaver.h"
+#include "Room.h"
 
 class BaseBuilderScene : public Scene
 {
@@ -36,13 +36,12 @@ class BaseBuilderScene : public Scene
 
 	private:
 
-
 		sf::RectangleShape m_rect;
-
 		MovableCamera m_camera;
 		Grid* m_grid;
 		BaseBuilderEditiorBox m_editorBox;
 		Tile* m_selectedTiles = nullptr;
 		MapSaver saver;
+		Room m_room;
 };
 

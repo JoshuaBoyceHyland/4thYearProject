@@ -1,19 +1,20 @@
 #pragma once
-#include "Job.h"
+#include "Cell.h"
+#include <fstream>
+#include <sstream>
+#include <string>
+#include "Grid.h"
+#include "TileLibrary.h"
 
 class Room
 {
 	public:
-		Room(sf::Vector2f t_position);
+		Room();
 
 		void draw(sf::RenderWindow& t_window);
-
 	private:
-
-		sf::Vector2f m_position;
-		std::vector<Job> m_jobs;
-		int m_maxJobs = 4;
-
+		std::vector<Cell> m_cells;
+		Grid m_grid;
 
 };
 

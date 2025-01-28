@@ -1,17 +1,36 @@
 #include "Room.h"
 
-Room::Room(sf::Vector2f t_position)
+Room::Room() :
+    m_grid( 10, 10, 100, 100, {- (10 * 100), -(10 * 100) })
 {
-	for (int i = 0; i < m_maxJobs; i++)
-	{
-		m_jobs.emplace_back(Job( "Water Filtration", {100, 100}));
-	}
+   
+    std::ifstream file;
+    file.open("map.txt");
+
+    TileLibrary* library = TileLibrary::getInstance();
+    int column, row, type, texture;
+    std::string currentLine;
+
+    while (std::getline(file, currentLine))
+    {
+        std::istringstream stringStream(currentLine);
+
+        stringStream >> row >> column >> type >> texture;
+
+        Tile* loadedTile = library->getTile(TraversalProperty(type), texture);
+
+        m_grid.m_cells[row][column].setColor(sf::Color::White);
+        m_grid.m_cells[row][column].setTexture(loadedTile->m_textures[0]);
+        m_grid.m_cells[row][column].setProperty((*loadedTile).m_property);
+
+        
+
+    }
+
+    file.close();
 }
 
 void Room::draw(sf::RenderWindow& t_window)
 {
-	for (int i = 0; i < m_maxJobs; i++)
-	{
-		m_jobs[i].draw(t_window);
-	}
+    m_grid.draw(t_window);
 }
