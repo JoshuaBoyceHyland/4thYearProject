@@ -25,13 +25,12 @@ class Grid
 
 		void pathFind(sf::Vector2f t_mouseCLick);
 
+		std::vector<Cell*> m_traversableCells;
 		std::vector<std::vector<Cell>> m_cells;
 
 	private:
 
 		void setUpNeighbours();
-
-	
 
 		float m_cellHeight;
 		float m_cellWidth;

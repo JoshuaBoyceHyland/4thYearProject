@@ -19,51 +19,66 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Agent.cpp" />
-    <ClCompile Include="Animator.cpp" />
-    <ClCompile Include="BaseBuilderEditiorBox.cpp" />
-    <ClCompile Include="BaseBuilderScene.cpp" />
-    <ClCompile Include="BaseGameplayScene.cpp" />
-    <ClCompile Include="BehaviourManager.cpp" />
-    <ClCompile Include="Cell.cpp" />
-    <ClCompile Include="Connector.cpp" />
-    <ClCompile Include="EditorMouse.cpp" />
-    <ClCompile Include="EditorPart.cpp" />
-    <ClCompile Include="EditorScene.cpp" />
-    <ClCompile Include="GameData.cpp" />
-    <ClCompile Include="GameplayScene.cpp" />
-    <ClCompile Include="Grid.cpp" />
-    <ClCompile Include="Job.cpp" />
-    <ClCompile Include="MapSaver.cpp" />
-    <ClCompile Include="MenuScene.cpp" />
-    <ClCompile Include="MovableCamera.cpp" />
-    <ClCompile Include="Node.cpp" />
-    <ClCompile Include="NPC.cpp" />
-    <ClCompile Include="Particle.cpp" />
-    <ClCompile Include="ParticleSystem.cpp" />
-    <ClCompile Include="Room.cpp" />
-    <ClCompile Include="Scene.cpp" />
-    <ClCompile Include="SceneManager.cpp" />
-    <ClCompile Include="Search.cpp" />
-    <ClCompile Include="Ship.cpp" />
-    <ClCompile Include="ShipPartEditiorBox.cpp" />
-    <ClCompile Include="TextureSplitter.cpp" />
-    <ClCompile Include="Tile.cpp" />
-    <ClCompile Include="TileLibrary.cpp" />
-    <ClCompile Include="UI.cpp" />
-    <ClCompile Include="Game.cpp" />
-    <ClCompile Include="Loader.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="PartsLibarary.cpp" />
-    <ClCompile Include="RotationMath.cpp" />
-    <ClCompile Include="ShipPart.cpp" />
-    <ClCompile Include="UIEditorBox.cpp" />
-    <ClCompile Include="UIScreenBorder.cpp" />
-    <ClCompile Include="VectorMath.cpp" />
-  </ItemGroup>
-  <ItemGroup>
+    <ClInclude Include="Include\NPC\AgentUser.h" />
     <ClInclude Include="Deprecated\Player.h" />
+    <ClInclude Include="Include\Agent.h" />
+    <ClInclude Include="Include\Animator.h" />
+    <ClInclude Include="Include\BaseBuilderEditiorBox.h" />
+    <ClInclude Include="Include\BaseBuilderScene.h" />
+    <ClInclude Include="Include\BaseGamePlayScene.h" />
+    <ClInclude Include="Include\Cell.h" />
+    <ClInclude Include="Include\Connector.h" />
+    <ClInclude Include="Include\EditorMouse.h" />
+    <ClInclude Include="Include\EditorPart.h" />
+    <ClInclude Include="Include\EditorScene.h" />
+    <ClInclude Include="Include\Game.h" />
+    <ClInclude Include="Include\GameData.h" />
+    <ClInclude Include="Include\GameplayScene.h" />
+    <ClInclude Include="Include\Globals.h" />
+    <ClInclude Include="Include\Grid.h" />
+    <ClInclude Include="Include\Job.h" />
+    <ClInclude Include="Include\Loader.h" />
+    <ClInclude Include="Include\MapSaver.h" />
+    <ClInclude Include="Include\MenuScene.h" />
+    <ClInclude Include="Include\MovableCamera.h" />
+    <ClInclude Include="Include\Node.h" />
+    <ClInclude Include="Include\NPC.h" />
+    <ClInclude Include="Include\NPC\Agent.h" />
+    <ClInclude Include="Include\NPC\Animator.h" />
+    <ClInclude Include="Include\NPC\Behaviour.h" />
+    <ClInclude Include="Include\NPC\BehaviourManagert.h" />
+    <ClInclude Include="Include\NPC\BehaviourTypes.h" />
+    <ClInclude Include="Include\NPC\NPC.h" />
+    <ClInclude Include="Include\NPC\Wander.h" />
+    <ClInclude Include="Include\Particle.h" />
+    <ClInclude Include="Include\ParticleSystem.h" />
+    <ClInclude Include="Include\PartsLibarary.h" />
+    <ClInclude Include="Include\Room.h" />
+    <ClInclude Include="Include\RotationMath.h" />
+    <ClInclude Include="Include\Scene.h" />
+    <ClInclude Include="Include\SceneManager.h" />
+    <ClInclude Include="Include\Scenes\BaseBuilderScene.h" />
+    <ClInclude Include="Include\Scenes\BaseGamePlayScene.h" />
+    <ClInclude Include="Include\Scenes\EditorScene.h" />
+    <ClInclude Include="Include\Scenes\GameplayScene.h" />
+    <ClInclude Include="Include\Scenes\MenuScene.h" />
+    <ClInclude Include="Include\Scenes\Scene.h" />
+    <ClInclude Include="Include\Scenes\SceneManager.h" />
+    <ClInclude Include="Include\Search.h" />
+    <ClInclude Include="Include\Ship.h" />
+    <ClInclude Include="Include\ShipPart.h" />
+    <ClInclude Include="Include\ShipPartEditiorBox.h" />
+    <ClInclude Include="Include\Texture.h" />
+    <ClInclude Include="Include\TextureSplitter.h" />
+    <ClInclude Include="Include\Tile.h" />
+    <ClInclude Include="Include\TileLibrary.h" />
+    <ClInclude Include="Include\UI.h" />
+    <ClInclude Include="Include\UIEditorBox.h" />
+    <ClInclude Include="Include\UIScreenBorder.h" />
+    <ClInclude Include="Include\VectorMath.h" />
     <ClInclude Include="json.hpp" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="Include\NPC\Action.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="ASSETS\IMAGES\SFML-LOGO.png">
@@ -83,7 +98,54 @@
     <ResourceCompile Include="fun.rc" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="fun.aps" />
     <None Include="map.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\NPC\BehaviourManagert.cpp" />
+    <ClCompile Include="Source\NPC\Wander.cpp" />
+    <ClCompile Include="Source\BaseBuilderEditiorBox.cpp" />
+    <ClCompile Include="Source\Cell.cpp" />
+    <ClCompile Include="Source\Connector.cpp" />
+    <ClCompile Include="Source\EditorMouse.cpp" />
+    <ClCompile Include="Source\Game.cpp" />
+    <ClCompile Include="Source\GameData.cpp" />
+    <ClCompile Include="Source\Grid.cpp" />
+    <ClCompile Include="Source\Job.cpp" />
+    <ClCompile Include="Source\Loader.cpp" />
+    <ClCompile Include="Source\main.cpp" />
+    <ClCompile Include="Source\MapSaver.cpp" />
+    <ClCompile Include="Source\MovableCamera.cpp" />
+    <ClCompile Include="Source\Node.cpp" />
+    <ClCompile Include="Source\NPC\Agent.cpp" />
+    <ClCompile Include="Source\NPC\Animator.cpp" />
+    <ClCompile Include="Source\NPC\NPC.cpp" />
+    <ClCompile Include="Source\Particle.cpp" />
+    <ClCompile Include="Source\ParticleSystem.cpp" />
+    <ClCompile Include="Source\PartsLibarary.cpp" />
+    <ClCompile Include="Source\Room.cpp" />
+    <ClCompile Include="Source\RotationMath.cpp" />
+    <ClCompile Include="Source\Scenes\BaseBuilderScene.cpp" />
+    <ClCompile Include="Source\Scenes\BaseGamePlayScene.cpp" />
+    <ClCompile Include="Source\Scenes\EditorScene.cpp" />
+    <ClCompile Include="Source\Scenes\GameplayScene.cpp" />
+    <ClCompile Include="Source\Scenes\MenuScene.cpp" />
+    <ClCompile Include="Source\Scenes\Scene.cpp" />
+    <ClCompile Include="Source\Scenes\SceneManager.cpp" />
+    <ClCompile Include="Source\Search.cpp" />
+    <ClCompile Include="Source\Ship.cpp" />
+    <ClCompile Include="Source\ShipPart.cpp" />
+    <ClCompile Include="Source\ShipPartEditiorBox.cpp" />
+    <ClCompile Include="Source\TextureSplitter.cpp" />
+    <ClCompile Include="Source\Tile.cpp" />
+    <ClCompile Include="Source\TileLibrary.cpp" />
+    <ClCompile Include="Source\UI.cpp" />
+    <ClCompile Include="Source\UIEditorBox.cpp" />
+    <ClCompile Include="Source\UIScreenBorder.cpp" />
+    <ClCompile Include="Source\VectorMath.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="map.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -136,7 +198,10 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <PublicIncludeDirectories>$(PublicIncludeDirectories)</PublicIncludeDirectories>
+    <IncludePath>C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -157,7 +222,7 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(SFML_SDK)/lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SFML_SDK)/lib;C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

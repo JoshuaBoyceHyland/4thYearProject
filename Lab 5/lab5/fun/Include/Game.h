@@ -9,7 +9,7 @@
 #include "Globals.h"
 #include <SFML/Graphics.hpp>
 
-#include "SceneManager.h"
+#include "Scenes/SceneManager.h"
 #include "Ship.h"
 
 
