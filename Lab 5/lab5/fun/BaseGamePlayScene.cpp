@@ -1,4 +1,4 @@
-#include "BaseGameplayScene.h"
+#include "Include/BaseGameplayScene.h"
 
 BaseGameplayScene::BaseGameplayScene(sf::RenderWindow& t_window) :
 	Scene(t_window),

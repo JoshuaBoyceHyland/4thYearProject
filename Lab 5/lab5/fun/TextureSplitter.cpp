@@ -1,4 +1,4 @@
-#include "TextureSplitter.h"
+#include "Include/TextureSplitter.h"
 
 
 std::vector<sf::Texture> TextureSplitter::splitTextureIntoCells(sf::Texture* t_texture, float t_cellWidth, float t_cellHeight)

@@ -1,4 +1,4 @@
-#include "Grid.h"
+#include "Include/Grid.h"
 
 Grid::Grid(int t_rows, int t_columns, float t_width, float t_height, sf::Vector2f t_startPosition) :
 	MAX_ROWS( t_rows ), MAX_COLUMS( t_columns ), m_cellWidth( t_width ), m_cellHeight( t_height)

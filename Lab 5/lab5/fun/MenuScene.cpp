@@ -1,4 +1,4 @@
-#include "MenuScene.h"
+#include "Include/MenuScene.h"
 
 MenuScene::MenuScene(sf::RenderWindow& t_window) : Scene( t_window )
 {

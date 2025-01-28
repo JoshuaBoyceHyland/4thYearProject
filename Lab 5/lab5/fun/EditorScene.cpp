@@ -1,4 +1,4 @@
-#include "EditorScene.h"
+#include "Include/EditorScene.h"
 
 ShipEditorScene::ShipEditorScene(sf::RenderWindow& t_window) : Scene(t_window), m_uiBorder( "Editor")
 {

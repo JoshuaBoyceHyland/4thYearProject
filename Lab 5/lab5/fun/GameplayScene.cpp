@@ -1,4 +1,4 @@
-#include "GameplayScene.h"
+#include "Include/GameplayScene.h"
 
 ShipGameplayScene::ShipGameplayScene(sf::RenderWindow& t_window) : Scene(t_window), m_uiBorder( "Gameplay")
 {

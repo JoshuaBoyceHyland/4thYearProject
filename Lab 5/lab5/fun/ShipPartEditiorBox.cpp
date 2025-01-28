@@ -1,4 +1,4 @@
-#include "ShipPartEditiorBox.h"
+#include "Include/ShipPartEditiorBox.h"
 
 ShipPartEditiorBox::ShipPartEditiorBox()
 {

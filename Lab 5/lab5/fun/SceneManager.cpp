@@ -1,4 +1,4 @@
-#include "SceneManager.h"
+#include "Include/SceneManager.h"
 
 SceneManager::SceneManager(sf::RenderWindow& t_window) : m_window( t_window)
 {

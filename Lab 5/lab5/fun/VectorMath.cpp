@@ -1,4 +1,4 @@
-#include "VectorMath.h"
+#include "Include/VectorMath.h"
 
 sf::Vector2f VectorMath::unitVector(sf::Vector2f a)
 {
