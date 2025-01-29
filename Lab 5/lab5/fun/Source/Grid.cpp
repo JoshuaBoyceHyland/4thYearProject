@@ -81,6 +81,8 @@ void Grid::placePiece(sf::Vector2f t_mouseCLick, std::vector<Texture*> t_texture
 	Cell* selectedCell = cellSelection(t_mouseCLick);
 	if (selectedCell == nullptr) { return; }
 
+
+
 	selectedCell->setColor(sf::Color::White);
 	selectedCell->setTexture(t_textures[0]);
 	selectedCell->setProperty(t_property);

@@ -74,7 +74,7 @@ void BaseBuilderScene::processMousePress(sf::Event t_event)
 			saver.saveMap(m_grid);
 		}
 		
-		
+		m_room.emplaceOnGrid(m_grid, m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)));
 	}
 
 	if (sf::Mouse::Middle == t_event.mouseButton.button)
@@ -103,6 +103,7 @@ void BaseBuilderScene::processMouseMove(sf::Event t_event)
 
 	m_camera.move();
 
+	m_room.setPosition(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)));
 	if (m_selectedTiles != nullptr)
 	{
 		m_selectedTiles->setPosition(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)));
