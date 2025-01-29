@@ -1,7 +1,31 @@
-﻿  Room.cpp
+﻿  Game.cpp
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
 C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Loader.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Room.cpp
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Loader.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
 C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\Room.cpp(39,19): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
 C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\Room.cpp(42,22): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  BaseBuilderScene.cpp
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Loader.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\Scenes\BaseBuilderScene.cpp(115,14): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  SceneManager.cpp
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Loader.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  main.cpp
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Loader.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\main.cpp(34,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Generating Code...
   fun.vcxproj -> C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\x64\Debug\fun.exe

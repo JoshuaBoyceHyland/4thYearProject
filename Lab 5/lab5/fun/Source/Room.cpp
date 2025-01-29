@@ -30,6 +30,10 @@ Room::Room() :
     file.close();
 }
 
+Room::Room(Grid t_grid) : m_grid(t_grid )
+{
+}
+
 bool Room::emplaceOnGrid(Grid* t_backgroundGrid, sf::Vector2f t_mosuePosition)
 {
 
@@ -86,6 +90,8 @@ void Room::setPosition(sf::Vector2f t_mosuePosition)
 
     }
 }
+
+
 
 void Room::draw(sf::RenderWindow& t_window)
 {

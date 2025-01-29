@@ -55,8 +55,14 @@
     <ClInclude Include="Include\NPC\Agent.h" />
     <ClInclude Include="Include\NPC\Animator.h" />
     <ClInclude Include="Include\NPC\NPC.h" />
-    <ClInclude Include="Behaviour.h" />
     <ClInclude Include="Include\NPC\Behaviour.h" />
+    <ClInclude Include="Include\NPC\AgentUser.h" />
+    <ClInclude Include="Include\NPC\BehaviourManagert.h" />
+    <ClInclude Include="Include\NPC\BehaviourTypes.h" />
+    <ClInclude Include="Include\NPC\Wander.h" />
+    <ClInclude Include="Include\NPC\Action.h" />
+    <ClInclude Include="Include\RoomBuilderEditiorBox.h" />
+    <ClInclude Include="Include\RoomLibrary.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="fun.rc" />
@@ -111,8 +117,10 @@
     <ClCompile Include="Source\NPC\Agent.cpp" />
     <ClCompile Include="Source\NPC\Animator.cpp" />
     <ClCompile Include="Source\NPC\NPC.cpp" />
-    <ClCompile Include="Behaviour.cpp" />
-    <ClCompile Include="Source\NPC\Behaviour.cpp" />
+    <ClCompile Include="Source\NPC\BehaviourManagert.cpp" />
+    <ClCompile Include="Source\NPC\Wander.cpp" />
+    <ClCompile Include="Source\RoomBuilderEditiorBox.cpp" />
+    <ClCompile Include="Source\RoomLibrary.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="map.txt" />

@@ -54,6 +54,8 @@
     <ClInclude Include="Include\ParticleSystem.h" />
     <ClInclude Include="Include\PartsLibarary.h" />
     <ClInclude Include="Include\Room.h" />
+    <ClInclude Include="Include\RoomBuilderEditiorBox.h" />
+    <ClInclude Include="Include\RoomLibrary.h" />
     <ClInclude Include="Include\RotationMath.h" />
     <ClInclude Include="Include\Scene.h" />
     <ClInclude Include="Include\SceneManager.h" />
@@ -102,6 +104,8 @@
     <None Include="map.json" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\RoomLibrary.cpp" />
+    <ClCompile Include="Source\RoomBuilderEditiorBox.cpp" />
     <ClCompile Include="Source\NPC\BehaviourManagert.cpp" />
     <ClCompile Include="Source\NPC\Wander.cpp" />
     <ClCompile Include="Source\BaseBuilderEditiorBox.cpp" />
