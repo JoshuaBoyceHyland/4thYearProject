@@ -25,29 +25,20 @@ RoomLibrary::RoomLibrary()
 void RoomLibrary::loadRooms()
 {
     Grid m_grid( 10, 10, 100, 100, { -200, -200});
-    std::ifstream file;
-    file.open("map.txt");
-
     TileLibrary* library = TileLibrary::getInstance();
-    int column, row, type, texture;
-    std::string currentLine;
+    const int row = 0;
+    const int column = 1;
+    const int type = 2;
+    const int texture = 3;
+    std::vector<std::vector<int>> lines = FileReading::readFile("map.txt");
 
-    while (std::getline(file, currentLine))
+    for (std::vector<int> line : lines)
     {
-        std::istringstream stringStream(currentLine);
+        Tile* loadedTile = library->getTile(TraversalProperty(line[type]), line[texture]);
 
-        stringStream >> row >> column >> type >> texture;
-
-        Tile* loadedTile = library->getTile(TraversalProperty(type), texture);
-
-        m_grid.m_cells[row][column].setColor(sf::Color::White);
-        m_grid.m_cells[row][column].setTexture(loadedTile->m_textures[0]);
-        m_grid.m_cells[row][column].setProperty((*loadedTile).m_property);
-
-
-
+        m_grid.m_cells[line[row]][line[column]].setColor(sf::Color::White);
+        m_grid.m_cells[line[row]][line[column]].setTexture(loadedTile->m_textures[0]);
+        m_grid.m_cells[line[row]][line[column]].setProperty((*loadedTile).m_property);
     }
-
-    file.close();
-    
+ 
 }

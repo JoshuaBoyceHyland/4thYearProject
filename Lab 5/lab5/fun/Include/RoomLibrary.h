@@ -1,5 +1,6 @@
 #pragma once
 #include "Room.h"
+#include "FileReader.h"
 
 class RoomLibrary
 {

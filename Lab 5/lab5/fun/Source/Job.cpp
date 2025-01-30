@@ -2,7 +2,7 @@
 
 Job::Job(std::string t_name, sf::Vector2f t_position) : m_name(t_name), m_position( t_position)
 {
-	Loader* loader = Loader::getInstance();
+	TextureLibrary* loader = TextureLibrary::getInstance();
 
 	m_font = loader->loadFont("ASSETS/FONTS/nulshock.otf");
 

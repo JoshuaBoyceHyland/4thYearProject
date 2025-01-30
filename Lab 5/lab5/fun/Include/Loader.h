@@ -1,6 +1,9 @@
 #pragma once
+
+#include "FileReader.h"
 #include "Texture.h"
 #include <map>;
+
 #include <iostream>
 #include <filesystem>
 
@@ -9,18 +12,18 @@
 /// Singleton font and texture loading class
 /// Ensures a resource will only be loaded once
 /// </summary>
-class Loader
+class TextureLibrary
 {
 
 	public:
 
-		Loader(const Loader& other) = delete;
+		TextureLibrary(const TextureLibrary& other) = delete;
 
 		/// <summary>
 		/// Gets the single instance of this class, if class instance doesn't exist it instaniates it.
 		/// </summary>
 		/// <returns> Pointer to instance of Loader</returns>
-		static Loader* getInstance();
+		static TextureLibrary* getInstance();
 
 		/// <summary>
 		/// Loads the font at the the file path given. 
@@ -63,13 +66,12 @@ class Loader
 		/// <returns></returns>
 		std::vector<Texture*> splitAndLoadTexture(std::string t_path, float t_cellWidth, float t_cellHeight);
 
-		
-
+		  
 	private:
 		/// <summary>
 		/// Private constructor so it can only created be internally by the getInstance function if needed to.
 		/// </summary>
-		Loader() = default;
+		TextureLibrary() = default;
 
 		/// <summary>
 		/// Splits an image into multiple sections, depending on the size of these cell
@@ -79,18 +81,11 @@ class Loader
 		/// <param name="t_cellWidth"></param>
 		/// <param name="t_cellHeight"></param>
 		void splitImage(Texture* t_texture, std::string t_path, float t_cellWidth, float t_cellHeight);
-#
-		/// <summary>
-		/// Checks whether a file is a png
-		/// </summary>
-		/// <param name="t_path">path of file</param>
-		/// <returns>whether the file is a png</returns>
-		bool isPng(std::string t_path);
 
 		/// <summary>
 		/// Single instance of the loader.
 		/// </summary>
-		static Loader* instance;
+		static TextureLibrary* instance;
 
 		/// <summary>
 		/// Map of fonts, where each font has a associated string key, the string being s file location of the font. This allows the loadFont function to see if te font has been previously loaded.

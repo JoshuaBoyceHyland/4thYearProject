@@ -1,17 +1,17 @@
 #include "Loader.h"
 
-Loader* Loader::instance = nullptr;
+TextureLibrary* TextureLibrary::instance = nullptr;
 
-Loader* Loader::getInstance()
+TextureLibrary* TextureLibrary::getInstance()
 {
 	if (instance == nullptr)
 	{
-		instance = new Loader();
+		instance = new TextureLibrary();
 	}
 	return instance;
 }
 
-sf::Font* Loader::loadFont(std::string t_path)
+sf::Font* TextureLibrary::loadFont(std::string t_path)
 {
 
 	if (m_fonts.count(t_path) > 0)
@@ -29,7 +29,7 @@ sf::Font* Loader::loadFont(std::string t_path)
 	return &m_fonts[t_path];
 }
 
-Texture* Loader::loadTexture(std::string t_path)
+Texture* TextureLibrary::loadTexture(std::string t_path)
 {
 	if (m_textures.count(t_path) > 0)
 	{
@@ -47,35 +47,27 @@ Texture* Loader::loadTexture(std::string t_path)
 }
 
 
-std::vector<Texture*> Loader::loadAllTexturesInFile(std::string t_path)
+std::vector<Texture*> TextureLibrary::loadAllTexturesInFile(std::string t_path)
 {
-	std::vector<Texture*> textures;
 	int id = 0;
-	if (std::filesystem::exists(t_path))
-	{
-		for (auto file : std::filesystem::directory_iterator(t_path))
-		{
-			std::string fileName = file.path().string();
+	std::vector<Texture*> textures;
+	std::vector<std::string> fileNames = FileReading::getAllInFile(t_path);
 
-			if (isPng(fileName))
-			{
-				std::cout << "Loaded: " << file.path().string() << std::endl;
-				textures.push_back(loadTexture(fileName));
-				textures[id]->id = id;
-				id++;
-			}
+	for (std::string fileName : fileNames)
+	{
+		if (FileReading::isPNG(fileName))
+		{
+			std::cout << "Loaded: " << fileName << std::endl;
+			textures.push_back(loadTexture(fileName));
+			textures[id]->id = id;
+			id++;
 		}
 	}
-	else
-	{
-		std::cout << "Path doesnt exist \n";
-	}
-
 
 	return textures;
 }
 
-std::vector<Texture*> Loader::splitAndLoadTexture(std::string t_path, float t_cellWidth, float t_cellHeight)
+std::vector<Texture*> TextureLibrary::splitAndLoadTexture(std::string t_path, float t_cellWidth, float t_cellHeight)
 {
 	std::vector<Texture*> splitTextures;
 	// load texture
@@ -91,7 +83,7 @@ std::vector<Texture*> Loader::splitAndLoadTexture(std::string t_path, float t_ce
 	return splitTextures;
 }
 
-std::vector<std::vector<Texture*>> Loader::loadAllTexturesInFileSplit(std::string t_path, float t_cellWidth, float t_cellHeight)
+std::vector<std::vector<Texture*>> TextureLibrary::loadAllTexturesInFileSplit(std::string t_path, float t_cellWidth, float t_cellHeight)
 {
 
 	std::vector<Texture*> textures = loadAllTexturesInFile(t_path);
@@ -108,7 +100,7 @@ std::vector<std::vector<Texture*>> Loader::loadAllTexturesInFileSplit(std::strin
 	return std::vector<std::vector<Texture*>>();
 }
 
-void Loader::splitImage(Texture* t_texture, std::string t_path, float t_cellWidth, float t_cellHeight)
+void TextureLibrary::splitImage(Texture* t_texture, std::string t_path, float t_cellWidth, float t_cellHeight)
 {
 
 	if (m_splitTextures.count(t_path) == 0)
@@ -143,27 +135,4 @@ void Loader::splitImage(Texture* t_texture, std::string t_path, float t_cellWidt
 		}
 	}
 
-}
-
-bool Loader::isPng(std::string t_fileName)
-{
-	std::vector<char> fileType;
-	std::string possiblePng;
-	int length = t_fileName.length();
-
-	for (int i = 2; i > -1; i--)
-	{
-		fileType.push_back(t_fileName[length - (i + 1)]);
-	}
-	for (int i = 0; i < fileType.size(); i++)
-	{
-		possiblePng.push_back(fileType[i]);
-	}
-
-	if (possiblePng == "png")
-	{
-		return true;
-	}
-	
-	return false;
 }

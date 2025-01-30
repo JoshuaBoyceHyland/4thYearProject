@@ -23,7 +23,7 @@ Tile* TileLibrary::getTile(TraversalProperty t_type, int t_index)
 void TileLibrary::loadTextures()
 {
 
-    Loader* loader = Loader::getInstance();
+    TextureLibrary* loader = TextureLibrary::getInstance();
 
     std::string basePath = "ASSETS/IMAGES/Tiles/";
     std::vector<TraversalProperty> types = { TraversalProperty::Walkable, TraversalProperty::Unwalkable, TraversalProperty::Job };

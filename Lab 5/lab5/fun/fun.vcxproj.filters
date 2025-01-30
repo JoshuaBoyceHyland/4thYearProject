@@ -63,6 +63,7 @@
     <ClInclude Include="Include\NPC\Action.h" />
     <ClInclude Include="Include\RoomBuilderEditiorBox.h" />
     <ClInclude Include="Include\RoomLibrary.h" />
+    <ClInclude Include="Include\FileReader.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="fun.rc" />
@@ -121,6 +122,7 @@
     <ClCompile Include="Source\NPC\Wander.cpp" />
     <ClCompile Include="Source\RoomBuilderEditiorBox.cpp" />
     <ClCompile Include="Source\RoomLibrary.cpp" />
+    <ClCompile Include="FileReader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="map.txt" />

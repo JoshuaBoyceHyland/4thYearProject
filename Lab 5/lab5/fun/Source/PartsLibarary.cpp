@@ -50,7 +50,7 @@ void PartsLibarary::fillLibrary()
 {
 
 
-	Loader* loader = Loader::getInstance();
+	TextureLibrary* loader = TextureLibrary::getInstance();
 
 	std::string basePath = "ASSETS/IMAGES/";
 	std::string hullPath = "hulls/hull_";

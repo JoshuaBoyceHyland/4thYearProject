@@ -31,7 +31,7 @@ void UIScreenBorder::setUpBorder()
 
 void UIScreenBorder::setUpTitle()
 {
-	Loader* loader = Loader::getInstance();
+	TextureLibrary* loader = TextureLibrary::getInstance();
 
 	m_font = loader->loadFont("ASSETS/FONTS/nulshock.otf");
 

@@ -9,7 +9,7 @@ UIEditorBox::UIEditorBox()
 
 void UIEditorBox::SetUpText()
 {
-	Loader* loader = Loader::getInstance();
+	TextureLibrary* loader = TextureLibrary::getInstance();
 
 	m_font = loader->loadFont("ASSETS/FONTS/nulshock.otf");
 

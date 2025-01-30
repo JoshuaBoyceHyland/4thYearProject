@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Include\FileReader.h" />
     <ClInclude Include="Include\NPC\AgentUser.h" />
     <ClInclude Include="Deprecated\Player.h" />
     <ClInclude Include="Include\Agent.h" />
@@ -104,6 +105,7 @@
     <None Include="map.json" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="FileReader.cpp" />
     <ClCompile Include="Source\RoomLibrary.cpp" />
     <ClCompile Include="Source\RoomBuilderEditiorBox.cpp" />
     <ClCompile Include="Source\NPC\BehaviourManagert.cpp" />

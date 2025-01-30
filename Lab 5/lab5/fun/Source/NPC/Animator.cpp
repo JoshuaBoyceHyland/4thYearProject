@@ -2,7 +2,7 @@
 
 Animator::Animator()
 {
-	Loader* loader = Loader::getInstance();
+	TextureLibrary* loader = TextureLibrary::getInstance();
 	m_spriteSheets = loader->loadAllTexturesInFile("ASSETS/IMAGES/NPC");
 
 	float spriteWidth = m_spriteSheets[0]->texture.getSize().x / numOfFramesWidth;
