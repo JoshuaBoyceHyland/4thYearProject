@@ -19,6 +19,8 @@ Room::Room() :
         m_grid.m_cells[line[row]][line[column]].setTexture(loadedTile->m_textures[0]);
         m_grid.m_cells[line[row]][line[column]].setProperty((*loadedTile).m_property);
     }
+
+    m_grid.inactiveCellsDeletion();
 }
 
 Room::Room(Grid t_grid) : m_grid(t_grid )
@@ -31,14 +33,13 @@ bool Room::emplaceOnGrid(Grid* t_backgroundGrid, sf::Vector2f t_mosuePosition)
     Cell* placingCell = t_backgroundGrid->cellSelection(t_mosuePosition);
 
     int startingRow = placingCell->getNode()->m_row;
+ 
     int endingRow = placingCell->getNode()->m_row + m_grid.m_cells.size();
-
-    int startingColumn = placingCell->getNode()->m_column;
-    int endingColumn = placingCell->getNode()->m_column + m_grid.m_cells[0].size();
-
-
     for (int row = startingRow; row < endingRow; row++)
     {
+        int startingColumn = placingCell->getNode()->m_column;
+        int endingColumn = placingCell->getNode()->m_column + m_grid.m_cells[row].size();
+
         for (int column = startingColumn; column < endingColumn; column++)
         {
             int placedPieceRow = row - startingRow;
@@ -67,10 +68,10 @@ void Room::setPosition(sf::Vector2f t_mosuePosition)
     {
 
 
-        float xAxisIncrement = m_grid.m_cells[row][0].m_body.getSize().x;
-        float yAxisIncrement = m_grid.m_cells[row][0].m_body.getSize().y;
+        float xAxisIncrement = m_grid.m_cells[0][0].m_body.getSize().x;
+        float yAxisIncrement = m_grid.m_cells[0][0].m_body.getSize().y;
 
-        for (int column = 0; column < m_grid.m_cells[0].size(); column++)
+        for (int column = 0; column < m_grid.m_cells[row].size(); column++)
         {
             m_grid.m_cells[row][column].setPosition(t_mosuePosition);
 

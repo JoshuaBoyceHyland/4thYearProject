@@ -1,5 +1,9 @@
 #include "Grid.h"
 
+Grid::Grid()
+{
+}
+
 Grid::Grid(int t_rows, int t_columns, float t_width, float t_height, sf::Vector2f t_startPosition) :
 	MAX_ROWS( t_rows ), MAX_COLUMS( t_columns ), m_cellWidth( t_width ), m_cellHeight( t_height)
 {
@@ -25,9 +29,9 @@ Grid::Grid(int t_rows, int t_columns, float t_width, float t_height, sf::Vector2
 
 void Grid::draw(sf::RenderWindow& t_window)
 {
-	for (int row = 0; row < MAX_ROWS; row++)
+	for (int row = 0; row < m_cells.size(); row++)
 	{
-		for (int column = 0; column < MAX_COLUMS; column++)
+		for (int column = 0; column < m_cells[row].size(); column++)
 		{
 			m_cells[row][column].draw(t_window);
 		}
@@ -180,6 +184,27 @@ void Grid::pathFind(sf::Vector2f t_mouseCLick)
 
 
 	
+}
+
+void Grid::inactiveCellsDeletion()
+{
+
+	for (int row = 0; row < m_cells.size(); row++)
+	{
+		for (auto it = m_cells[row].begin(); it != m_cells[row].end();)
+		{
+			if ((*it).getTexture() == nullptr)
+			{
+				it = m_cells[row].erase(it);
+			}
+			else 
+			{
+				++it;
+			}
+		}
+	}
+
+	std::cout << "made it" << std::endl;
 }
 
 void Grid::setUpNeighbours()

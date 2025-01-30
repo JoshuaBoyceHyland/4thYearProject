@@ -119,5 +119,4 @@ void BaseBuilderScene::processMouseWheel(sf::Event t_event)
 	m_editorBox.updateScale(zoomValue);
 	m_editorBox.updatePosition(m_window.mapPixelToCoords({ 0,0 }));
 
-	
 }
