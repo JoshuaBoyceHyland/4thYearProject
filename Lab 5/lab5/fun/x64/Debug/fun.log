@@ -3,7 +3,6 @@ C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Loader.h(5,10): 
 C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\Room.cpp(37,19): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\Room.cpp(40,51): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\Room.cpp(42,26): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\Room.cpp(35,19): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\Room.cpp(44,26): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   fun.vcxproj -> C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\x64\Debug\fun.exe

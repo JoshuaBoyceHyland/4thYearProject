@@ -188,7 +188,6 @@ void Grid::pathFind(sf::Vector2f t_mouseCLick)
 
 void Grid::inactiveCellsDeletion()
 {
-
 	for (int row = 0; row < m_cells.size(); row++)
 	{
 		for (auto it = m_cells[row].begin(); it != m_cells[row].end();)
@@ -197,7 +196,7 @@ void Grid::inactiveCellsDeletion()
 			{
 				it = m_cells[row].erase(it);
 			}
-			else 
+			else
 			{
 				++it;
 			}
@@ -206,6 +205,7 @@ void Grid::inactiveCellsDeletion()
 
 	std::cout << "made it" << std::endl;
 }
+
 
 void Grid::setUpNeighbours()
 {

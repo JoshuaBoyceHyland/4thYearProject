@@ -20,7 +20,7 @@ Room::Room() :
         m_grid.m_cells[line[row]][line[column]].setProperty((*loadedTile).m_property);
     }
 
-    m_grid.inactiveCellsDeletion();
+   m_grid.inactiveCellsDeletion();
 }
 
 Room::Room(Grid t_grid) : m_grid(t_grid )
@@ -31,21 +31,23 @@ bool Room::emplaceOnGrid(Grid* t_backgroundGrid, sf::Vector2f t_mosuePosition)
 {
 
     Cell* placingCell = t_backgroundGrid->cellSelection(t_mosuePosition);
+    int startingRow = placingCell->getNode()->m_row; // start row of where we are placing it 
+    int endingRow = placingCell->getNode()->m_row + m_grid.m_cells.size(); //  end column of where we are placing it
 
-    int startingRow = placingCell->getNode()->m_row;
- 
-    int endingRow = placingCell->getNode()->m_row + m_grid.m_cells.size();
+    std::cout << "New: " << std::endl;
+
     for (int row = startingRow; row < endingRow; row++)
     {
+        int placedPieceRow = row - startingRow;
+
         int startingColumn = placingCell->getNode()->m_column;
-        int endingColumn = placingCell->getNode()->m_column + m_grid.m_cells[row].size();
+        int endingColumn = placingCell->getNode()->m_column + m_grid.m_cells[placedPieceRow].size();
 
         for (int column = startingColumn; column < endingColumn; column++)
         {
-            int placedPieceRow = row - startingRow;
+            
             int placedPieceColumn = column - startingColumn;
-
-
+          
             if (m_grid.m_cells[placedPieceRow][placedPieceColumn].getTexture() != nullptr)
             {
                 t_backgroundGrid->m_cells[row][column].setColor(sf::Color::White);
@@ -53,6 +55,7 @@ bool Room::emplaceOnGrid(Grid* t_backgroundGrid, sf::Vector2f t_mosuePosition)
                 t_backgroundGrid->m_cells[row][column].setProperty(m_grid.m_cells[placedPieceRow][placedPieceColumn].getProperty());
             }
 
+            
         }
     }
 
@@ -66,8 +69,6 @@ void Room::setPosition(sf::Vector2f t_mosuePosition)
     
     for (int row = 0; row < m_grid.m_cells.size(); row++)
     {
-
-
         float xAxisIncrement = m_grid.m_cells[0][0].m_body.getSize().x;
         float yAxisIncrement = m_grid.m_cells[0][0].m_body.getSize().y;
 
