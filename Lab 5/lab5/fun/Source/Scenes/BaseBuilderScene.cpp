@@ -9,6 +9,9 @@ m_camera(m_window)
 	m_grid = gameData->m_currentMap;
 	saver.loadMap(m_grid);
 
+	RoomLibrary* library = RoomLibrary::getInstance();
+	m_room = library->getRoom(ResourceType(0), 0);
+
 }
 
 BaseBuilderScene::~BaseBuilderScene()
@@ -41,7 +44,7 @@ void BaseBuilderScene::render()
 		m_selectedTiles->draw(m_window);
 	}
 
-	m_room.draw(m_window);
+	m_room->draw(m_window);
 	m_window.draw(t);
 	m_window.display();
 }
@@ -74,7 +77,7 @@ void BaseBuilderScene::processMousePress(sf::Event t_event)
 			saver.saveMap(m_grid);
 		}
 		
-		m_room.emplaceOnGrid(m_grid, m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)));
+		m_room->emplaceOnGrid(m_grid, m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)));
 	}
 
 	if (sf::Mouse::Middle == t_event.mouseButton.button)
@@ -103,7 +106,7 @@ void BaseBuilderScene::processMouseMove(sf::Event t_event)
 
 	m_camera.move();
 
-	m_room.setPosition(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)));
+	m_room->setPosition(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)));
 	if (m_selectedTiles != nullptr)
 	{
 		m_selectedTiles->setPosition(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)));

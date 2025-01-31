@@ -8,7 +8,7 @@
 #include "VectorMath.h"
 #include "RotationMath.h"
 
-enum class ResourceType{ Electricty, Happinness, Water, Oxygen };
+enum class ResourceType{ None, Electricty, Happinness, Water, Oxygen };
 
 class Room
 {

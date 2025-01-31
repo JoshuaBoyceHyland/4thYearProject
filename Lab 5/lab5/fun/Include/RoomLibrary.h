@@ -22,8 +22,9 @@ private:
 	static RoomLibrary* instance;
 
 	std::map< ResourceType, std::vector<Room>> m_rooms;
-
-	std::map<ResourceType, std::string> resourceString = {
+	std::vector< ResourceType> m_types = {ResourceType::None, ResourceType::Electricty, ResourceType::Happinness, ResourceType::Oxygen, ResourceType::Water };
+	std::map<ResourceType, std::string> m_resourceString = {
+																{ ResourceType::None, "None"},
 																{ ResourceType::Electricty, "Electricity"},
 																{ ResourceType::Happinness, "Happinness"},
 																{ ResourceType::Water, "Water"},

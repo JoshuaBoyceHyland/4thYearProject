@@ -10,7 +10,7 @@
 #include "TextureSplitter.h"
 #include "Tile.h"
 #include "MapSaver.h"
-//#include "Room.h"
+#include "RoomLibrary.h"
 
 class BaseBuilderScene : public Scene
 {
@@ -43,6 +43,6 @@ class BaseBuilderScene : public Scene
 		BaseBuilderEditiorBox m_editorBox;
 		
 		MapSaver saver;
-		Room m_room;
+		Room* m_room;
 };
 

@@ -25,6 +25,7 @@ Room::Room() :
 
 Room::Room(Grid t_grid) : m_grid(t_grid )
 {
+    m_grid.inactiveCellsDeletion();
 }
 
 bool Room::emplaceOnGrid(Grid* t_backgroundGrid, sf::Vector2f t_mosuePosition)

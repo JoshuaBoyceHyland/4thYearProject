@@ -64,6 +64,7 @@
     <ClInclude Include="Include\RoomBuilderEditiorBox.h" />
     <ClInclude Include="Include\RoomLibrary.h" />
     <ClInclude Include="Include\FileReader.h" />
+    <ClInclude Include="Button.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="fun.rc" />
@@ -123,6 +124,7 @@
     <ClCompile Include="Source\RoomBuilderEditiorBox.cpp" />
     <ClCompile Include="Source\RoomLibrary.cpp" />
     <ClCompile Include="FileReader.cpp" />
+    <ClCompile Include="Button.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="map.txt" />
