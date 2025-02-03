@@ -8,7 +8,7 @@
 #include "VectorMath.h"
 #include "RotationMath.h"
 
-enum class ResourceType{ None, Electricty, Happinness, Water, Oxygen };
+enum class ResourceType{  Electricty, Happinness, Water, Oxygen, None};
 
 class Room
 {
@@ -24,7 +24,7 @@ class Room
 
 		void draw(sf::RenderWindow& t_window);
 	private:
-		std::vector<Cell> m_cells;
+
 		Grid m_grid;
 
 };

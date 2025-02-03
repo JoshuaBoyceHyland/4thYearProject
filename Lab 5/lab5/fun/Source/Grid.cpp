@@ -80,14 +80,30 @@ void Grid::setForGamePlay()
 	setUpNeighbours();
 }
 
+void Grid::deletePiece(sf::Vector2f t_mouseCLick)
+{
+	Cell* selectedCell = cellSelection(t_mouseCLick);
+
+	if (selectedCell == nullptr) { return; }
+
+	selectedCell->reset();
+}
+
 void Grid::placePiece(sf::Vector2f t_mouseCLick, std::vector<Texture*> t_textures, TraversalProperty t_property)
 {
 	Cell* selectedCell = cellSelection(t_mouseCLick);
 	if (selectedCell == nullptr) { return; }
 
 
-
-	selectedCell->setColor(sf::Color::White);
+	if (t_textures[0] != nullptr)
+	{
+		selectedCell->setColor(sf::Color::White);
+	}
+	else
+	{
+		selectedCell->setColor(sf::Color::Black);
+	}
+	
 	selectedCell->setTexture(t_textures[0]);
 	selectedCell->setProperty(t_property);
 

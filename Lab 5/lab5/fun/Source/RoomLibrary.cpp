@@ -40,7 +40,7 @@ void RoomLibrary::loadRooms()
 
             std::vector<std::vector<int>> lines = FileReading::readFile(roomFileName);
 
-            Grid grid(10, 10, 100, 100, { -200, -200 });
+            Grid grid(100, 100, 100, 100, { -200, -200 });
 
             for (std::vector<int> line : lines)
             {

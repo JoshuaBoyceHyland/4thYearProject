@@ -10,7 +10,7 @@ m_camera(m_window)
 	saver.loadMap(m_grid);
 
 	RoomLibrary* library = RoomLibrary::getInstance();
-	m_room = library->getRoom(ResourceType(0), 0);
+	//m_room = library->getRoom(ResourceType(0), 0);
 
 }
 
@@ -44,7 +44,7 @@ void BaseBuilderScene::render()
 		m_selectedTiles->draw(m_window);
 	}
 
-	m_room->draw(m_window);
+	//m_room->draw(m_window);
 	m_window.draw(t);
 	m_window.display();
 }
@@ -77,12 +77,19 @@ void BaseBuilderScene::processMousePress(sf::Event t_event)
 			saver.saveMap(m_grid);
 		}
 		
-		m_room->emplaceOnGrid(m_grid, m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)));
+		//m_room->emplaceOnGrid(m_grid, m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)));
 	}
 
 	if (sf::Mouse::Middle == t_event.mouseButton.button)
 	{
 		m_camera.startMove();
+	}
+
+	if (sf::Mouse::Right == t_event.mouseButton.button)
+	{
+		std::vector<Texture*> null;
+		null.push_back(nullptr);
+		m_grid->deletePiece(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)));
 	}
 	
 	
@@ -106,7 +113,7 @@ void BaseBuilderScene::processMouseMove(sf::Event t_event)
 
 	m_camera.move();
 
-	m_room->setPosition(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)));
+	//m_room->setPosition(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)));
 	if (m_selectedTiles != nullptr)
 	{
 		m_selectedTiles->setPosition(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)));

@@ -4,6 +4,7 @@
 #include "Node.h"
 
 
+
 enum class TraversalProperty { Walkable, Unwalkable, Job };
 
 class Cell
@@ -11,6 +12,8 @@ class Cell
 	public:
 
 		Cell( float t_width, float t_height, int t_row=-1, int t_column=-1, sf::Vector2f t_position = { -100, -100 });
+
+		void reset();
 
 		void draw(sf::RenderWindow& t_window);
 
@@ -37,6 +40,7 @@ class Cell
 		Texture* getTexture() { return m_texture; };
 
 		TraversalProperty getProperty() { return m_property; }
+
 		sf::RectangleShape m_body;
 	protected:
 
@@ -44,6 +48,7 @@ class Cell
 
 		int m_row;
 		int m_column;
+
 		Node m_node;
 
 		bool m_textActive = true;

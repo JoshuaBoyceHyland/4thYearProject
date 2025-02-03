@@ -16,6 +16,17 @@ Cell::Cell( float t_width, float t_height, int t_row, int t_column, sf::Vector2f
 	setUpText();
 }
 
+void Cell::reset()
+{
+	m_property = TraversalProperty::Unwalkable;
+	m_texture = nullptr;
+	m_occupied = false;
+	m_body.setFillColor(sf::Color::Black);
+	m_body.setOutlineThickness(2.5f);
+	m_body.setTexture(nullptr);
+	m_text.setString(m_cellPropertyString[m_property]);
+}
+
 //Cell::Cell(const Cell& t_other)
 //{
 //	m_body = t_other.m_body;
