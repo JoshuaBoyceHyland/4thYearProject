@@ -1,6 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "Cell.h"
+#include "World/Cell.h"
 class TextureSplitter
 {
 	public:

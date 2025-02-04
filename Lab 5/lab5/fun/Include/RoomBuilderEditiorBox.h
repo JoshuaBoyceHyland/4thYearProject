@@ -1,6 +1,6 @@
 #pragma once
-#include "UIEditorBox.h"
-#include "Room.h"
+#include "UI/UIEditorBox.h"
+#include "World/Room.h"
 
 class RoomBuilderEditorBox : public UIEditorBox
 {

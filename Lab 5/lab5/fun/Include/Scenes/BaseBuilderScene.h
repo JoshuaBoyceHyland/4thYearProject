@@ -1,16 +1,16 @@
 #pragma once
 #include "Scene.h"
 #include "Globals.h"
-#include "VectorMath.h"
 #include "MovableCamera.h"
 #include "Job.h"
-#include "Room.h"
-#include "Grid.h"
-#include "BaseBuilderEditiorBox.h"
+#include "World/Room.h"
+#include "World/Grid.h"
+#include "Editor/BaseBuilderEditiorBox.h"
+#include "World/Tile.h"
+#include "Utility/MapSaver.h"
+#include "Utility/VectorMath.h"
 #include "TextureSplitter.h"
-#include "Tile.h"
-#include "MapSaver.h"
-#include "RoomLibrary.h"
+#include "Librarys/RoomLibrary.h"
 
 class BaseBuilderScene : public Scene
 {

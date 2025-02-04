@@ -1,9 +1,6 @@
 #pragma once
-//#include <iostream>
-//#include <string>
-//#include <SFML/Graphics.hpp>
 
-#include "VectorMath.h"
+#include "Utility/VectorMath.h"
 
 namespace Globals {
 	const int SCREEN_WIDTH = 1920;

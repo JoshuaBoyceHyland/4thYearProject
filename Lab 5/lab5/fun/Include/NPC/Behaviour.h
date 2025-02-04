@@ -1,6 +1,6 @@
 #pragma once
 #include "Action.h"
-#include "Grid.h"
+#include "World/Grid.h"
 #include "Agent.h"
 #include "AgentUser.h"
 

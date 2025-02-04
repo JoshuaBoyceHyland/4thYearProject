@@ -1,8 +1,8 @@
 #pragma once
-#include "Ship.h"
+#include "Ship/Ship.h"
 #include "Scene.h"
-#include "UIEditorBox.h"
-#include "UIScreenBorder.h"
+#include "UI/UIEditorBox.h"
+#include "UI/UIScreenBorder.h"
 
 class ShipGameplayScene : public Scene
 {

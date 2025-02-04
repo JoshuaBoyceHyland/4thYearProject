@@ -10,7 +10,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "Scenes/SceneManager.h"
-#include "Ship.h"
+#include "Ship/Ship.h"
 
 
 class Game

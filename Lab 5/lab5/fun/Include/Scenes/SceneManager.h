@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Scenes/EditorScene.h"
-#include "ShipPart.h"
+#include "Ship/ShipPart.h"
 #include "Scenes/GameplayScene.h"
 #include "Scenes/BaseBuilderScene.h"
 #include "Scenes/BaseGameplayScene.h"

@@ -1,6 +1,6 @@
 #pragma once
-#include "Ship.h"
-#include "Grid.h"
+#include "Ship/Ship.h"
+#include "World/Grid.h"
 /// <summary>
 /// Holds pieces of data that need to be transfered between scenes
 /// </summary>

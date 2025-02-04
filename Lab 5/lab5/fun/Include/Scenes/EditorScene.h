@@ -1,10 +1,10 @@
 #pragma once
 #include "Scene.h"
-#include "EditorMouse.h"
-#include "PartsLibarary.h"
-#include "UIScreenBorder.h"
-#include "ShipPartEditiorBox.h"
-#include "Ship.h"
+#include "Editor/EditorMouse.h"
+#include "Ship/PartsLibarary.h"
+#include "UI/UIScreenBorder.h"
+#include "Ship/ShipPartEditiorBox.h"
+#include "Ship/Ship.h"
 
 /// <summary>
 /// Class for

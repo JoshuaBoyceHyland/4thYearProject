@@ -1,7 +1,7 @@
 #pragma once
 #include "Scene.h"
 #include "GameData.h"
-#include "Grid.h"
+#include "World/Grid.h"
 #include "MovableCamera.h"
 #include "NPC/NPC.h"
 class BaseGameplayScene : public Scene

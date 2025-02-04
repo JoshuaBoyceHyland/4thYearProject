@@ -1,6 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "Loader.h"
+#include "Librarys/Loader.h"
 
 enum class SpriteDirection{ Left, Right, Top, Bottom};
 class Animator

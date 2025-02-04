@@ -1,7 +1,7 @@
 #pragma once
-#include "Grid.h"
-#include "Search.h"
-#include "VectorMath.h"
+#include "World/Grid.h"
+#include "World/Search.h"
+#include "Utility/VectorMath.h"
 #include "AgentUser.h"
 
 class Agent
