@@ -19,9 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Include\Editor\BaseBuilderEditiorBox.h" />
+    <ClInclude Include="Include\Editor\TileEditorBox.h" />
     <ClInclude Include="Include\Editor\EditorMouse.h" />
-    <ClInclude Include="Include\Editor\EditorPart.h" />
     <ClInclude Include="Include\Librarys\Loader.h" />
     <ClInclude Include="Include\Librarys\RoomLibrary.h" />
     <ClInclude Include="Include\Librarys\TileLibrary.h" />
@@ -116,7 +115,7 @@
     <None Include="map.json" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Editor\BaseBuilderEditiorBox.cpp" />
+    <ClCompile Include="Source\Editor\TileEditorBox.cpp" />
     <ClCompile Include="Source\Editor\EditorMouse.cpp" />
     <ClCompile Include="Source\Editor\RoomBuilderEditiorBox.cpp" />
     <ClCompile Include="Source\GameData.cpp" />

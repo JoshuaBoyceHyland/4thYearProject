@@ -4,18 +4,7 @@
     <ClInclude Include="Deprecated\Player.h" />
     <ClInclude Include="json.hpp" />
     <ClInclude Include="Include\Game.h" />
-    <ClInclude Include="Include\EditorScene.h" />
-    <ClInclude Include="Include\EditorPart.h" />
-    <ClInclude Include="Include\EditorMouse.h" />
-    <ClInclude Include="Include\Cell.h" />
-    <ClInclude Include="Include\Connector.h" />
-    <ClInclude Include="Include\BaseGamePlayScene.h" />
-    <ClInclude Include="Include\BaseBuilderEditiorBox.h" />
-    <ClInclude Include="Include\Agent.h" />
-    <ClInclude Include="Include\Animator.h" />
-    <ClInclude Include="Include\BaseBuilderScene.h" />
     <ClInclude Include="Include\GameData.h" />
-    <ClInclude Include="Include\GameplayScene.h" />
     <ClInclude Include="Include\Globals.h" />
     <ClInclude Include="Include\Job.h" />
     <ClInclude Include="Include\Grid.h" />
@@ -62,7 +51,6 @@
     <ClInclude Include="Include\NPC\Wander.h" />
     <ClInclude Include="Include\NPC\Action.h" />
     <ClInclude Include="Include\RoomBuilderEditiorBox.h" />
-    <ClInclude Include="Include\FileReader.h" />
     <ClInclude Include="Include\Utility\FileReader.h" />
     <ClInclude Include="Include\Utility\MapSaver.h" />
     <ClInclude Include="Include\Utility\RotationMath.h" />
@@ -84,6 +72,8 @@
     <ClInclude Include="Include\UI\UIEditorBox.h" />
     <ClInclude Include="Include\UI\UIScreenBorder.h" />
     <ClInclude Include="Include\UI\UI.h" />
+    <ClInclude Include="Include\Editor\TileEditorBox.h" />
+    <ClInclude Include="Include\Editor\EditorMouse.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="fun.rc" />
@@ -100,8 +90,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\main.cpp" />
-    <ClCompile Include="Source\BaseBuilderEditiorBox.cpp" />
-    <ClCompile Include="Source\EditorMouse.cpp" />
     <ClCompile Include="Source\Game.cpp" />
     <ClCompile Include="Source\GameData.cpp" />
     <ClCompile Include="Source\Job.cpp" />
@@ -109,9 +97,6 @@
     <ClCompile Include="Source\Particle.cpp" />
     <ClCompile Include="Source\ParticleSystem.cpp" />
     <ClCompile Include="Source\TextureSplitter.cpp" />
-    <ClCompile Include="Source\UI.cpp" />
-    <ClCompile Include="Source\UIEditorBox.cpp" />
-    <ClCompile Include="Source\UIScreenBorder.cpp" />
     <ClCompile Include="Source\Scenes\BaseBuilderScene.cpp" />
     <ClCompile Include="Source\Scenes\BaseGamePlayScene.cpp" />
     <ClCompile Include="Source\Scenes\EditorScene.cpp" />
@@ -124,7 +109,6 @@
     <ClCompile Include="Source\NPC\NPC.cpp" />
     <ClCompile Include="Source\NPC\BehaviourManagert.cpp" />
     <ClCompile Include="Source\NPC\Wander.cpp" />
-    <ClCompile Include="Source\RoomBuilderEditiorBox.cpp" />
     <ClCompile Include="Source\Utility\MapSaver.cpp" />
     <ClCompile Include="Source\Utility\RotationMath.cpp" />
     <ClCompile Include="Source\Utility\VectorMath.cpp" />
@@ -146,6 +130,9 @@
     <ClCompile Include="Source\UI\UI.cpp" />
     <ClCompile Include="Source\UI\UIEditorBox.cpp" />
     <ClCompile Include="Source\UI\UIScreenBorder.cpp" />
+    <ClCompile Include="Source\Editor\TileEditorBox.cpp" />
+    <ClCompile Include="Source\Editor\EditorMouse.cpp" />
+    <ClCompile Include="Source\Editor\RoomBuilderEditiorBox.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="map.txt" />

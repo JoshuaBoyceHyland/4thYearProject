@@ -40,7 +40,7 @@ class BaseBuilderScene : public Scene
 		MovableCamera m_camera;
 		Grid* m_grid;
 		Tile* m_selectedTiles = nullptr;
-		BaseBuilderEditiorBox m_editorBox;
+		RoomEditorBox m_editorBox;
 		
 		MapSaver saver;
 		Room* m_room;
