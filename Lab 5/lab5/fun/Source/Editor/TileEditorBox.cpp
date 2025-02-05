@@ -20,7 +20,6 @@ void TileEditorBox::draw(sf::RenderWindow& t_window)
 		t_window.draw(m_uiSprites[int(m_currentPart)][i]);
 	}
 
-
 }
 
 void TileEditorBox::checkForInteraction(sf::Vector2f t_mousePosition)

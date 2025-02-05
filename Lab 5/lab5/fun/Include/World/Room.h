@@ -23,6 +23,10 @@ class Room
 		void setPosition(sf::Vector2f t_mosuePosition);
 
 		void draw(sf::RenderWindow& t_window);
+
+		void scaleDown(float t_scaleValue);
+
+		Grid getGrid();
 	private:
 
 		Grid m_grid;

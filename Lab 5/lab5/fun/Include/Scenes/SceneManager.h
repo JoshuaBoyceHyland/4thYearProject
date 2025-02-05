@@ -3,10 +3,11 @@
 #include "Scenes/EditorScene.h"
 #include "Ship/ShipPart.h"
 #include "Scenes/GameplayScene.h"
+#include "Scenes/RoomBuilderScene.h"
 #include "Scenes/BaseBuilderScene.h"
 #include "Scenes/BaseGameplayScene.h"
 
-enum SceneType{ Menu, Editor, BaseBuilder, BaseGameplay,ShipGameplay };
+enum SceneType{ Menu, ShipEditor, RoomBuilder,BaseBuilder, BaseGameplay,ShipGameplay };
 
 class SceneManager
 {

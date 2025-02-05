@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Include\Scenes\BaseBuilderScene.h" />
+    <ClInclude Include="Include\Editor\RoomEditiorBox.h" />
     <ClInclude Include="Include\Editor\TileEditorBox.h" />
     <ClInclude Include="Include\Editor\EditorMouse.h" />
     <ClInclude Include="Include\Librarys\Loader.h" />
@@ -52,7 +54,7 @@
     <ClInclude Include="Include\RotationMath.h" />
     <ClInclude Include="Include\Scene.h" />
     <ClInclude Include="Include\SceneManager.h" />
-    <ClInclude Include="Include\Scenes\BaseBuilderScene.h" />
+    <ClInclude Include="Include\Scenes\RoomBuilderScene.h" />
     <ClInclude Include="Include\Scenes\BaseGamePlayScene.h" />
     <ClInclude Include="Include\Scenes\EditorScene.h" />
     <ClInclude Include="Include\Scenes\GameplayScene.h" />
@@ -81,6 +83,7 @@
     <ClInclude Include="Include\Utility\FileReader.h" />
     <ClInclude Include="Include\Utility\MapSaver.h" />
     <ClInclude Include="Include\Utility\RotationMath.h" />
+    <ClInclude Include="Include\Utility\Texture.h" />
     <ClInclude Include="Include\Utility\VectorMath.h" />
     <ClInclude Include="Include\VectorMath.h" />
     <ClInclude Include="Include\World\Cell.h" />
@@ -115,6 +118,7 @@
     <None Include="map.json" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Scenes\BaseBuilderScene.cpp" />
     <ClCompile Include="Source\Editor\TileEditorBox.cpp" />
     <ClCompile Include="Source\Editor\EditorMouse.cpp" />
     <ClCompile Include="Source\Editor\RoomBuilderEditiorBox.cpp" />
@@ -133,7 +137,7 @@
     <ClCompile Include="Source\NPC\NPC.cpp" />
     <ClCompile Include="Source\Particle.cpp" />
     <ClCompile Include="Source\ParticleSystem.cpp" />
-    <ClCompile Include="Source\Scenes\BaseBuilderScene.cpp" />
+    <ClCompile Include="Source\Scenes\RoomBuilderScene.cpp" />
     <ClCompile Include="Source\Scenes\BaseGamePlayScene.cpp" />
     <ClCompile Include="Source\Scenes\EditorScene.cpp" />
     <ClCompile Include="Source\Scenes\GameplayScene.cpp" />

@@ -1,7 +1,6 @@
 #pragma once
-#include "Texture.h"
+#include "Utility/Texture.h"
 #include <iostream>
-#include "Editor/EditorPart.h"
 #include "Connector.h"
 #include "Utility/RotationMath.h"
 #include <map>
@@ -15,7 +14,7 @@ enum class PartType { CockPit = 0, Hull = 1, Left_Wing = 2, Right_Wing = 3, Thru
 /// <summary>
 /// Individual ship parts that can be connected to each other.
 /// </summary>
-class ShipPart : public EditorPart
+class ShipPart 
 {
 	public:
 		ShipPart();

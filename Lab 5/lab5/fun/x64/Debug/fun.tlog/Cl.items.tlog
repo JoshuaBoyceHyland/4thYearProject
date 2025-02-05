@@ -1,4 +1,5 @@
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\Editor\BaseBuilderEditiorBox.cpp;C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\x64\Debug\BaseBuilderEditiorBox.obj
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\Scenes\BaseBuilderScene.cpp;C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\x64\Debug\BaseBuilderScene.obj
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\Editor\TileEditorBox.cpp;C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\x64\Debug\TileEditorBox.obj
 C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\Editor\EditorMouse.cpp;C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\x64\Debug\EditorMouse.obj
 C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\Editor\RoomBuilderEditiorBox.cpp;C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\x64\Debug\RoomBuilderEditiorBox.obj
 C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\GameData.cpp;C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\x64\Debug\GameData.obj
@@ -16,7 +17,7 @@ C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\NPC\Animator.cpp;
 C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\NPC\NPC.cpp;C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\x64\Debug\NPC.obj
 C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\Particle.cpp;C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\x64\Debug\Particle.obj
 C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\ParticleSystem.cpp;C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\x64\Debug\ParticleSystem.obj
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\Scenes\BaseBuilderScene.cpp;C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\x64\Debug\BaseBuilderScene.obj
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\Scenes\RoomBuilderScene.cpp;C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\x64\Debug\RoomBuilderScene.obj
 C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\Scenes\BaseGamePlayScene.cpp;C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\x64\Debug\BaseGamePlayScene.obj
 C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\Scenes\EditorScene.cpp;C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\x64\Debug\EditorScene.obj
 C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\Scenes\GameplayScene.cpp;C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\x64\Debug\GameplayScene.obj

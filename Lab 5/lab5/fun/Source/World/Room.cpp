@@ -91,3 +91,19 @@ void Room::draw(sf::RenderWindow& t_window)
 {
     m_grid.draw(t_window);
 }
+
+void Room::scaleDown(float t_scaleValue)
+{
+    for (int row = 0; row < m_grid.m_cells.size(); row++)
+    {
+        for (int column = 0; column < m_grid.m_cells.size(); column++)
+        {
+            m_grid.m_cells[row][column].m_body.setSize({ m_grid.m_cells[row][column].m_body.getSize().x * t_scaleValue, m_grid.m_cells[row][column].m_body.getSize().y * t_scaleValue });
+        }
+    }
+}
+
+Grid Room::getGrid()
+{
+    return m_grid;
+}

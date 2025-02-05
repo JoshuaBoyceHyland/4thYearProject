@@ -13,6 +13,7 @@ public:
 
 	std::map<ResourceType, int> m_quantity;
 
+	std::vector< ResourceType> m_types = { ResourceType::Electricty/*, ResourceType::Happinness, ResourceType::Oxygen, ResourceType::Water, ResourceType::None*/ };
 private:
 
 	RoomLibrary();
@@ -22,7 +23,7 @@ private:
 	static RoomLibrary* instance;
 
 	std::map< ResourceType, std::vector<Room>> m_rooms;
-	std::vector< ResourceType> m_types = { ResourceType::Electricty/*, ResourceType::Happinness, ResourceType::Oxygen, ResourceType::Water, ResourceType::None*/ };
+	
 	std::map<ResourceType, std::string> m_resourceString = {
 																{ ResourceType::None, "None"},
 																{ ResourceType::Electricty, "Electricity"},

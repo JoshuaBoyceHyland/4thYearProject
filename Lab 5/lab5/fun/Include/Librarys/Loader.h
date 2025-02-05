@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Utility/FileReader.h"
-#include "Texture.h"
+#include "Utility/Texture.h"
 #include <map>;
 
 #include <iostream>
