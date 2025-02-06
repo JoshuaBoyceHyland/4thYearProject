@@ -66,23 +66,7 @@ bool Room::emplaceOnGrid(Grid* t_backgroundGrid, sf::Vector2f t_mosuePosition)
 
 void Room::setPosition(sf::Vector2f t_mosuePosition)
 {
-    float startX = t_mosuePosition.x;
-    
-    for (int row = 0; row < m_grid.m_cells.size(); row++)
-    {
-        float xAxisIncrement = m_grid.m_cells[0][0].m_body.getSize().x;
-        float yAxisIncrement = m_grid.m_cells[0][0].m_body.getSize().y;
-
-        for (int column = 0; column < m_grid.m_cells[row].size(); column++)
-        {
-            m_grid.m_cells[row][column].setPosition(t_mosuePosition);
-
-            t_mosuePosition.x += xAxisIncrement;
-        }
-        t_mosuePosition.x = startX;
-        t_mosuePosition.y += yAxisIncrement;
-
-    }
+    m_grid.setPosition(t_mosuePosition);
 }
 
 

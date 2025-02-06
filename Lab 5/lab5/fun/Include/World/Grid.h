@@ -31,6 +31,10 @@ class Grid
 		
 		void inactiveCellsDeletion();
 		
+		void setPosition(sf::Vector2f t_position);
+
+		void scale(float xScale, float yScale);
+
 		std::vector<Cell*> m_traversableCells;
 		std::vector<std::vector<Cell>> m_cells;
 

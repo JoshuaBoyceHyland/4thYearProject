@@ -26,7 +26,6 @@ void RoomLibrary::loadRooms()
 {
     TileLibrary* library = TileLibrary::getInstance();
 
-    
     for (int i = 0; i < m_types.size(); i++)
     {
         std::vector<std::string> roomsFilePaths = FileReading::getAllInFile("ASSETS/WORLD_FILES/Rooms/" + m_resourceString[m_types[i]]);

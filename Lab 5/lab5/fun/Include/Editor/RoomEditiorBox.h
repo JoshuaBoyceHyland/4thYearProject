@@ -24,7 +24,6 @@ class RoomBuilderEditorBox : public UIEditorBox
 
 		void scaleGridForUI(Grid& t_grid);
 		
-
 		const int NUM_OF_SECTIONS = 4;
 
 

@@ -20,6 +20,8 @@ class BaseBuilderScene : public Scene
 		void processMouseWheel(sf::Event t_event) override;
 
 	private:
+
+		Room* m_room;
 		Grid* m_grid;
 		MapSaver saver;
 		MovableCamera m_camera;

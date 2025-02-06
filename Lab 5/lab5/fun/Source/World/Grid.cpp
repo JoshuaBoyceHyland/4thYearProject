@@ -222,6 +222,71 @@ void Grid::inactiveCellsDeletion()
 	std::cout << "made it" << std::endl;
 }
 
+void Grid::setPosition(sf::Vector2f t_position)
+{
+	float startX = t_position.x;
+	float xAxisIncrement = 0;
+	float yAxisIncrement = 0;
+
+
+	for (int row = 0; row < m_cells.size(); row++)
+	{
+		for (int column = 0; column < m_cells[row].size(); column++)
+		{
+			xAxisIncrement = m_cells[row][column].m_body.getSize().x * m_cells[row][column].m_body.getScale().x;
+			yAxisIncrement = m_cells[row][column].m_body.getSize().y * m_cells[row][column].m_body.getScale().x;
+
+			m_cells[row][column].setPosition(t_position);
+
+			t_position.x += xAxisIncrement;
+		}
+		t_position.x = startX;
+		t_position.y += yAxisIncrement;
+
+	}
+}
+
+void Grid::scale(float xScale, float yScale)
+{
+	sf::Vector2f currentPosition;
+
+	bool posFound = false;
+	float startX = currentPosition.x;
+	float startY = currentPosition.y;
+	float XIncrement = 0;
+	float YIncrement = 0;
+	
+	for (int row = 0; row < m_cells.size(); row++)
+	{
+		if (!posFound)
+		{
+			if (!m_cells[row].empty())
+			{
+				currentPosition = m_cells[row][0].m_body.getPosition();
+			}
+		}
+		for (int column = 0; column <m_cells[row].size(); column++)
+		{
+			startX = m_cells[row][0].m_body.getPosition().x;
+
+
+			XIncrement = m_cells[row][column].m_body.getSize().x * xScale;
+			YIncrement = m_cells[row][column].m_body.getSize().y* yScale;
+
+			m_cells[row][column].m_body.scale({ xScale,yScale });
+			m_cells[row][column].setPosition({ currentPosition });
+
+			currentPosition.x += XIncrement;
+		}
+		if (posFound)
+		{
+			currentPosition.x = startX;
+			currentPosition.y += YIncrement;
+		}
+
+	}
+}
+
 
 void Grid::setUpNeighbours()
 {

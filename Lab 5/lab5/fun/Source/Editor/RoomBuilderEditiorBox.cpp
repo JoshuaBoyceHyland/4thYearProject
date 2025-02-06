@@ -61,6 +61,14 @@ void RoomBuilderEditorBox::updateScale(float t_scale)
 	m_title.scale(t_scale, t_scale);
 	m_button.scale(t_scale, t_scale);
 	m_button2.scale(t_scale, t_scale);
+	for (int i = 0; i < m_uiRooms.size(); i++)
+	{
+		for (int k = 0; k < m_uiRooms[ResourceType(i)].size(); k++)
+		{
+
+		 m_uiRooms[ResourceType(i)][k].scale(t_scale, t_scale);
+		}
+	}
 }
 
 void RoomBuilderEditorBox::setUpUiSprites()
@@ -70,20 +78,18 @@ void RoomBuilderEditorBox::setUpUiSprites()
 	
 	for (int i = 0; i < library->m_types.size(); i++)
 	{
+		sf::Vector2f uiPos = { m_uiBox.getPosition().x + (m_uiBox.getSize().x / 2), 100 };
+
 		for (int k = 0; k < library->m_quantity[library->m_types[i]]; k++)
 		{
 			Room* currentRoom = library->getRoom(library->m_types[i], k);
-
-
-			currentRoom->setPosition({ 0,0 });
 			Grid roomGrid = currentRoom->getGrid();
 			
-	
-			scaleGridForUI(roomGrid);
-
-
+			roomGrid.setPosition(uiPos);
+			roomGrid.scale(0.1f, 0.1f);
+			
 			m_uiRooms[library->m_types[i]].push_back(roomGrid);
-			break;
+			uiPos.y += 100;
 		}
 		break;
 	}
@@ -91,14 +97,31 @@ void RoomBuilderEditorBox::setUpUiSprites()
 
 void RoomBuilderEditorBox::scaleGridForUI(Grid& t_grid)
 {
-	for (int i = 0; i < t_grid.m_cells.size(); i++)
+
+	float scale = 0.1f;
+	float XIncrement = t_grid.m_cells[0][0].m_body.getSize().x * scale;
+	float YIncrement = t_grid.m_cells[0][0].m_body.getSize().y * scale;
+
+	sf::Vector2f currentPosition = t_grid.m_cells[0][0].m_body.getPosition();
+	float startX = currentPosition.x;
+	float startY = currentPosition.y;
+	
+
+	for (int row = 0; row < t_grid.m_cells.size(); row++)
 	{
-		for (int k = 0; k < t_grid.m_cells[i].size(); k++)
+		
+
+		for (int column = 0; column < t_grid.m_cells[row].size(); column++)
 		{
-			//t_grid.m_cells[i][k].setPosition({ t_grid.m_cells[i][k].m_body.getPosition().x - t_grid.m_cells[i][k].m_body.getSize().x * 0.90f, t_grid.m_cells[i][k].m_body.getPosition().y - t_grid.m_cells[i][k].m_body.getSize().y * 0.90f });
-			t_grid.m_cells[i][k].m_body.scale({ 0.1f, 0.1f });
-			
+			startX = t_grid.m_cells[row][0].m_body.getPosition().x;
+
+			t_grid.m_cells[row][column].m_body.scale({ scale, scale });
+			t_grid.m_cells[row][column].setPosition({ currentPosition });
+
+			currentPosition.x += XIncrement;
 		}
+		currentPosition.x = startX;
+		currentPosition.y += YIncrement;
 	}
 	
 }
@@ -128,4 +151,15 @@ void RoomBuilderEditorBox::updatePosition(sf::Vector2f t_position)
 	m_button2.setPosition({ m_uiBox.getPosition().x + ((Globals::SCREEN_WIDTH / 200) * m_uiBox.getScale().x)  , m_title.getPosition().y + (20 * m_uiBox.getScale().y) });
 
 
+	for (int i = 0; i < m_uiRooms.size(); i++)
+	{
+		sf::Vector2f pos = { m_uiBox.getPosition().x + ((m_uiBox.getSize().x / 2) * m_uiBox.getScale().x) - 50,  m_uiBox.getPosition().y + 200 * m_uiBox.getScale().y };
+
+		for (int k = 0; k < m_uiRooms[ResourceType(i)].size(); k++)
+		{
+
+			m_uiRooms[ResourceType(i)][k].setPosition(pos);
+			pos.y += 100 * m_uiBox.getScale().y;
+		}
+	}
 }
