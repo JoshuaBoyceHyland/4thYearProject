@@ -95,7 +95,9 @@ void RoomBuilderEditorBox::scaleGridForUI(Grid& t_grid)
 	{
 		for (int k = 0; k < t_grid.m_cells[i].size(); k++)
 		{
+			//t_grid.m_cells[i][k].setPosition({ t_grid.m_cells[i][k].m_body.getPosition().x - t_grid.m_cells[i][k].m_body.getSize().x * 0.90f, t_grid.m_cells[i][k].m_body.getPosition().y - t_grid.m_cells[i][k].m_body.getSize().y * 0.90f });
 			t_grid.m_cells[i][k].m_body.scale({ 0.1f, 0.1f });
+			
 		}
 	}
 	

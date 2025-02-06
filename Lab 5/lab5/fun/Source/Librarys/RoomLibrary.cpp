@@ -33,6 +33,7 @@ void RoomLibrary::loadRooms()
 
         for (std::string roomFileName : roomsFilePaths)
         {
+            m_quantity[m_types[i]]++;
             const int row = 0;
             const int column = 1;
             const int type = 2;
