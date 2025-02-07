@@ -65,8 +65,7 @@ void RoomBuilderEditorBox::updateScale(float t_scale)
 	{
 		for (int k = 0; k < m_uiRooms[ResourceType(i)].size(); k++)
 		{
-
-		 m_uiRooms[ResourceType(i)][k].scale(t_scale, t_scale);
+			m_uiRooms[ResourceType(i)][k].scale(t_scale, t_scale);
 		}
 	}
 }
@@ -95,40 +94,20 @@ void RoomBuilderEditorBox::setUpUiSprites()
 	}
 }
 
-void RoomBuilderEditorBox::scaleGridForUI(Grid& t_grid)
-{
-
-	float scale = 0.1f;
-	float XIncrement = t_grid.m_cells[0][0].m_body.getSize().x * scale;
-	float YIncrement = t_grid.m_cells[0][0].m_body.getSize().y * scale;
-
-	sf::Vector2f currentPosition = t_grid.m_cells[0][0].m_body.getPosition();
-	float startX = currentPosition.x;
-	float startY = currentPosition.y;
-	
-
-	for (int row = 0; row < t_grid.m_cells.size(); row++)
-	{
-		
-
-		for (int column = 0; column < t_grid.m_cells[row].size(); column++)
-		{
-			startX = t_grid.m_cells[row][0].m_body.getPosition().x;
-
-			t_grid.m_cells[row][column].m_body.scale({ scale, scale });
-			t_grid.m_cells[row][column].setPosition({ currentPosition });
-
-			currentPosition.x += XIncrement;
-		}
-		currentPosition.x = startX;
-		currentPosition.y += YIncrement;
-	}
-	
-}
-
 Room* RoomBuilderEditorBox::roomSelectionCheck(sf::Vector2f t_mousePosition)
 {
-	return nullptr;
+	Room* selectedRoom = nullptr;
+	for (int i = 0; i < m_uiRooms[m_currentPart].size(); i++)
+	{
+		if (m_uiRooms[m_currentPart][i].isInGrid(t_mousePosition))
+		{
+			RoomLibrary* library = RoomLibrary::getInstance();
+			selectedRoom = library->getRoom(m_currentPart, i);
+			std::cout << "Was in: "<< i << std::endl;
+			break;
+		}
+	}
+	return selectedRoom;
 }
 
 bool RoomBuilderEditorBox::contains(sf::Vector2f t_mousePosition)
@@ -153,13 +132,13 @@ void RoomBuilderEditorBox::updatePosition(sf::Vector2f t_position)
 
 	for (int i = 0; i < m_uiRooms.size(); i++)
 	{
-		sf::Vector2f pos = { m_uiBox.getPosition().x + ((m_uiBox.getSize().x / 2) * m_uiBox.getScale().x) - 50,  m_uiBox.getPosition().y + 200 * m_uiBox.getScale().y };
+		sf::Vector2f pos = { m_uiBox.getPosition().x + ((m_uiBox.getSize().x / 2) * m_uiBox.getScale().x),  m_uiBox.getPosition().y + 200 * m_uiBox.getScale().y };
 
 		for (int k = 0; k < m_uiRooms[ResourceType(i)].size(); k++)
 		{
 
 			m_uiRooms[ResourceType(i)][k].setPosition(pos);
-			pos.y += 100 * m_uiBox.getScale().y;
+			pos.y += 200 * m_uiBox.getScale().y;
 		}
 	}
 }

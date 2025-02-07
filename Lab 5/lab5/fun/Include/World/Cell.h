@@ -13,6 +13,7 @@ class Cell
 
 		Cell( float t_width, float t_height, int t_row=-1, int t_column=-1, sf::Vector2f t_position = { -100, -100 });
 
+		Cell(const Cell& t_other, bool t_copyPosition);
 		void reset();
 
 		void draw(sf::RenderWindow& t_window);

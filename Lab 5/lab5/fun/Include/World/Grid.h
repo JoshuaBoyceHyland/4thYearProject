@@ -9,6 +9,8 @@ class Grid
 
 		Grid(int t_rows, int t_columns, float t_width, float t_height, sf::Vector2f t_startPosition);
 		
+		bool isInGrid(sf::Vector2f t_position);
+
 		void draw(sf::RenderWindow& t_window);
 
 		void changeToWalkable(sf::Vector2f t_mouseCLick);
@@ -18,6 +20,8 @@ class Grid
 		void deletePiece(sf::Vector2f t_mouseCLick);
 
 		void placePiece(sf::Vector2f t_mouseCLick, std::vector<Texture*> t_textures, TraversalProperty t_property);
+
+		void placePropertys(Cell* selectedCell, std::vector<Texture*> t_textures, TraversalProperty t_property);
 
 		void highlightNeighbours(sf::Vector2f t_mouseCLick);
 
@@ -29,11 +33,17 @@ class Grid
 
 		void setStartPoint(sf::Vector2f t_startPoint) { m_startPoint = t_startPoint; }
 		
-		void inactiveCellsDeletion();
+		void cullCells();
 		
+		void cullEmptyCellsW(int from);
+
+		void cullEmptyCellsH(int from);
+
 		void setPosition(sf::Vector2f t_position);
 
 		void scale(float xScale, float yScale);
+
+		void rotate();
 
 		std::vector<Cell*> m_traversableCells;
 		std::vector<std::vector<Cell>> m_cells;

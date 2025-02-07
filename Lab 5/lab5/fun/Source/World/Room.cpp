@@ -20,12 +20,64 @@ Room::Room() :
         m_grid.m_cells[line[row]][line[column]].setProperty((*loadedTile).m_property);
     }
 
-   m_grid.inactiveCellsDeletion();
+   m_grid.cullCells();
 }
 
 Room::Room(Grid t_grid) : m_grid(t_grid )
 {
-    m_grid.inactiveCellsDeletion();
+   //m_grid.cullCells();
+}
+
+void Room::projectOnGrid(Grid* t_backgroundGrid, sf::Vector2f t_mosuePosition)
+{
+    while (!projectedOn.empty())
+    {
+        projectedOn.front()->setTexture(nullptr);
+        projectedOn.front()->setColor(sf::Color::Black);
+        projectedOn.front()->m_body.setOutlineThickness(2.0f);
+        projectedOn.pop();
+    }
+
+    Cell* placingCell = t_backgroundGrid->cellSelection(t_mosuePosition);
+    int startingRow = placingCell->getNode()->m_row; // start row of where we are placing it 
+    int endingRow = placingCell->getNode()->m_row + m_grid.m_cells.size(); //  end column of where we are placing it
+
+
+    if (startingRow < 0 || startingRow >t_backgroundGrid->m_cells.size())
+    {
+        return;
+    }
+
+    if (endingRow < 0 || endingRow >t_backgroundGrid->m_cells.size())
+    {
+        return;
+    }
+    for (int row = startingRow; row < endingRow; row++)
+    {
+        int placedPieceRow = row - startingRow;
+
+        int startingColumn = placingCell->getNode()->m_column;
+        int endingColumn = placingCell->getNode()->m_column + m_grid.m_cells[placedPieceRow].size();
+
+        for (int column = startingColumn; column < endingColumn; column++)
+        {
+
+            int placedPieceColumn = column - startingColumn;
+
+            if (m_grid.m_cells[placedPieceRow][placedPieceColumn].getTexture() != nullptr)
+            {
+                t_backgroundGrid->m_cells[row][column].setTexture(m_grid.m_cells[placedPieceRow][placedPieceColumn].getTexture());
+                t_backgroundGrid->m_cells[row][column].setColor(sf::Color::White);
+
+                projectedOn.push(&t_backgroundGrid->m_cells[row][column]);
+            }
+
+
+
+        }
+    }
+
+
 }
 
 bool Room::emplaceOnGrid(Grid* t_backgroundGrid, sf::Vector2f t_mosuePosition)
@@ -34,8 +86,7 @@ bool Room::emplaceOnGrid(Grid* t_backgroundGrid, sf::Vector2f t_mosuePosition)
     Cell* placingCell = t_backgroundGrid->cellSelection(t_mosuePosition);
     int startingRow = placingCell->getNode()->m_row; // start row of where we are placing it 
     int endingRow = placingCell->getNode()->m_row + m_grid.m_cells.size(); //  end column of where we are placing it
-
-    std::cout << "New: " << std::endl;
+ 
 
     for (int row = startingRow; row < endingRow; row++)
     {
@@ -85,6 +136,11 @@ void Room::scaleDown(float t_scaleValue)
             m_grid.m_cells[row][column].m_body.setSize({ m_grid.m_cells[row][column].m_body.getSize().x * t_scaleValue, m_grid.m_cells[row][column].m_body.getSize().y * t_scaleValue });
         }
     }
+}
+
+void Room::rotate()
+{
+    m_grid.rotate();
 }
 
 Grid Room::getGrid()

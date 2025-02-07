@@ -27,6 +27,23 @@ Grid::Grid(int t_rows, int t_columns, float t_width, float t_height, sf::Vector2
 	
 }
 
+bool Grid::isInGrid(sf::Vector2f t_position)
+{
+	sf::Vector2f regressToOrgin = m_cells[0][0].m_body.getPosition();
+
+	t_position -= regressToOrgin;
+
+	int row = t_position.y / m_cellHeight;
+	int column = t_position.x / m_cellWidth;
+
+	// checking the row and column is in the bounds
+	if (row < 0 || row >= m_cells.size()) { return false; }
+	if (column < 0 || column >= m_cells[0].size()) { return false; }
+
+
+	return true;
+}
+
 void Grid::draw(sf::RenderWindow& t_window)
 {
 	for (int row = 0; row < m_cells.size(); row++)
@@ -202,35 +219,102 @@ void Grid::pathFind(sf::Vector2f t_mouseCLick)
 	
 }
 
-void Grid::inactiveCellsDeletion()
+void Grid::cullCells()
 {
-	for (int row = 0; row < m_cells.size(); row++)
+
+
+	//for (auto rowIt = m_cells.begin(); rowIt != m_cells.end(); )
+	//{
+
+	//	for (auto columnIt = (*rowIt).begin(); columnIt != (*rowIt).end();)
+	//	{
+	//		if ((*columnIt).getTexture() == nullptr)
+	//		{
+	//			columnIt = (*rowIt).erase(columnIt);
+	//		}
+	//		else
+	//		{
+	//			++columnIt;
+	//		}
+	//	}
+
+	//	// if the row is now empty we can delete it
+	//	if ((*rowIt).empty())
+	//	{
+	//		rowIt = m_cells.erase(rowIt);
+	//	}
+	//	else
+	//	{
+	//		++rowIt;
+	//	}
+	//}
+
+
+	int lastOccupiedROw = 0;
+	int lastOccupiedColumn = 0;
+
+
+}
+
+void Grid::cullEmptyCellsW(int from)
+{
+	for (auto rowIt = m_cells.begin() ; rowIt != m_cells.end(); )
 	{
-		for (auto it = m_cells[row].begin(); it != m_cells[row].end();)
+
+		for (auto columnIt = (*rowIt).begin() + from + 1; columnIt != (*rowIt).end();)
 		{
-			if ((*it).getTexture() == nullptr)
-			{
-				it = m_cells[row].erase(it);
-			}
-			else
-			{
-				++it;
-			}
+			columnIt = (*rowIt).erase(columnIt);
+		}
+
+		// if the row is now empty we can delete it
+		if ((*rowIt).empty())
+		{
+			rowIt = m_cells.erase(rowIt);
+		}
+		else
+		{
+			++rowIt;
 		}
 	}
+}
 
-	std::cout << "made it" << std::endl;
+void Grid::cullEmptyCellsH(int from)
+{
+
+	for (auto rowIt = m_cells.begin() + from + 1; rowIt != m_cells.end(); )
+	{
+
+		for (auto columnIt = (*rowIt).begin(); columnIt != (*rowIt).end();)
+		{
+			columnIt = (*rowIt).erase(columnIt);
+		}
+
+		// if the row is now empty we can delete it
+		if ((*rowIt).empty())
+		{
+			rowIt = m_cells.erase(rowIt);
+		}
+		else
+		{
+			++rowIt;
+		}
+	}
 }
 
 void Grid::setPosition(sf::Vector2f t_position)
 {
+	float offsetX = 0;
+	float origin = m_cells[0][0].m_body.getPosition().x;
 	float startX = t_position.x;
 	float xAxisIncrement = 0;
 	float yAxisIncrement = 0;
-
-
+	
 	for (int row = 0; row < m_cells.size(); row++)
 	{
+		
+		offsetX = origin - m_cells[row][0].m_body.getPosition().x;
+		t_position.x = startX - offsetX;
+
 		for (int column = 0; column < m_cells[row].size(); column++)
 		{
 			xAxisIncrement = m_cells[row][column].m_body.getSize().x * m_cells[row][column].m_body.getScale().x;
@@ -240,35 +324,32 @@ void Grid::setPosition(sf::Vector2f t_position)
 
 			t_position.x += xAxisIncrement;
 		}
-		t_position.x = startX;
+
+		
 		t_position.y += yAxisIncrement;
 
 	}
+
+	m_cellWidth = xAxisIncrement;
+	m_cellHeight = yAxisIncrement;
 }
 
 void Grid::scale(float xScale, float yScale)
 {
-	sf::Vector2f currentPosition;
 
-	bool posFound = false;
-	float startX = currentPosition.x;
+	// get first cell
+	sf::Vector2f currentPosition = m_cells[0][0].m_body.getPosition();
+
+	float startX = currentPosition.x - m_cellWidth / 2;
 	float startY = currentPosition.y;
 	float XIncrement = 0;
 	float YIncrement = 0;
 	
 	for (int row = 0; row < m_cells.size(); row++)
 	{
-		if (!posFound)
-		{
-			if (!m_cells[row].empty())
-			{
-				currentPosition = m_cells[row][0].m_body.getPosition();
-			}
-		}
 		for (int column = 0; column <m_cells[row].size(); column++)
 		{
 			startX = m_cells[row][0].m_body.getPosition().x;
-
 
 			XIncrement = m_cells[row][column].m_body.getSize().x * xScale;
 			YIncrement = m_cells[row][column].m_body.getSize().y* yScale;
@@ -278,12 +359,28 @@ void Grid::scale(float xScale, float yScale)
 
 			currentPosition.x += XIncrement;
 		}
-		if (posFound)
-		{
-			currentPosition.x = startX;
-			currentPosition.y += YIncrement;
-		}
+		
+		currentPosition.x = startX;
+		currentPosition.y += YIncrement;
+		
 
+	}
+}
+
+void Grid::rotate()
+{
+	
+	std::vector<std::vector<Cell>> temp = m_cells;
+
+	for (int row = 0; row < temp.size(); row++)
+	{
+		for (int col = 0; col < temp[row].size(); col++)
+		{
+			int rotatedIndex = temp.size() - row - 1;
+	
+			m_cells[col][rotatedIndex] = Cell(temp[row][col], false);
+			m_cells[col][rotatedIndex].m_body.rotate(90.0f);
+		}
 	}
 }
 

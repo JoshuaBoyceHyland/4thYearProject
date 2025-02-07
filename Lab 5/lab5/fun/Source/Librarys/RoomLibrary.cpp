@@ -33,6 +33,10 @@ void RoomLibrary::loadRooms()
         for (std::string roomFileName : roomsFilePaths)
         {
             m_quantity[m_types[i]]++;
+
+            int largestDimension = 0;
+            int lastColumn = 0;
+            int lastRow = 0;
             const int row = 0;
             const int column = 1;
             const int type = 2;
@@ -49,8 +53,25 @@ void RoomLibrary::loadRooms()
                 grid.m_cells[line[row]][line[column]].setColor(sf::Color::White);
                 grid.m_cells[line[row]][line[column]].setTexture(loadedTile->m_textures[0]);
                 grid.m_cells[line[row]][line[column]].setProperty((*loadedTile).m_property);
+                lastRow = line[row];
+
+                if (lastColumn < line[column])
+                {
+                    lastColumn = line[column];
+                }
             }
 
+            if (lastColumn > lastRow)
+            {
+                largestDimension = lastColumn;
+            }
+            else
+            {
+                largestDimension =lastRow;
+            }
+
+            grid.cullEmptyCellsW(largestDimension);
+            grid.cullEmptyCellsH(largestDimension);
             m_rooms[m_types[i]].push_back(Room(grid));
         }
     }

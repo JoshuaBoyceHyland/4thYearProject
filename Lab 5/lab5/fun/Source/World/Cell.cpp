@@ -16,6 +16,36 @@ Cell::Cell( float t_width, float t_height, int t_row, int t_column, sf::Vector2f
 	setUpText();
 }
 
+Cell::Cell(const Cell& t_other, bool t_copyPosition = true) : m_node(t_other.m_node)
+{
+		m_body = t_other.m_body;
+		m_row = t_other.m_row;
+		m_column = t_other.m_column;
+		m_textActive = t_other.m_textActive;
+		m_occupied = t_other.m_occupied;
+		m_property = t_other.m_property;
+		m_texture = t_other.m_texture;
+		m_font = t_other.m_font;
+		m_text = t_other.m_text;
+
+		if (m_texture != nullptr)
+		{
+			m_body.setTexture(&(*m_texture).texture);
+		}
+
+		m_text.setFont((*m_font));
+
+		if (t_copyPosition)
+		{
+			m_position = t_other.m_body.getPosition();
+			m_body.setPosition(t_other.m_position);
+		}
+		else {
+			m_position = m_position;
+			m_body.setPosition(m_position);
+		}
+}
+
 void Cell::reset()
 {
 	m_property = TraversalProperty::Unwalkable;
@@ -79,7 +109,16 @@ void Cell::setTexture(Texture* t_texture)
 {
 	
 	m_texture = t_texture;
-	m_body.setTexture(&(*m_texture).texture);
+	
+	if (t_texture != nullptr)
+	{
+		m_body.setTexture(&(*m_texture).texture);
+	}
+	else
+	{
+		m_body.setTexture(nullptr);
+	}
+
 	m_body.setOutlineThickness(0.0f);
 }
 
