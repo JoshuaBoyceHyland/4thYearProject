@@ -129,6 +129,30 @@ void Cell::setProperty(TraversalProperty t_property)
 	m_text.setString(m_cellPropertyString[m_property]);
 }
 
+void Cell::project(Texture* t_texture)
+{
+	m_body.setTexture(&t_texture->texture);
+	m_body.setFillColor(sf::Color::White);
+	m_body.setOutlineThickness(0.0f);
+}
+
+void Cell::resetTexture()
+{
+	if (m_texture != nullptr)
+	{
+		m_body.setTexture(&m_texture->texture);
+		m_body.setFillColor(sf::Color::White);
+		m_body.setOutlineThickness(0.0f);
+		
+	}
+	else
+	{
+		m_body.setTexture(nullptr);
+		m_body.setFillColor(sf::Color::Black);
+		m_body.setOutlineThickness(2.50f);
+	}
+}
+
 void Cell::debug(bool t_debug)
 {
 	if (t_debug)
@@ -153,7 +177,7 @@ void Cell::debug(bool t_debug)
 
 void Cell::setUpText()
 {
-	TextureLibrary* loader = TextureLibrary::getInstance();
+	Loader* loader = Loader::getInstance();
 
 	m_font = loader->loadFont("ASSETS/FONTS/ariblk.ttf");
 

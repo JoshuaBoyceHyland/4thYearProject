@@ -32,13 +32,14 @@ void Room::projectOnGrid(Grid* t_backgroundGrid, sf::Vector2f t_mosuePosition)
 {
     while (!projectedOn.empty())
     {
-        projectedOn.front()->setTexture(nullptr);
-        projectedOn.front()->setColor(sf::Color::Black);
-        projectedOn.front()->m_body.setOutlineThickness(2.0f);
+        projectedOn.front()->resetTexture();
         projectedOn.pop();
     }
 
     Cell* placingCell = t_backgroundGrid->cellSelection(t_mosuePosition);
+
+    if (placingCell == nullptr) { return; }
+
     int startingRow = placingCell->getNode()->m_row; // start row of where we are placing it 
     int endingRow = placingCell->getNode()->m_row + m_grid.m_cells.size(); //  end column of where we are placing it
 
@@ -66,9 +67,7 @@ void Room::projectOnGrid(Grid* t_backgroundGrid, sf::Vector2f t_mosuePosition)
 
             if (m_grid.m_cells[placedPieceRow][placedPieceColumn].getTexture() != nullptr)
             {
-                t_backgroundGrid->m_cells[row][column].setTexture(m_grid.m_cells[placedPieceRow][placedPieceColumn].getTexture());
-                t_backgroundGrid->m_cells[row][column].setColor(sf::Color::White);
-
+                t_backgroundGrid->m_cells[row][column].project(m_grid.m_cells[placedPieceRow][placedPieceColumn].getTexture());
                 projectedOn.push(&t_backgroundGrid->m_cells[row][column]);
             }
 
@@ -84,6 +83,9 @@ bool Room::emplaceOnGrid(Grid* t_backgroundGrid, sf::Vector2f t_mosuePosition)
 {
 
     Cell* placingCell = t_backgroundGrid->cellSelection(t_mosuePosition);
+
+    if (placingCell == nullptr) { return false; }
+
     int startingRow = placingCell->getNode()->m_row; // start row of where we are placing it 
     int endingRow = placingCell->getNode()->m_row + m_grid.m_cells.size(); //  end column of where we are placing it
  

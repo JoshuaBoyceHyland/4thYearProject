@@ -3,7 +3,7 @@
 #include "Globals.h"
 #include "Librarys/Loader.h"
 
-
+#include "Button.h"
 
 class UIEditorBox : public UI
 {
@@ -21,18 +21,18 @@ class UIEditorBox : public UI
 		void setUpRect();
 		void setUpButton();
 
-
-
 		virtual void setUpUiSprites() = 0;
 
 		sf::RectangleShape m_uiBox;
-
 		sf::CircleShape m_button;
 		sf::CircleShape m_button2;
-
+		
+		sf::Text m_sceneChange;
 		sf::Text m_title;
 		sf::Text m_text;
 		sf::Font* m_font;
+
+		Button* button;
 
 		std::vector<sf::Texture*> m_partTextures;
 

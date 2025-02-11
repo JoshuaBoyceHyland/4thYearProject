@@ -12,18 +12,18 @@
 /// Singleton font and texture loading class
 /// Ensures a resource will only be loaded once
 /// </summary>
-class TextureLibrary
+class Loader
 {
 
 	public:
 
-		TextureLibrary(const TextureLibrary& other) = delete;
+		Loader(const Loader& other) = delete;
 
 		/// <summary>
 		/// Gets the single instance of this class, if class instance doesn't exist it instaniates it.
 		/// </summary>
 		/// <returns> Pointer to instance of Loader</returns>
-		static TextureLibrary* getInstance();
+		static Loader* getInstance();
 
 		/// <summary>
 		/// Loads the font at the the file path given. 
@@ -71,7 +71,7 @@ class TextureLibrary
 		/// <summary>
 		/// Private constructor so it can only created be internally by the getInstance function if needed to.
 		/// </summary>
-		TextureLibrary() = default;
+		Loader() = default;
 
 		/// <summary>
 		/// Splits an image into multiple sections, depending on the size of these cell
@@ -85,7 +85,7 @@ class TextureLibrary
 		/// <summary>
 		/// Single instance of the loader.
 		/// </summary>
-		static TextureLibrary* instance;
+		static Loader* instance;
 
 		/// <summary>
 		/// Map of fonts, where each font has a associated string key, the string being s file location of the font. This allows the loadFont function to see if te font has been previously loaded.

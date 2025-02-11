@@ -14,6 +14,7 @@ class Cell
 		Cell( float t_width, float t_height, int t_row=-1, int t_column=-1, sf::Vector2f t_position = { -100, -100 });
 
 		Cell(const Cell& t_other, bool t_copyPosition);
+
 		void reset();
 
 		void draw(sf::RenderWindow& t_window);
@@ -27,6 +28,10 @@ class Cell
 		void setProperty(TraversalProperty t_property);
 
 		void setColor(sf::Color t_color) { m_body.setFillColor(t_color); }
+
+		void project(Texture* t_texture);
+
+		void resetTexture();
 
 		void enableText(bool t_enabled) { m_textActive = t_enabled; }
 

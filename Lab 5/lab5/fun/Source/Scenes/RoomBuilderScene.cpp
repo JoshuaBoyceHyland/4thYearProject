@@ -36,7 +36,7 @@ void RoomBuilderScene::render()
 	t.setRadius(10);
 	t.setOrigin({ 5, 5 });
 	m_window.clear();
-	m_grid->draw(m_window);
+	//m_grid->draw(m_window);
 	m_editorBox.draw(m_window);
 
 	if (m_selectedTiles != nullptr)

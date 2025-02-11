@@ -10,14 +10,16 @@ RoomBuilderEditorBox::RoomBuilderEditorBox()
 
 void RoomBuilderEditorBox::draw(sf::RenderWindow& t_window)
 {
-	t_window.draw(m_uiBox);
-	t_window.draw(m_title);
-	t_window.draw(m_button);
-	t_window.draw(m_button2);
-	
+	//t_window.draw(m_uiBox);
+	//t_window.draw(m_title);
+	//t_window.draw(m_button);
+	//t_window.draw(m_button2);
+	//t_window.draw(m_sceneChangeButton);
+	//t_window.draw(m_sceneChange);
+	button->draw(t_window);
 	for (int i = 0; i < m_uiRooms[m_currentPart].size(); i++)
 	{
-		m_uiRooms[m_currentPart][i].draw(t_window);
+		//m_uiRooms[m_currentPart][i].draw(t_window);
 	}
 }
 
@@ -53,6 +55,13 @@ void RoomBuilderEditorBox::checkForInteraction(sf::Vector2f t_mousePosition)
 	m_title.setString(resourceString[m_currentPart]);
 	sf::FloatRect textSize = m_title.getLocalBounds();
 	m_title.setOrigin(textSize.width / 2, textSize.height / 2);
+
+
+
+	//if (m_sceneChangeButton.getGlobalBounds().contains(t_mousePosition))
+	//{
+	//	std::cout << "scene change" << std::endl;
+	//}
 }
 
 void RoomBuilderEditorBox::updateScale(float t_scale)
@@ -61,6 +70,9 @@ void RoomBuilderEditorBox::updateScale(float t_scale)
 	m_title.scale(t_scale, t_scale);
 	m_button.scale(t_scale, t_scale);
 	m_button2.scale(t_scale, t_scale);
+	//m_sceneChange.scale(t_scale, t_scale);
+	//m_sceneChangeButton.scale(t_scale, t_scale);
+	button->scale(t_scale);
 	for (int i = 0; i < m_uiRooms.size(); i++)
 	{
 		for (int k = 0; k < m_uiRooms[ResourceType(i)].size(); k++)
@@ -126,9 +138,13 @@ void RoomBuilderEditorBox::updatePosition(sf::Vector2f t_position)
 						m_uiBox.getPosition().y + ((Globals::SCREEN_WIDTH / 100) * m_uiBox.getScale().y)
 		});
 
+	m_sceneChange.setPosition(
+		(m_uiBox.getPosition().x + m_uiBox.getSize().x + (m_uiBox.getOutlineThickness() * 2) + (m_sceneChange.getLocalBounds().width / 2) + Globals::SCREEN_WIDTH / SCALING)  /*- m_title.getCharacterSize() - Globals::SCREEN_WIDTH / SCALING*/,
+		m_uiBox.getPosition().y - ((Globals::SCREEN_WIDTH / 100) / 3)
+	);
 	m_button.setPosition({ m_uiBox.getPosition().x + (m_uiBox.getSize().x * m_uiBox.getScale().x) - ((Globals::SCREEN_WIDTH / 200) * m_uiBox.getScale().x) , m_title.getPosition().y });
 	m_button2.setPosition({ m_uiBox.getPosition().x + ((Globals::SCREEN_WIDTH / 200) * m_uiBox.getScale().x)  , m_title.getPosition().y + (20 * m_uiBox.getScale().y) });
-
+	//m_sceneChangeButton.setPosition({ m_sceneChange.getPosition().x , m_sceneChange.getPosition().y + m_sceneChange.getLocalBounds().height * 0.45f });
 
 	for (int i = 0; i < m_uiRooms.size(); i++)
 	{

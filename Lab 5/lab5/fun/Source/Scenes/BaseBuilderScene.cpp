@@ -24,7 +24,7 @@ void BaseBuilderScene::render()
 	m_window.clear();
 	m_grid->draw(m_window);
 	m_editor.draw(m_window);
-	m_room->draw(m_window);
+	//m_room->draw(m_window);
 	m_window.display();
 }
 
@@ -64,6 +64,7 @@ void BaseBuilderScene::processMousePress(sf::Event t_event)
 	{
 		m_room->rotate();
 		m_room->setPosition(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)));
+		m_room->projectOnGrid(m_grid, m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)));
 	}
 }
 

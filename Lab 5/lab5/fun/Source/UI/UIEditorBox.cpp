@@ -9,7 +9,7 @@ UIEditorBox::UIEditorBox()
 
 void UIEditorBox::SetUpText()
 {
-	TextureLibrary* loader = TextureLibrary::getInstance();
+	Loader* loader = Loader::getInstance();
 
 	m_font = loader->loadFont("ASSETS/FONTS/nulshock.otf");
 
@@ -25,6 +25,27 @@ void UIEditorBox::SetUpText()
 							(m_uiBox.getPosition().x + (m_uiBox.getSize().x / 2))  /*- m_title.getCharacterSize() - Globals::SCREEN_WIDTH / SCALING*/,
 							m_uiBox.getPosition().y + (Globals::SCREEN_WIDTH / 100)
 		});
+
+	m_sceneChange.setString("Edit Tiles");
+	m_sceneChange.setFont((*m_font));
+	m_sceneChange.setFillColor(sf::Color::Yellow);
+	m_sceneChange.setCharacterSize(Globals::SCREEN_WIDTH / SCALING);
+	textSize = m_sceneChange.getLocalBounds();
+	m_sceneChange.setOrigin(textSize.width / 2, textSize.height / 2);
+
+
+	m_sceneChange.setPosition(
+		(m_uiBox.getPosition().x + m_uiBox.getSize().x + (m_uiBox.getOutlineThickness() * 2) + 62.5 + Globals::SCREEN_WIDTH / SCALING)  /*- m_title.getCharacterSize() - Globals::SCREEN_WIDTH / SCALING*/,
+		m_uiBox.getPosition().y - ((Globals::SCREEN_WIDTH / 100)/3)
+	);
+
+	button = new Button();
+	button->setShapeType(new sf::RectangleShape({ m_sceneChange.getLocalBounds().width + 62.5f, m_sceneChange.getLocalBounds().height + 9.75f }));
+	button->getShape()->setFillColor(m_lightBlue);
+	button->getShape()->setOutlineColor(m_darkBlue);
+	button->getShape()->setOutlineThickness(Globals::SCREEN_WIDTH / 200);
+	button->getShape()->setPosition({ m_sceneChange.getPosition().x , m_sceneChange.getPosition().y + 5.84999990f });
+	button->setText("Edit Tiles");
 }
 
 void UIEditorBox::setUpRect()
@@ -35,7 +56,10 @@ void UIEditorBox::setUpRect()
 	m_uiBox.setSize({ Globals::SCREEN_WIDTH / 5, Globals::SCREEN_HEIGHT - (outlineThickness * 2) });
 	m_uiBox.setOutlineThickness(outlineThickness);
 	m_uiBox.setPosition({ outlineThickness, outlineThickness });
+
+	
 }
+
 
 void UIEditorBox::setUpButton()
 {
@@ -50,5 +74,7 @@ void UIEditorBox::setUpButton()
 	m_button2.setPosition({ m_uiBox.getPosition().x + (Globals::SCREEN_WIDTH / 200)  , m_title.getPosition().y + 20 });
 	m_button2.setRadius(10);
 	m_button2.setRotation(270.0f);
+
+	
 }
 

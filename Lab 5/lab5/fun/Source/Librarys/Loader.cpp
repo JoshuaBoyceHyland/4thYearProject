@@ -1,17 +1,17 @@
 #include "Librarys/Loader.h"
 
-TextureLibrary* TextureLibrary::instance = nullptr;
+Loader* Loader::instance = nullptr;
 
-TextureLibrary* TextureLibrary::getInstance()
+Loader* Loader::getInstance()
 {
 	if (instance == nullptr)
 	{
-		instance = new TextureLibrary();
+		instance = new Loader();
 	}
 	return instance;
 }
 
-sf::Font* TextureLibrary::loadFont(std::string t_path)
+sf::Font* Loader::loadFont(std::string t_path)
 {
 
 	if (m_fonts.count(t_path) > 0)
@@ -29,7 +29,7 @@ sf::Font* TextureLibrary::loadFont(std::string t_path)
 	return &m_fonts[t_path];
 }
 
-Texture* TextureLibrary::loadTexture(std::string t_path)
+Texture* Loader::loadTexture(std::string t_path)
 {
 	if (m_textures.count(t_path) > 0)
 	{
@@ -47,7 +47,7 @@ Texture* TextureLibrary::loadTexture(std::string t_path)
 }
 
 
-std::vector<Texture*> TextureLibrary::loadAllTexturesInFile(std::string t_path)
+std::vector<Texture*> Loader::loadAllTexturesInFile(std::string t_path)
 {
 	int id = 0;
 	std::vector<Texture*> textures;
@@ -67,7 +67,7 @@ std::vector<Texture*> TextureLibrary::loadAllTexturesInFile(std::string t_path)
 	return textures;
 }
 
-std::vector<Texture*> TextureLibrary::splitAndLoadTexture(std::string t_path, float t_cellWidth, float t_cellHeight)
+std::vector<Texture*> Loader::splitAndLoadTexture(std::string t_path, float t_cellWidth, float t_cellHeight)
 {
 	std::vector<Texture*> splitTextures;
 	// load texture
@@ -83,7 +83,7 @@ std::vector<Texture*> TextureLibrary::splitAndLoadTexture(std::string t_path, fl
 	return splitTextures;
 }
 
-std::vector<std::vector<Texture*>> TextureLibrary::loadAllTexturesInFileSplit(std::string t_path, float t_cellWidth, float t_cellHeight)
+std::vector<std::vector<Texture*>> Loader::loadAllTexturesInFileSplit(std::string t_path, float t_cellWidth, float t_cellHeight)
 {
 
 	std::vector<Texture*> textures = loadAllTexturesInFile(t_path);
@@ -100,7 +100,7 @@ std::vector<std::vector<Texture*>> TextureLibrary::loadAllTexturesInFileSplit(st
 	return std::vector<std::vector<Texture*>>();
 }
 
-void TextureLibrary::splitImage(Texture* t_texture, std::string t_path, float t_cellWidth, float t_cellHeight)
+void Loader::splitImage(Texture* t_texture, std::string t_path, float t_cellWidth, float t_cellHeight)
 {
 
 	if (m_splitTextures.count(t_path) == 0)

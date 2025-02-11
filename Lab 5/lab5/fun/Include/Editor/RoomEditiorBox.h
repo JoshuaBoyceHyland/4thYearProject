@@ -9,6 +9,7 @@ class RoomBuilderEditorBox : public UIEditorBox
 		RoomBuilderEditorBox();
 
 		void draw(sf::RenderWindow& t_window) override;
+
 		void checkForInteraction(sf::Vector2f t_mousePosition) override;
 
 		Room* roomSelectionCheck(sf::Vector2f t_mousePosition);
