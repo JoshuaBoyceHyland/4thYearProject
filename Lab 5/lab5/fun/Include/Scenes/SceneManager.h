@@ -1,5 +1,6 @@
 #pragma once
 
+#include "SceneTypes.h"
 #include "Scenes/EditorScene.h"
 #include "Ship/ShipPart.h"
 #include "Scenes/GameplayScene.h"
@@ -7,7 +8,7 @@
 #include "Scenes/BaseBuilderScene.h"
 #include "Scenes/BaseGameplayScene.h"
 
-enum SceneType{ Menu, ShipEditor, RoomBuilder,BaseBuilder, BaseGameplay,ShipGameplay };
+
 
 class SceneManager
 {

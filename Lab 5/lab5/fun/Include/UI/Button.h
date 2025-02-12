@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <functional>
 #include "Librarys/Loader.h"
+#include "Scenes/SceneTypes.h"
 
 class Button
 {
@@ -10,7 +11,7 @@ class Button
 
 		void setText(std::string t_string);
 
-		void setFunction(std::function<void()> t_function);
+		void setFunction(std::function<void(int)> t_function);
 
 		void setShapeType(sf::Shape* t_shape);
 
@@ -30,7 +31,8 @@ class Button
 		sf::Font* m_font;
 		sf::Text m_text;
 		sf::Shape* m_button = nullptr;
-		std::function<void()> m_function;
+		SceneType targetScene = SceneType::Menu;
+		std::function<void(int)> m_function;
 
 };
 

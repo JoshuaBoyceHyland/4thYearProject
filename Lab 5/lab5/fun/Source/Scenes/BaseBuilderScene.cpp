@@ -1,6 +1,6 @@
 #include "Scenes/BaseBuilderScene.h"
 
-BaseBuilderScene::BaseBuilderScene(sf::RenderWindow& t_window) : 
+BaseBuilderScene::BaseBuilderScene(sf::RenderWindow& t_window, std::function<void(int)> t_sceneChangeFunction) :
 Scene(  t_window), 
 m_camera(m_window)
 {

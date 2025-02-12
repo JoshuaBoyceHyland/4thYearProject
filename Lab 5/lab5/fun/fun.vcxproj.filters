@@ -78,6 +78,7 @@
     <ClInclude Include="Include\Scenes\BaseBuilderScene.h" />
     <ClInclude Include="Include\Utility\Texture.h" />
     <ClInclude Include="Include\UI\Button.h" />
+    <ClInclude Include="Include\Scenes\SceneTypes.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="fun.rc" />

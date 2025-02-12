@@ -10,7 +10,7 @@ class BaseBuilderScene : public Scene
 {
 	public:
 		// Inherited via Scene
-		BaseBuilderScene(sf::RenderWindow& t_window);
+		BaseBuilderScene(sf::RenderWindow& t_window, std::function<void(int)> t_sceneChangeFunction);
 		void update(sf::Time t_deltaTime) override;
 		void render() override;
 		void processKeys(sf::Event t_event) override;

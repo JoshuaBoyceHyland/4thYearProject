@@ -10,7 +10,7 @@ class Scene
 {
 
 	public:
-		Scene(sf::RenderWindow& t_window);
+		Scene(sf::RenderWindow& t_window );
 
 		virtual ~Scene();
 

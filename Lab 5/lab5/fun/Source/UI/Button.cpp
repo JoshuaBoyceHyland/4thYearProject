@@ -13,7 +13,7 @@ void Button::setText(std::string t_string)
 
 }
 
-void Button::setFunction(std::function<void()> t_function)
+void Button::setFunction(std::function<void(int)> t_function)
 {
 	m_function = t_function;
 }
@@ -71,7 +71,7 @@ void Button::checkForInteraction(sf::Vector2f t_position)
 	{
 		if (m_button->getGlobalBounds().contains(t_position))
 		{
-			m_function();
+			m_function(int(targetScene));
 		}
 	}
 
