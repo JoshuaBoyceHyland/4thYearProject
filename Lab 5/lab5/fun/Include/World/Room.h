@@ -21,6 +21,8 @@ class Room
 
 		void projectOnGrid(Grid* t_backgroundGrid, sf::Vector2f t_mosuePosition);
 
+		void cleanUpProjection();
+
 		bool emplaceOnGrid(Grid* t_backgroundGrid, sf::Vector2f t_mosuePosition);
 
 		void setPosition(sf::Vector2f t_mosuePosition);

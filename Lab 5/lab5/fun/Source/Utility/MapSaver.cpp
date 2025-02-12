@@ -27,7 +27,7 @@ void MapSaver::saveMap(Grid* t_grid)
 void MapSaver::loadMap(Grid* t_grid)
 {
     std::ifstream file;
-    file.open("map.txt");
+    file.open("og.txt");
 
     TileLibrary* library = TileLibrary::getInstance();
     int column, row, type,texture;

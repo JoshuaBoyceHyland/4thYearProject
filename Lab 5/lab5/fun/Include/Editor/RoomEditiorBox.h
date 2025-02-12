@@ -7,6 +7,7 @@ class RoomBuilderEditorBox : public UIEditorBox
 	// Inherited via UIEditorBox
 	public:
 		RoomBuilderEditorBox();
+		
 
 		void draw(sf::RenderWindow& t_window) override;
 
@@ -19,6 +20,8 @@ class RoomBuilderEditorBox : public UIEditorBox
 		void updatePosition(sf::Vector2f t_position);
 		
 		void updateScale(float t_scale);
+		
+		
 
 	private:
 		void setUpUiSprites() override;

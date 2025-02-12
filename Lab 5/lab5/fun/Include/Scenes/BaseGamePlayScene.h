@@ -22,6 +22,6 @@ class BaseGameplayScene : public Scene
 	private:
 		Grid* m_grid;
 		MovableCamera m_camera;
-		NPC* m_npc;
+		std::vector<NPC*> m_npc;
 };
 

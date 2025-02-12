@@ -15,6 +15,7 @@ class UIEditorBox : public UI
 
 		virtual void checkForInteraction(sf::Vector2f t_mousePosition) = 0;
 
+		void setButtonFunction(std::function<void(SceneType)> t_sceneChangeFunction);
 	protected:
 
 		void SetUpText();

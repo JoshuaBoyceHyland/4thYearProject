@@ -13,9 +13,14 @@ void Button::setText(std::string t_string)
 
 }
 
-void Button::setFunction(std::function<void(int)> t_function)
+void Button::setTargetScene(SceneType t_type)
 {
-	m_function = t_function;
+	targetScene = t_type;
+}
+
+void Button::setFunction(std::function<void(SceneType)> t_function)
+{
+	m_swapScene = t_function;
 }
 
 void Button::setShapeType(sf::Shape* t_shape)
@@ -36,6 +41,11 @@ void Button::scale(float t_scale)
 	m_text.scale(t_scale, t_scale);
 	m_button->scale(t_scale, t_scale);
 
+}
+
+void Button::holdPosition()
+{
+	
 }
 
 sf::Shape* Button::getShape()
@@ -59,9 +69,10 @@ void Button::scaleTextToBox()
 {
 	float smallestDimesniion = std::min(m_text.getLocalBounds().width, m_text.getLocalBounds().height);
 
-	m_text.setCharacterSize(smallestDimesniion);
+	m_text.setCharacterSize(smallestDimesniion * 0.50f);
 	m_text.setFillColor(sf::Color::White);
 	m_text.setPosition({ m_button->getPosition().x + (smallestDimesniion ),  m_button->getPosition().y });
+	
 
 }
 
@@ -71,7 +82,7 @@ void Button::checkForInteraction(sf::Vector2f t_position)
 	{
 		if (m_button->getGlobalBounds().contains(t_position))
 		{
-			m_function(int(targetScene));
+			m_swapScene(targetScene);
 		}
 	}
 

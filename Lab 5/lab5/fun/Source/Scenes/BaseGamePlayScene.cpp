@@ -7,14 +7,23 @@ BaseGameplayScene::BaseGameplayScene(sf::RenderWindow& t_window) :
 	GameData* gamedata = GameData::getInstance();
 	m_grid = gamedata->m_currentMap;
 	m_grid->setForGamePlay();
-	m_npc = new NPC(m_grid, { 2500, 900 });
+
+	for (int i = 0; i < 10; i++)
+	{
+		m_npc.push_back(new NPC(m_grid, { 2500, 900 }));
+	}
+	
 }
 
 
 
 void BaseGameplayScene::update(sf::Time t_deltaTime)
 {
-	m_npc->update(t_deltaTime.asMilliseconds());
+	for (int i = 0; i < m_npc.size(); i++)
+	{
+		m_npc[i]->update(t_deltaTime.asMilliseconds());
+	}
+	
 	m_camera.update();
 }
 
@@ -22,8 +31,10 @@ void BaseGameplayScene::render()
 {
 	m_window.clear();
 	m_grid->draw(m_window);
-	m_npc->draw(m_window);
-
+	for (int i = 0; i < m_npc.size(); i++)
+	{
+		m_npc[i]->draw(m_window);
+	}
 	m_window.display();
 }
 

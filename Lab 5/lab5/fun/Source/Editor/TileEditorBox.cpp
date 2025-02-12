@@ -6,6 +6,8 @@ TileEditorBox::TileEditorBox()
 	sf::FloatRect textSize = m_title.getLocalBounds();
 	m_title.setOrigin(textSize.width / 2, textSize.height / 2);
 	setUpUiSprites();
+	button->setText("Room Editor");
+	button->setTargetScene(BaseBuilder);
 }
 
 void TileEditorBox::draw(sf::RenderWindow& t_window)
@@ -14,7 +16,7 @@ void TileEditorBox::draw(sf::RenderWindow& t_window)
 	t_window.draw(m_title);
 	t_window.draw(m_button);
 	t_window.draw(m_button2);
-
+	button->draw(t_window);
 	for (int i = 0; i < m_uiSprites[int(m_currentPart)].size(); i++)
 	{
 		t_window.draw(m_uiSprites[int(m_currentPart)][i]);
@@ -54,6 +56,8 @@ void TileEditorBox::checkForInteraction(sf::Vector2f t_mousePosition)
 	m_title.setString(propertyString[m_currentPart]);
 	sf::FloatRect textSize = m_title.getLocalBounds();
 	m_title.setOrigin(textSize.width / 2, textSize.height / 2);
+
+	button->checkForInteraction(t_mousePosition);
 }
 
 Tile* TileEditorBox::partSelectionCheck(sf::Vector2f t_mousePosition)
@@ -79,7 +83,7 @@ Tile* TileEditorBox::partSelectionCheck(sf::Vector2f t_mousePosition)
 bool TileEditorBox::contains(sf::Vector2f t_mousePosition)
 {
 
-	return m_uiBox.getGlobalBounds().contains(t_mousePosition);
+	return m_uiBox.getGlobalBounds().contains(t_mousePosition) || button->getShape()->getGlobalBounds().contains(t_mousePosition);
 }
 
 void TileEditorBox::updatePosition(sf::Vector2f t_position)
@@ -151,3 +155,5 @@ void TileEditorBox::setUpUiSprites()
 
 
 }
+
+

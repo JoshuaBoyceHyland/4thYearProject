@@ -7,6 +7,11 @@ UIEditorBox::UIEditorBox()
 	setUpButton();
 }
 
+void UIEditorBox::setButtonFunction(std::function<void(SceneType)> t_sceneChangeFunction)
+{
+	button->setFunction(t_sceneChangeFunction);
+}
+
 void UIEditorBox::SetUpText()
 {
 	Loader* loader = Loader::getInstance();
@@ -26,26 +31,13 @@ void UIEditorBox::SetUpText()
 							m_uiBox.getPosition().y + (Globals::SCREEN_WIDTH / 100)
 		});
 
-	m_sceneChange.setString("Edit Tiles");
-	m_sceneChange.setFont((*m_font));
-	m_sceneChange.setFillColor(sf::Color::Yellow);
-	m_sceneChange.setCharacterSize(Globals::SCREEN_WIDTH / SCALING);
-	textSize = m_sceneChange.getLocalBounds();
-	m_sceneChange.setOrigin(textSize.width / 2, textSize.height / 2);
-
-
-	m_sceneChange.setPosition(
-		(m_uiBox.getPosition().x + m_uiBox.getSize().x + (m_uiBox.getOutlineThickness() * 2) + 62.5 + Globals::SCREEN_WIDTH / SCALING)  /*- m_title.getCharacterSize() - Globals::SCREEN_WIDTH / SCALING*/,
-		m_uiBox.getPosition().y - ((Globals::SCREEN_WIDTH / 100)/3)
-	);
-
 	button = new Button();
-	button->setShapeType(new sf::RectangleShape({ m_sceneChange.getLocalBounds().width + 62.5f, m_sceneChange.getLocalBounds().height + 9.75f }));
+	button->setShapeType(new sf::RectangleShape({ Globals::SCREEN_WIDTH / 15, Globals::SCREEN_HEIGHT / 35  }));
 	button->getShape()->setFillColor(m_lightBlue);
 	button->getShape()->setOutlineColor(m_darkBlue);
 	button->getShape()->setOutlineThickness(Globals::SCREEN_WIDTH / 200);
-	button->getShape()->setPosition({ m_sceneChange.getPosition().x , m_sceneChange.getPosition().y + 5.84999990f });
-	button->setText("Edit Tiles");
+	button->getShape()->setPosition({ m_uiBox.getPosition().x + m_uiBox.getSize().x + (m_uiBox.getOutlineThickness() ) , m_sceneChange.getPosition().y - (m_uiBox.getOutlineThickness() * 0.25f) });
+	
 }
 
 void UIEditorBox::setUpRect()

@@ -16,10 +16,10 @@ void SceneManager::switchScene(SceneType t_newScene)
 		//m_currentScene = new MenuScene(m_window);
 		break;
 	case RoomBuilder:
-		m_currentScene = new RoomBuilderScene(m_window);
+		m_currentScene = new RoomBuilderScene(m_window, std::bind(&SceneManager::switchScene, this, std::placeholders::_1));
 		break;
 	case BaseBuilder:
-		m_currentScene = new BaseBuilderScene(m_window);
+		m_currentScene = new BaseBuilderScene(m_window, std::bind(&SceneManager::switchScene, this, std::placeholders::_1));
 		break;
 	case BaseGameplay:
 		m_currentScene = new BaseGameplayScene(m_window);

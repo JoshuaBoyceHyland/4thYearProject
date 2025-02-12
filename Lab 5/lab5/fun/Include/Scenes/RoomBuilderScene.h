@@ -15,7 +15,7 @@
 class RoomBuilderScene : public Scene
 {
 	public:
-		RoomBuilderScene(sf::RenderWindow& t_window);
+		RoomBuilderScene(sf::RenderWindow& t_window, std::function<void(SceneType)> t_sceneChangeFunction);
 
 		~RoomBuilderScene();
 
@@ -36,6 +36,8 @@ class RoomBuilderScene : public Scene
 
 	private:
 
+		void setUpButton(std::function<void(SceneType)> t_sceneChangeFunction);
+
 		sf::RectangleShape m_rect;
 		MovableCamera m_camera;
 		Grid* m_grid;
@@ -44,5 +46,6 @@ class RoomBuilderScene : public Scene
 		
 		MapSaver saver;
 		Room* m_room;
+		Button m_gameplayTransition;
 };
 

@@ -11,11 +11,15 @@ class Button
 
 		void setText(std::string t_string);
 
-		void setFunction(std::function<void(int)> t_function);
+		void setTargetScene(SceneType t_type);
+
+		void setFunction(std::function<void(SceneType)> t_function);
 
 		void setShapeType(sf::Shape* t_shape);
 
 		void scale(float t_scale);
+
+		void holdPosition();
 
 		void checkForInteraction(sf::Vector2f t_position);
 
@@ -31,8 +35,8 @@ class Button
 		sf::Font* m_font;
 		sf::Text m_text;
 		sf::Shape* m_button = nullptr;
-		SceneType targetScene = SceneType::Menu;
-		std::function<void(int)> m_function;
+		SceneType targetScene = SceneType::RoomBuilder;
+		std::function<void(SceneType)> m_swapScene;
 
 };
 

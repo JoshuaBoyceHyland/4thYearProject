@@ -5,17 +5,17 @@ RoomBuilderEditorBox::RoomBuilderEditorBox()
 	m_title.setString(resourceString[m_currentPart]);
 	sf::FloatRect textSize = m_title.getLocalBounds();
 	m_title.setOrigin(textSize.width / 2, textSize.height / 2);
+	button->setText("Edit Tiles");
 	setUpUiSprites();
 }
 
 void RoomBuilderEditorBox::draw(sf::RenderWindow& t_window)
 {
-	//t_window.draw(m_uiBox);
-	//t_window.draw(m_title);
-	//t_window.draw(m_button);
-	//t_window.draw(m_button2);
-	//t_window.draw(m_sceneChangeButton);
-	//t_window.draw(m_sceneChange);
+	t_window.draw(m_uiBox);
+	t_window.draw(m_title);
+	t_window.draw(m_button);
+	t_window.draw(m_button2);
+	t_window.draw(m_sceneChange);
 	button->draw(t_window);
 	for (int i = 0; i < m_uiRooms[m_currentPart].size(); i++)
 	{
@@ -57,7 +57,7 @@ void RoomBuilderEditorBox::checkForInteraction(sf::Vector2f t_mousePosition)
 	m_title.setOrigin(textSize.width / 2, textSize.height / 2);
 
 
-
+	button->checkForInteraction(t_mousePosition);
 	//if (m_sceneChangeButton.getGlobalBounds().contains(t_mousePosition))
 	//{
 	//	std::cout << "scene change" << std::endl;
@@ -124,7 +124,7 @@ Room* RoomBuilderEditorBox::roomSelectionCheck(sf::Vector2f t_mousePosition)
 
 bool RoomBuilderEditorBox::contains(sf::Vector2f t_mousePosition)
 {
-	return m_uiBox.getGlobalBounds().contains(t_mousePosition);
+	return m_uiBox.getGlobalBounds().contains(t_mousePosition) || button->getShape()->getGlobalBounds().contains(t_mousePosition);
 }
 
 void RoomBuilderEditorBox::updatePosition(sf::Vector2f t_position)

@@ -22,7 +22,7 @@ Game::Game() :
 	m_sceneManager(m_window)
 {
 
-	m_sceneManager.switchScene(BaseBuilder);
+	m_sceneManager.switchScene(RoomBuilder);
 	
 }
 

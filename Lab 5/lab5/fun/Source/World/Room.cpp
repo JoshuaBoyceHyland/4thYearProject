@@ -30,11 +30,7 @@ Room::Room(Grid t_grid) : m_grid(t_grid )
 
 void Room::projectOnGrid(Grid* t_backgroundGrid, sf::Vector2f t_mosuePosition)
 {
-    while (!projectedOn.empty())
-    {
-        projectedOn.front()->resetTexture();
-        projectedOn.pop();
-    }
+    cleanUpProjection();
 
     Cell* placingCell = t_backgroundGrid->cellSelection(t_mosuePosition);
 
@@ -77,6 +73,15 @@ void Room::projectOnGrid(Grid* t_backgroundGrid, sf::Vector2f t_mosuePosition)
     }
 
 
+}
+
+void Room::cleanUpProjection()
+{
+    while (!projectedOn.empty())
+    {
+        projectedOn.front()->resetTexture();
+        projectedOn.pop();
+    }
 }
 
 bool Room::emplaceOnGrid(Grid* t_backgroundGrid, sf::Vector2f t_mosuePosition)

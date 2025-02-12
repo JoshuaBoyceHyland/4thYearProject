@@ -1,6 +1,6 @@
 #include "Scenes/BaseBuilderScene.h"
 
-BaseBuilderScene::BaseBuilderScene(sf::RenderWindow& t_window, std::function<void(int)> t_sceneChangeFunction) :
+BaseBuilderScene::BaseBuilderScene(sf::RenderWindow& t_window, std::function<void(SceneType)> t_sceneChangeFunction) :
 Scene(  t_window), 
 m_camera(m_window)
 {
@@ -11,6 +11,13 @@ m_camera(m_window)
 
 	RoomLibrary* library = RoomLibrary::getInstance();
 	m_room = library->getRoom(ResourceType(0), 0);
+
+	m_editor.setButtonFunction(t_sceneChangeFunction);
+}
+
+BaseBuilderScene::~BaseBuilderScene()
+{
+	saver.saveMap(m_grid);
 }
 
 void BaseBuilderScene::update(sf::Time t_deltaTime)
@@ -24,7 +31,7 @@ void BaseBuilderScene::render()
 	m_window.clear();
 	m_grid->draw(m_window);
 	m_editor.draw(m_window);
-	//m_room->draw(m_window);
+	m_room->draw(m_window);
 	m_window.display();
 }
 
@@ -36,10 +43,10 @@ void BaseBuilderScene::processMousePress(sf::Event t_event)
 {
 	if (sf::Mouse::Left == t_event.mouseButton.button)
 	{
+
 		if (m_editor.contains(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window))))
 		{
-			m_editor.checkForInteraction(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)));
-
+			
 			Room* possibleRoom = m_editor.roomSelectionCheck(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)));
 
 			if (possibleRoom != nullptr)
@@ -47,6 +54,8 @@ void BaseBuilderScene::processMousePress(sf::Event t_event)
 				m_room = possibleRoom;
 				m_room->setPosition(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)));
 			}
+
+			m_editor.checkForInteraction(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)));
 		}
 		else
 		{
