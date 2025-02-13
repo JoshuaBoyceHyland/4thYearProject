@@ -3,7 +3,7 @@
 void MapSaver::saveMap(Grid* t_grid)
 {
 	std::ofstream file;
-	file.open("map.txt");
+	file.open("og.txt");
 
 	if (file.is_open())
 	{

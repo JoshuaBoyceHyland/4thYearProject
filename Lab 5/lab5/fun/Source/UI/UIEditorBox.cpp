@@ -36,7 +36,7 @@ void UIEditorBox::SetUpText()
 	button->getShape()->setFillColor(m_lightBlue);
 	button->getShape()->setOutlineColor(m_darkBlue);
 	button->getShape()->setOutlineThickness(Globals::SCREEN_WIDTH / 200);
-	button->getShape()->setPosition({ m_uiBox.getPosition().x + m_uiBox.getSize().x + (m_uiBox.getOutlineThickness() ) , m_sceneChange.getPosition().y - (m_uiBox.getOutlineThickness() * 0.25f) });
+	button->getShape()->setPosition({ -200 , -400 });
 	
 }
 

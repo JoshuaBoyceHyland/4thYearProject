@@ -24,6 +24,7 @@ void BaseBuilderScene::update(sf::Time t_deltaTime)
 {
 	m_camera.update();
 	m_editor.updatePosition(m_window.mapPixelToCoords({ 0,0 }));
+	
 }
 
 void BaseBuilderScene::render()
@@ -31,7 +32,6 @@ void BaseBuilderScene::render()
 	m_window.clear();
 	m_grid->draw(m_window);
 	m_editor.draw(m_window);
-	m_room->draw(m_window);
 	m_window.display();
 }
 
@@ -60,6 +60,7 @@ void BaseBuilderScene::processMousePress(sf::Event t_event)
 		else
 		{
 			m_room->emplaceOnGrid(m_grid, m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)));
+			saver.saveMap(m_grid);
 		}
 
 		

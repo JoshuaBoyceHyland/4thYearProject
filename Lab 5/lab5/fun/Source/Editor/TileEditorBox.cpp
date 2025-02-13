@@ -99,8 +99,8 @@ void TileEditorBox::updatePosition(sf::Vector2f t_position)
 
 	m_button.setPosition({ m_uiBox.getPosition().x + ( m_uiBox.getSize().x * m_uiBox.getScale().x) - ( (Globals::SCREEN_WIDTH / 200) * m_uiBox.getScale().x) , m_title.getPosition().y });
 	m_button2.setPosition({ m_uiBox.getPosition().x + ((Globals::SCREEN_WIDTH / 200) * m_uiBox.getScale().x)  , m_title.getPosition().y + (20 * m_uiBox.getScale().y)  });
-
-
+	//button->getShape()->setPosition({ m_uiBox.getPosition().x + m_uiBox.getSize().x + (m_uiBox.getOutlineThickness()) , m_sceneChange.getPosition().y - (m_uiBox.getOutlineThickness() * 0.25f) });
+	button->getShape()->setPosition({ -200 , -400 });
 	for (int i = 0; i < m_uiSprites.size(); i++)
 	{
 		sf::Vector2f pos = { m_uiBox.getPosition().x + ((m_uiBox.getSize().x / 2) * m_uiBox.getScale().x),  m_uiBox.getPosition().y + 200 * m_uiBox.getScale().y };

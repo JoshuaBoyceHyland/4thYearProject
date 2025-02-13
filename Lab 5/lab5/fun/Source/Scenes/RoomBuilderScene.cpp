@@ -148,7 +148,8 @@ void RoomBuilderScene::setUpButton(std::function<void(SceneType)> t_sceneChangeF
 	m_gameplayTransition.getShape()->setFillColor(sf::Color(209, 255, 255));
 	m_gameplayTransition.getShape()->setOutlineColor(sf::Color(14, 34, 99));
 	m_gameplayTransition.getShape()->setOutlineThickness(Globals::SCREEN_WIDTH / 200);
-	m_gameplayTransition.getShape()->setPosition({ Globals::SCREEN_WIDTH  - Globals::SCREEN_WIDTH / 15 - Globals::SCREEN_WIDTH / 200, Globals::SCREEN_HEIGHT - Globals::SCREEN_HEIGHT / 35 -Globals::SCREEN_WIDTH / 200 });
 
+	m_gameplayTransition.getShape()->setPosition({ -200, -600 });
 	m_gameplayTransition.setText("Gameplay");
+	
 }

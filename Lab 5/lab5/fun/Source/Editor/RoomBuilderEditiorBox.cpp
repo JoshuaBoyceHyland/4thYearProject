@@ -19,7 +19,7 @@ void RoomBuilderEditorBox::draw(sf::RenderWindow& t_window)
 	button->draw(t_window);
 	for (int i = 0; i < m_uiRooms[m_currentPart].size(); i++)
 	{
-		//m_uiRooms[m_currentPart][i].draw(t_window);
+		m_uiRooms[m_currentPart][i].draw(t_window);
 	}
 }
 
@@ -145,7 +145,9 @@ void RoomBuilderEditorBox::updatePosition(sf::Vector2f t_position)
 	m_button.setPosition({ m_uiBox.getPosition().x + (m_uiBox.getSize().x * m_uiBox.getScale().x) - ((Globals::SCREEN_WIDTH / 200) * m_uiBox.getScale().x) , m_title.getPosition().y });
 	m_button2.setPosition({ m_uiBox.getPosition().x + ((Globals::SCREEN_WIDTH / 200) * m_uiBox.getScale().x)  , m_title.getPosition().y + (20 * m_uiBox.getScale().y) });
 	//m_sceneChangeButton.setPosition({ m_sceneChange.getPosition().x , m_sceneChange.getPosition().y + m_sceneChange.getLocalBounds().height * 0.45f });
-
+	//button->getShape()->setPosition({ m_uiBox.getPosition().x + m_uiBox.getSize().x + (m_uiBox.getOutlineThickness()) , m_sceneChange.getPosition().y - (m_uiBox.getOutlineThickness() * 0.25f) });
+	button->getShape()->setPosition({ -200 , -400 });
+	
 	for (int i = 0; i < m_uiRooms.size(); i++)
 	{
 		sf::Vector2f pos = { m_uiBox.getPosition().x + ((m_uiBox.getSize().x / 2) * m_uiBox.getScale().x),  m_uiBox.getPosition().y + 200 * m_uiBox.getScale().y };
