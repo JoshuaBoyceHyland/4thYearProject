@@ -17,6 +17,10 @@ void Agent::update(float t_deltaTime)
     {
         followPath(t_deltaTime);
     }
+    else
+    {
+        m_direction = { 0, 0 };
+    }
 }
 
 
@@ -25,9 +29,9 @@ void Agent::followPath(float t_deltaTime)
 {
 
     m_map->m_cells[m_target->m_row][m_target->m_column].setColor(sf::Color::Yellow);
-    sf::Vector2f t_direction = VectorMath::directionVector( m_position, m_target->getPosition());
+    m_direction = VectorMath::directionVector( m_position, m_target->getPosition());
 
-    m_position += t_direction * m_speed;
+    m_position += m_direction * m_speed;
 
 
     if (VectorMath::vectorLength(m_position, m_target->getPosition()) < 2.5)

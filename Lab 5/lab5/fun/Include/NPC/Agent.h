@@ -27,7 +27,7 @@ class Agent
 		std::queue<Node*> m_previousPath;
 		std::deque<Node*> m_currentPath;
 		
-
+		sf::Vector2f m_direction = { 0,0 };
 		bool m_hasTarget = false;
 		Node* m_target = nullptr;
 		Node* m_currentNode = nullptr;

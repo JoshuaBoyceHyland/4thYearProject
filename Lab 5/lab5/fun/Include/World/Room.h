@@ -38,6 +38,7 @@ class Room
 
 
 		std::queue<Cell*> projectedOn;
+
 		Grid m_grid;
 
 };

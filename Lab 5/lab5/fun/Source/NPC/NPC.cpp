@@ -23,6 +23,29 @@ void NPC::update(float deltatime)
 	//	
 	//}
 
+	m_animator.animate();
+
+	if (m_behaviour.m_agent.m_direction.x != 0)
+	{
+		if (m_behaviour.m_agent.m_direction.x > 0)
+		{
+			m_animator.m_sprite.setScale(1, 1);
+		}
+		else
+		{
+			m_animator.m_sprite.setScale(-1, 1);
+		}
+	}
+
+	if (m_behaviour.m_agent.m_direction.x == 0 && m_behaviour.m_agent.m_direction.y == 0)
+	{
+		m_animator.m_currentState = 0;
+	}
+	else
+	{
+		m_animator.m_currentState = 1;
+	}
+
 	m_animator.m_sprite.setPosition(m_behaviour.m_agent.m_position);
 
 }
