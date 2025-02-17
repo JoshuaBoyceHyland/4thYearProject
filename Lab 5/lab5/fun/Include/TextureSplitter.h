@@ -4,6 +4,6 @@
 class TextureSplitter
 {
 	public:
-		std::vector<sf::Texture> splitTextureIntoCells(sf::Texture* t_texture, float t_cellWidth, float t_cellHeight);
+		std::vector<sf::Texture> translateTextureToGrid(sf::Texture* t_texture, float t_cellWidth, float t_cellHeight);
 };
 

@@ -1,7 +1,7 @@
 #include "TextureSplitter.h"
 
 
-std::vector<sf::Texture> TextureSplitter::splitTextureIntoCells(sf::Texture* t_texture, float t_cellWidth, float t_cellHeight)
+std::vector<sf::Texture> TextureSplitter::translateTextureToGrid(sf::Texture* t_texture, float t_cellWidth, float t_cellHeight)
 {
 	float textureWidth = t_texture->getSize().x;
 	float textureHeight = t_texture->getSize().y;

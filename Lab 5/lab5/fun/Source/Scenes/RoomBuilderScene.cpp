@@ -7,9 +7,8 @@ m_camera(m_window)
 	GameData* gameData = GameData::getInstance();
 	
 	m_grid = gameData->m_currentMap;
-	saver.loadMap(m_grid);
+	//saver.loadMap(m_grid);
 
-	RoomLibrary* library = RoomLibrary::getInstance();
 	m_editorBox.setButtonFunction(t_sceneChangeFunction);
 	setUpButton(t_sceneChangeFunction);
 
