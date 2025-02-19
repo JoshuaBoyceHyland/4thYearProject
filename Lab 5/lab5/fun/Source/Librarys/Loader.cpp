@@ -67,37 +67,23 @@ std::vector<Texture*> Loader::loadAllTexturesInFile(std::string t_path)
 	return textures;
 }
 
-std::vector<Texture*> Loader::splitAndLoadTexture(std::string t_path, float t_cellWidth, float t_cellHeight)
-{
-	std::vector<Texture*> splitTextures;
-	// load texture
-	Texture* texture = loadTexture(t_path);
 
-	splitImage(texture, t_path, t_cellWidth, t_cellHeight);
-
-	for (int i = 0; i < m_splitTextures[t_path].size(); i++)
-	{
-		splitTextures.push_back(&m_splitTextures[t_path][i]);
-	}
-
-	return splitTextures;
-}
-
-std::vector<std::vector<Texture*>> Loader::loadAllTexturesInFileSplit(std::string t_path, float t_cellWidth, float t_cellHeight)
+std::vector<std::vector<Texture*>> Loader::splitAllTexturesInFile(std::string t_path, float t_cellWidth, float t_cellHeight)
 {
 
 	std::vector<Texture*> textures = loadAllTexturesInFile(t_path);
-
-	std::vector<std::vector<sf::Texture*>> splitTexttures;
+	std::vector<std::string> fileNames = FileReading::getAllInFile(t_path);
+	std::vector<std::vector<Texture*>> vectorOfSplitTextures;
 
 	for (int i = 0; i < textures.size(); i++)
 	{
-		splitTexttures.push_back(std::vector<sf::Texture*>());
-		//splitTexttures[i].push_back( splitImage)
+		splitImage(textures[i], t_path + fileNames[i], 32, 32);
+
+		//vectorOfSplitTextures.push_back(m_splitTextures[t_path + fileNames[i]]);
 	}
 
 
-	return std::vector<std::vector<Texture*>>();
+	return vectorOfSplitTextures;
 }
 
 void Loader::splitImage(Texture* t_texture, std::string t_path, float t_cellWidth, float t_cellHeight)
@@ -119,13 +105,15 @@ void Loader::splitImage(Texture* t_texture, std::string t_path, float t_cellWidt
 
 		for (int column = 0; column < columnsNeeded; column++)
 		{
+			m_splitTextures[t_path].push_back(std::vector<Texture>());
+
 			for (int row = 0; row < rowsNeeded; row++)
 			{
 				Texture newTexture;
 				sf::IntRect imageArea = sf::IntRect(startX, startY, t_cellWidth, t_cellWidth);
 
 				newTexture.texture.loadFromImage(image, imageArea);
-				m_splitTextures[t_path].push_back(newTexture);
+				m_splitTextures[t_path][row].push_back(newTexture);
 
 				startX += 32;
 			}

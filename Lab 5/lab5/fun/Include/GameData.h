@@ -16,6 +16,8 @@ class GameData
 
 		Grid* m_currentMap;
 
+		
+
 		Ship* getPlayerShip();
 
 	private:

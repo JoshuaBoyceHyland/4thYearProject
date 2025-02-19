@@ -43,7 +43,7 @@ class RoomBuilderScene : public Scene
 		Grid* m_grid;
 		Tile* m_selectedTiles = nullptr;
 		TileEditorBox m_editorBox;
-		
+		Grid* test;
 		MapSaver saver;
 		Room* m_room;
 		Button m_gameplayTransition;

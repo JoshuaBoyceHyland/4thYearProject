@@ -57,16 +57,9 @@ class Loader
 		/// </summary>
 		/// <param name="t_path">Path to folder with pngs</param>
 		/// <returns>A vector of textures</returns>
-		std::vector<std::vector<Texture*>> loadAllTexturesInFileSplit(std::string t_path, float t_cellWidth, float t_cellHeight);
+		std::vector<std::vector<Texture*>> splitAllTexturesInFile(std::string t_path, float t_cellWidth, float t_cellHeight);
 
-		/// <summary>
-		/// Splits and loads a texture
-		/// </summary>
-		/// <param name="t_path"></param>
-		/// <returns></returns>
-		std::vector<Texture*> splitAndLoadTexture(std::string t_path, float t_cellWidth, float t_cellHeight);
 
-		  
 	private:
 		/// <summary>
 		/// Private constructor so it can only created be internally by the getInstance function if needed to.
@@ -97,10 +90,9 @@ class Loader
 		/// </summary>
 		std::map < std::string, Texture> m_textures;
 
-
 		/// <summary>
 		/// /Map of split textures, where each texture has a associated string key, the string being a file location of the texture. This allows the loadtexture function to see if te texture has been previously loaded.
 		/// </summary>
-		std::map < std::string, std::vector<Texture>> m_splitTextures;
+		std::map < std::string, std::vector<std::vector<Texture>>> m_splitTextures;
 };
 

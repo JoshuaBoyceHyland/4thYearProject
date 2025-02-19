@@ -30,5 +30,7 @@ std::vector<sf::Texture> TextureSplitter::translateTextureToGrid(sf::Texture* t_
 		startX = 0;
 		startY += 32;
 	}
+
+
 	return textures;
 }

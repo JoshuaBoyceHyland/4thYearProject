@@ -12,7 +12,9 @@ m_camera(m_window)
 	m_editorBox.setButtonFunction(t_sceneChangeFunction);
 	setUpButton(t_sceneChangeFunction);
 
+	TileLibrary* tile = TileLibrary::getInstance();
 
+	test = &tile->temp1[0];
 }
 
 RoomBuilderScene::~RoomBuilderScene()
@@ -42,6 +44,7 @@ void RoomBuilderScene::render()
 	t.setRadius(10);
 	t.setOrigin({ 5, 5 });
 	m_window.clear();
+	
 	m_grid->draw(m_window);
 	m_editorBox.draw(m_window);
 	m_gameplayTransition.draw(m_window);
@@ -50,6 +53,8 @@ void RoomBuilderScene::render()
 		m_selectedTiles->draw(m_window);
 	}
 
+	
+	test->draw(m_window);
 	m_window.draw(t);
 	m_window.display();
 }
@@ -121,6 +126,7 @@ void RoomBuilderScene::processMouseMove(sf::Event t_event)
 {
 
 	m_camera.move();
+	
 	if (m_selectedTiles != nullptr)
 	{
 		m_selectedTiles->setPosition(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)));
