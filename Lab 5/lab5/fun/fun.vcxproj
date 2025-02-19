@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Include\BasePlayer.h" />
     <ClInclude Include="Include\Scenes\SceneTypes.h" />
     <ClInclude Include="Include\UI\Button.h" />
     <ClInclude Include="Include\Scenes\BaseBuilderScene.h" />
@@ -120,6 +121,7 @@
     <None Include="map.json" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\BasePlayer.cpp" />
     <ClCompile Include="Source\UI\Button.cpp" />
     <ClCompile Include="Source\Scenes\BaseBuilderScene.cpp" />
     <ClCompile Include="Source\Editor\TileEditorBox.cpp" />

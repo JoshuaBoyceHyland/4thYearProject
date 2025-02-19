@@ -4,6 +4,7 @@
 #include "World/Grid.h"
 #include "MovableCamera.h"
 #include "NPC/NPC.h"
+#include "BasePlayer.h"
 class BaseGameplayScene : public Scene
 {
 
@@ -21,6 +22,7 @@ class BaseGameplayScene : public Scene
 
 	private:
 		Grid* m_grid;
+		BasePlayer* m_player;
 		MovableCamera m_camera;
 		std::vector<NPC*> m_npc;
 };

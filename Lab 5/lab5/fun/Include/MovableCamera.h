@@ -8,14 +8,16 @@ class MovableCamera
 	public:
 
 		MovableCamera(sf::RenderWindow& t_window);
+
 		void update();
 
 		void startMove();
 		
 		void move();
 
-
 		void endMove();
+
+		void follow(sf::Vector2f t_position);
 
 		float zoom(float t_mouseWheelDelta);
 

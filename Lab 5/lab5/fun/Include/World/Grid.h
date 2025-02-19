@@ -1,6 +1,5 @@
 #pragma once
-#include "Cell.h"
-//#include"Search.h"
+#include"Tile.h"
 class Grid
 {
 	public:

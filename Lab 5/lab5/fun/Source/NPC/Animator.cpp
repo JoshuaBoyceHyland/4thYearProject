@@ -1,11 +1,11 @@
 #include "NPC/Animator.h"
 
-Animator::Animator()
+Animator::Animator(std::string t_texturesPath)
 {
 	Loader* loader = Loader::getInstance();
 	
-	m_animations.push_back(loader->loadAllTexturesInFile("ASSETS/IMAGES/NPC/1/Idle"));
-	m_animations.push_back(loader->loadAllTexturesInFile("ASSETS/IMAGES/NPC/1/Run"));
+	m_animations.push_back(loader->loadAllTexturesInFile(t_texturesPath + "/Idle"));
+	m_animations.push_back(loader->loadAllTexturesInFile(t_texturesPath + "/Run"));
 
 	float spriteWidth = m_animations[0].m_sprites[0]->texture.getSize().x ;
 	float spriteHeight = m_animations[0].m_sprites[0]->texture.getSize().y ;

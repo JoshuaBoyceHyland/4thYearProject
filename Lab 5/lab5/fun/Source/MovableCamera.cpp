@@ -47,6 +47,12 @@ void MovableCamera::endMove()
 	m_mouseDown = false;
 }
 
+void MovableCamera::follow(sf::Vector2f t_position)
+{
+
+	m_camera.setCenter(t_position);
+}
+
 float MovableCamera::zoom(float t_mouseWheelDelta)
 {
 	float zoomValue = 1;

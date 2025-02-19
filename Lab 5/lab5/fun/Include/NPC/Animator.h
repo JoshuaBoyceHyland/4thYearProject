@@ -23,12 +23,12 @@ class Animator
 {
 
 	public:
-		Animator();
+		Animator(std::string t_texturesPath);
 
 		sf::Sprite m_sprite;
 
 		void animate();
-		int m_currentState = 1;
+		int m_currentState = 0;
 
 
 	private:

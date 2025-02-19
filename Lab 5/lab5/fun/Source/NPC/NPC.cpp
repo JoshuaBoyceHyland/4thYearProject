@@ -1,6 +1,8 @@
 #include "NPC/NPC.h"
 
-NPC::NPC(Grid* t_map, sf::Vector2f t_position) :  m_behaviour( t_map, t_position)
+NPC::NPC(Grid* t_map, sf::Vector2f t_position) :  
+m_behaviour( t_map, t_position), 
+m_animator("ASSETS/IMAGES/NPC/1")
 {
 	
 	

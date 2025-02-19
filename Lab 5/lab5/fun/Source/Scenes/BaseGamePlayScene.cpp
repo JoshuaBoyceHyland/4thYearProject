@@ -3,11 +3,12 @@
 BaseGameplayScene::BaseGameplayScene(sf::RenderWindow& t_window) :
 	Scene(t_window),
 	m_camera(m_window)
+	
 {
 	GameData* gamedata = GameData::getInstance();
 	m_grid = gamedata->m_currentMap;
 	m_grid->setForGamePlay();
-
+	m_player = new BasePlayer(m_grid);
 	for (int i = 0; i < 10; i++)
 	{
 		m_npc.push_back(new NPC(m_grid, { 2500, 900 }));
@@ -23,7 +24,8 @@ void BaseGameplayScene::update(sf::Time t_deltaTime)
 	{
 		m_npc[i]->update(t_deltaTime.asMilliseconds());
 	}
-	
+	m_player->update(t_deltaTime.asMilliseconds());
+	m_camera.follow(m_player->getPosition());
 	m_camera.update();
 }
 
@@ -35,6 +37,7 @@ void BaseGameplayScene::render()
 	{
 		m_npc[i]->draw(m_window);
 	}
+	m_player->draw(m_window);
 	m_window.display();
 }
 
@@ -48,7 +51,7 @@ void BaseGameplayScene::processMousePress(sf::Event t_event)
 
 	if (sf::Mouse::Middle == t_event.mouseButton.button)
 	{
-		m_camera.startMove();
+		//m_camera.startMove();
 	}
 
 
@@ -69,13 +72,13 @@ void BaseGameplayScene::processMouseRelease(sf::Event t_event)
 {
 	if (sf::Mouse::Middle == t_event.mouseButton.button)
 	{
-		m_camera.endMove();
+		//m_camera.endMove();
 	}
 }
 
 void BaseGameplayScene::processMouseMove(sf::Event t_event)
 {
-	m_camera.move();
+	//m_camera.move();
 }
 
 void BaseGameplayScene::processMouseWheel(sf::Event t_event)
