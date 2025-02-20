@@ -1,11 +1,12 @@
 #include "Job.h"
 
-Job::Job(Texture* t_texture)
+
+Job::Job(Texture* t_texture, sf::Vector2f t_position)
 {
 	setTexture(t_texture);
 
-	m_sprite.setOrigin(t_texture->texture.getSize().x / 2, t_texture->texture.getSize().y );
-	m_sprite.setPosition(0,0);
+	m_sprite.setOrigin(t_texture->texture.getSize().x / 2, t_texture->texture.getSize().y  * 1.25);
+	m_sprite.setPosition(t_position);
 }
 
 Job::Job(std::string t_name, sf::Vector2f t_position) : m_name(t_name)

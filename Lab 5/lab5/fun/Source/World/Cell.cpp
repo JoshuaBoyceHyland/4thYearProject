@@ -55,6 +55,10 @@ void Cell::reset()
 	m_body.setOutlineThickness(2.5f);
 	m_body.setTexture(nullptr);
 	m_text.setString(m_cellPropertyString[m_property]);
+
+	delete m_cellJob;
+
+	m_cellJob = nullptr;
 }
 
 //Cell::Cell(const Cell& t_other)

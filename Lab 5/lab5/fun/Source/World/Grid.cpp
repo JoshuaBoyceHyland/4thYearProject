@@ -122,6 +122,7 @@ void Grid::placePiece(sf::Vector2f t_mouseCLick,Tile* t_tile)
 	
 		selectedCell->m_cellJob = new Job(*t_tile->m_cells[0].m_cellJob);
 		selectedCell->m_cellJob->m_sprite.setPosition(selectedCell->m_body.getPosition());
+
 		
 	}
 	selectedCell->setProperty(t_tile->m_property);

@@ -5,8 +5,10 @@
 class Job
 {
 	public:
-		Job(Texture* t_texture);
+		Job(Texture* t_texture, sf::Vector2f t_position = { -100, -100});
+
 		Job(std::string t_name, sf::Vector2f t_position);
+
 
 		void draw(sf::RenderWindow& t_window);
 		
@@ -14,6 +16,8 @@ class Job
 
 		Texture* getTexture() { return m_texture; };
 		sf::Sprite m_sprite;
+
+
 	private:
 
 		Texture* m_texture;

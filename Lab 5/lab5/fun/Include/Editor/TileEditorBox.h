@@ -22,12 +22,14 @@ class TileEditorBox : public UIEditorBox
 
 		void updateScale(float t_scale);
 
+		TraversalProperty m_currentPart = TraversalProperty::Walkable;
+
 	private:
 
 		void setUpUiSprites() override;
 
 
-		TraversalProperty m_currentPart = TraversalProperty::Walkable;
+		
 
 		const int NUM_OF_SECTIONS = 3;
 

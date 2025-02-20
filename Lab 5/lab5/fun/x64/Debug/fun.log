@@ -1,36 +1,40 @@
-﻿  Grid.cpp
+﻿  TileEditorBox.cpp
 C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Librarys\Loader.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Grid.cpp(36,10): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Grid.cpp(36,10): warning C4244:         with
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Grid.cpp(36,10): warning C4244:         [
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Grid.cpp(36,10): warning C4244:             T=float
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Grid.cpp(36,10): warning C4244:         ]
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Grid.cpp(37,13): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Grid.cpp(37,13): warning C4244:         with
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Grid.cpp(37,13): warning C4244:         [
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Grid.cpp(37,13): warning C4244:             T=float
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Grid.cpp(37,13): warning C4244:         ]
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Grid.cpp(65,10): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Grid.cpp(65,10): warning C4244:         with
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Grid.cpp(65,10): warning C4244:         [
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Grid.cpp(65,10): warning C4244:             T=float
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Grid.cpp(65,10): warning C4244:         ]
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Grid.cpp(66,13): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Grid.cpp(66,13): warning C4244:         with
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Grid.cpp(66,13): warning C4244:         [
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Grid.cpp(66,13): warning C4244:             T=float
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Grid.cpp(66,13): warning C4244:         ]
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Grid.cpp(152,10): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Grid.cpp(152,10): warning C4244:         with
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Grid.cpp(152,10): warning C4244:         [
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Grid.cpp(152,10): warning C4244:             T=float
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Grid.cpp(152,10): warning C4244:         ]
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Grid.cpp(153,13): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Grid.cpp(153,13): warning C4244:         with
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Grid.cpp(153,13): warning C4244:         [
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Grid.cpp(153,13): warning C4244:             T=float
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Grid.cpp(153,13): warning C4244:         ]
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Grid.cpp(383,21): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Game.cpp
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Utility\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Librarys\Loader.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\NPC\Animator.h(13,81): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  RoomBuilderScene.cpp
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Utility\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Librarys\Loader.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\Scenes\RoomBuilderScene.cpp(142,14): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  SceneManager.cpp
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Utility\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Librarys\Loader.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\NPC\Animator.h(13,81): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Cell.cpp
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Librarys\Loader.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Cell.cpp(213,45): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Cell.cpp(213,45): warning C4244:         with
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Cell.cpp(213,45): warning C4244:         [
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Cell.cpp(213,45): warning C4244:             T=float
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Cell.cpp(213,45): warning C4244:         ]
+  main.cpp
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Utility\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Librarys\Loader.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\NPC\Animator.h(13,81): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\main.cpp(34,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Generating Code...
   fun.vcxproj -> C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\x64\Debug\fun.exe

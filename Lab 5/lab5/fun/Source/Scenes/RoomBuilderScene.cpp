@@ -7,7 +7,7 @@ m_camera(m_window)
 	GameData* gameData = GameData::getInstance();
 	
 	m_grid = gameData->m_currentMap;
-	saver.loadMap(m_grid);
+	saver.loadMapJson(m_grid);
 
 	RoomLibrary* library = RoomLibrary::getInstance();
 	m_editorBox.setButtonFunction(t_sceneChangeFunction);
@@ -84,10 +84,16 @@ void RoomBuilderScene::processMousePress(sf::Event t_event)
 		}
 		else if (m_selectedTiles != nullptr)
 		{
-			m_grid->placePiece(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)), m_selectedTiles);
+
+		
+				m_grid->placePiece(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)), m_selectedTiles);
+			
+		
+			
 
 
 			saver.saveMap(m_grid);
+			saver.saveMapJson(m_grid);
 		}
 		
 	}
@@ -99,9 +105,10 @@ void RoomBuilderScene::processMousePress(sf::Event t_event)
 
 	if (sf::Mouse::Right == t_event.mouseButton.button)
 	{
-		std::vector<Texture*> null;
-		null.push_back(nullptr);
+
+	
 		m_grid->deletePiece(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)));
+
 	}
 	
 	

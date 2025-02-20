@@ -14,6 +14,16 @@ BaseGameplayScene::BaseGameplayScene(sf::RenderWindow& t_window) :
 		m_npc.push_back(new NPC(m_grid, { 2500, 900 }));
 	}
 	
+	for (int row = 0; row < m_grid->m_cells.size(); row++)
+	{
+		for (int column = 0; column < m_grid->m_cells[row].size(); column++)
+		{
+			if (m_grid->m_cells[row][column].m_cellJob != nullptr)
+			{
+				jobs.push_back(m_grid->m_cells[row][column].m_cellJob);
+			}
+		}
+	}
 }
 
 
@@ -24,6 +34,10 @@ void BaseGameplayScene::update(sf::Time t_deltaTime)
 	{
 		m_npc[i]->update(t_deltaTime.asMilliseconds());
 	}
+
+	
+
+
 	m_player->update(t_deltaTime.asMilliseconds());
 	m_camera.follow(m_player->getPosition());
 	m_camera.update();
