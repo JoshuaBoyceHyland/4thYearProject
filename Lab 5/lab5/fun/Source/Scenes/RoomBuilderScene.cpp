@@ -84,7 +84,9 @@ void RoomBuilderScene::processMousePress(sf::Event t_event)
 		}
 		else if (m_selectedTiles != nullptr)
 		{
-			m_grid->placePiece(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)), m_selectedTiles->m_textures, m_selectedTiles->m_property);
+			m_grid->placePiece(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)), m_selectedTiles);
+
+
 			saver.saveMap(m_grid);
 		}
 		

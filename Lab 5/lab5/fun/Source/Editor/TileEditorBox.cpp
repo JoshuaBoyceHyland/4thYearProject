@@ -142,8 +142,15 @@ void TileEditorBox::setUpUiSprites()
 
 		for (int k = 0; k < library->m_quantity[TraversalProperty(section)]; k++)
 		{
+
+
 			Texture* texture = library->getTile(TraversalProperty(section), k)->m_textures[0];
 			
+			if (texture == nullptr)
+			{
+				texture = library->getTile(TraversalProperty(section), k)->m_cells[0].m_cellJob->getTexture();
+			}
+
 			m_uiSprites[section].push_back( sf::Sprite(texture->texture) );
 			m_uiSprites[section][k].setPosition(pos);
 			m_uiSprites[section][k].setOrigin({ (float)(*texture).texture.getSize().x / 2,(float)(float)(*texture).texture.getSize().y / 2 });

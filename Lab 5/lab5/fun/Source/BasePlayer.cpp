@@ -50,8 +50,9 @@ void BasePlayer::input(float t_deltaTime)
 		m_animator.m_currentState = 0;
 	}
 
-
-	Cell* projectedCell = m_map->cellSelection(m_animator.m_sprite.getPosition() +m_direction);
+	sf::Vector2f projectedLocation = { m_direction.x * (m_animator.m_sprite.getTexture()->getSize().x / 2), m_direction.y * ( m_animator.m_sprite.getTexture()->getSize().y)};
+	
+	Cell* projectedCell = m_map->cellSelection(m_animator.m_sprite.getPosition() + m_direction);
 
 	if (projectedCell->getProperty() != TraversalProperty::Unwalkable)
 	{

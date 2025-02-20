@@ -1,11 +1,16 @@
 #pragma once
 #include "Cell.h"
 #include "Utility/Texture.h"
+
 class Tile
 {
 
 	public:
+
+
 		Tile(Texture* t_texture, float t_width, float t_height);
+
+		Tile(Texture* t_texture, Texture* t_jobTexture, float t_width, float t_height);
 
 		Tile(std::vector<Texture*> t_texture, float t_width, float t_height, int t_rows, int t_colums);
 

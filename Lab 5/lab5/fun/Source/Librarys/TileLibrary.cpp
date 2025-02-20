@@ -31,16 +31,33 @@ void TileLibrary::loadTextures()
 
     for (int i = 0; i < types.size(); i++)
     {
-        std::string folderPath = basePath + m_cellPropertyString[types[i]];
-        std::vector<Texture*> textures = loader->loadAllTexturesInFile(folderPath);
-
-        for (int k = 0; k < textures.size(); k++)
+        if (types[i] != TraversalProperty::Job)
         {
-            m_quantity[types[i]]++;
+            std::string folderPath = basePath + m_cellPropertyString[types[i]];
+            std::vector<Texture*> textures = loader->loadAllTexturesInFile(folderPath);
 
-            m_tiles[types[i]].push_back({ textures[k], 100, 100 });
-            m_tiles[types[i]][k].m_property = types[i];
+            for (int k = 0; k < textures.size(); k++)
+            {
+                m_quantity[types[i]]++;
+
+                m_tiles[types[i]].push_back({ textures[k], 100, 100 });
+                m_tiles[types[i]][k].m_property = types[i];
+            }
         }
+        else
+        {
+            std::string folderPath = basePath + m_cellPropertyString[types[i]];
+            std::vector<Texture*> textures = loader->loadAllTexturesInFile(folderPath);
+
+            for (int k = 0; k < textures.size(); k++)
+            {
+                m_quantity[types[i]]++;
+
+                m_tiles[types[i]].push_back({ nullptr, textures[k], 100, 100 });
+                m_tiles[types[i]][k].m_property = types[i];
+            }
+        }
+
     }
    
 }

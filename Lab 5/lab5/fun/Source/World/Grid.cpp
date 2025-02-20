@@ -106,23 +106,27 @@ void Grid::deletePiece(sf::Vector2f t_mouseCLick)
 	selectedCell->reset();
 }
 
-void Grid::placePiece(sf::Vector2f t_mouseCLick, std::vector<Texture*> t_textures, TraversalProperty t_property)
+void Grid::placePiece(sf::Vector2f t_mouseCLick,Tile* t_tile)
 {
 	Cell* selectedCell = cellSelection(t_mouseCLick);
 	if (selectedCell == nullptr) { return; }
 
 
-	if (t_textures[0] != nullptr)
+	if (t_tile->m_textures[0] != nullptr)
 	{
 		selectedCell->setColor(sf::Color::White);
+		selectedCell->setTexture(t_tile->m_textures[0]);
 	}
 	else
 	{
-		selectedCell->setColor(sf::Color::Black);
-	}
 	
-	selectedCell->setTexture(t_textures[0]);
-	selectedCell->setProperty(t_property);
+		selectedCell->m_cellJob = new Job(*t_tile->m_cells[0].m_cellJob);
+		selectedCell->m_cellJob->m_sprite.setPosition(selectedCell->m_body.getPosition());
+		
+	}
+	selectedCell->setProperty(t_tile->m_property);
+
+	
 
 }
 

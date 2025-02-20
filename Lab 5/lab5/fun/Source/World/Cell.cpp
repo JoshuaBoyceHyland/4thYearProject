@@ -78,12 +78,21 @@ void Cell::reset()
 
 void Cell::draw(sf::RenderWindow& t_window)
 {
+
+
 	t_window.draw(m_body);
+
+	if (m_cellJob != nullptr)
+	{
+		m_cellJob->draw(t_window);
+	}
 
 	if (m_textActive)
 	{
 		t_window.draw(m_text);
 	}
+
+	
 	
 }
 
@@ -103,6 +112,12 @@ void Cell::setPosition(sf::Vector2f t_position)
 {
 	m_position = t_position;
 	m_body.setPosition(m_position);
+
+	if (m_cellJob != nullptr)
+	{
+		m_cellJob->m_sprite.setPosition(m_position);
+	}
+	
 }
 
 void Cell::setTexture(Texture* t_texture)
@@ -134,6 +149,11 @@ void Cell::project(Texture* t_texture)
 	m_body.setTexture(&t_texture->texture);
 	m_body.setFillColor(sf::Color::White);
 	m_body.setOutlineThickness(0.0f);
+}
+
+void Cell::project(Job* t_job)
+{
+	m_cellJob->m_sprite.setTexture( t_job->getTexture()->texture);
 }
 
 void Cell::resetTexture()

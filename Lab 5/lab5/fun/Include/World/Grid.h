@@ -18,7 +18,7 @@ class Grid
 
 		void deletePiece(sf::Vector2f t_mouseCLick);
 
-		void placePiece(sf::Vector2f t_mouseCLick, std::vector<Texture*> t_textures, TraversalProperty t_property);
+		void placePiece(sf::Vector2f t_mouseCLick, Tile* t_tile);
 
 		void placePropertys(Cell* selectedCell, std::vector<Texture*> t_textures, TraversalProperty t_property);
 

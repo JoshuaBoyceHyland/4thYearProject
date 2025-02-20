@@ -2,7 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "Librarys/Loader.h"
 #include "World/Node.h"
-
+#include "Job.h"
 
 
 enum class TraversalProperty { Walkable, Unwalkable, Job };
@@ -31,6 +31,8 @@ class Cell
 
 		void project(Texture* t_texture);
 
+		void project(Job* t_job);
+
 		void resetTexture();
 
 		void enableText(bool t_enabled) { m_textActive = t_enabled; }
@@ -48,6 +50,8 @@ class Cell
 		TraversalProperty getProperty() { return m_property; }
 
 		sf::RectangleShape m_body;
+
+		Job* m_cellJob = nullptr;
 	protected:
 
 		void setUpText();
@@ -70,6 +74,8 @@ class Cell
 		TraversalProperty m_property;
 
 		bool m_occupied = false;
+
+		
 		
 		std::map<TraversalProperty, std::string> m_cellPropertyString{ {TraversalProperty::Walkable, "Walkable"}, {TraversalProperty::Unwalkable, "Unwalkable"},{TraversalProperty::Job, "Job"} };
 };
