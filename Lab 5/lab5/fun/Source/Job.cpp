@@ -1,7 +1,7 @@
 #include "Job.h"
 
 
-Job::Job(Texture* t_texture, sf::Vector2f t_position)
+WorldItem::WorldItem(Texture* t_texture, sf::Vector2f t_position)
 {
 	setTexture(t_texture);
 
@@ -9,7 +9,7 @@ Job::Job(Texture* t_texture, sf::Vector2f t_position)
 	m_sprite.setPosition(t_position);
 }
 
-Job::Job(std::string t_name, sf::Vector2f t_position) : m_name(t_name)
+WorldItem::WorldItem(std::string t_name, sf::Vector2f t_position) : m_name(t_name)
 {
 	Loader* loader = Loader::getInstance();
 
@@ -22,12 +22,12 @@ Job::Job(std::string t_name, sf::Vector2f t_position) : m_name(t_name)
 
 }
 
-void Job::draw(sf::RenderWindow& t_window)
+void WorldItem::draw(sf::RenderWindow& t_window)
 {
 	t_window.draw(m_sprite);
 }
 
-void Job::setTexture(Texture* t_texture)
+void WorldItem::setTexture(Texture* t_texture)
 {
 	m_texture = t_texture;
 	m_sprite.setTexture(t_texture->texture);

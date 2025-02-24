@@ -81,6 +81,8 @@
     <ClInclude Include="Include\Scenes\SceneTypes.h" />
     <ClInclude Include="Include\BasePlayer.h" />
     <ClInclude Include="Include\json.hpp" />
+    <ClInclude Include="Include\Librarys\WorldItemLibrary.h" />
+    <ClInclude Include="Include\World\EditorITem.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="fun.rc" />
@@ -143,6 +145,8 @@
     <ClCompile Include="Source\Scenes\BaseBuilderScene.cpp" />
     <ClCompile Include="Source\UI\Button.cpp" />
     <ClCompile Include="Source\BasePlayer.cpp" />
+    <ClCompile Include="Source\Librarys\WorldItemLibrary.cpp" />
+    <ClCompile Include="Source\World\EditorITem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="map.txt" />

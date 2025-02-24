@@ -30,7 +30,7 @@ void RoomLibrary::loadRooms()
     {
         std::vector<std::string> roomsFilePaths = FileReading::getAllInFile("ASSETS/WORLD_FILES/Rooms/" + m_resourceString[m_types[i]]);
 
-        for (std::string roomFileName : roomsFilePaths)
+        /*for (std::string roomFileName : roomsFilePaths)
         {
             m_quantity[m_types[i]]++;
 
@@ -73,7 +73,7 @@ void RoomLibrary::loadRooms()
             grid.cullEmptyCellsW(largestDimension);
             grid.cullEmptyCellsH(largestDimension);
             m_rooms[m_types[i]].push_back(Room(grid));
-        }
+        }*/
     }
    
 

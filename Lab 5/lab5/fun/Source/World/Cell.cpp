@@ -155,7 +155,7 @@ void Cell::project(Texture* t_texture)
 	m_body.setOutlineThickness(0.0f);
 }
 
-void Cell::project(Job* t_job)
+void Cell::project(WorldItem* t_job)
 {
 	m_cellJob->m_sprite.setTexture( t_job->getTexture()->texture);
 }

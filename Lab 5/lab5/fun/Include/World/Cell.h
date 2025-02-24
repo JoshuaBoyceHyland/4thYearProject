@@ -31,7 +31,7 @@ class Cell
 
 		void project(Texture* t_texture);
 
-		void project(Job* t_job);
+		void project(WorldItem* t_job);
 
 		void resetTexture();
 
@@ -51,7 +51,7 @@ class Cell
 
 		sf::RectangleShape m_body;
 
-		Job* m_cellJob = nullptr;
+		WorldItem* m_cellJob = nullptr;
 	protected:
 
 		void setUpText();

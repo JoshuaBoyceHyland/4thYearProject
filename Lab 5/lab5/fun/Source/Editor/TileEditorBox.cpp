@@ -60,19 +60,33 @@ void TileEditorBox::checkForInteraction(sf::Vector2f t_mousePosition)
 	button->checkForInteraction(t_mousePosition);
 }
 
-Tile* TileEditorBox::partSelectionCheck(sf::Vector2f t_mousePosition)
+EditorItem* TileEditorBox::partSelectionCheck(sf::Vector2f t_mousePosition)
 {
 
-	Tile* tile = nullptr;
+	EditorItem* tile = nullptr;
 
 	for (int i = 0; i < m_uiSprites[(int)m_currentPart].size(); i++)
 	{
 		if (m_uiSprites[static_cast<int>(m_currentPart)][i].getGlobalBounds().contains(t_mousePosition))
 		{
 			std::cout << "Contains" << std::endl;
-			TileLibrary* library = TileLibrary::getInstance();
-			tile = library->getTile(m_currentPart, i);
-			tile->setPosition(m_uiSprites[static_cast<int>(m_currentPart)][i].getPosition());
+
+			if (m_currentPart != TraversalProperty::Job)
+			{
+				TileLibrary* library = TileLibrary::getInstance();
+				tile = library->getTile(m_currentPart, i);
+				Tile* tiletil = static_cast<Tile*>(tile);
+				tiletil->setPosition(m_uiSprites[static_cast<int>(m_currentPart)][i].getPosition());
+			}
+			else
+			{
+				WorldItemLibrary* library = WorldItemLibrary::getInstance();
+				tile = library->getItem(i);
+				WorldItem* tiletil = static_cast<WorldItem*>(tile);
+				tiletil->m_sprite.setPosition(m_uiSprites[static_cast<int>(m_currentPart)][i].getPosition());
+			}
+			
+
 		}
 	}
 
@@ -136,26 +150,52 @@ void TileEditorBox::setUpUiSprites()
 
 	for (int section = 0; section < NUM_OF_SECTIONS; section++)
 	{
+
 		sf::Vector2f pos = { m_uiBox.getPosition().x + (m_uiBox.getSize().x / 2), 100 };
 
 		m_uiSprites.push_back(std::vector<sf::Sprite>());
 
-		for (int k = 0; k < library->m_quantity[TraversalProperty(section)]; k++)
+
+
+		if (section != 2)
+		{
+			for (int k = 0; k < library->m_quantity[TraversalProperty(section)]; k++)
+			{
+
+
+				Texture* texture = library->getTile(TraversalProperty(section), k)->m_textures[0];
+
+				if (texture == nullptr)
+				{
+					texture = library->getTile(TraversalProperty(section), k)->m_cells[0].m_cellJob->getTexture();
+				}
+
+				m_uiSprites[section].push_back(sf::Sprite(texture->texture));
+				m_uiSprites[section][k].setPosition(pos);
+				m_uiSprites[section][k].setOrigin({ (float)(*texture).texture.getSize().x / 2,(float)(float)(*texture).texture.getSize().y / 2 });
+				pos.y += 100;
+			}
+		}
+		else
 		{
 
+			WorldItemLibrary* worldItemLibrary = WorldItemLibrary::getInstance();
 
-			Texture* texture = library->getTile(TraversalProperty(section), k)->m_textures[0];
-			
-			if (texture == nullptr)
+
+			for (int k = 0; k < worldItemLibrary->m_quantity; k++)
 			{
-				texture = library->getTile(TraversalProperty(section), k)->m_cells[0].m_cellJob->getTexture();
-			}
 
-			m_uiSprites[section].push_back( sf::Sprite(texture->texture) );
-			m_uiSprites[section][k].setPosition(pos);
-			m_uiSprites[section][k].setOrigin({ (float)(*texture).texture.getSize().x / 2,(float)(float)(*texture).texture.getSize().y / 2 });
-			pos.y += 100;
+
+				Texture* texture = worldItemLibrary->getItem(k)->getTexture();
+
+
+				m_uiSprites[section].push_back(sf::Sprite(texture->texture));
+				m_uiSprites[section][k].setPosition(pos);
+				m_uiSprites[section][k].setOrigin({ (float)(*texture).texture.getSize().x / 2,(float)(float)(*texture).texture.getSize().y / 2 });
+				pos.y += 100;
+			}
 		}
+		
 
 
 	}

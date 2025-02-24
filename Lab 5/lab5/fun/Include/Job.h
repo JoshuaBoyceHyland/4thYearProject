@@ -1,13 +1,14 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "Librarys/Loader.h"
+#include "World/EditorITem.h"
 
-class Job
+class WorldItem : public EditorItem
 {
 	public:
-		Job(Texture* t_texture, sf::Vector2f t_position = { -100, -100});
+		WorldItem(Texture* t_texture, sf::Vector2f t_position = { -100, -100});
 
-		Job(std::string t_name, sf::Vector2f t_position);
+		WorldItem(std::string t_name, sf::Vector2f t_position);
 
 
 		void draw(sf::RenderWindow& t_window);

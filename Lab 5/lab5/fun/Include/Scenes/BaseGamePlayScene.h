@@ -25,6 +25,6 @@ class BaseGameplayScene : public Scene
 		BasePlayer* m_player;
 		MovableCamera m_camera;
 		std::vector<NPC*> m_npc;
-		std::vector<Job*> jobs;
+		std::vector<WorldItem*> jobs;
 };
 

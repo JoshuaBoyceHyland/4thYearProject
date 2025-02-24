@@ -108,20 +108,20 @@ void MapSaver::loadMapJson(Grid* t_grid)
 
 
 
-        if (jobId != -1)
-        {
-            Tile* loadedTile = library->getTile(TraversalProperty::Walkable, texture);
+        //if (jobId != -1)
+        //{
+        //    Tile* loadedTile = library->getTile(TraversalProperty::Walkable, texture);
 
 
-            t_grid->m_cells[row][column].setColor(sf::Color::White);
-            t_grid->m_cells[row][column].setTexture(loadedTile->m_textures[0]);
-            t_grid->m_cells[row][column].setProperty(loadedTile->m_property);
+        //    t_grid->m_cells[row][column].setColor(sf::Color::White);
+        //    t_grid->m_cells[row][column].setTexture(loadedTile->m_textures[0]);
+        //    t_grid->m_cells[row][column].setProperty(loadedTile->m_property);
 
-            Tile* jobTile = library->getTile(TraversalProperty::Job, jobId);
-            t_grid->m_cells[row][column].m_cellJob = new Job(jobTile->m_cells[0].m_cellJob->getTexture(), t_grid->m_cells[row][column].m_body.getPosition());
-        }
-        else
-        {
+        //    Tile* jobTile = library->getTile(TraversalProperty::Job, jobId);
+        //    t_grid->m_cells[row][column].m_cellJob = new WorldItem(jobTile->m_cells[0].m_cellJob->getTexture(), t_grid->m_cells[row][column].m_body.getPosition());
+        //}
+        //else
+        //{
             Tile* loadedTile = library->getTile(TraversalProperty(type), texture);
 
 
@@ -131,7 +131,7 @@ void MapSaver::loadMapJson(Grid* t_grid)
 
 
             
-        }
+        //}
 
     }
     file.close();

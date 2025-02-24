@@ -120,7 +120,7 @@ void Grid::placePiece(sf::Vector2f t_mouseCLick,Tile* t_tile)
 	else
 	{
 	
-		selectedCell->m_cellJob = new Job(*t_tile->m_cells[0].m_cellJob);
+		selectedCell->m_cellJob = new WorldItem(*t_tile->m_cells[0].m_cellJob);
 		selectedCell->m_cellJob->m_sprite.setPosition(selectedCell->m_body.getPosition());
 
 		

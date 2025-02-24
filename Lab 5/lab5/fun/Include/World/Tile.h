@@ -1,8 +1,8 @@
 #pragma once
 #include "Cell.h"
 #include "Utility/Texture.h"
-
-class Tile
+#include "EditorItem.h"
+class Tile : public EditorItem
 {
 
 	public:

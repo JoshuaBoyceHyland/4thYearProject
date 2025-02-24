@@ -1,40 +1,202 @@
-﻿  TileEditorBox.cpp
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Librarys\Loader.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+﻿  EditorITem.cpp
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\EditorITem.cpp(1,10): fatal  error C1083: Cannot open include file: 'EditorITem.h': No such file or directory
+  BasePlayer.cpp
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Librarys\Loader.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\NPC\Animator.h(13,81): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  WorldItemLibrary.cpp
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Librarys\Loader.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  BaseBuilderScene.cpp
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Utility\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Librarys\Loader.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Source\Scenes\BaseBuilderScene.cpp(98,14): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  TileEditorBox.cpp
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Librarys\Loader.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  RoomBuilderEditiorBox.cpp
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Librarys\Loader.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Utility\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+  GameData.cpp
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Utility\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Librarys\Loader.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  RoomLibrary.cpp
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Librarys\Loader.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Utility\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+  TileLibrary.cpp
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Librarys\Loader.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  BehaviourManagert.cpp
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Librarys\Loader.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Wander.cpp
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Librarys\Loader.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Source\NPC\Wander.cpp(36,18): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   Game.cpp
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Utility\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Librarys\Loader.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\NPC\Animator.h(13,81): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  RoomBuilderScene.cpp
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Utility\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Librarys\Loader.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\Scenes\RoomBuilderScene.cpp(142,14): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-  SceneManager.cpp
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Utility\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Librarys\Loader.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\NPC\Animator.h(13,81): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  Cell.cpp
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Librarys\Loader.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Cell.cpp(213,45): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Cell.cpp(213,45): warning C4244:         with
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Cell.cpp(213,45): warning C4244:         [
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Cell.cpp(213,45): warning C4244:             T=float
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Cell.cpp(213,45): warning C4244:         ]
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Utility\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Librarys\Loader.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\NPC\Animator.h(13,81): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Job.cpp
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Librarys\Loader.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Source\Job.cpp(8,89): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Source\Job.cpp(8,52): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
   main.cpp
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Utility\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Librarys\Loader.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\NPC\Animator.h(13,81): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\main.cpp(34,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Utility\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Librarys\Loader.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\NPC\Animator.h(13,81): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Source\main.cpp(34,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Agent.cpp
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Librarys\Loader.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  NPC.cpp
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Librarys\Loader.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\NPC\Animator.h(13,81): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  RoomBuilderScene.cpp
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Utility\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Librarys\Loader.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Source\Scenes\RoomBuilderScene.cpp(71,23): error C2440: 'initializing': cannot convert from 'EditorItem *' to 'Tile *'
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Source\Scenes\RoomBuilderScene.cpp(71,23): message : Cast from base to derived requires dynamic_cast or static_cast
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Source\Scenes\RoomBuilderScene.cpp(142,14): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  BaseGamePlayScene.cpp
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Utility\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Librarys\Loader.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\NPC\Animator.h(13,81): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Source\Scenes\BaseGamePlayScene.cpp(35,46): warning C4244: 'argument': conversion from 'sf::Int32' to 'float', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Source\Scenes\BaseGamePlayScene.cpp(41,45): warning C4244: 'argument': conversion from 'sf::Int32' to 'float', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Source\Scenes\BaseGamePlayScene.cpp(101,14): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  EditorScene.cpp
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Utility\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Librarys\Loader.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Source\Scenes\EditorScene.cpp(70,39): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  GameplayScene.cpp
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Utility\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Librarys\Loader.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Source\Scenes\GameplayScene.cpp(12,44): warning C4244: 'argument': conversion from 'sf::Int32' to 'float', possible loss of data
   Generating Code...
-  fun.vcxproj -> C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\x64\Debug\fun.exe
+  Compiling...
+  MenuScene.cpp
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Utility\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Librarys\Loader.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Scene.cpp
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Utility\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Librarys\Loader.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  SceneManager.cpp
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Utility\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Librarys\Loader.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\NPC\Animator.h(13,81): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  TextureSplitter.cpp
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Librarys\Loader.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Source\TextureSplitter.cpp(6,21): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Source\TextureSplitter.cpp(7,22): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Source\TextureSplitter.cpp(9,20): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Source\TextureSplitter.cpp(10,17): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  MapSaver.cpp
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Librarys\Loader.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Cell.cpp
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Librarys\Loader.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Cell.cpp(213,45): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
+          with
+          [
+              T=float
+          ]
+  Grid.cpp
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Librarys\Loader.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Grid.cpp(36,10): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Grid.cpp(37,13): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Grid.cpp(65,10): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Grid.cpp(66,13): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Grid.cpp(153,10): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Grid.cpp(154,13): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Grid.cpp(384,21): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Room.cpp
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Librarys\Loader.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Utility\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Room.cpp(40,19): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Room.cpp(57,26): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Room.cpp(95,19): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Source\World\Room.cpp(103,26): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Tile.cpp
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Librarys\Loader.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Generating Code...
