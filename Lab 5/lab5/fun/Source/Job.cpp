@@ -32,3 +32,8 @@ void WorldItem::setTexture(Texture* t_texture)
 	m_texture = t_texture;
 	m_sprite.setTexture(t_texture->texture);
 }
+
+void WorldItem::setPosition(sf::Vector2f t_position)
+{
+	m_sprite.setPosition(t_position);
+}

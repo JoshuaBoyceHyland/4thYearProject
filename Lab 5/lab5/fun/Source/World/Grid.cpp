@@ -106,26 +106,39 @@ void Grid::deletePiece(sf::Vector2f t_mouseCLick)
 	selectedCell->reset();
 }
 
-void Grid::placePiece(sf::Vector2f t_mouseCLick,Tile* t_tile)
+void Grid::placePiece(sf::Vector2f t_mouseCLick,EditorItem* t_tile)
 {
 	Cell* selectedCell = cellSelection(t_mouseCLick);
 	if (selectedCell == nullptr) { return; }
 
 
-	if (t_tile->m_textures[0] != nullptr)
+	Tile* possibleTIle = dynamic_cast<Tile*>(t_tile);
+
+	if (possibleTIle != nullptr)
 	{
-		selectedCell->setColor(sf::Color::White);
-		selectedCell->setTexture(t_tile->m_textures[0]);
+		if (possibleTIle->m_textures[0] != nullptr)
+		{
+			selectedCell->setColor(sf::Color::White);
+			selectedCell->setTexture(possibleTIle->m_textures[0]);
+		}
+		else
+		{
+
+			selectedCell->m_cellJob = new WorldItem(*possibleTIle->m_cells[0].m_cellJob);
+			selectedCell->m_cellJob->m_sprite.setPosition(selectedCell->m_body.getPosition());
+
+
+		}
+		selectedCell->setProperty(possibleTIle->m_property);
 	}
 	else
 	{
-	
-		selectedCell->m_cellJob = new WorldItem(*t_tile->m_cells[0].m_cellJob);
+		WorldItem* worldItem = dynamic_cast<WorldItem*>(t_tile);
+		selectedCell->m_cellJob = new WorldItem(*worldItem);
 		selectedCell->m_cellJob->m_sprite.setPosition(selectedCell->m_body.getPosition());
 
-		
 	}
-	selectedCell->setProperty(t_tile->m_property);
+	
 
 	
 

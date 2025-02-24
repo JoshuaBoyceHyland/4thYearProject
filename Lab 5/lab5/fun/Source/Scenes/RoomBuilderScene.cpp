@@ -68,7 +68,7 @@ void RoomBuilderScene::processMousePress(sf::Event t_event)
 		if (m_editorBox.contains(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window))))
 		{
 			
-			Tile* possibleTile = m_editorBox.partSelectionCheck(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)));
+			EditorItem* possibleTile = m_editorBox.partSelectionCheck(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)));
 
 			if (possibleTile != nullptr)
 			{

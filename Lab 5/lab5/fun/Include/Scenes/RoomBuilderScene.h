@@ -41,7 +41,7 @@ class RoomBuilderScene : public Scene
 		sf::RectangleShape m_rect;
 		MovableCamera m_camera;
 		Grid* m_grid;
-		Tile* m_selectedTiles = nullptr;
+		EditorItem* m_selectedTiles = nullptr;
 		TileEditorBox m_editorBox;
 		
 		MapSaver saver;

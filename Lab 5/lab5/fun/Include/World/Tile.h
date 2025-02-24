@@ -14,9 +14,9 @@ class Tile : public EditorItem
 
 		Tile(std::vector<Texture*> t_texture, float t_width, float t_height, int t_rows, int t_colums);
 
-		void draw(sf::RenderWindow& t_window);
+		void draw(sf::RenderWindow& t_window) override;
 
-		void setPosition(sf::Vector2f t_position);
+		void setPosition(sf::Vector2f t_position) override;
 
 		std::vector<Texture*> m_textures;
 
