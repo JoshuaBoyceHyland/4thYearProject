@@ -1,6 +1,12 @@
+<<<<<<< Updated upstream
 ﻿  BasePlayer.cpp
 C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Librarys\Loader.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\NPC\Animator.h(13,81): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   fun.vcxproj -> C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\x64\Debug\fun.exe
+=======
+﻿  WorldItemLibrary.cpp
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Librarys\Loader.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  fun.vcxproj -> C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\x64\Debug\fun.exe
+>>>>>>> Stashed changes

@@ -5,7 +5,7 @@
 
 
 
-enum class TraversalProperty { Walkable, Unwalkable, Job };
+enum class TraversalProperty { Walkable, Unwalkable };
 
 class Cell
 {
@@ -31,6 +31,11 @@ class Cell
 
 		void project(Texture* t_texture);
 
+<<<<<<< Updated upstream
+=======
+		void project(WorldItem* t_job);
+
+>>>>>>> Stashed changes
 		void resetTexture();
 
 		void enableText(bool t_enabled) { m_textActive = t_enabled; }
@@ -48,6 +53,12 @@ class Cell
 		TraversalProperty getProperty() { return m_property; }
 
 		sf::RectangleShape m_body;
+<<<<<<< Updated upstream
+=======
+
+		WorldItem* m_cellJob = nullptr;
+
+>>>>>>> Stashed changes
 	protected:
 
 		void setUpText();
@@ -70,7 +81,12 @@ class Cell
 		TraversalProperty m_property;
 
 		bool m_occupied = false;
+<<<<<<< Updated upstream
 		
 		std::map<TraversalProperty, std::string> m_cellPropertyString{ {TraversalProperty::Walkable, "Walkable"}, {TraversalProperty::Unwalkable, "Unwalkable"},{TraversalProperty::Job, "Job"} };
+=======
+
+		std::map<TraversalProperty, std::string> m_cellPropertyString{ {TraversalProperty::Walkable, "Walkable"}, {TraversalProperty::Unwalkable, "Unwalkable"} };
+>>>>>>> Stashed changes
 };
 

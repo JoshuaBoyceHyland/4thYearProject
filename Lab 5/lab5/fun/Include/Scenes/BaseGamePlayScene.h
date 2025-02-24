@@ -25,5 +25,9 @@ class BaseGameplayScene : public Scene
 		BasePlayer* m_player;
 		MovableCamera m_camera;
 		std::vector<NPC*> m_npc;
+<<<<<<< Updated upstream
+=======
+		std::vector<WorldItem*> jobs;
+>>>>>>> Stashed changes
 };
 

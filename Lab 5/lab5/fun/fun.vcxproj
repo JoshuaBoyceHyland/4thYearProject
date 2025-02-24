@@ -20,6 +20,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\BasePlayer.h" />
+<<<<<<< Updated upstream
+=======
+    <ClInclude Include="Include\json.hpp" />
+    <ClInclude Include="Include\Librarys\WorldItemLibrary.h" />
+>>>>>>> Stashed changes
     <ClInclude Include="Include\Scenes\SceneTypes.h" />
     <ClInclude Include="Include\UI\Button.h" />
     <ClInclude Include="Include\Scenes\BaseBuilderScene.h" />
@@ -121,6 +126,7 @@
     <None Include="map.json" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Librarys\WorldItemLibrary.cpp" />
     <ClCompile Include="Source\BasePlayer.cpp" />
     <ClCompile Include="Source\UI\Button.cpp" />
     <ClCompile Include="Source\Scenes\BaseBuilderScene.cpp" />

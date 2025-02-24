@@ -27,13 +27,16 @@ class TileEditorBox : public UIEditorBox
 		void setUpUiSprites() override;
 
 
+<<<<<<< Updated upstream
 		TraversalProperty m_currentPart = TraversalProperty::Walkable;
 
 		const int NUM_OF_SECTIONS = 3;
+=======
+		const int NUM_OF_SECTIONS = 2;
+>>>>>>> Stashed changes
 
 		std::map<TraversalProperty, std::string> propertyString = { {TraversalProperty::Walkable, "Walkable Tiles" },
-																	{TraversalProperty::Unwalkable,"Unwalkable Tiles"},
-																	{TraversalProperty::Job, "Job Tiles"},
+																	{TraversalProperty::Unwalkable,"Unwalkable Tiles"}
 																	 };
 
 	

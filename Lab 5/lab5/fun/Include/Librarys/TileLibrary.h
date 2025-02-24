@@ -1,5 +1,7 @@
 #pragma once
 #include "World/Tile.h"
+#include "Job.h"
+
 class TileLibrary
 {
 	public:
@@ -24,7 +26,6 @@ class TileLibrary
 
 		std::map<TraversalProperty, std::vector<Tile>> m_tiles;
 		
-		
-		std::map<TraversalProperty, std::string> m_cellPropertyString{ {TraversalProperty::Walkable, "Walkable"}, {TraversalProperty::Unwalkable, "Unwalkable"},{TraversalProperty::Job, "Job"} };;
+		std::map<TraversalProperty, std::string> m_cellPropertyString{ {TraversalProperty::Walkable, "Walkable"}, {TraversalProperty::Unwalkable, "Unwalkable"} };
 };
 

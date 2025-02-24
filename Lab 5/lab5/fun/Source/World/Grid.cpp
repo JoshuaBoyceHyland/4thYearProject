@@ -118,7 +118,15 @@ void Grid::placePiece(sf::Vector2f t_mouseCLick, std::vector<Texture*> t_texture
 	}
 	else
 	{
+<<<<<<< Updated upstream
 		selectedCell->setColor(sf::Color::Black);
+=======
+	
+		selectedCell->m_cellJob = new WorldItem(*t_tile->m_cells[0].m_cellJob);
+		selectedCell->m_cellJob->m_sprite.setPosition(selectedCell->m_body.getPosition());
+
+		
+>>>>>>> Stashed changes
 	}
 	
 	selectedCell->setTexture(t_textures[0]);

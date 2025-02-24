@@ -8,6 +8,17 @@ Tile::Tile(Texture* t_texture, float t_width, float t_height)
 	m_cells[0].setTexture(t_texture);
 }
 
+<<<<<<< Updated upstream
+=======
+Tile::Tile(Texture* t_texture, Texture* t_jobTexture, float t_width, float t_height)
+{
+	m_cells.push_back({ t_width,t_height });
+	m_textures.push_back(t_texture);
+	m_cells[0].setColor(sf::Color::Transparent);
+	m_cells[0].m_cellJob = new WorldItem(t_jobTexture);
+}
+
+>>>>>>> Stashed changes
 Tile::Tile(std::vector<Texture*> t_texture, float t_width, float t_height, int t_rows, int t_colums) :m_textures(t_texture)
 {
 

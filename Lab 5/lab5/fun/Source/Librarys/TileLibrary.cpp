@@ -27,10 +27,14 @@ void TileLibrary::loadTextures()
     Loader* loader = Loader::getInstance();
 
     std::string basePath = "ASSETS/IMAGES/Tiles/";
-    std::vector<TraversalProperty> types = { TraversalProperty::Walkable, TraversalProperty::Unwalkable, TraversalProperty::Job };
+    std::vector<TraversalProperty> types = { TraversalProperty::Walkable, TraversalProperty::Unwalkable };
 
     for (int i = 0; i < types.size(); i++)
     {
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
         std::string folderPath = basePath + m_cellPropertyString[types[i]];
         std::vector<Texture*> textures = loader->loadAllTexturesInFile(folderPath);
 
@@ -38,9 +42,17 @@ void TileLibrary::loadTextures()
         {
             m_quantity[types[i]]++;
 
+<<<<<<< Updated upstream
             m_tiles[types[i]].push_back({ textures[k], 100, 100 });
             m_tiles[types[i]][k].m_property = types[i];
         }
+=======
+            m_tiles[types[i]].push_back({ nullptr, textures[k], 100, 100 });
+            m_tiles[types[i]][k].m_property = types[i];
+        }
+        
+
+>>>>>>> Stashed changes
     }
    
 }

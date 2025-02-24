@@ -136,6 +136,14 @@ void Cell::project(Texture* t_texture)
 	m_body.setOutlineThickness(0.0f);
 }
 
+<<<<<<< Updated upstream
+=======
+void Cell::project(WorldItem* t_job)
+{
+	m_cellJob->m_sprite.setTexture( t_job->getTexture()->texture);
+}
+
+>>>>>>> Stashed changes
 void Cell::resetTexture()
 {
 	if (m_texture != nullptr)
