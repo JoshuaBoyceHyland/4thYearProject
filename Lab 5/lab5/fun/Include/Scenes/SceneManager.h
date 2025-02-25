@@ -16,6 +16,7 @@ class SceneManager
 		SceneManager(sf::RenderWindow& t_window);
 
 		void switchScene(SceneType t_newScene);
+
 		Scene* getCurrentScene();
 
 	private:

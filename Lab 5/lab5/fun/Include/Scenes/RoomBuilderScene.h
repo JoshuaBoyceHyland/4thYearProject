@@ -2,7 +2,7 @@
 #include "Scene.h"
 #include "Globals.h"
 #include "MovableCamera.h"
-#include "Job.h"
+
 #include "World/Room.h"
 #include "World/Grid.h"
 #include "Editor/TileEditorBox.h"

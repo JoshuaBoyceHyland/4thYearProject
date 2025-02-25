@@ -16,7 +16,7 @@ class Grid
 
 		void setForGamePlay();
 
-		void deletePiece(sf::Vector2f t_mouseCLick);
+		void deletePiece(sf::Vector2f t_mouseCLick, TraversalProperty t_currentEditorSection);
 
 		void placePiece(sf::Vector2f t_mouseCLick, EditorItem* t_tile);
 

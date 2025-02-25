@@ -19,6 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Include\WorldItems\EditorITem.h" />
+    <ClInclude Include="Include\WorldItems\ShipBuilderTerminal.h" />
+    <ClInclude Include="Include\WorldItems\WorldItem.h" />
     <ClInclude Include="Include\World\EditorITem.h" />
     <ClInclude Include="Include\BasePlayer.h" />
     <ClInclude Include="Include\json.hpp" />
@@ -101,6 +104,7 @@
     <ClInclude Include="json.hpp" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Include\NPC\Action.h" />
+    <ClInclude Include="Include\World\ShipBuilderTerminal.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="ASSETS\IMAGES\SFML-LOGO.png">
@@ -124,7 +128,9 @@
     <None Include="map.json" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\World\EditorITem.cpp" />
+    <ClCompile Include="Source\WorldItems\EditorITem.cpp" />
+    <ClCompile Include="Source\WorldItems\ShipBuilderTerminal.cpp" />
+    <ClCompile Include="Source\WorldItems\WorldItem.cpp" />
     <ClCompile Include="Source\BasePlayer.cpp" />
     <ClCompile Include="Source\Librarys\WorldItemLibrary.cpp" />
     <ClCompile Include="Source\UI\Button.cpp" />
@@ -139,7 +145,6 @@
     <ClCompile Include="Source\NPC\BehaviourManagert.cpp" />
     <ClCompile Include="Source\NPC\Wander.cpp" />
     <ClCompile Include="Source\Game.cpp" />
-    <ClCompile Include="Source\Job.cpp" />
     <ClCompile Include="Source\main.cpp" />
     <ClCompile Include="Source\MovableCamera.cpp" />
     <ClCompile Include="Source\NPC\Agent.cpp" />

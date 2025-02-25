@@ -97,13 +97,23 @@ void Grid::setForGamePlay()
 	setUpNeighbours();
 }
 
-void Grid::deletePiece(sf::Vector2f t_mouseCLick)
+void Grid::deletePiece(sf::Vector2f t_mouseCLick, TraversalProperty t_currentEditorSection)
 {
 	Cell* selectedCell = cellSelection(t_mouseCLick);
 
-	if (selectedCell == nullptr) { return; }
+	if (t_currentEditorSection != TraversalProperty::Job)
+	{
+		
+		if (selectedCell == nullptr) { return; }
 
-	selectedCell->reset();
+		selectedCell->reset();
+	}
+	else
+	{
+		delete selectedCell->m_cellJob;
+
+		selectedCell->m_cellJob = nullptr;
+	}
 }
 
 void Grid::placePiece(sf::Vector2f t_mouseCLick,EditorItem* t_tile)
@@ -125,7 +135,7 @@ void Grid::placePiece(sf::Vector2f t_mouseCLick,EditorItem* t_tile)
 		{
 
 			selectedCell->m_cellJob = new WorldItem(*possibleTIle->m_cells[0].m_cellJob);
-			selectedCell->m_cellJob->m_sprite.setPosition(selectedCell->m_body.getPosition());
+			selectedCell->m_cellJob->setPosition(selectedCell->m_body.getPosition());
 
 
 		}
@@ -133,9 +143,13 @@ void Grid::placePiece(sf::Vector2f t_mouseCLick,EditorItem* t_tile)
 	}
 	else
 	{
-		WorldItem* worldItem = dynamic_cast<WorldItem*>(t_tile);
-		selectedCell->m_cellJob = new WorldItem(*worldItem);
-		selectedCell->m_cellJob->m_sprite.setPosition(selectedCell->m_body.getPosition());
+		if (selectedCell->getProperty() == TraversalProperty::Walkable)
+		{
+			WorldItem* worldItem = dynamic_cast<WorldItem*>(t_tile);
+			selectedCell->m_cellJob = new WorldItem(*worldItem);
+			selectedCell->m_cellJob->setPosition(selectedCell->m_body.getPosition());
+		}
+
 
 	}
 	

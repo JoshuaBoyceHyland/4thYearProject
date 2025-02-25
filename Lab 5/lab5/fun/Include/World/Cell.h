@@ -2,7 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "Librarys/Loader.h"
 #include "World/Node.h"
-#include "Job.h"
+#include "WorldItems/WorldITem.h"
 
 
 enum class TraversalProperty { Walkable, Unwalkable, Job };

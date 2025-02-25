@@ -1,7 +1,7 @@
 #pragma once
 #include "Cell.h"
 #include "Utility/Texture.h"
-#include "EditorItem.h"
+#include "WorldItems/EditorItem.h"
 class Tile : public EditorItem
 {
 

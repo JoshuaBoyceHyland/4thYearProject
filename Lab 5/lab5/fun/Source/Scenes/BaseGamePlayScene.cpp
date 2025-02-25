@@ -38,9 +38,11 @@ void BaseGameplayScene::update(sf::Time t_deltaTime)
 	
 
 
-	m_player->update(t_deltaTime.asMilliseconds());
+	
 	m_camera.follow(m_player->getPosition());
 	m_camera.update();
+
+	m_player->update(t_deltaTime.asMilliseconds());
 }
 
 void BaseGameplayScene::render()

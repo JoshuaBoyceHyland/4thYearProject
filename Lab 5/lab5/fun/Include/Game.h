@@ -11,6 +11,7 @@
 
 #include "Scenes/SceneManager.h"
 #include "Ship/Ship.h"
+#include "Librarys/WorldItemLibrary.h"
 
 
 class Game

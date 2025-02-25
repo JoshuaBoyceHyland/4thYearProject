@@ -56,9 +56,6 @@ void Cell::reset()
 	m_body.setTexture(nullptr);
 	m_text.setString(m_cellPropertyString[m_property]);
 
-	delete m_cellJob;
-
-	m_cellJob = nullptr;
 }
 
 //Cell::Cell(const Cell& t_other)
@@ -119,7 +116,7 @@ void Cell::setPosition(sf::Vector2f t_position)
 
 	if (m_cellJob != nullptr)
 	{
-		m_cellJob->m_sprite.setPosition(m_position);
+		m_cellJob->setPosition(m_position);
 	}
 	
 }
@@ -157,7 +154,7 @@ void Cell::project(Texture* t_texture)
 
 void Cell::project(WorldItem* t_job)
 {
-	m_cellJob->m_sprite.setTexture( t_job->getTexture()->texture);
+	//m_cellJob->m_sprite.setTexture( t_job->getTexture()->texture);
 }
 
 void Cell::resetTexture()

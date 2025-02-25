@@ -10,6 +10,8 @@ void BasePlayer::update(float t_deltaTime)
 	input(t_deltaTime);
 
 	m_animator.animate();
+
+	checkMapInteractions();
 }
 
 void BasePlayer::draw(sf::RenderWindow& t_window)
@@ -59,4 +61,29 @@ void BasePlayer::input(float t_deltaTime)
 		m_animator.m_sprite.setPosition(m_animator.m_sprite.getPosition() + m_direction);
 	}
 	m_direction = { 0,0 };
+}
+
+void BasePlayer::checkMapInteractions()
+{
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
+	{
+		Cell* cell = m_map->cellSelection(m_animator.m_sprite.getPosition());
+
+		cell->setColor(sf::Color::Yellow);
+		WorldItem* possibleInteraction = cell->m_cellJob;
+
+		if (possibleInteraction != nullptr)
+		{
+
+			if (possibleInteraction->getPurpose() == Purpose::PlayerInteractable)
+			{
+				PlayerInteractableItem* interactableItem = static_cast<PlayerInteractableItem*>(possibleInteraction);
+
+				interactableItem->use();
+			}
+
+		}
+	}
+	
+
 }

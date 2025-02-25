@@ -3,6 +3,7 @@
 ShipEditorScene::ShipEditorScene(sf::RenderWindow& t_window) : Scene(t_window), m_uiBorder( "Editor")
 {
 	m_mouse.m_partsInScene = m_parts; 
+	m_window.setView(m_window.getDefaultView());
 }
 
 ShipEditorScene::~ShipEditorScene()

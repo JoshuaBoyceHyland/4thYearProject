@@ -83,7 +83,7 @@ EditorItem* TileEditorBox::partSelectionCheck(sf::Vector2f t_mousePosition)
 				WorldItemLibrary* library = WorldItemLibrary::getInstance();
 				tile = library->getItem(i);
 				WorldItem* tiletil = static_cast<WorldItem*>(tile);
-				tiletil->m_sprite.setPosition(m_uiSprites[static_cast<int>(m_currentPart)][i].getPosition());
+				tiletil->setPosition(m_uiSprites[static_cast<int>(m_currentPart)][i].getPosition());
 			}
 			
 

@@ -3,6 +3,7 @@
 #include <sstream>
 #include <string>
 #include "World/Grid.h"
+#include "Librarys/WorldItemLibrary.h"
 #include "Librarys/TileLibrary.h"
 #include "json.hpp"
 

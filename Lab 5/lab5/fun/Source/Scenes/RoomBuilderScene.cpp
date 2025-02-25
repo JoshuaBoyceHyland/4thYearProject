@@ -86,12 +86,9 @@ void RoomBuilderScene::processMousePress(sf::Event t_event)
 		{
 
 		
-				m_grid->placePiece(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)), m_selectedTiles);
+			m_grid->placePiece(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)), m_selectedTiles);
 			
 		
-			
-
-
 			saver.saveMap(m_grid);
 			saver.saveMapJson(m_grid);
 		}
@@ -107,7 +104,7 @@ void RoomBuilderScene::processMousePress(sf::Event t_event)
 	{
 
 	
-		m_grid->deletePiece(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)));
+		m_grid->deletePiece(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)), m_editorBox.m_currentPart);
 
 	}
 	
