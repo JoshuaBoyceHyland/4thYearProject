@@ -161,28 +161,28 @@
           "texture_id": 6
      },
      {
-          "Job": 0,
+          "Job": -1,
           "column": 6,
           "property": 0,
           "row": 5,
           "texture_id": 0
      },
      {
-          "Job": 0,
+          "Job": -1,
           "column": 7,
           "property": 0,
           "row": 5,
           "texture_id": 0
      },
      {
-          "Job": 0,
+          "Job": -1,
           "column": 8,
           "property": 0,
           "row": 5,
           "texture_id": 0
      },
      {
-          "Job": 0,
+          "Job": -1,
           "column": 9,
           "property": 0,
           "row": 5,
@@ -196,28 +196,28 @@
           "texture_id": 0
      },
      {
-          "Job": 0,
+          "Job": -1,
           "column": 11,
           "property": 0,
           "row": 5,
           "texture_id": 0
      },
      {
-          "Job": 0,
+          "Job": -1,
           "column": 12,
           "property": 0,
           "row": 5,
           "texture_id": 0
      },
      {
-          "Job": 0,
+          "Job": -1,
           "column": 13,
           "property": 0,
           "row": 5,
           "texture_id": 0
      },
      {
-          "Job": 0,
+          "Job": -1,
           "column": 14,
           "property": 0,
           "row": 5,

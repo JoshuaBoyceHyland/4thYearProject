@@ -16,6 +16,8 @@ class BasePlayer
 
 		void input(float t_deltaTime);
 
+		void cellManagement();
+
 		void checkMapInteractions();
 
 		float m_speed = 0.5f;

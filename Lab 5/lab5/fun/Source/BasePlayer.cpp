@@ -52,21 +52,49 @@ void BasePlayer::input(float t_deltaTime)
 		m_animator.m_currentState = 0;
 	}
 
-	sf::Vector2f projectedLocation = { m_direction.x * (m_animator.m_sprite.getTexture()->getSize().x / 2), m_direction.y * ( m_animator.m_sprite.getTexture()->getSize().y)};
+	cellManagement();
+}
+
+void BasePlayer::cellManagement()
+{
 	
+	Cell* currentCell = m_map->cellSelection(m_animator.m_sprite.getPosition());
 	Cell* projectedCell = m_map->cellSelection(m_animator.m_sprite.getPosition() + m_direction);
 
+	
+
+
+
+	// collsion
 	if (projectedCell->getProperty() != TraversalProperty::Unwalkable)
 	{
 		m_animator.m_sprite.setPosition(m_animator.m_sprite.getPosition() + m_direction);
+
+
+		// resetpreviousCell
+
+		if (currentCell->getNode()->m_column != projectedCell->getNode()->m_column || currentCell->getNode()->m_row != projectedCell->getNode()->m_row)
+		{
+			WorldItem* possibleInteraction = currentCell->m_cellJob;
+
+			if (possibleInteraction != nullptr)
+			{
+				PlayerInteractableItem* interactableItem = static_cast<PlayerInteractableItem*>(possibleInteraction);
+
+				if (possibleInteraction->getPurpose() == Purpose::PlayerInteractable)
+				{
+					interactableItem->reset();
+				}
+
+			}
+		}
 	}
 	m_direction = { 0,0 };
 }
 
 void BasePlayer::checkMapInteractions()
 {
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
-	{
+	
 		Cell* cell = m_map->cellSelection(m_animator.m_sprite.getPosition());
 
 		cell->setColor(sf::Color::Yellow);
@@ -74,16 +102,24 @@ void BasePlayer::checkMapInteractions()
 
 		if (possibleInteraction != nullptr)
 		{
+			PlayerInteractableItem* interactableItem = static_cast<PlayerInteractableItem*>(possibleInteraction);
 
 			if (possibleInteraction->getPurpose() == Purpose::PlayerInteractable)
 			{
-				PlayerInteractableItem* interactableItem = static_cast<PlayerInteractableItem*>(possibleInteraction);
-
-				interactableItem->use();
+				interactableItem->inRangeOfItem();
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
+				{
+					interactableItem->use();
+				}
 			}
 
 		}
-	}
+		
+			
+					
+					
+					
+				
 	
 
 }

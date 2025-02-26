@@ -16,8 +16,6 @@ class WorldItem : public EditorItem
 
 		void setPosition(sf::Vector2f t_position) override;
 
-
-
 		void setTexture(Texture* t_texture);
 
 		Texture* getTexture() { return m_texture; };
@@ -26,11 +24,13 @@ class WorldItem : public EditorItem
 
 		Purpose getPurpose() { return m_purpose; };
 
+
+	protected:
+		sf::Sprite m_sprite;
+
 	private:
 
-
 		Purpose m_purpose;
-		sf::Sprite m_sprite;
 		Texture* m_texture;
 		sf::Vector2f m_workingPosition;
 
@@ -38,7 +38,7 @@ class WorldItem : public EditorItem
 		sf::Text m_text;
 		sf::Font* m_font;
 		
-
+	
 	
 
 };
