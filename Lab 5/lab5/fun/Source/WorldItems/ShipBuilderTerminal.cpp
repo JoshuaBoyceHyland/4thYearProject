@@ -39,6 +39,11 @@ void PlayerInteractableItem::reset()
 	m_drawUi = false;
 }
 
+void PlayerInteractableItem::setTargetScene(SceneType t_target)
+{
+	m_targetScene = t_target;
+}
+
 void PlayerInteractableItem::setPosition(sf::Vector2f t_position)
 {
 	m_sprite.setPosition(t_position);

@@ -15,6 +15,8 @@ class PlayerInteractableItem : public WorldItem
 
 		void reset();
 
+		void setTargetScene(SceneType t_target);
+
 		void setPosition(sf::Vector2f t_position) override;
 
 		void draw(sf::RenderWindow& t_window) override;

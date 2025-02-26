@@ -7,6 +7,7 @@ BaseGameplayScene::BaseGameplayScene(sf::RenderWindow& t_window) :
 {
 	GameData* gamedata = GameData::getInstance();
 	m_grid = gamedata->m_currentMap;
+	saver.loadMapJson(m_grid);
 	m_grid->setForGamePlay();
 	m_player = new BasePlayer(m_grid);
 	for (int i = 0; i < 10; i++)

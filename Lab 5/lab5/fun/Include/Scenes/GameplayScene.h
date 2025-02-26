@@ -4,6 +4,7 @@
 #include "UI/UIEditorBox.h"
 #include "UI/UIScreenBorder.h"
 #include "World/Grid.h"
+#include "MovableCamera.h"
 
 class ShipGameplayScene : public Scene
 {
@@ -22,6 +23,7 @@ class ShipGameplayScene : public Scene
 		UIScreenBorder m_uiBorder;
 		Ship m_player;
 		Grid* m_grid;
+		MovableCamera m_camera;
 		// Inherited via Scene
 		
 };

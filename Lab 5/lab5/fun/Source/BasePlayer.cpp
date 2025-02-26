@@ -19,8 +19,6 @@ void BasePlayer::draw(sf::RenderWindow& t_window)
 	t_window.draw(m_animator.m_sprite);
 }
 
-
-
 void BasePlayer::input(float t_deltaTime)
 {
 
