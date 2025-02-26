@@ -5,6 +5,7 @@ ShipGameplayScene::ShipGameplayScene(sf::RenderWindow& t_window) : Scene(t_windo
 	GameData* gameData = GameData::getInstance();
 
 	m_player = (*gameData->m_player);
+	m_grid = gameData->m_currentMap;
 }
 
 void ShipGameplayScene::update(sf::Time t_deltaTime)
@@ -15,9 +16,12 @@ void ShipGameplayScene::update(sf::Time t_deltaTime)
 void ShipGameplayScene::render()
 {
 	m_window.clear(sf::Color::Black);
+	m_grid->draw(m_window);
 	m_player.draw(m_window);
 	m_uiBorder.draw(m_window);
+	
 	m_window.display();
+	
 }
 
 void ShipGameplayScene::processKeys(sf::Event t_event)

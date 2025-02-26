@@ -3,6 +3,7 @@
 #include "Scene.h"
 #include "UI/UIEditorBox.h"
 #include "UI/UIScreenBorder.h"
+#include "World/Grid.h"
 
 class ShipGameplayScene : public Scene
 {
@@ -20,7 +21,7 @@ class ShipGameplayScene : public Scene
 
 		UIScreenBorder m_uiBorder;
 		Ship m_player;
-
+		Grid* m_grid;
 		// Inherited via Scene
 		
 };
