@@ -44,7 +44,7 @@ class RoomBuilderScene : public Scene
 		EditorItem* m_selectedTiles = nullptr;
 		TileEditorBox m_editorBox;
 		
-		MapSaver saver;
+		PlayerDataLoader saver;
 		Room* m_room;
 		Button m_gameplayTransition;
 };

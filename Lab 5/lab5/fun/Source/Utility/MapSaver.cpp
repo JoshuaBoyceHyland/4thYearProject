@@ -1,6 +1,6 @@
 #include "Utility/MapSaver.h"
 
-void MapSaver::saveMap(Grid* t_grid)
+void PlayerDataLoader::saveMap(Grid* t_grid)
 {
 	std::ofstream file;
 	file.open("og.txt");
@@ -24,7 +24,7 @@ void MapSaver::saveMap(Grid* t_grid)
 	}
 }
 
-void MapSaver::saveMapJson(Grid* t_grid)
+void PlayerDataLoader::saveMapJson(Grid* t_grid)
 {
 
     std::ofstream file("og.json");
@@ -61,7 +61,7 @@ void MapSaver::saveMapJson(Grid* t_grid)
     }
 }
 
-void MapSaver::loadMap(Grid* t_grid)
+void PlayerDataLoader::loadMap(Grid* t_grid)
 {
     std::ifstream file;
     file.open("og.txt");
@@ -89,7 +89,7 @@ void MapSaver::loadMap(Grid* t_grid)
     file.close();
 }
 
-void MapSaver::loadMapJson(Grid* t_grid)
+void PlayerDataLoader::loadMapJson(Grid* t_grid)
 {
     std::ifstream file("og.json");
 
@@ -146,4 +146,38 @@ void MapSaver::loadMapJson(Grid* t_grid)
     }
     file.close();
 
+}
+
+void PlayerDataLoader::saveShip(Ship* t_ship)
+{
+
+    std::ofstream file("playerShip.json");
+
+    if (t_ship != nullptr)
+    {
+        if (file.is_open()) 
+        {
+            nlohmann::json jsonData;
+            nlohmann::json shipData;
+            for (int i = 0; i < t_ship->m_parts.size(); i++)
+            {
+                
+
+                shipData.push_back({ "PartType", t_ship->m_parts[i].m_type, "Texture: ",t_ship->m_parts[i].m_texture->id });
+                
+
+            }
+
+            shipData.push_back({ "ShipOriginX: ", t_ship->getPosition().x });
+            shipData.push_back({ "ShipOriginY: ", t_ship->getPosition().y });
+            jsonData.push_back(shipData);
+            
+    
+            file << jsonData.dump(3); // Pretty-print JSON with 4 spaces of indentation
+            file.close();
+        }
+        
+    }
+    
+    
 }

@@ -67,22 +67,27 @@ void PartsLibarary::fillLibrary()
 		
 
 		texture = loader->loadTexture(basePath + cockpitPath + std::to_string(i + 1) + ".png");
+		texture->id = i;
 		m_parts[static_cast<int>(PartType::CockPit)].emplace_back(ShipPart(texture, PartType::CockPit, pos));
 		pos.y += 100;
 
 		texture = loader->loadTexture(basePath + hullPath + std::to_string(i + 1) + ".png");
+		texture->id = i;
 		m_parts[static_cast<int>(PartType::Hull)].emplace_back(ShipPart( texture, PartType::Hull, pos));
 		pos.y += 100;
 
 		texture = loader->loadTexture(basePath + thrusterPath + std::to_string(i + 1) + ".png");
+		texture->id = i;
 		m_parts[static_cast<int>(PartType::Thruster)].emplace_back(ShipPart(texture, PartType::Thruster, pos));
 		pos.y += 100;
 
 		texture = loader->loadTexture(basePath + leftWingPath + std::to_string(i + 1) + ".png");
+		texture->id = i;
 		m_parts[static_cast<int>(PartType::Left_Wing)].emplace_back(ShipPart(texture, PartType::Left_Wing, pos));
 		pos.y += 100;
 
 		texture = loader->loadTexture(basePath + rightWingPath + std::to_string(i + 1) + ".png");
+		texture->id = i;
 		m_parts[static_cast<int>(PartType::Right_Wing)].emplace_back(ShipPart(texture, PartType::Right_Wing, pos));
 		pos.y += 100;
 

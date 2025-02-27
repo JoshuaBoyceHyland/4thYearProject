@@ -6,10 +6,10 @@
 #include "Librarys/WorldItemLibrary.h"
 #include "Librarys/TileLibrary.h"
 #include "json.hpp"
+#include "Ship/Ship.h"
 
 
-
-class MapSaver
+class PlayerDataLoader
 {
 	public:
 
@@ -18,6 +18,9 @@ class MapSaver
 
 		void loadMap(Grid* t_grid);
 		void loadMapJson(Grid* t_grid);
+
+		void saveShip(Ship* t_ship);
+
 		
 };
 

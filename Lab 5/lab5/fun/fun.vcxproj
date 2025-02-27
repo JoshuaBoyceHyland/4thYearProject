@@ -65,8 +65,8 @@
     <ClInclude Include="Include\SceneManager.h" />
     <ClInclude Include="Include\Scenes\RoomBuilderScene.h" />
     <ClInclude Include="Include\Scenes\BaseGamePlayScene.h" />
-    <ClInclude Include="Include\Scenes\EditorScene.h" />
-    <ClInclude Include="Include\Scenes\GameplayScene.h" />
+    <ClInclude Include="Include\Scenes\ShipEditorScene.h" />
+    <ClInclude Include="Include\Scenes\ShipGameplayScene.h" />
     <ClInclude Include="Include\Scenes\MenuScene.h" />
     <ClInclude Include="Include\Scenes\Scene.h" />
     <ClInclude Include="Include\Scenes\SceneManager.h" />
@@ -154,8 +154,8 @@
     <ClCompile Include="Source\ParticleSystem.cpp" />
     <ClCompile Include="Source\Scenes\RoomBuilderScene.cpp" />
     <ClCompile Include="Source\Scenes\BaseGamePlayScene.cpp" />
-    <ClCompile Include="Source\Scenes\EditorScene.cpp" />
-    <ClCompile Include="Source\Scenes\GameplayScene.cpp" />
+    <ClCompile Include="Source\Scenes\ShipEditorScene.cpp" />
+    <ClCompile Include="Source\Scenes\ShipGameplayScene.cpp" />
     <ClCompile Include="Source\Scenes\MenuScene.cpp" />
     <ClCompile Include="Source\Scenes\Scene.cpp" />
     <ClCompile Include="Source\Scenes\SceneManager.cpp" />

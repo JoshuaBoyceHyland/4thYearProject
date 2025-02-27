@@ -24,8 +24,8 @@ C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\Particle.cpp;C:\U
 C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\ParticleSystem.cpp;C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\x64\Debug\ParticleSystem.obj
 C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\Scenes\RoomBuilderScene.cpp;C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\x64\Debug\RoomBuilderScene.obj
 C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\Scenes\BaseGamePlayScene.cpp;C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\x64\Debug\BaseGamePlayScene.obj
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\Scenes\EditorScene.cpp;C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\x64\Debug\EditorScene.obj
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\Scenes\GameplayScene.cpp;C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\x64\Debug\GameplayScene.obj
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\Scenes\ShipEditorScene.cpp;C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\x64\Debug\ShipEditorScene.obj
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\Scenes\ShipGameplayScene.cpp;C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\x64\Debug\ShipGameplayScene.obj
 C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\Scenes\MenuScene.cpp;C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\x64\Debug\MenuScene.obj
 C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\Scenes\Scene.cpp;C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\x64\Debug\Scene.obj
 C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\Scenes\SceneManager.cpp;C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\x64\Debug\SceneManager.obj
