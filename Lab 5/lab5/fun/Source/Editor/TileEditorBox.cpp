@@ -121,9 +121,17 @@ void TileEditorBox::updatePosition(sf::Vector2f t_position)
 
 		for (int k = 0; k < m_uiSprites[i].size(); k++)
 		{
-
-			m_uiSprites[i][k].setPosition(pos);
-			pos.y += 100 * m_uiBox.getScale().y;
+			if (i != 2)
+			{
+				m_uiSprites[i][k].setPosition(pos);
+				pos.y += 100 * m_uiBox.getScale().y;
+			}
+			else
+			{
+				m_uiSprites[i][k].setPosition(pos);
+				pos.y += 200 * m_uiBox.getScale().y;
+			}
+			
 		}
 	}
 }
@@ -192,7 +200,7 @@ void TileEditorBox::setUpUiSprites()
 				m_uiSprites[section].push_back(sf::Sprite(texture->texture));
 				m_uiSprites[section][k].setPosition(pos);
 				m_uiSprites[section][k].setOrigin({ (float)(*texture).texture.getSize().x / 2,(float)(float)(*texture).texture.getSize().y / 2 });
-				pos.y += 100;
+				pos.y += 200;
 			}
 		}
 		

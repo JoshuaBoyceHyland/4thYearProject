@@ -124,6 +124,12 @@ void MapSaver::loadMapJson(Grid* t_grid)
             {
                 t_grid->m_cells[row][column].m_cellJob = new PlayerInteractableItem(loadedItem->getTexture(), worldItemsLibrary->getFunction());
             }
+            else if (jobId == 2)
+            {
+                t_grid->m_cells[row][column].m_cellJob = new PlayerInteractableItem(loadedItem->getTexture(), worldItemsLibrary->getFunction());
+                PlayerInteractableItem* item = static_cast<PlayerInteractableItem*>(t_grid->m_cells[row][column].m_cellJob);
+                item->setTargetScene(RoomBuilder);
+            }
             else
             {
                 

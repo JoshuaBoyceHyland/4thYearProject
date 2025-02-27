@@ -81,7 +81,7 @@ void Grid::setForGamePlay()
 		{
 			if (m_cells[row][column].getTexture() == nullptr)
 			{
-				m_cells[row][column].setColor(sf::Color::Black);
+				m_cells[row][column].setColor(sf::Color::Transparent);
 				m_cells[row][column].outlineEnabled(false);
 				m_cells[row][column].enableText(false);
 

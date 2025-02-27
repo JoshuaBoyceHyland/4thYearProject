@@ -23,7 +23,7 @@ void ParticleSystem::update()
 {
 	for (int i = 0; i < m_particles.size(); i++)
 	{
-		m_particles[i].update(m_clock.getElapsedTime().asMilliseconds());
+		//m_particles[i].update(m_clock.getElapsedTime().asMilliseconds());
 		
 	}
 }
@@ -32,6 +32,6 @@ void ParticleSystem::draw(sf::RenderWindow& t_window)
 {
 	for (int i = 0; i < m_particles.size(); i++)
 	{
-		m_particles[i].draw(t_window);
+		//m_particles[i].draw(t_window);
 	}
 }

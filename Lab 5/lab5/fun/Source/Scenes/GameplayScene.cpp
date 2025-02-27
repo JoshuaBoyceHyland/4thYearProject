@@ -23,8 +23,9 @@ void ShipGameplayScene::update(sf::Time t_deltaTime)
 void ShipGameplayScene::render()
 {
 	m_window.clear(sf::Color::Black);
-	m_grid->draw(m_window);
 	m_player.draw(m_window);
+	m_grid->draw(m_window);
+	
 	//m_uiBorder.draw(m_window);
 	
 	m_window.display();

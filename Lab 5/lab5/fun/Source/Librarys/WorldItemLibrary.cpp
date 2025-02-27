@@ -44,11 +44,10 @@ void WorldItemLibrary::loadTextures()
             m_items.push_back(new PlayerInteractableItem(textures[k], m_sceneChangeFunction));
             m_items[k]->setPurpose(Purpose::PlayerInteractable);
         }
-        else if (k == 1)
+        else if (k == 2)
         {
             m_items.push_back(new PlayerInteractableItem(textures[k], m_sceneChangeFunction));
             m_items[k]->setPurpose(Purpose::PlayerInteractable);
-
 
             PlayerInteractableItem* item = static_cast<PlayerInteractableItem*>(m_items[k]);
             item->setTargetScene(RoomBuilder);
