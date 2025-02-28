@@ -30,6 +30,9 @@ void SceneManager::switchScene(SceneType t_newScene)
 	case ShipGameplay:
 		m_currentScene = new ShipGameplayScene(m_window);
 		break;
+	case DungeonGeneration:
+		m_currentScene = new DungeonGenerationTestScene(m_window);
+		break;
 	default:
 		break;
 	}

@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Include\DungeonGeneration\DungeonGeneration.h" />
+    <ClInclude Include="Include\Scenes\DungeonGenerationTest.h" />
     <ClInclude Include="Include\WorldItems\EditorITem.h" />
     <ClInclude Include="Include\WorldItems\ShipBuilderTerminal.h" />
     <ClInclude Include="Include\WorldItems\WorldItem.h" />
@@ -128,6 +130,7 @@
     <None Include="map.json" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Scenes\DungeonGenerationTest.cpp" />
     <ClCompile Include="Source\WorldItems\EditorITem.cpp" />
     <ClCompile Include="Source\WorldItems\ShipBuilderTerminal.cpp" />
     <ClCompile Include="Source\WorldItems\WorldItem.cpp" />

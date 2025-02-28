@@ -7,7 +7,7 @@
 #include "Scenes/RoomBuilderScene.h"
 #include "Scenes/BaseBuilderScene.h"
 #include "Scenes/BaseGameplayScene.h"
-
+#include "Scenes/DungeonGenerationTest.h"
 
 
 class SceneManager
