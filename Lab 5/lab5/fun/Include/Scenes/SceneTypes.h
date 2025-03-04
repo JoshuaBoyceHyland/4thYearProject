@@ -7,5 +7,5 @@ enum SceneType
 	BaseBuilder, 
 	BaseGameplay, 
 	ShipGameplay, 
-	DungeonGeneration
+	DungeonGenerationTest
 };

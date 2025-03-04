@@ -1,5 +1,6 @@
 #pragma once
 #include "Scene.h"
+#include "DungeonGeneration/DungeonGeneration.h"
 #include "MovableCamera.h"
 
 class DungeonGenerationTestScene : public Scene
@@ -18,5 +19,5 @@ class DungeonGenerationTestScene : public Scene
 
 	private:
 		MovableCamera m_camera;
-
+		DungeonGeneration m_dg;
 };

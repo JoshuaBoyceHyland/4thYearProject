@@ -90,7 +90,7 @@ void Cell::draw(sf::RenderWindow& t_window)
 
 	if (m_textActive)
 	{
-		t_window.draw(m_text);
+		//t_window.draw(m_text);
 	}
 
 	

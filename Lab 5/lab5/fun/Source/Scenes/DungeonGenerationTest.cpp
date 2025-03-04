@@ -4,22 +4,24 @@ DungeonGenerationTestScene::DungeonGenerationTestScene(sf::RenderWindow& t_windo
 	Scene( t_window), 
 	m_camera(m_window)
 {
+	m_dg.step1RandomRooms();
+	m_dg.step2Direction();
 }
 
 void DungeonGenerationTestScene::update(sf::Time t_deltaTime)
 {
 	m_camera.update();
+	m_dg.step4Seperation();
 }
 
 void DungeonGenerationTestScene::render()
 {
+
+
+	
 	m_window.clear();
-	sf::CircleShape t;
-	t.setFillColor(sf::Color::Yellow);
-	t.setPosition(Globals::SCREEN_WIDTH / 2, Globals::SCREEN_HEIGHT / 2);
-	t.setRadius(100);
-	t.setOrigin(50, 50);
-	m_window.draw(t);
+	m_dg.draw(m_window);
+
 	m_window.display();
 }
 

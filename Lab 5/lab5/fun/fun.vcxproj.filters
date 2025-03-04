@@ -155,6 +155,7 @@
     <ClCompile Include="Source\WorldItems\EditorITem.cpp" />
     <ClCompile Include="Source\WorldItems\ShipBuilderTerminal.cpp" />
     <ClCompile Include="Source\Scenes\DungeonGenerationTest.cpp" />
+    <ClCompile Include="Source\DungeonGeneration\DungeonGeneration.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="map.txt" />
