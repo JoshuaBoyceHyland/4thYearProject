@@ -9,14 +9,17 @@ class DungeonGeneration
 
 	public:
 
-		void step1RandomRooms();
+		void generateRooms();
 
-		void step2Direction();
+		void calculateSeperation();
 
-		void step3gatherNeighbours();
+		void update();
 
-		void step4Seperation();
+		void seperateRooms();
 
+		bool allRoomsAreSeperated();
+
+		void emplaceRoomsInWorld();
 		
 
 		void draw(sf::RenderWindow& t_window);
@@ -25,8 +28,9 @@ class DungeonGeneration
 
 	private:
 
-		std::vector<sf::Vector2f> m_directions;
+		std::vector<sf::Vector2f> m_seperation;
 		std::vector<Grid*> m_roomsGenerated;
+		std::vector<sf::RectangleShape> m_roomCollider;
 		sf::CircleShape radius;
 		std::vector<sf::CircleShape>t_visuals;
 		

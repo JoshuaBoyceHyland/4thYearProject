@@ -1,8 +1,8 @@
 #include "DungeonGeneration/DungeonGeneration.h"
 
-void DungeonGeneration::step1RandomRooms()
+void DungeonGeneration::generateRooms()
 {
-	radius.setRadius(1000);
+	radius.setRadius(500);
 	radius.setFillColor(sf::Color::Transparent);
 	radius.setOutlineThickness(1);
 	radius.setOutlineColor(sf::Color::Red);
@@ -19,7 +19,7 @@ void DungeonGeneration::step1RandomRooms()
 	int minHeight = 4;
 	int maxHeight = 12;
 
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < 100; i++)
 	{
 
 		int randWidth = rand() % maxWidth + minWidth;
@@ -31,6 +31,11 @@ void DungeonGeneration::step1RandomRooms()
 
 		m_roomsGenerated.push_back(new Grid(randWidth, randHeight,100 , 100, t.getPosition()));
 
+
+		m_roomCollider.push_back(sf::RectangleShape({ (float)randHeight * 100, (float)randWidth * 100 }));
+		m_roomCollider[i].setPosition(m_roomsGenerated[i]->m_cells[0][0].m_body.getPosition().x - 50, m_roomsGenerated[i]->m_cells[0][0].m_body.getPosition().y - 50);
+		m_roomCollider[i].setFillColor(sf::Color::Red);
+		m_seperation.push_back({0,0});
 		t.setFillColor(sf::Color::Yellow);
 		t.setOrigin({ 2.5, 2.5 });
 		t_visuals.push_back(t);
@@ -43,29 +48,12 @@ void DungeonGeneration::step1RandomRooms()
 
 }
 
-void DungeonGeneration::step2Direction()
-{
-	sf::Vector2f radiusCenter = radius.getPosition();
-	for (int i = 0; i < m_roomsGenerated.size(); i++)
-	{
-		int xCenter = static_cast<int>(m_roomsGenerated[i]->m_cells[0].size() / 2);
-		int yCenter = static_cast<int>(m_roomsGenerated[i]->m_cells.size() / 2);
-		
-		sf::Vector2f directionVector = { 0, 0 } /*VectorMath::directionVector(radiusCenter, m_roomsGenerated[i]->m_cells[0][0].m_body.getPosition())*/;
-		
-		
-		
-		m_directions.push_back(directionVector);
 
-
-
-	}
-}
-
-void DungeonGeneration::step3gatherNeighbours()
+void DungeonGeneration::calculateSeperation()
 {
 	for (int i = 0; i < m_roomsGenerated.size(); i++)
 	{
+		m_roomCollider[i].setPosition(m_roomsGenerated[i]->m_cells[0][0].m_body.getPosition().x - 50, m_roomsGenerated[i]->m_cells[0][0].m_body.getPosition().y - 50);
 		int seped = 0;
 		for (int k = 0; k < m_roomsGenerated.size(); k++)
 		{
@@ -74,9 +62,11 @@ void DungeonGeneration::step3gatherNeighbours()
 
 				float biggestDimension = std::max(m_roomsGenerated[k]->m_cells.size(), m_roomsGenerated[k]->m_cells[0].size());
 				biggestDimension *= 100;
-				if (VectorMath::vectorLength(m_roomsGenerated[i]->m_cells[0][0].m_body.getPosition(), m_roomsGenerated[k]->m_cells[0][0].m_body.getPosition()) < biggestDimension)
+				//if (VectorMath::vectorLength(m_roomsGenerated[i]->m_cells[0][0].m_body.getPosition(), m_roomsGenerated[k]->m_cells[0][0].m_body.getPosition()) < biggestDimension)
+				
+				if( m_roomCollider[i].getGlobalBounds().intersects(m_roomCollider[k].getGlobalBounds()))
 				{
-					m_directions[i] += m_roomsGenerated[i]->m_cells[0][0].m_body.getPosition() - m_roomsGenerated[k]->m_cells[0][0].m_body.getPosition();
+					m_seperation[i] += m_roomsGenerated[i]->m_cells[0][0].m_body.getPosition() - m_roomsGenerated[k]->m_cells[0][0].m_body.getPosition();
 					seped++;
 				}				
 
@@ -87,14 +77,19 @@ void DungeonGeneration::step3gatherNeighbours()
 
 		if (seped != 0)
 		{
-			m_directions[i].x = m_directions[i].x / (m_roomsGenerated.size() - 2);
-			m_directions[i].y = m_directions[i].y / (m_roomsGenerated.size() - 2);
+			m_seperation[i].x = m_seperation[i].x / (m_roomsGenerated.size() - 2);
+			m_seperation[i].y = m_seperation[i].y / (m_roomsGenerated.size() - 2);
 
-			m_directions[i] = VectorMath::unitVector(m_directions[i]);
+			m_seperation[i] = VectorMath::unitVector(m_seperation[i]) ;
+			m_seperation[i].x *=10;
+			m_seperation[i].y *= 10;
 		}
 		else
 		{
-			m_directions[i] = { 0,0 };
+			m_seperation[i] = { 0,0 };
+
+			
+			m_roomsGenerated[i]->setPosition(m_roomsGenerated[i]->m_cells[0][0].m_body.getPosition());
 		}
 
 	}
@@ -102,27 +97,65 @@ void DungeonGeneration::step3gatherNeighbours()
 }
 
 
-void DungeonGeneration::step4Seperation()
+void DungeonGeneration::update()
 {
-	step3gatherNeighbours();
+	if (!allRoomsAreSeperated())
+	{
+		seperateRooms();
+	}
+	else
+	{
+		emplaceRoomsInWorld();
+	}
+	
+}
+
+void DungeonGeneration::seperateRooms()
+{
+	calculateSeperation();
+
 	for (int i = 0; i < m_roomsGenerated.size(); i++)
 	{
 		
-		m_roomsGenerated[i]->setPosition(m_roomsGenerated[i]->m_cells[0][0].m_body.getPosition() + m_directions[i]);
+		m_roomsGenerated[i]->setPosition(m_roomsGenerated[i]->m_cells[0][0].m_body.getPosition() + m_seperation[i]);
 
 
 	}
 }
 
+bool DungeonGeneration::allRoomsAreSeperated()
+{
 
+	int roomsSeperated = 0;
 
+	for (int i = 0; i < m_seperation.size(); i++)
+	{
+		if (m_seperation[i].x == 0 && m_seperation[i].y) 
+		{
+			roomsSeperated++;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	return roomsSeperated == m_seperation.size() - 1;
+}
+
+void DungeonGeneration::emplaceRoomsInWorld()
+{
+	
+
+}
 
 
 void DungeonGeneration::draw(sf::RenderWindow& t_window)
 {
 	for (int i = 0; i < m_roomsGenerated.size(); i++)
 	{
+		t_window.draw(m_roomCollider[i]);
 		m_roomsGenerated[i]->draw(t_window);
+		
 	}
 
 	t_window.draw(radius);
