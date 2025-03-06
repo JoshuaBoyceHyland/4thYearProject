@@ -8,4 +8,8 @@ C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\DungeonGeneration
 C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\DungeonGeneration\DungeonGeneration.cpp(63,28): warning C4244:         [
 C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\DungeonGeneration\DungeonGeneration.cpp(63,28): warning C4244:             _Ty=unsigned __int64
 C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\DungeonGeneration\DungeonGeneration.cpp(63,28): warning C4244:         ]
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\DungeonGeneration\DungeonGeneration.cpp(172,17): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\DungeonGeneration\DungeonGeneration.cpp(173,16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\DungeonGeneration\DungeonGeneration.cpp(215,17): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\DungeonGeneration\DungeonGeneration.cpp(216,16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   fun.vcxproj -> C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\x64\Debug\fun.exe

@@ -35,7 +35,7 @@ void DungeonGeneration::generateRooms()
 		m_roomCollider.push_back(sf::RectangleShape({ (float)randHeight * 100, (float)randWidth * 100 }));
 		m_roomCollider[i].setPosition(m_roomsGenerated[i]->m_cells[0][0].m_body.getPosition().x - 50, m_roomsGenerated[i]->m_cells[0][0].m_body.getPosition().y - 50);
 		m_roomCollider[i].setFillColor(sf::Color::Red);
-		m_seperation.push_back({0,0});
+		m_seperation.push_back({0.01f,0.1f});
 		t.setFillColor(sf::Color::Yellow);
 		t.setOrigin({ 2.5, 2.5 });
 		t_visuals.push_back(t);
@@ -81,7 +81,7 @@ void DungeonGeneration::calculateSeperation()
 			m_seperation[i].y = m_seperation[i].y / (m_roomsGenerated.size() - 2);
 
 			m_seperation[i] = VectorMath::unitVector(m_seperation[i]) ;
-			m_seperation[i].x *=10;
+			m_seperation[i].x *= 10;
 			m_seperation[i].y *= 10;
 		}
 		else
@@ -130,7 +130,7 @@ bool DungeonGeneration::allRoomsAreSeperated()
 
 	for (int i = 0; i < m_seperation.size(); i++)
 	{
-		if (m_seperation[i].x == 0 && m_seperation[i].y) 
+		if (m_seperation[i].x == 0 && m_seperation[i].y == 0) 
 		{
 			roomsSeperated++;
 		}
@@ -139,12 +139,96 @@ bool DungeonGeneration::allRoomsAreSeperated()
 			return false;
 		}
 	}
-	return roomsSeperated == m_seperation.size() - 1;
+	return roomsSeperated == m_seperation.size();
 }
 
 void DungeonGeneration::emplaceRoomsInWorld()
 {
+	Grid* furthersLeftRoom = m_roomsGenerated[0];
+
+	for (int i = 0; i < m_roomsGenerated.size(); i++)
+	{
+		if (m_roomsGenerated[i]->m_cells[0][0].m_body.getPosition().x < furthersLeftRoom->m_cells[0][0].m_body.getPosition().x ) 
+		{
+			furthersLeftRoom = m_roomsGenerated[i];
+		}
+	}
+
+
+	for (int rows = 0; rows < furthersLeftRoom->m_cells.size(); rows++)
+	{
+		for (int columns = 0; columns < furthersLeftRoom->m_cells[0].size(); columns++)
+		{
+			furthersLeftRoom->m_cells[rows][columns].setColor(sf::Color::Yellow);
+		}
+	}
 	
+
+	Grid* furthersRightRoom = m_roomsGenerated[0];
+
+	for (int i = 0; i < m_roomsGenerated.size(); i++)
+	{
+
+		int furthestX = furthersRightRoom->m_cells[0].size() - 1;
+		int currentX = m_roomsGenerated[i]->m_cells[0].size() - 1;
+		if (m_roomsGenerated[i]->m_cells[0][currentX].m_body.getPosition().x > furthersRightRoom->m_cells[0][furthestX].m_body.getPosition().x)
+		{
+			furthersRightRoom = m_roomsGenerated[i];
+		}
+	}
+
+
+	for (int rows = 0; rows < furthersRightRoom->m_cells.size(); rows++)
+	{
+		for (int columns = 0; columns < furthersRightRoom->m_cells[0].size(); columns++)
+		{
+			furthersRightRoom->m_cells[rows][columns].setColor(sf::Color::Blue);
+		}
+	}
+
+
+	Grid* topRoom = m_roomsGenerated[0];
+
+	for (int i = 0; i < m_roomsGenerated.size(); i++)
+	{
+		if (m_roomsGenerated[i]->m_cells[0][0].m_body.getPosition().y < topRoom->m_cells[0][0].m_body.getPosition().y)
+		{
+			topRoom = m_roomsGenerated[i];
+		}
+	}
+
+
+	for (int rows = 0; rows < topRoom->m_cells.size(); rows++)
+	{
+		for (int columns = 0; columns < topRoom->m_cells[0].size(); columns++)
+		{
+			topRoom->m_cells[rows][columns].setColor(sf::Color::Magenta);
+		}
+	}
+
+
+	Grid* bottomRoom = m_roomsGenerated[0];
+
+	for (int i = 0; i < m_roomsGenerated.size(); i++)
+	{
+
+		int furthestY = bottomRoom->m_cells.size() - 1;
+		int currentY = m_roomsGenerated[i]->m_cells.size() - 1;
+
+		if (m_roomsGenerated[i]->m_cells[currentY][0].m_body.getPosition().y > bottomRoom->m_cells[furthestY][0].m_body.getPosition().y)
+		{
+			bottomRoom = m_roomsGenerated[i];
+		}
+	}
+
+
+	for (int rows = 0; rows < bottomRoom->m_cells.size(); rows++)
+	{
+		for (int columns = 0; columns < bottomRoom->m_cells[0].size(); columns++)
+		{
+			bottomRoom->m_cells[rows][columns].setColor(sf::Color::White);
+		}
+	}
 
 }
 
