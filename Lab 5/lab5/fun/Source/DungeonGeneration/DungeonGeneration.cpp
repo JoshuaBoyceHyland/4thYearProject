@@ -99,14 +99,28 @@ void DungeonGeneration::calculateSeperation()
 
 void DungeonGeneration::update()
 {
-	if (!allRoomsAreSeperated())
+
+	switch (state)
 	{
-		seperateRooms();
+		case GenerationState::RoomSeperation:
+			if (allRoomsAreSeperated())
+			{
+				state = GenerationState::RoomCulling;
+				break;
+			}
+			seperateRooms();
+			break;
+
+		case GenerationState::RoomCulling:
+			cullRooms();
+			state = GenerationState::Triangle;
+			break;
+		case GenerationState::Triangle:
+			break;
+		default:
+			break;
 	}
-	else
-	{
-		emplaceRoomsInWorld();
-	}
+
 	
 }
 
@@ -142,7 +156,7 @@ bool DungeonGeneration::allRoomsAreSeperated()
 	return roomsSeperated == m_seperation.size();
 }
 
-void DungeonGeneration::emplaceRoomsInWorld()
+void DungeonGeneration::AssignCorners()
 {
 	Grid* furthersLeftRoom = m_roomsGenerated[0];
 
@@ -233,20 +247,72 @@ void DungeonGeneration::emplaceRoomsInWorld()
 }
 
 
-void DungeonGeneration::draw(sf::RenderWindow& t_window)
+void DungeonGeneration::cullRooms()
 {
+	int minRoomWidth = 10;
+	int minRoomHeight = 6;
+
 	for (int i = 0; i < m_roomsGenerated.size(); i++)
 	{
-		t_window.draw(m_roomCollider[i]);
-		m_roomsGenerated[i]->draw(t_window);
-		
+		if (m_roomsGenerated[i]->m_cells[0].size() < minRoomWidth || m_roomsGenerated[i]->m_cells.size() < minRoomHeight)
+		{
+			m_subRoomCollider.push_back(m_roomCollider[i]);
+			m_subRooms.push_back(m_roomsGenerated[i]);
+			
+		}
+		else
+		{
+			sf::CircleShape t;
+			t.setRadius(10);
+			t.setOrigin(10, 10);
+			t.setPosition({ m_roomsGenerated[i]->m_cells[0][0].m_body.getPosition().x + ( m_roomCollider[i].getSize().x / 2) -50, m_roomsGenerated[i]->m_cells[0][0].m_body.getPosition().y + (m_roomCollider[i].getSize().y / 2) -50 });
+			t.setFillColor(sf::Color::Black);
+			m_centers.push_back(t);
+			m_roomCollider[i].setFillColor(sf::Color::Yellow);
+			m_mainRoomCollider.push_back(m_roomCollider[i]);
+			m_mainRooms.push_back(m_roomsGenerated[i]);
+		}
 	}
+}
 
-	t_window.draw(radius);
+void DungeonGeneration::draw(sf::RenderWindow& t_window)
+{
 
-	for (int i = 0; i < t_visuals.size(); i++)
+
+	switch (state)
 	{
-		t_window.draw(t_visuals[i]);
+	case GenerationState::RoomSeperation:
+		for (int i = 0; i < m_roomsGenerated.size(); i++)
+		{
+			t_window.draw(m_roomCollider[i]);
+			m_roomsGenerated[i]->draw(t_window);
+
+		}
+
+		t_window.draw(radius);
+
+		for (int i = 0; i < t_visuals.size(); i++)
+		{
+			t_window.draw(t_visuals[i]);
+		}
+		break;
+
+	case GenerationState::RoomCulling:
+		for (int i = 0; i < m_mainRooms.size(); i++)
+		{
+			m_mainRooms[i]->draw(t_window);
+		}
+		break;
+	case GenerationState::Triangle:
+		for (int i = 0; i < m_mainRooms.size(); i++)
+		{
+			t_window.draw(m_mainRoomCollider[i]);
+			m_mainRooms[i]->draw(t_window);
+			t_window.draw(m_centers[i]);
+		}
+		break;
+	default:
+		break;
 	}
 }
 

@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GeneratedRoom.h" />
     <ClInclude Include="Include\DungeonGeneration\DungeonGeneration.h" />
     <ClInclude Include="Include\Scenes\DungeonGenerationTest.h" />
     <ClInclude Include="Include\WorldItems\EditorITem.h" />
@@ -130,6 +131,7 @@
     <None Include="map.json" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="GeneratedRoom.cpp" />
     <ClCompile Include="Source\DungeonGeneration\DungeonGeneration.cpp" />
     <ClCompile Include="Source\Scenes\DungeonGenerationTest.cpp" />
     <ClCompile Include="Source\WorldItems\EditorITem.cpp" />
