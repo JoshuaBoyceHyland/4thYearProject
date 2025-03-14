@@ -275,6 +275,17 @@ void DungeonGeneration::cullRooms()
 	}
 }
 
+void DungeonGeneration::triangulate()
+{
+
+
+
+	int roomsNum = m_mainRooms.size();
+	std::vector< Edge> edges;
+	
+
+}
+
 void DungeonGeneration::draw(sf::RenderWindow& t_window)
 {
 
@@ -340,3 +351,42 @@ sf::Vector2f DungeonGeneration::getRandomPointInARadius(float t_radius)
 
 	return randPoint;
 }
+
+void DungeonGeneration::sortXposes()
+{
+
+
+
+}
+void DungeonGeneration::sort(int start, int end)
+{
+
+	
+	for ( int  i = 0; i  < m_centers.size(); i ++)
+	{
+		sorty(i, 0);
+	}
+
+
+}
+
+int DungeonGeneration::sorty(int t_sort, int end)
+{
+	
+	auto sorty = m_centers.at(t_sort);
+
+
+	for (auto current = m_centers.begin(); current != m_centers.end() ; current++)
+	{
+		if (sorty.getPosition().x < (*current).getPosition().x)
+		{
+
+			std::rotate(current, sorty, m_centers.end());
+
+		}
+	}
+
+}
+
+
+
