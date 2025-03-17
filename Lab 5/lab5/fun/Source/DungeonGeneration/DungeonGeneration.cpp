@@ -1,5 +1,9 @@
 #include "DungeonGeneration/DungeonGeneration.h"
 
+DungeonGeneration::DungeonGeneration() : lines( sf::Lines)
+{
+}
+
 void DungeonGeneration::generateRooms()
 {
 	radius.setRadius(500);
@@ -19,7 +23,7 @@ void DungeonGeneration::generateRooms()
 	int minHeight = 4;
 	int maxHeight = 12;
 
-	for (int i = 0; i < 100; i++)
+	for (int i = 0; i < 10; i++)
 	{
 
 		int randWidth = rand() % maxWidth + minWidth;
@@ -113,6 +117,7 @@ void DungeonGeneration::update()
 
 		case GenerationState::RoomCulling:
 			cullRooms();
+			triangulate();
 			state = GenerationState::Triangle;
 			break;
 		case GenerationState::Triangle:
@@ -282,8 +287,104 @@ void DungeonGeneration::triangulate()
 
 	int roomsNum = m_mainRooms.size();
 	std::vector< Edge> edges;
+	sort();
 	
+	// lower hull
+	for (int i = 0; i < roomsNum; i++)
+	{
 
+		while (edges.size() >= 2)
+		{
+			int j = edges.size() - 2;
+			int k = edges.size() - 1;
+
+			sf::Vector2f a = m_centers[edges[j].m_roomIdA].getPosition();
+			sf::Vector2f b = m_centers[edges[j].m_roomIdB].getPosition();
+			sf::Vector2f c = m_centers[edges[k].m_roomIdB].getPosition();
+
+			if (VectorMath::crossProduct({ b.x - a.x, b.y - a.y }, { c.x - b.x, c.y - b.y }) > 0)
+			{
+				break;
+			}
+			edges.pop_back();
+		}
+
+		edges.emplace_back(edges.size(), i);
+	}
+
+	int lower = edges.size();
+	// creating the upper hull
+
+	for (int i = roomsNum - 2, t = lower + 1; i >=0; i--)
+	{
+		while (edges.size() >= t)
+		{
+			int j = edges.size() - 2;
+			int k = edges.size() - 1;
+
+			sf::Vector2f a = m_centers[edges[j].m_roomIdA].getPosition();
+			sf::Vector2f b = m_centers[edges[j].m_roomIdB].getPosition();
+			sf::Vector2f c = m_centers[edges[k].m_roomIdB].getPosition();
+
+			if (VectorMath::crossProduct({ b.x - a.x, b.y - a.y }, { c.x - b.x, c.y - b.y }) > 0)
+			{
+				break;
+			}
+			edges.pop_back();
+		}
+		edges.emplace_back(edges.size(), i);
+	}
+	edges.pop_back();
+
+	// creating triangulation
+	std::vector<Edge> result;
+
+	for (int i = 0; i < edges.size(); i++)
+	{
+		int a = edges[i].m_roomIdA;
+		int b = edges[i].m_roomIdB;
+
+		sf::Vector2f A = m_centers[a].getPosition();
+		sf::Vector2f B = m_centers[b].getPosition();
+
+		bool flag = true;
+
+		for (int k = 0; k < roomsNum;k++)
+		{
+			if (k == a || k == b)
+			{
+				continue;
+			}
+
+			sf::Vector2f P = m_centers[k].getPosition();
+
+			if (inCircle(A, B, P, m_centers[(a + b) >> 1].getPosition()))
+			{
+				flag = false;
+				break;
+			}
+		}
+
+		if (flag)
+		{
+			result.push_back(Edge(a, b));
+		}
+	}
+
+
+	r = result;
+	for (int i = 0; i < r.size(); i++)
+	{
+
+
+
+		
+
+		lines.append(sf::Vertex(m_centers[r[i].m_roomIdA].getPosition(), sf::Color::Red));
+		lines.append(sf::Vertex(m_centers[r[i].m_roomIdB].getPosition(), sf::Color::Red));
+
+
+	}
 }
 
 void DungeonGeneration::draw(sf::RenderWindow& t_window)
@@ -317,8 +418,15 @@ void DungeonGeneration::draw(sf::RenderWindow& t_window)
 	case GenerationState::Triangle:
 		for (int i = 0; i < m_mainRooms.size(); i++)
 		{
-			t_window.draw(m_mainRoomCollider[i]);
+			//t_window.draw(m_mainRoomCollider[i]);
 			m_mainRooms[i]->draw(t_window);
+
+			
+				
+			
+			t_window.draw(lines);
+			
+
 			t_window.draw(m_centers[i]);
 		}
 		break;
@@ -352,41 +460,45 @@ sf::Vector2f DungeonGeneration::getRandomPointInARadius(float t_radius)
 	return randPoint;
 }
 
-void DungeonGeneration::sortXposes()
+void DungeonGeneration::sort()
 {
 
-
-
-}
-void DungeonGeneration::sort(int start, int end)
-{
-
-	
-	for ( int  i = 0; i  < m_centers.size(); i ++)
+	for (int i = 0; i < m_centers.size(); i++)
 	{
-		sorty(i, 0);
+		std::cout <<"Old: " << m_centers[i].getPosition().x << std::endl;
 	}
+	std::cout << "\n";
 
+	std::sort(m_centers.begin(), m_centers.end(), [](const auto& a, const auto& b) { return a.getPosition().x < b.getPosition().x; });
 
-}
-
-int DungeonGeneration::sorty(int t_sort, int end)
-{
-	
-	auto sorty = m_centers.at(t_sort);
-
-
-	for (auto current = m_centers.begin(); current != m_centers.end() ; current++)
+	for (int i = 0; i < m_centers.size(); i++)
 	{
-		if (sorty.getPosition().x < (*current).getPosition().x)
-		{
-
-			std::rotate(current, sorty, m_centers.end());
-
-		}
+		std::cout << "New: " << m_centers[i].getPosition().x << std::endl;
 	}
-
 }
+
+bool DungeonGeneration::inCircle(sf::Vector2f A, sf::Vector2f B, sf::Vector2f C, sf::Vector2f P)
+{
+
+	double ax = A.x - P.x;
+	double ay = A.y - P.y;
+	double bx = B.x - P.x;
+	double by = B.y - P.y;
+	double cx = C.x - P.x;
+	double cy = C.y - P.y;
+
+	double a2 = ax * ax + ay * ay;
+	double b2 = bx * bx + by * by;
+	double c2 = cx * cx + cy * cy;
+
+	return (ax * (by - cy) + bx * (cy - ay)
+		+ cx * (ay - by))
+		>= EPSILON;
+}
+
+
+
+
 
 
 

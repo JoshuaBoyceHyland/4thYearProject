@@ -13,7 +13,7 @@ class Edge
 	public: 
 		
 
-		Edge(int t_roomIdA, int t_roomIdB) : m_roomIdA(t_roomIdA), m_roomIdB(t_roomIdA) {}
+		Edge(int t_roomIdA, int t_roomIdB) : m_roomIdA(t_roomIdA), m_roomIdB(t_roomIdB) {}
 		
 		
 		int m_roomIdA;
@@ -24,7 +24,7 @@ class DungeonGeneration
 {
 
 	public:
-
+		DungeonGeneration();
 		void generateRooms();
 
 		void calculateSeperation();
@@ -44,16 +44,16 @@ class DungeonGeneration
 		void draw(sf::RenderWindow& t_window);
 
 		sf::Vector2f getRandomPointInARadius(float t_radius);
-
+		GenerationState state = GenerationState::RoomSeperation;
+		
+		sf::Vector2f pos = { 0,0 };
 	private:
-
 		
+		sf::VertexArray lines;
+		void sort();
 		
-		void sortXposes();
-
-		void sort( int start, int end);
-
-		int sorty(int start, int end);
+		bool inCircle(sf::Vector2f A, sf::Vector2f B, sf::Vector2f C, sf::Vector2f P);
+		double EPSILON = 1e-12;
 
 		std::vector<sf::CircleShape> m_centers;
 
@@ -69,7 +69,9 @@ class DungeonGeneration
 		sf::CircleShape radius;
 		std::vector<sf::CircleShape>t_visuals;
 
-		GenerationState state = GenerationState::RoomSeperation;
+		std::vector<Edge> r;
+		
+		
 		
 };
 

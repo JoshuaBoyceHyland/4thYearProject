@@ -21,6 +21,8 @@ class MovableCamera
 
 		float zoom(float t_mouseWheelDelta);
 
+		void setPosition(sf::Vector2f t_position); 
+
 		sf::Vector2f getPosition();
 
 		

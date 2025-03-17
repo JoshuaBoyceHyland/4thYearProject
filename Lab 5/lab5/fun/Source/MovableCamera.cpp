@@ -86,6 +86,11 @@ float MovableCamera::zoom(float t_mouseWheelDelta)
 	return zoomValue;
 }
 
+void MovableCamera::setPosition(sf::Vector2f t_position)
+{
+	m_camera.setCenter(t_position);
+}
+
 sf::Vector2f MovableCamera::getPosition() 
 {
 

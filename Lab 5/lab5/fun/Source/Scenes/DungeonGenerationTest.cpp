@@ -11,6 +11,7 @@ void DungeonGenerationTestScene::update(sf::Time t_deltaTime)
 {
 	m_camera.update();
 	m_dg.update();
+
 }
 
 void DungeonGenerationTestScene::render()
@@ -21,6 +22,7 @@ void DungeonGenerationTestScene::render()
 	m_window.clear();
 	m_dg.draw(m_window);
 
+	
 	m_window.display();
 }
 
