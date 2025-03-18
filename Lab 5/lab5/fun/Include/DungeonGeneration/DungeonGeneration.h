@@ -93,7 +93,7 @@ class Triangle
 			}
 		}
 
-		bool triangleIsPoint(sf::Vector2f t_pos)
+		bool isPartOfTriangle(sf::Vector2f t_pos)
 		{
 			for (int i = 0; i < points.size(); i++)
 			{

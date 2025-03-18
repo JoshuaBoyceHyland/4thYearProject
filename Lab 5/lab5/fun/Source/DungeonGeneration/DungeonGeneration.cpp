@@ -23,7 +23,7 @@ void DungeonGeneration::generateRooms()
 	int minHeight = 4;
 	int maxHeight = 12;
 
-	for (int i = 0; i < 50; i++)
+	for (int i = 0; i < 20; i++)
 	{
 
 		int randWidth = rand() % maxWidth + minWidth;
@@ -307,7 +307,8 @@ void DungeonGeneration::triangulate()
 		// create triangles
 		for (int i = 0; i < superTrianglePoints.size(); i++)
 		{
-
+			
+			// super triangle
 			for (int k = 0; k < superTrianglePoints.size(); k++)
 			{
 				Triangle currentTriangle;
@@ -321,42 +322,62 @@ void DungeonGeneration::triangulate()
 				currentTriangle.addPoint(superTriangle[k].position);
 				currentTriangle.addPoint(superTriangle[k + 1].position);
 				// next point is either the next point or the base point
-				/*if (k != 2)
-				{
-					
-				}
-				else
-				{
-					currentTriangle.addPoint(m_centers[centerI].getPosition());
-				}*/
-
+			
 				triangles.push_back(currentTriangle);
 
 			}
 
-			for (int k = 0; k < m_centers.size(); k++)
-			{
-				
-				if (k != centerI) 
-				{
+			//// each other points
+			//for (int k = 0; k < m_centers.size(); k++)
+			//{
+			//	
+			//	// dont want to connect to our own point
+			//	if (k != centerI) 
+			//	{
 
-					
-					if (k + 1 < m_centers.size())
-					{
-						sortByDistance(m_centers[centerI].getPosition());
-						Triangle t;
+			//		// current point
+			//		sf::Vector2f core = m_centers[centerI].getPosition();
 
-						t.addPoint(m_centers[centerI].getPosition());
-						t.addPoint(m_centers[k].getPosition());
-						t.addPoint(m_centers[k + 1].getPosition());
+			//		// iterate for next step
+			//		for (int n = 0; n < m_centers.size(); n++)
+			//		{
+			//			Triangle t;
 
-						triangles.push_back(t);
-					}
-					
-					
-					
-				}
-			}
+			//			// make usre we are not connecting back to oursleves
+			//			if (n != k && n!= centerI)
+			//			{
+			//				// next step
+			//				sf::Vector2f step = m_centers[n].getPosition();
+
+			//				// start triangle
+			//				t.addPoint(core);
+			//				// step 
+			//				t.addPoint(step);
+
+			//				// look for last step
+			//				for (int l = 0; l < m_centers.size(); l++)
+			//				{
+			//					// make sure we are not connect back to our selves
+			//					if (l != n && l != centerI && l != k) 
+			//					{
+			//						t.addPoint(m_centers[l].getPosition());
+			//						triangles.push_back(t);
+			//					
+			//					}
+			//				}
+			//				
+
+			//				
+
+			//				
+			//			}
+			//		}
+
+			//		
+			//		
+			//		
+			//	}
+			//}
 
 
 		}
@@ -373,12 +394,12 @@ void DungeonGeneration::triangulate()
 		}
 
 
-		// checking if the circs over lap with the triangles
+		//// checking if the circs over lap with the triangles
 		for (int i = 0; i < triangles.size(); i++)
 		{
 			for (int k = 0; k < m_centers.size(); k++)
 			{
-				if (triangles[i].points[0] != m_centers[k].getPosition())
+				if (!triangles[i].isPartOfTriangle( m_centers[k].getPosition()))
 				{
 					if (circs[i].inCircumCircle(m_centers[k].getPosition()))
 					{
@@ -554,12 +575,12 @@ void DungeonGeneration::sort()
 
 std::vector<sf::CircleShape> DungeonGeneration::sortByDistance(sf::Vector2f position)
 {
+	std::vector<sf::CircleShape> shortest = m_centers;
+	std::sort(shortest.begin(), shortest.end(), [position](const auto& a, const auto& b) { return VectorMath::vectorLength(position, a.getPosition()) < VectorMath::vectorLength(position, b.getPosition()); });
+	std::sort(shortest.begin(), shortest.end(), [position](const auto& a, const auto& b) {  return VectorMath::vectorLength(position, a.getPosition()) < VectorMath::vectorLength(position, b.getPosition()); });
 
-	std::sort(m_centers.begin(), m_centers.end(), [position](const auto& a, const auto& b) { return VectorMath::vectorLength(position, a.getPosition()) < VectorMath::vectorLength(position, b.getPosition()); });
-	std::sort(m_centers.begin(), m_centers.end(), [position](const auto& a, const auto& b) {  return VectorMath::vectorLength(position, a.getPosition()) < VectorMath::vectorLength(position, b.getPosition()); });
 
-
-	return std::vector<sf::CircleShape>();
+	return shortest;
 }
 
 bool DungeonGeneration::inCircle(sf::Vector2f A, sf::Vector2f B, sf::Vector2f C, sf::Vector2f P)
