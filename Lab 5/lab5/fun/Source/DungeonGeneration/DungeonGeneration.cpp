@@ -290,62 +290,133 @@ void DungeonGeneration::triangulate()
 	superTrianglePoints = createSuperTriangle();
 
 
-	//for (int i = 0; i < m_centers.size(); i+=2)
-	//{
-	//	
-	//	edges.emplace_back(i, i + 1);
-	//}
-
-	
+	// super triangle
 	for (int i = 0; i < superTrianglePoints.size(); i++)
 	{
 		superTriangle.append(sf::Vertex(superTrianglePoints[i], sf::Color::Green));
 	}
 	superTriangle.append(sf::Vertex(superTrianglePoints[0], sf::Color::Green));
 
+	
 
-	for (int i = 0; i < m_centers.size(); i++)
+	for (int centerI = 0; centerI < m_centers.size(); centerI++)
 	{
-		
+		std::vector<CircumCircle> circs;
+		std::vector<Triangle> triangles;
 
-		for (int k = 0; k < superTrianglePoints.size(); k++)
+		// create triangles
+		for (int i = 0; i < superTrianglePoints.size(); i++)
 		{
-			Triangle currentTriangle;
-			edges.emplace_back( m_centers[i].getPosition(), superTriangle[k].position);
-			
-			
-			currentTriangle.addPoint(m_centers[i].getPosition());
-			currentTriangle.addPoint(superTriangle[k].position);
 
-			if (k!= 2)
+			for (int k = 0; k < superTrianglePoints.size(); k++)
 			{
+				Triangle currentTriangle;
+
+
+				edges.emplace_back(m_centers[centerI].getPosition(), superTriangle[k].position);
+
+				// add core point
+				currentTriangle.addPoint(m_centers[centerI].getPosition());
+				// first point of triangle
+				currentTriangle.addPoint(superTriangle[k].position);
 				currentTriangle.addPoint(superTriangle[k + 1].position);
+				// next point is either the next point or the base point
+				/*if (k != 2)
+				{
+					
+				}
+				else
+				{
+					currentTriangle.addPoint(m_centers[centerI].getPosition());
+				}*/
+
+				triangles.push_back(currentTriangle);
+
 			}
-			else
+
+			for (int k = 0; k < m_centers.size(); k++)
 			{
-				currentTriangle.addPoint(m_centers[i].getPosition());
+				
+				if (k != centerI) 
+				{
+
+					
+					if (k + 1 < m_centers.size())
+					{
+						sortByDistance(m_centers[centerI].getPosition());
+						Triangle t;
+
+						t.addPoint(m_centers[centerI].getPosition());
+						t.addPoint(m_centers[k].getPosition());
+						t.addPoint(m_centers[k + 1].getPosition());
+
+						triangles.push_back(t);
+					}
+					
+					
+					
+				}
 			}
-			
-			triangles.push_back(currentTriangle);
+
 
 		}
 
 
+
+
+
+		for (int i = 0; i < triangles.size(); i++)
+		{
+
+			circs.emplace_back(triangles[i].points[0], triangles[i].points[1], triangles[i].points[2]);
+
+		}
+
+
+		// checking if the circs over lap with the triangles
+		for (int i = 0; i < triangles.size(); i++)
+		{
+			for (int k = 0; k < m_centers.size(); k++)
+			{
+				if (triangles[i].points[0] != m_centers[k].getPosition())
+				{
+					if (circs[i].inCircumCircle(m_centers[k].getPosition()))
+					{
+
+						triangles[i].drawVis = false;
+
+					}
+				}
+
+			}
+		}
+
+		for (int i = 0; i < triangles.size(); i++)
+		{
+			if (triangles[i].drawVis) 
+			{
+				trianglesF.push_back(triangles[i]);
+			}
+			circsF.push_back(circs[i]);
+		}
 	}
+	
+
+	
 
 
-	for (int i = 0; i < edges.size(); i++)
-	{
+	//for (int i = 0; i < edges.size(); i++)
+	//{
 
 
 
-		
+	//	
 
-		lines.append(sf::Vertex(edges[i].m_roomIdA, sf::Color::Red));
-		lines.append(sf::Vertex(edges[i].m_roomIdB, sf::Color::Red));
+	//	lines.append(sf::Vertex(edges[i].m_roomIdA, sf::Color::Red));
+	//	lines.append(sf::Vertex(edges[i].m_roomIdB, sf::Color::Red));
 
 
-	}
+	//}
 }
 
 void DungeonGeneration::draw(sf::RenderWindow& t_window)
@@ -389,12 +460,15 @@ void DungeonGeneration::draw(sf::RenderWindow& t_window)
 			t_window.draw(superTriangle);
 
 			t_window.draw(m_centers[i]);
-		}
-		for (int i = 0; i < triangles.size(); i++)
-		{
-			triangles[i].draw(t_window);
-		}
 
+		
+		}
+		for (int i = 0; i < trianglesF.size(); i++)
+		{
+
+			trianglesF[i].draw(t_window);
+			circsF[i].draw(t_window);
+		}
 		break;
 	default:
 		break;
@@ -449,7 +523,7 @@ std::vector<sf::Vector2f> DungeonGeneration::createSuperTriangle()
 	float maxSize = std::max(width, height);
 
 
-	float offset = maxSize * 1.5; // Adjust multiplier if necessary
+	float offset = maxSize * 2; // Adjust multiplier if necessary
 
 	sf::Vector2f p1(center.x, center.y - offset);      // Top vertex
 	sf::Vector2f p2(center.x - offset, center.y + offset); // Bottom left
@@ -478,9 +552,18 @@ void DungeonGeneration::sort()
 	}
 }
 
-bool DungeonGeneration::inCircle(sf::Vector2f A, sf::Vector2f B, sf::Vector2f C, sf::Vector2f P)
+std::vector<sf::CircleShape> DungeonGeneration::sortByDistance(sf::Vector2f position)
 {
 
+	std::sort(m_centers.begin(), m_centers.end(), [position](const auto& a, const auto& b) { return VectorMath::vectorLength(position, a.getPosition()) < VectorMath::vectorLength(position, b.getPosition()); });
+	std::sort(m_centers.begin(), m_centers.end(), [position](const auto& a, const auto& b) {  return VectorMath::vectorLength(position, a.getPosition()) < VectorMath::vectorLength(position, b.getPosition()); });
+
+
+	return std::vector<sf::CircleShape>();
+}
+
+bool DungeonGeneration::inCircle(sf::Vector2f A, sf::Vector2f B, sf::Vector2f C, sf::Vector2f P)
+{
 	double ax = A.x - P.x;
 	double ay = A.y - P.y;
 	double bx = B.x - P.x;
@@ -488,11 +571,15 @@ bool DungeonGeneration::inCircle(sf::Vector2f A, sf::Vector2f B, sf::Vector2f C,
 	double cx = C.x - P.x;
 	double cy = C.y - P.y;
 
-	double det = (ax * (by * (cx * cx + cy * cy) - cy * (bx * bx + by * by)) -
-		ay * (bx * (cx * cx + cy * cy) - cx * (bx * bx + by * by)) +
-		(ax * ax + ay * ay) * (bx * cy - cx * by));
+	double a2 = ax * ax + ay * ay;
+	double b2 = bx * bx + by * by;
+	double c2 = cx * cx + cy * cy;
 
-	return det > EPSILON;
+	double det = ax * (by * c2 - cy * b2)
+		- ay * (bx * c2 - cx * b2)
+		+ a2 * (bx * cy - cx * by);
+
+	return det > 1e-9;  // Ensure correct precision handling
 }
 
 
