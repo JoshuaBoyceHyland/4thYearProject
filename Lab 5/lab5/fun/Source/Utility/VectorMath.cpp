@@ -49,6 +49,6 @@ float VectorMath::vectorToAngle(sf::Vector2f a)
 float VectorMath::crossProduct(sf::Vector2f a, sf::Vector2f b)
 {
 
-	float cross = (a.x * b.x + a.y * b.y);
+	float cross = (a.x * b.y - a.y * b.x);
 	return cross;
 }

@@ -8,6 +8,39 @@
 enum class GenerationState { RoomSeperation, RoomCulling, Triangle };
 
 
+
+class Triangle
+{
+	public:
+		Triangle() : visualiseation(sf::LineStrip){}
+
+		void addPoint(sf::Vector2f p)
+		{
+			
+			if (size < 3)
+			{
+				points.push_back(p);
+				visualiseation.append(sf::Vertex(p, sf::Color::Red));
+				size++;
+				if (size == 3)
+				{
+					visualiseation.append(sf::Vertex(points[0], sf::Color::Red));
+				}
+			}
+		}
+
+		void draw(sf::RenderWindow& t_window)
+		{
+			t_window.draw(visualiseation);
+		}
+
+		sf::VertexArray visualiseation;
+
+
+		int size = 0;
+	
+		std::vector<sf::Vector2f> points;
+};
 class Edge
 {
 	public: 
@@ -19,7 +52,17 @@ class Edge
 		int m_roomIdA;
 		int m_roomIdB;
 };
+class PointEdge
+{
+public:
 
+
+	PointEdge(sf::Vector2f t_roomIdA, sf::Vector2f t_roomIdB) : m_roomIdA(t_roomIdA), m_roomIdB(t_roomIdB) {}
+
+
+	sf::Vector2f m_roomIdA;
+	sf::Vector2f m_roomIdB;
+};
 class DungeonGeneration
 {
 
@@ -49,6 +92,11 @@ class DungeonGeneration
 		sf::Vector2f pos = { 0,0 };
 	private:
 		
+
+		std::vector<sf::Vector2f> createSuperTriangle();
+
+		void detectBadTriangles();
+
 		sf::VertexArray lines;
 		void sort();
 		
@@ -70,8 +118,10 @@ class DungeonGeneration
 		std::vector<sf::CircleShape>t_visuals;
 
 		std::vector<Edge> r;
+		std::vector<sf::Vector2f> superTrianglePoints;
+		sf::VertexArray superTriangle;
 		
 		
-		
+		std::vector<Triangle> triangles;
 };
 
