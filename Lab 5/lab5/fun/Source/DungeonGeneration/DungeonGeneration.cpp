@@ -426,7 +426,7 @@ void DungeonGeneration::delauneyTriangle()
 				triangles[i].visualiseation[1].color = sf::Color::Yellow;
 				triangles[i].visualiseation[2].color = sf::Color::Yellow;*/
 				trianglesF.push_back(triangles[i]);
-				//circsF.push_back(circs[i]);
+				circsF.push_back(circs[i]);
 
 			}
 			//else
