@@ -23,7 +23,7 @@ void DungeonGeneration::generateRooms()
 	int minHeight = 4;
 	int maxHeight = 12;
 
-	for (int i = 0; i < 20; i++)
+	for (int i = 0; i < 100; i++)
 	{
 
 		int randWidth = rand() % maxWidth + minWidth;
@@ -117,7 +117,9 @@ void DungeonGeneration::update()
 
 		case GenerationState::RoomCulling:
 			cullRooms();
-			triangulate();
+			delauneyTriangle();
+			cullTriangles();
+
 			state = GenerationState::Triangle;
 			break;
 		case GenerationState::Triangle:
@@ -280,7 +282,7 @@ void DungeonGeneration::cullRooms()
 	}
 }
 
-void DungeonGeneration::triangulate()
+void DungeonGeneration::delauneyTriangle()
 {
 
 
@@ -452,6 +454,17 @@ void DungeonGeneration::triangulate()
 
 
 	//}
+}
+
+void DungeonGeneration::cullTriangles()
+{
+
+	auto start = trianglesF.begin();
+	auto end = trianglesF.end();
+
+	
+	end = std::unique(start, end);
+	trianglesF.erase(end, trianglesF.end());
 }
 
 void DungeonGeneration::draw(sf::RenderWindow& t_window)

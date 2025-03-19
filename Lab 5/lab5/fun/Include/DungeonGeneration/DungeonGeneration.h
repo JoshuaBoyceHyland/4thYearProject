@@ -4,7 +4,7 @@
 #include "Utility/RotationMath.h"
 #include "Utility/VectorMath.h"
 #include <algorithm>
-
+#include <unordered_set>
 enum class GenerationState { RoomSeperation, RoomCulling, Triangle };
 
 class CircumCircle
@@ -72,11 +72,52 @@ class CircumCircle
 
 };
 
+class PointEdge
+{
+public:
+
+
+	PointEdge(sf::Vector2f t_roomIdA, sf::Vector2f t_roomIdB) : m_roomIdA(t_roomIdA), m_roomIdB(t_roomIdB), visulisations(sf::Lines)
+	{
+
+		visulisations.append(sf::Vertex(t_roomIdA, sf::Color::Blue));
+		visulisations.append(sf::Vertex(t_roomIdB, sf::Color::Blue));
+	}
+
+	void draw(sf::RenderWindow& t_window)
+	{
+		t_window.draw(visulisations);
+	}
+
+	sf::Vector2f m_roomIdA;
+	sf::Vector2f m_roomIdB;
+
+	sf::VertexArray visulisations;
+};
 
 class Triangle
 {
 	public:
+		
 		Triangle() : visualiseation(sf::LineStrip){}
+
+		bool operator==(const Triangle& other)
+		{
+
+			int matchingPoints = 0;
+			for (int i = 0; i < points.size(); i++)
+			{
+				for (int k = 0; k < other.points.size(); k++)
+				{
+					if (points[i] == other.points[k])
+					{
+						matchingPoints++;
+					}
+				}
+			
+			}
+			return matchingPoints == 3;
+		}
 
 		void addPoint(sf::Vector2f p)
 		{
@@ -86,11 +127,20 @@ class Triangle
 				points.push_back(p);
 				visualiseation.append(sf::Vertex(p, sf::Color::Red));
 				size++;
+				// triangle created
 				if (size == 3)
 				{
 					visualiseation.append(sf::Vertex(points[0], sf::Color::Red));
+					generateTriangleEdges();
 				}
 			}
+		}
+
+		void generateTriangleEdges()
+		{
+			edges.push_back(PointEdge( points[0], points[1]));
+			edges.push_back(PointEdge(points[1], points[2] ));
+			edges.push_back(PointEdge(points[2], points[0] ));
 		}
 
 		bool isPartOfTriangle(sf::Vector2f t_pos)
@@ -122,6 +172,7 @@ class Triangle
 		int size = 0;
 	
 		std::vector<sf::Vector2f> points;
+		std::vector<PointEdge> edges;
 };
 class Edge
 {
@@ -133,17 +184,6 @@ class Edge
 		
 		int m_roomIdA;
 		int m_roomIdB;
-};
-class PointEdge
-{
-public:
-
-
-	PointEdge(sf::Vector2f t_roomIdA, sf::Vector2f t_roomIdB) : m_roomIdA(t_roomIdA), m_roomIdB(t_roomIdB) {}
-
-
-	sf::Vector2f m_roomIdA;
-	sf::Vector2f m_roomIdB;
 };
 class DungeonGeneration
 {
@@ -164,7 +204,9 @@ class DungeonGeneration
 		
 		void cullRooms();
 
-		void triangulate();
+		void delauneyTriangle();
+
+		void cullTriangles();
 
 		void draw(sf::RenderWindow& t_window);
 
