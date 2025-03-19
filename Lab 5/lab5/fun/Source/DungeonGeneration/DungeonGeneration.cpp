@@ -345,36 +345,34 @@ void DungeonGeneration::delauneyTriangle()
 				sf::Vector2f core = m_centers[centerI].getPosition();
 
 				
+				// make usre we are not connecting back to oursleves
 					
+				// next step
+				sf::Vector2f step = m_centers[k].getPosition();
 
-					// make usre we are not connecting back to oursleves
-					
-					// next step
-					sf::Vector2f step = m_centers[k].getPosition();
-
-					// start triangle
+				// start triangle
 				
 
-					// look for last step
-					for (int l = 0; l < m_centers.size(); l++)
-					{
+				// look for last step
+				for (int l = 0; l < m_centers.size(); l++)
+				{
 						
-						// make sure we are not connect back to our selves
-						if ( l != centerI && l != k)
-						{
-							Triangle t;
+					// make sure we are not connect back to our selves
+					if ( l != centerI && l != k)
+					{
+						Triangle t;
 
-							t.addPoint(core);
-							// step 
-							t.addPoint(step);
-							t.addPoint(m_centers[l].getPosition());
-							t.visualiseation[0].color = sf::Color::Yellow;
-							t.visualiseation[1].color = sf::Color::Yellow;
-							t.visualiseation[2].color = sf::Color::Yellow;
-							triangles.push_back(t);
+						t.addPoint(core);
+						// step 
+						t.addPoint(step);
+						t.addPoint(m_centers[l].getPosition());
+						t.visualiseation[0].color = sf::Color::Yellow;
+						t.visualiseation[1].color = sf::Color::Yellow;
+						t.visualiseation[2].color = sf::Color::Yellow;
+						triangles.push_back(t);
 
-						}
 					}
+				}
 
 
 
@@ -417,23 +415,17 @@ void DungeonGeneration::delauneyTriangle()
 			}
 		}
 
+		// gather our valid trianglation
 		for (int i = 0; i < triangles.size(); i++)
 		{
 			if (triangles[i].drawVis) 
 			{
 
-			/*	triangles[i].visualiseation[0].color = sf::Color::Yellow;
-				triangles[i].visualiseation[1].color = sf::Color::Yellow;
-				triangles[i].visualiseation[2].color = sf::Color::Yellow;*/
 				trianglesF.push_back(triangles[i]);
 				circsF.push_back(circs[i]);
 
 			}
-			//else
-			//{
-			//	trianglesF.push_back(triangles[i]);
-			//	//circsF.push_back(circs[i]);
-			//}
+
 			
 		}
 	}
@@ -459,12 +451,8 @@ void DungeonGeneration::delauneyTriangle()
 void DungeonGeneration::cullTriangles()
 {
 
-	auto start = trianglesF.begin();
-	auto end = trianglesF.end();
-
-	
-	end = std::unique(start, end);
-	trianglesF.erase(end, trianglesF.end());
+	std::sort(trianglesF.begin(), trianglesF.end());   // Sort first
+	trianglesF.erase(std::unique(trianglesF.begin(), trianglesF.end()) , trianglesF.end());
 }
 
 void DungeonGeneration::draw(sf::RenderWindow& t_window)
@@ -473,58 +461,58 @@ void DungeonGeneration::draw(sf::RenderWindow& t_window)
 
 	switch (state)
 	{
-	case GenerationState::RoomSeperation:
-		for (int i = 0; i < m_roomsGenerated.size(); i++)
-		{
-			t_window.draw(m_roomCollider[i]);
-			m_roomsGenerated[i]->draw(t_window);
+		case GenerationState::RoomSeperation:
+			for (int i = 0; i < m_roomsGenerated.size(); i++)
+			{
+				t_window.draw(m_roomCollider[i]);
+				m_roomsGenerated[i]->draw(t_window);
 
-		}
+			}
 
-		t_window.draw(radius);
+			t_window.draw(radius);
 
-		for (int i = 0; i < t_visuals.size(); i++)
-		{
-			t_window.draw(t_visuals[i]);
-		}
-		break;
+			for (int i = 0; i < t_visuals.size(); i++)
+			{
+				t_window.draw(t_visuals[i]);
+			}
+			break;
 
-	case GenerationState::RoomCulling:
-		for (int i = 0; i < m_mainRooms.size(); i++)
-		{
-			m_mainRooms[i]->draw(t_window);
-		}
-		break;
-	case GenerationState::Triangle:
-		for (int i = 0; i < m_mainRooms.size(); i++)
-		{
-			//t_window.draw(m_mainRoomCollider[i]);
-			m_mainRooms[i]->draw(t_window);
+		case GenerationState::RoomCulling:
+			for (int i = 0; i < m_mainRooms.size(); i++)
+			{
+				m_mainRooms[i]->draw(t_window);
+			}
+			break;
+		case GenerationState::Triangle:
+			for (int i = 0; i < m_mainRooms.size(); i++)
+			{
+				//t_window.draw(m_mainRoomCollider[i]);
+				m_mainRooms[i]->draw(t_window);
 
 			
 				
 			
-			//t_window.draw(lines);
-			t_window.draw(superTriangle);
+				//t_window.draw(lines);
+				t_window.draw(superTriangle);
 
-			t_window.draw(m_centers[i]);
+				t_window.draw(m_centers[i]);
 
 		
-		}
-		for (int i = 0; i < trianglesF.size(); i++)
-		{
+			}
+			for (int i = 0; i < trianglesF.size(); i++)
+			{
 
-			trianglesF[i].draw(t_window);
+				trianglesF[i].draw(t_window);
 			
-		}
+			}
 
-		for (int i = 0; i < circsF.size(); i++)
-		{
-			circsF[i].draw(t_window);
-		}
-		break;
-	default:
-		break;
+			for (int i = 0; i < circsF.size(); i++)
+			{
+				circsF[i].draw(t_window);
+			}
+			break;
+		default:
+			break;
 	}
 }
 

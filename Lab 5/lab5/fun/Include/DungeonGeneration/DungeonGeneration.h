@@ -101,20 +101,25 @@ class Triangle
 		
 		Triangle() : visualiseation(sf::LineStrip){}
 
+		friend bool operator<(const Triangle& a, const Triangle& b)
+		{
+			return a.points[0].x < b.points[0].x;
+		}
+
+
+		friend bool operator>(const Triangle& a, const Triangle& b)
+		{
+			return a.points[0].x > b.points[0].x;
+		}
 		bool operator==(const Triangle& other)
 		{
-
 			int matchingPoints = 0;
-			for (int i = 0; i < points.size(); i++)
+			for (int i = 0; i < other.points.size(); i++)
 			{
-				for (int k = 0; k < other.points.size(); k++)
+				if (isPartOfTriangle(other.points[i])) 
 				{
-					if (points[i] == other.points[k])
-					{
-						matchingPoints++;
-					}
+					matchingPoints++;
 				}
-			
 			}
 			return matchingPoints == 3;
 		}
@@ -145,6 +150,7 @@ class Triangle
 
 		bool isPartOfTriangle(sf::Vector2f t_pos)
 		{
+
 			for (int i = 0; i < points.size(); i++)
 			{
 				if (points[i] == t_pos)
@@ -218,8 +224,6 @@ class DungeonGeneration
 		
 
 		std::vector<sf::Vector2f> createSuperTriangle();
-
-		void detectBadTriangles();
 
 		sf::VertexArray lines;
 		void sort();
