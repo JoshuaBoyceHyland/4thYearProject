@@ -318,6 +318,7 @@ void DungeonGeneration::triangulate()
 
 				// add core point
 				currentTriangle.addPoint(m_centers[centerI].getPosition());
+
 				// first point of triangle
 				currentTriangle.addPoint(superTriangle[k].position);
 				currentTriangle.addPoint(superTriangle[k + 1].position);
@@ -327,62 +328,64 @@ void DungeonGeneration::triangulate()
 
 			}
 
-			//// each other points
-			for (int k = 0; k < m_centers.size(); k++)
-			{
-				
-				// dont want to connect to our own point
-				if (k != centerI) 
-				{
-
-					// current point
-					sf::Vector2f core = m_centers[centerI].getPosition();
-
-					// iterate for next step
-					for (int n = 0; n < m_centers.size(); n++)
-					{
-						Triangle t;
-
-						// make usre we are not connecting back to oursleves
-						if (n != k && n!= centerI)
-						{
-							// next step
-							sf::Vector2f step = m_centers[n].getPosition();
-
-							// start triangle
-							t.addPoint(core);
-							// step 
-							t.addPoint(step);
-
-							// look for last step
-							for (int l = 0; l < m_centers.size(); l++)
-							{
-								// make sure we are not connect back to our selves
-								if (l != n && l != centerI && l != k) 
-								{
-									t.addPoint(m_centers[l].getPosition());
-									triangles.push_back(t);
-								
-								}
-							}
-							
-
-							
-
-							
-						}
-					}
-
-					
-					
-					
-				}
-			}
-
 
 		}
 
+		//// each other points
+		for (int k = 0; k < m_centers.size(); k++)
+		{
 
+			// dont want to connect to our own point
+			if (k != centerI)
+			{
+
+				// core point for whole loop
+				sf::Vector2f core = m_centers[centerI].getPosition();
+
+				
+					
+
+					// make usre we are not connecting back to oursleves
+					
+					// next step
+					sf::Vector2f step = m_centers[k].getPosition();
+
+					// start triangle
+				
+
+					// look for last step
+					for (int l = 0; l < m_centers.size(); l++)
+					{
+						
+						// make sure we are not connect back to our selves
+						if ( l != centerI && l != k)
+						{
+							Triangle t;
+
+							t.addPoint(core);
+							// step 
+							t.addPoint(step);
+							t.addPoint(m_centers[l].getPosition());
+							t.visualiseation[0].color = sf::Color::Yellow;
+							t.visualiseation[1].color = sf::Color::Yellow;
+							t.visualiseation[2].color = sf::Color::Yellow;
+							triangles.push_back(t);
+
+						}
+					}
+
+
+
+
+
+				
+				
+
+
+
+
+			}
+		}
 
 
 
@@ -417,18 +420,18 @@ void DungeonGeneration::triangulate()
 			if (triangles[i].drawVis) 
 			{
 
-				triangles[i].visualiseation[0].color = sf::Color::Yellow;
+			/*	triangles[i].visualiseation[0].color = sf::Color::Yellow;
 				triangles[i].visualiseation[1].color = sf::Color::Yellow;
-				triangles[i].visualiseation[2].color = sf::Color::Yellow;
-				trianglesF.push_back(triangles[i]);
-				circsF.push_back(circs[i]);
-
-			}
-			else
-			{
+				triangles[i].visualiseation[2].color = sf::Color::Yellow;*/
 				trianglesF.push_back(triangles[i]);
 				//circsF.push_back(circs[i]);
+
 			}
+			//else
+			//{
+			//	trianglesF.push_back(triangles[i]);
+			//	//circsF.push_back(circs[i]);
+			//}
 			
 		}
 	}
