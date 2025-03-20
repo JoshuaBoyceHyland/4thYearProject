@@ -269,12 +269,9 @@ void DungeonGeneration::cullRooms()
 		}
 		else
 		{
-			sf::CircleShape t;
-			t.setRadius(10);
-			t.setOrigin(10, 10);
-			t.setPosition({ m_roomsGenerated[i]->m_cells[0][0].m_body.getPosition().x + ( m_roomCollider[i].getSize().x / 2) -50, m_roomsGenerated[i]->m_cells[0][0].m_body.getPosition().y + (m_roomCollider[i].getSize().y / 2) -50 });
-			t.setFillColor(sf::Color::Yellow);
-			m_centers.push_back(t);
+
+			m_centers.push_back(Point({ m_roomsGenerated[i]->m_cells[0][0].m_body.getPosition().x + (m_roomCollider[i].getSize().x / 2) - 50, m_roomsGenerated[i]->m_cells[0][0].m_body.getPosition().y + (m_roomCollider[i].getSize().y / 2) - 50 }));
+
 			m_roomCollider[i].setFillColor(sf::Color::Yellow);
 			m_mainRoomCollider.push_back(m_roomCollider[i]);
 			m_mainRooms.push_back(m_roomsGenerated[i]);
@@ -316,10 +313,10 @@ void DungeonGeneration::delauneyTriangle()
 				Triangle currentTriangle;
 
 
-				edges.emplace_back(m_centers[centerI].getPosition(), superTriangle[k].position);
+				edges.emplace_back(m_centers[centerI].visual.getPosition(), superTriangle[k].position);
 
 				// add core point
-				currentTriangle.addPoint(m_centers[centerI].getPosition());
+				currentTriangle.addPoint(m_centers[centerI].visual.getPosition());
 
 				// first point of triangle
 				currentTriangle.addPoint(superTriangle[k].position);
@@ -342,13 +339,13 @@ void DungeonGeneration::delauneyTriangle()
 			{
 
 				// core point for whole loop
-				sf::Vector2f core = m_centers[centerI].getPosition();
+				sf::Vector2f core = m_centers[centerI].visual.getPosition();
 
 				
 				// make usre we are not connecting back to oursleves
 					
 				// next step
-				sf::Vector2f step = m_centers[k].getPosition();
+				sf::Vector2f step = m_centers[k].visual.getPosition();
 
 				// start triangle
 				
@@ -365,24 +362,20 @@ void DungeonGeneration::delauneyTriangle()
 						t.addPoint(core);
 						// step 
 						t.addPoint(step);
-						t.addPoint(m_centers[l].getPosition());
+						t.addPoint(m_centers[l].visual.getPosition());
 						t.visualiseation[0].color = sf::Color::Yellow;
 						t.visualiseation[1].color = sf::Color::Yellow;
 						t.visualiseation[2].color = sf::Color::Yellow;
-						triangles.push_back(t);
+
+						if (!m_centers[centerI].hasTriangle(t) && !m_centers[k].hasTriangle(t) && !m_centers[l].hasTriangle(t))
+						{
+							triangles.push_back(t);
+						}
+						
+						
 
 					}
 				}
-
-
-
-
-
-				
-				
-
-
-
 
 			}
 		}
@@ -402,9 +395,9 @@ void DungeonGeneration::delauneyTriangle()
 		{
 			for (int k = 0; k < m_centers.size(); k++)
 			{
-				if (!triangles[i].isPartOfTriangle( m_centers[k].getPosition()))
+				if (!triangles[i].isPartOfTriangle( m_centers[k].visual.getPosition()))
 				{
-					if (circs[i].inCircumCircle(m_centers[k].getPosition()))
+					if (circs[i].inCircumCircle(m_centers[k].visual.getPosition()))
 					{
 
 						triangles[i].drawVis = false;
@@ -431,21 +424,7 @@ void DungeonGeneration::delauneyTriangle()
 	}
 	
 
-	
 
-
-	//for (int i = 0; i < edges.size(); i++)
-	//{
-
-
-
-	//	
-
-	//	lines.append(sf::Vertex(edges[i].m_roomIdA, sf::Color::Red));
-	//	lines.append(sf::Vertex(edges[i].m_roomIdB, sf::Color::Red));
-
-
-	//}
 }
 
 void DungeonGeneration::cullTriangles()
@@ -495,7 +474,7 @@ void DungeonGeneration::draw(sf::RenderWindow& t_window)
 				//t_window.draw(lines);
 				t_window.draw(superTriangle);
 
-				t_window.draw(m_centers[i]);
+				t_window.draw(m_centers[i].visual);
 
 		
 			}
@@ -544,18 +523,18 @@ sf::Vector2f DungeonGeneration::getRandomPointInARadius(float t_radius)
 std::vector<sf::Vector2f> DungeonGeneration::createSuperTriangle()
 {
 
-	float minX = m_centers[0].getPosition().x;
-	float minY = m_centers[0].getPosition().y;
-	float maxX = m_centers[0].getPosition().x;
-	float maxY = m_centers[0].getPosition().y;
+	float minX = m_centers[0].visual.getPosition().x;
+	float minY = m_centers[0].visual.getPosition().y;
+	float maxX = m_centers[0].visual.getPosition().x;
+	float maxY = m_centers[0].visual.getPosition().y;
 
 
 	for (int i = 0; i <  m_centers.size(); i++)
 	{
-		minX = std::min(minX, m_centers[i].getPosition().x);
-		maxX = std::max(maxX, m_centers[i].getPosition().x);
-		minY = std::min(minY, m_centers[i].getPosition().y);
-		maxY = std::max(maxY, m_centers[i].getPosition().y);
+		minX = std::min(minX, m_centers[i].visual.getPosition().x);
+		maxX = std::max(maxX, m_centers[i].visual.getPosition().x);
+		minY = std::min(minY, m_centers[i].visual.getPosition().y);
+		maxY = std::max(maxY, m_centers[i].visual.getPosition().y);
 	}
 
 	sf::Vector2f center = { (minX + maxX) / 2.0f, (minY + maxY) / 2.0f };
@@ -581,23 +560,23 @@ void DungeonGeneration::sort()
 
 	for (int i = 0; i < m_centers.size(); i++)
 	{
-		std::cout <<"Old: " << m_centers[i].getPosition().x << std::endl;
+		std::cout <<"Old: " << m_centers[i].visual.getPosition().x << std::endl;
 	}
 	std::cout << "\n";
 
-	std::sort(m_centers.begin(), m_centers.end(), [](const auto& a, const auto& b) { return a.getPosition().x < b.getPosition().x; });
-	std::sort(m_centers.begin(), m_centers.end(), [](const auto& a, const auto& b) { return a.getPosition().x < b.getPosition().x; });
+	std::sort(m_centers.begin(), m_centers.end(), [](const auto& a, const auto& b) { return a.visual.getPosition().x < b.visual.getPosition().x; });
+	std::sort(m_centers.begin(), m_centers.end(), [](const auto& a, const auto& b) { return a.visual.getPosition().x < b.visual.getPosition().x; });
 	for (int i = 0; i < m_centers.size(); i++)
 	{
-		std::cout << "New: " << m_centers[i].getPosition().x << std::endl;
+		std::cout << "New: " << m_centers[i].visual.getPosition().x << std::endl;
 	}
 }
 
-std::vector<sf::CircleShape> DungeonGeneration::sortByDistance(sf::Vector2f position)
+std::vector<Point> DungeonGeneration::sortByDistance(sf::Vector2f position)
 {
-	std::vector<sf::CircleShape> shortest = m_centers;
-	std::sort(shortest.begin(), shortest.end(), [position](const auto& a, const auto& b) { return VectorMath::vectorLength(position, a.getPosition()) < VectorMath::vectorLength(position, b.getPosition()); });
-	std::sort(shortest.begin(), shortest.end(), [position](const auto& a, const auto& b) {  return VectorMath::vectorLength(position, a.getPosition()) < VectorMath::vectorLength(position, b.getPosition()); });
+	std::vector<Point> shortest = m_centers;
+	std::sort(shortest.begin(), shortest.end(), [position](const auto& a, const auto& b) { return VectorMath::vectorLength(position, a.visual.getPosition()) < VectorMath::vectorLength(position, b.visual.getPosition()); });
+	std::sort(shortest.begin(), shortest.end(), [position](const auto& a, const auto& b) {  return VectorMath::vectorLength(position, a.visual.getPosition()) < VectorMath::vectorLength(position, b.visual.getPosition()); });
 
 
 	return shortest;

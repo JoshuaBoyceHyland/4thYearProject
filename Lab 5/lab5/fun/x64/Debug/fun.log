@@ -13,6 +13,13 @@ C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\DungeonGeneration
 C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\DungeonGeneration\DungeonGeneration.cpp(194,16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
 C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\DungeonGeneration\DungeonGeneration.cpp(236,17): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
 C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\DungeonGeneration\DungeonGeneration.cpp(237,16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Game.cpp
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Utility\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Librarys\Loader.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\NPC\Animator.h(13,81): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\DungeonGeneration\DungeonGeneration.h(46,23): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   DungeonGenerationTest.cpp
 C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Utility\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
 C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Librarys\Loader.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
@@ -20,7 +27,7 @@ C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(25,
 C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\DungeonGeneration\DungeonGeneration.h(46,23): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\Scenes\DungeonGenerationTest.cpp(61,14): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-  Game.cpp
+  SceneManager.cpp
 C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Utility\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
 C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Librarys\Loader.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
@@ -35,12 +42,5 @@ C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(26,
 C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\NPC\Animator.h(13,81): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
 C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\DungeonGeneration\DungeonGeneration.h(46,23): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Source\main.cpp(34,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  SceneManager.cpp
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Utility\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Librarys\Loader.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\NPC\Animator.h(13,81): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\fun\Include\DungeonGeneration\DungeonGeneration.h(46,23): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   Generating Code...
   fun.vcxproj -> C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\x64\Debug\fun.exe

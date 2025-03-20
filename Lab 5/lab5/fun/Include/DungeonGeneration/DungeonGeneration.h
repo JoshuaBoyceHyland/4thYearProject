@@ -121,6 +121,7 @@ class Triangle
 					matchingPoints++;
 				}
 			}
+
 			return matchingPoints == 3;
 		}
 
@@ -151,7 +152,7 @@ class Triangle
 		bool isPartOfTriangle(sf::Vector2f t_pos)
 		{
 
-			for (int i = 0; i < points.size(); i++)
+			for (int i = 0; i <3; i++)
 			{
 				if (points[i] == t_pos)
 				{
@@ -163,6 +164,8 @@ class Triangle
 
 		}
 
+
+	
 		void draw(sf::RenderWindow& t_window)
 		{
 			if (drawVis)
@@ -179,6 +182,31 @@ class Triangle
 	
 		std::vector<sf::Vector2f> points;
 		std::vector<PointEdge> edges;
+};
+
+class Point
+{
+	public:
+		Point(sf::Vector2f t_position)
+		{
+			visual.setRadius(10);
+			visual.setOrigin(10, 10);
+			visual.setPosition(t_position);
+			visual.setFillColor(sf::Color::Yellow);
+		}
+		bool hasTriangle(Triangle triange)
+		{
+			for (int i = 0; i < triangles.size(); i++)
+			{
+				if (triangles[i] == triange)
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+		sf::CircleShape visual;
+		std::vector<Triangle> triangles;
 };
 class Edge
 {
@@ -228,12 +256,13 @@ class DungeonGeneration
 		sf::VertexArray lines;
 		void sort();
 		
-		std::vector<sf::CircleShape> sortByDistance(sf::Vector2f position);
+		std::vector<Point> sortByDistance(sf::Vector2f position);
 
 		bool inCircle(sf::Vector2f A, sf::Vector2f B, sf::Vector2f C, sf::Vector2f P);
 		double EPSILON = 1e-12;
 
-		std::vector<sf::CircleShape> m_centers;
+		
+		std::vector<Point> m_centers;
 
 		std::vector<sf::Vector2f> m_seperation;
 		std::vector<Grid*> m_mainRooms;
