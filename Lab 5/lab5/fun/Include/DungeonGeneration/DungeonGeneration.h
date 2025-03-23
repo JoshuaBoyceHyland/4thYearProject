@@ -114,7 +114,7 @@ class Triangle
 		bool operator==(const Triangle& other)
 		{
 			int matchingPoints = 0;
-			for (int i = 0; i < other.points.size(); i++)
+			for (int i = 0; i < 3; i++)
 			{
 				if (isPartOfTriangle(other.points[i])) 
 				{
@@ -122,7 +122,15 @@ class Triangle
 				}
 			}
 
-			return matchingPoints == 3;
+			if (matchingPoints == 3)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		
 		}
 
 		void addPoint(sf::Vector2f p)
@@ -154,7 +162,7 @@ class Triangle
 
 			for (int i = 0; i <3; i++)
 			{
-				if (points[i] == t_pos)
+				if (static_cast<sf::Vector2i>(points[i]) == static_cast<sf::Vector2i>(t_pos))
 				{
 					return true;
 				}
@@ -251,7 +259,7 @@ class DungeonGeneration
 	private:
 		
 
-		std::vector<sf::Vector2f> createSuperTriangle();
+		std::vector<Point> createSuperTriangle();
 
 		sf::VertexArray lines;
 		void sort();
@@ -277,7 +285,7 @@ class DungeonGeneration
 		std::vector<sf::CircleShape>t_visuals;
 
 		std::vector<Edge> r;
-		std::vector<sf::Vector2f> superTrianglePoints;
+		std::vector<Point> superTrianglePoints;
 		sf::VertexArray superTriangle;
 		
 		std::vector<CircumCircle> circsF;

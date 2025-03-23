@@ -292,9 +292,9 @@ void DungeonGeneration::delauneyTriangle()
 	// super triangle
 	for (int i = 0; i < superTrianglePoints.size(); i++)
 	{
-		superTriangle.append(sf::Vertex(superTrianglePoints[i], sf::Color::Green));
+		superTriangle.append(sf::Vertex(superTrianglePoints[i].visual.getPosition(), sf::Color::Green));
 	}
-	superTriangle.append(sf::Vertex(superTrianglePoints[0], sf::Color::Green));
+	superTriangle.append(sf::Vertex(superTrianglePoints[0].visual.getPosition(), sf::Color::Green));
 
 	
 
@@ -317,77 +317,84 @@ void DungeonGeneration::delauneyTriangle()
 
 				// add core point
 				currentTriangle.addPoint(m_centers[centerI].visual.getPosition());
-
 				// first point of triangle
 				currentTriangle.addPoint(superTriangle[k].position);
 				currentTriangle.addPoint(superTriangle[k + 1].position);
 				// next point is either the next point or the base point
-			
-				triangles.push_back(currentTriangle);
-
-			}
-
-
-		}
-
-		//// each other points
-		for (int k = 0; k < m_centers.size(); k++)
-		{
-
-			// dont want to connect to our own point
-			if (k != centerI)
-			{
-
-				// core point for whole loop
-				sf::Vector2f core = m_centers[centerI].visual.getPosition();
-
 				
-				// make usre we are not connecting back to oursleves
-					
-				// next step
-				sf::Vector2f step = m_centers[k].visual.getPosition();
-
-				// start triangle
-				
-
-				// look for last step
-				for (int l = 0; l < m_centers.size(); l++)
+				if (!m_centers[centerI].hasTriangle( currentTriangle) && !superTrianglePoints[k].hasTriangle(currentTriangle) /*&& !superTrianglePoints[k + 1].hasTriangle(currentTriangle)*/)
 				{
-						
-					// make sure we are not connect back to our selves
-					if ( l != centerI && l != k)
-					{
-						Triangle t;
-
-						t.addPoint(core);
-						// step 
-						t.addPoint(step);
-						t.addPoint(m_centers[l].visual.getPosition());
-						t.visualiseation[0].color = sf::Color::Yellow;
-						t.visualiseation[1].color = sf::Color::Yellow;
-						t.visualiseation[2].color = sf::Color::Yellow;
-
-						if (!m_centers[centerI].hasTriangle(t) && !m_centers[k].hasTriangle(t) && !m_centers[l].hasTriangle(t))
-						{
-							triangles.push_back(t);
-						}
-						
-						
-
-					}
+					triangles.push_back(currentTriangle);
 				}
+				
 
 			}
+
+
 		}
 
+		////// each other points
+		//for (int k = 0; k < m_centers.size(); k++)
+		//{
+
+		//	// dont want to connect to our own point
+		//	if (k != centerI)
+		//	{
+
+		//		// core point for whole loop
+		//		sf::Vector2f core = m_centers[centerI].visual.getPosition();
+
+		//		
+		//		// make usre we are not connecting back to oursleves
+		//			
+		//		// next step
+		//		sf::Vector2f step = m_centers[k].visual.getPosition();
+
+		//		// start triangle
+		//		
+
+		//		// look for last step
+		//		for (int l = 0; l < m_centers.size(); l++)
+		//		{
+		//				
+		//			// make sure we are not connect back to our selves
+		//			if ( l != centerI && l != k)
+		//			{
+		//				Triangle t;
+
+		//				t.addPoint(core);
+		//				// step 
+		//				t.addPoint(step);
+		//				t.addPoint(m_centers[l].visual.getPosition());
+		//				t.visualiseation[0].color = sf::Color::Yellow;
+		//				t.visualiseation[1].color = sf::Color::Yellow;
+		//				t.visualiseation[2].color = sf::Color::Yellow;
+
+		//				if (!m_centers[centerI].hasTriangle(t) && !m_centers[k].hasTriangle(t) && !m_centers[l].hasTriangle(t))
+		//				{
+		//					triangles.push_back(t);
+		//				}
+		//				else
+		//				{
+		//					std::cout << "Culled" << std::endl;
+		//				}
+		//				
+		//				
+
+		//			}
+		//		}
+
+		//	}
+		//}
 
 
-		for (int i = 0; i < triangles.size(); i++)
-		{
 
-			circs.emplace_back(triangles[i].points[0], triangles[i].points[1], triangles[i].points[2]);
+		//for (int i = 0; i < triangles.size(); i++)
+		//{
 
-		}
+		//	circs.emplace_back(triangles[i].points[0], triangles[i].points[1], triangles[i].points[2]);
+
+		//}
 
 
 		//// checking if the circs over lap with the triangles
@@ -415,7 +422,7 @@ void DungeonGeneration::delauneyTriangle()
 			{
 
 				trianglesF.push_back(triangles[i]);
-				circsF.push_back(circs[i]);
+				//circsF.push_back(circs[i]);
 
 			}
 
@@ -468,21 +475,21 @@ void DungeonGeneration::draw(sf::RenderWindow& t_window)
 				//t_window.draw(m_mainRoomCollider[i]);
 				m_mainRooms[i]->draw(t_window);
 
-			
-				
-			
+
+
+
 				//t_window.draw(lines);
 				t_window.draw(superTriangle);
 
-				t_window.draw(m_centers[i].visual);
+				//t_window.draw(m_centers[i].visual);
 
-		
+
 			}
 			for (int i = 0; i < trianglesF.size(); i++)
 			{
 
 				trianglesF[i].draw(t_window);
-			
+
 			}
 
 			for (int i = 0; i < circsF.size(); i++)
@@ -520,7 +527,7 @@ sf::Vector2f DungeonGeneration::getRandomPointInARadius(float t_radius)
 	return randPoint;
 }
 
-std::vector<sf::Vector2f> DungeonGeneration::createSuperTriangle()
+std::vector<Point> DungeonGeneration::createSuperTriangle()
 {
 
 	float minX = m_centers[0].visual.getPosition().x;
