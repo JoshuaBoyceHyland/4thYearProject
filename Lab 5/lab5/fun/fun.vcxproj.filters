@@ -87,6 +87,7 @@
     <ClInclude Include="Include\WorldItems\WorldItem.h" />
     <ClInclude Include="Include\WorldItems\ShipBuilderTerminal.h" />
     <ClInclude Include="Include\WorldItems\EditorITem.h" />
+    <ClInclude Include="Include\NPC\Decision.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="fun.rc" />

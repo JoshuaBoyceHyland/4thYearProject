@@ -41,6 +41,8 @@ class Wander : public Behaviour
 		/// <summary>
 		/// Timer for character
 		/// </summary>
-		sf::Clock m_timer;		
+		sf::Clock m_timer;	
+
+
 
 };

@@ -2,7 +2,9 @@
 #include "Behaviour.h"
 #include "Wander.h"
 #include "BehaviourTypes.h"
+#include "Decision.h"
 
+enum NPCState { Wandering, DamageTake, Working,  };
 class BehaviourManager
 {
 	public:
@@ -10,7 +12,7 @@ class BehaviourManager
 
 		void update(float t_deltaTime);
 
-		BehaviourType getCurrentBehaviourType();
+		NPCState getCurrentBehaviourType();
 
 		Agent m_agent;
 
@@ -18,8 +20,7 @@ class BehaviourManager
 		
 		
 		Grid* m_grid = nullptr;
-		BehaviourType m_currentType;
 		Behaviour* m_currentBehaviour = nullptr;
-		
-
+		NPCState m_currentState = Wandering;
+		std::vector<Decision*> decisionTree;
 };

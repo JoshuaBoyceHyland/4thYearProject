@@ -66,3 +66,5 @@ void NPC::draw(sf::RenderWindow& t_window)
 }
 
 
+
+

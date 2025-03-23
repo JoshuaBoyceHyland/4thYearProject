@@ -11,11 +11,15 @@ class NPC
 		void update(float deltatime);
 
 		void draw(sf::RenderWindow& t_window);
-	private:
+
+		
 
 		Animator m_animator;
 
 		BehaviourManager m_behaviour;
+	private:
+
+
 		
 };
 
