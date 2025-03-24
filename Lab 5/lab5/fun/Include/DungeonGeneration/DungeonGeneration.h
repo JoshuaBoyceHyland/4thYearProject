@@ -5,7 +5,7 @@
 #include "Utility/VectorMath.h"
 #include <algorithm>
 #include <unordered_set>
-enum class GenerationState { RoomSeperation, RoomCulling, Triangle };
+enum class GenerationState { RoomSeperation, RoomCulling, Triangle, MinSpanning };
 
 class CircumCircle
 {
@@ -77,11 +77,27 @@ class PointEdge
 public:
 
 
-	PointEdge(sf::Vector2f t_roomIdA, sf::Vector2f t_roomIdB) : m_roomIdA(t_roomIdA), m_roomIdB(t_roomIdB), visulisations(sf::Lines)
+	PointEdge(sf::Vector2f t_roomAPos, sf::Vector2f t_roomBPos) : m_roomAPos(t_roomAPos), m_roomBPos(t_roomBPos), visulisations(sf::Lines)
 	{
 
-		visulisations.append(sf::Vertex(t_roomIdA, sf::Color::Blue));
-		visulisations.append(sf::Vertex(t_roomIdB, sf::Color::Blue));
+		visulisations.append(sf::Vertex(t_roomAPos, sf::Color::Green));
+		visulisations.append(sf::Vertex(t_roomBPos, sf::Color::Green));
+		cost = (t_roomAPos.x - t_roomBPos.x) + (t_roomAPos.y - t_roomBPos.y);
+	}
+	bool operator==(const sf::Vector2f& other)
+	{
+
+
+		return (static_cast<sf::Vector2i>(m_roomAPos) == static_cast<sf::Vector2i>(other)) ||
+			(static_cast<sf::Vector2i>(m_roomBPos) == static_cast<sf::Vector2i>(other));
+	}
+
+	bool operator==(const PointEdge& other) const
+	{
+		return (static_cast<sf::Vector2i>(m_roomAPos) == static_cast<sf::Vector2i>(other.m_roomAPos) &&
+			static_cast<sf::Vector2i>(m_roomBPos) == static_cast<sf::Vector2i>(other.m_roomBPos)) ||
+			(static_cast<sf::Vector2i>(m_roomAPos) == static_cast<sf::Vector2i>(other.m_roomBPos) &&
+				static_cast<sf::Vector2i>(m_roomBPos) == static_cast<sf::Vector2i>(other.m_roomAPos));
 	}
 
 	void draw(sf::RenderWindow& t_window)
@@ -89,9 +105,14 @@ public:
 		t_window.draw(visulisations);
 	}
 
-	sf::Vector2f m_roomIdA;
-	sf::Vector2f m_roomIdB;
+	sf::Vector2f m_roomAPos;
+	sf::Vector2f m_roomBPos;
 
+
+	/*int m_roomAId = -1;;
+	int m_roomBId = -1;*/
+
+	float cost = 0;
 	sf::VertexArray visulisations;
 };
 
@@ -226,6 +247,7 @@ class Edge
 		
 		int m_roomIdA;
 		int m_roomIdB;
+		
 };
 class DungeonGeneration
 {
@@ -267,9 +289,16 @@ class DungeonGeneration
 		std::vector<Point> sortByDistance(sf::Vector2f position);
 
 		bool inCircle(sf::Vector2f A, sf::Vector2f B, sf::Vector2f C, sf::Vector2f P);
-		double EPSILON = 1e-12;
 
+		void minimiumSpanningCircle();
+
+		bool listContainsEdge(std::vector<PointEdge> edges, PointEdge e);
+
+		bool partOfSuperTriangle(PointEdge e);
+
+		double EPSILON = 1e-12;
 		
+		std::vector< PointEdge> edges;
 		std::vector<Point> m_centers;
 
 		std::vector<sf::Vector2f> m_seperation;

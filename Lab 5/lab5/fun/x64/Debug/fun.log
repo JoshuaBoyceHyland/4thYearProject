@@ -1,16 +1,1 @@
-﻿  DungeonGeneration.cpp
-C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Librarys\Loader.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Utility\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\DungeonGeneration\DungeonGeneration.h(46,23): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Source\DungeonGeneration\DungeonGeneration.cpp(67,28): warning C4244: 'initializing': conversion from 'const _Ty' to 'float', possible loss of data
-          with
-          [
-              _Ty=unsigned __int64
-          ]
-C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Source\DungeonGeneration\DungeonGeneration.cpp(193,17): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Source\DungeonGeneration\DungeonGeneration.cpp(194,16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Source\DungeonGeneration\DungeonGeneration.cpp(236,17): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Source\DungeonGeneration\DungeonGeneration.cpp(237,16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  fun.vcxproj -> C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\x64\Debug\fun.exe
+﻿  fun.vcxproj -> C:\Users\gameuser\Desktop\4thYearProject\Lab 5\lab5\x64\Debug\fun.exe
