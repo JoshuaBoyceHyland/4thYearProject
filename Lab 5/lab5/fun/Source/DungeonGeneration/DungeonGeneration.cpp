@@ -322,13 +322,13 @@ void DungeonGeneration::delauneyTriangle()
 				Triangle currentTriangle;
 
 
-				edges.emplace_back(m_centers[centerI].visual.getPosition(), superTriangle[k].position);
+				edges.emplace_back(centerI, m_centers[centerI].visual.getPosition(), k, superTriangle[k].position);
 
 				// add core point
-				currentTriangle.addPoint(m_centers[centerI].visual.getPosition());
+				currentTriangle.addPoint(centerI, m_centers[centerI].visual.getPosition());
 				// first point of triangle
-				currentTriangle.addPoint(superTriangle[k].position);
-				currentTriangle.addPoint(superTriangle[k + 1].position);
+				currentTriangle.addPoint(k, superTriangle[k].position);
+				currentTriangle.addPoint(k + 1, superTriangle[k + 1].position);
 				// next point is either the next point or the base point
 				
 				
@@ -369,10 +369,10 @@ void DungeonGeneration::delauneyTriangle()
 					{
 						Triangle t;
 
-						t.addPoint(core);
+						t.addPoint(centerI, core);
 						// step 
-						t.addPoint(step);
-						t.addPoint(m_centers[l].visual.getPosition());
+						t.addPoint(k, step);
+						t.addPoint(l, m_centers[l].visual.getPosition());
 						t.visualiseation[0].color = sf::Color::Yellow;
 						t.visualiseation[1].color = sf::Color::Yellow;
 						t.visualiseation[2].color = sf::Color::Yellow;

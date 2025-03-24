@@ -77,7 +77,10 @@ class PointEdge
 public:
 
 
-	PointEdge(sf::Vector2f t_roomAPos, sf::Vector2f t_roomBPos) : m_roomAPos(t_roomAPos), m_roomBPos(t_roomBPos), visulisations(sf::Lines)
+	PointEdge(int t_roomAId, sf::Vector2f t_roomAPos, int t_roomBId, sf::Vector2f t_roomBPos) : 
+		m_roomAId( t_roomAId), m_roomAPos(t_roomAPos), 
+		m_roomBId(t_roomBId), m_roomBPos(t_roomBPos), 
+		visulisations(sf::Lines)
 	{
 
 		visulisations.append(sf::Vertex(t_roomAPos, sf::Color::Green));
@@ -109,8 +112,8 @@ public:
 	sf::Vector2f m_roomBPos;
 
 
-	/*int m_roomAId = -1;;
-	int m_roomBId = -1;*/
+	int m_roomAId = -1;
+	int m_roomBId = -1;
 
 	float cost = 0;
 	sf::VertexArray visulisations;
@@ -154,11 +157,12 @@ class Triangle
 		
 		}
 
-		void addPoint(sf::Vector2f p)
+		void addPoint(int roomId, sf::Vector2f p)
 		{
 			
 			if (size < 3)
 			{
+				roomIds.push_back(roomId);
 				points.push_back(p);
 				visualiseation.append(sf::Vertex(p, sf::Color::Red));
 				size++;
@@ -173,9 +177,9 @@ class Triangle
 
 		void generateTriangleEdges()
 		{
-			edges.push_back(PointEdge( points[0], points[1]));
-			edges.push_back(PointEdge(points[1], points[2] ));
-			edges.push_back(PointEdge(points[2], points[0] ));
+			edges.push_back(PointEdge( roomIds[0], points[0], roomIds[1] ,points[1]));
+			edges.push_back(PointEdge(roomIds[1], points[1], roomIds[2], points[2] ));
+			edges.push_back(PointEdge(roomIds[2], points[2], roomIds[0], points[0] ));
 		}
 
 		bool isPartOfTriangle(sf::Vector2f t_pos)
@@ -209,6 +213,7 @@ class Triangle
 		bool drawVis = true;
 		int size = 0;
 	
+		std::vector<int> roomIds;
 		std::vector<sf::Vector2f> points;
 		std::vector<PointEdge> edges;
 };
