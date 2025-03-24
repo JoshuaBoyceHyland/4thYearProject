@@ -638,13 +638,12 @@ void DungeonGeneration::minimiumSpanningCircle()
 	
 
 	std::vector<PointEdge> edgesL;
-
+	
 
 	for (int i = 0; i < trianglesF.size(); i++)
 	{
 		for (int k = 0; k < trianglesF[i].edges.size(); k++)
 		{
-			//if ()
 		
 			if (!partOfSuperTriangle(trianglesF[i].edges[k]) && !listContainsEdge(edgesL, trianglesF[i].edges[k]))
 			{
@@ -656,9 +655,24 @@ void DungeonGeneration::minimiumSpanningCircle()
 		}
 	}
 
-	edges = edgesL;
+	//edges  edgesL;
+
+	std::vector<std::vector<PointEdge>>edgesSorted(m_centers.size());
+
+	for (int i = 0; i < edgesSorted.size(); i++)
+	{
+
+	}
+
+	for (int i = 0; i < edgesL.size(); i++)
+	{
+		edgesSorted[edgesL[i].m_roomAId].push_back(edges[i]);
+
+	}
 
 
+	std::vector<float> costs;
+	
 }
 
 bool DungeonGeneration::listContainsEdge(std::vector<PointEdge> edges, PointEdge e)

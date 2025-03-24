@@ -7,10 +7,21 @@
 #include <unordered_set>
 enum class GenerationState { RoomSeperation, RoomCulling, Triangle, MinSpanning };
 
+
+
+
+class SpanningTreeNode
+{
+
+};
+
 class CircumCircle
 {
 	public:
 		
+
+
+
 		CircumCircle(sf::Vector2f A, sf::Vector2f B, sf::Vector2f C)
 		{
 			double x1 = A.x, y1 = A.y;
@@ -241,19 +252,9 @@ class Point
 		}
 		sf::CircleShape visual;
 		std::vector<Triangle> triangles;
+		std::vector<PointEdge> edges;
 };
-class Edge
-{
-	public: 
-		
 
-		Edge(int t_roomIdA, int t_roomIdB) : m_roomIdA(t_roomIdA), m_roomIdB(t_roomIdB) {}
-		
-		
-		int m_roomIdA;
-		int m_roomIdB;
-		
-};
 class DungeonGeneration
 {
 
