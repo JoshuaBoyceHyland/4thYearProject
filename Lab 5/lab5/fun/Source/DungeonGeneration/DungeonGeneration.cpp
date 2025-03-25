@@ -298,7 +298,7 @@ void DungeonGeneration::delauneyTriangle()
 	superTrianglePoints = createSuperTriangle();
 
 
-	// super triangle
+	// create super triangle visual
 	for (int i = 0; i < superTrianglePoints.size(); i++)
 	{
 		superTriangle.append(sf::Vertex(superTrianglePoints[i].visual.getPosition(), sf::Color::Green));
@@ -306,41 +306,37 @@ void DungeonGeneration::delauneyTriangle()
 	superTriangle.append(sf::Vertex(superTrianglePoints[0].visual.getPosition(), sf::Color::Green));
 
 	
-
+	// for every room we have
 	for (int centerI = 0; centerI < m_centers.size(); centerI++)
 	{
 		std::vector<CircumCircle> circs;
 		std::vector<Triangle> triangles;
 
-		// create triangles
-		for (int i = 0; i < superTrianglePoints.size(); i++)
-		{
+		
 			
-			// super triangle
-			for (int k = 0; k < superTrianglePoints.size(); k++)
-			{
-				Triangle currentTriangle;
+		// we create triangles between valid rooms and the super triangle
+		for (int k = 0; k < superTrianglePoints.size(); k++)
+		{
+			Triangle currentTriangle;
 
+			edges.emplace_back(centerI, m_centers[centerI].visual.getPosition(), k, superTriangle[k].position);
 
-				edges.emplace_back(centerI, m_centers[centerI].visual.getPosition(), k, superTriangle[k].position);
-
-				// add core point
-				currentTriangle.addPoint(centerI, m_centers[centerI].visual.getPosition());
-				// first point of triangle
-				currentTriangle.addPoint(k, superTriangle[k].position);
-				currentTriangle.addPoint(k + 1, superTriangle[k + 1].position);
-				// next point is either the next point or the base point
+			// add core point
+			currentTriangle.addPoint(centerI, m_centers[centerI].visual.getPosition());
+			// first point of triangle
+			currentTriangle.addPoint(k, superTriangle[k].position);
+			currentTriangle.addPoint(k + 1, superTriangle[k + 1].position);
+			// next point is either the next point or the base point
 				
 				
-				triangles.push_back(currentTriangle);
+			triangles.push_back(currentTriangle);
 				
-
-			}
-
 
 		}
 
-		//// each other points
+
+
+		//// for every room
 		for (int k = 0; k < m_centers.size(); k++)
 		{
 
@@ -350,20 +346,14 @@ void DungeonGeneration::delauneyTriangle()
 
 				// core point for whole loop
 				sf::Vector2f core = m_centers[centerI].visual.getPosition();
-
-				
-				// make usre we are not connecting back to oursleves
 					
-				// next step
+				// first step in triangle 
 				sf::Vector2f step = m_centers[k].visual.getPosition();
-
-				// start triangle
 				
 
-				// look for last step
+				// look for last steps
 				for (int l = 0; l < m_centers.size(); l++)
 				{
-						
 					// make sure we are not connect back to our selves
 					if ( l != centerI && l != k)
 					{
@@ -372,7 +362,10 @@ void DungeonGeneration::delauneyTriangle()
 						t.addPoint(centerI, core);
 						// step 
 						t.addPoint(k, step);
+						// last point 
 						t.addPoint(l, m_centers[l].visual.getPosition());
+
+						// visual
 						t.visualiseation[0].color = sf::Color::Yellow;
 						t.visualiseation[1].color = sf::Color::Yellow;
 						t.visualiseation[2].color = sf::Color::Yellow;
@@ -655,7 +648,7 @@ void DungeonGeneration::minimiumSpanningCircle()
 		}
 	}
 
-	//edges  edgesL;
+	edges   = edgesL;
 
 	std::vector<std::vector<PointEdge>>edgesSorted(m_centers.size());
 
@@ -664,14 +657,14 @@ void DungeonGeneration::minimiumSpanningCircle()
 
 	}
 
-	for (int i = 0; i < edgesL.size(); i++)
-	{
-		edgesSorted[edgesL[i].m_roomAId].push_back(edges[i]);
+	//for (int i = 0; i < edgesL.size(); i++)
+	//{
+	//	edgesSorted[edgesL[i].m_roomAId].push_back(edges[i]);
 
-	}
+	//}
 
 
-	std::vector<float> costs;
+	//std::vector<float> costs;
 	
 }
 

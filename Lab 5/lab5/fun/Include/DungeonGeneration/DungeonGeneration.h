@@ -5,15 +5,13 @@
 #include "Utility/VectorMath.h"
 #include <algorithm>
 #include <unordered_set>
+#include <queue>
 enum class GenerationState { RoomSeperation, RoomCulling, Triangle, MinSpanning };
 
 
 
 
-class SpanningTreeNode
-{
 
-};
 
 class CircumCircle
 {
@@ -229,6 +227,7 @@ class Triangle
 		std::vector<PointEdge> edges;
 };
 
+
 class Point
 {
 	public:
@@ -250,9 +249,11 @@ class Point
 			}
 			return false;
 		}
+
+
 		sf::CircleShape visual;
 		std::vector<Triangle> triangles;
-		std::vector<PointEdge> edges;
+
 };
 
 class DungeonGeneration
@@ -319,7 +320,7 @@ class DungeonGeneration
 		sf::CircleShape radius;
 		std::vector<sf::CircleShape>t_visuals;
 
-		std::vector<Edge> r;
+
 		std::vector<Point> superTrianglePoints;
 		sf::VertexArray superTriangle;
 		
