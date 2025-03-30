@@ -253,6 +253,7 @@ class Point
 
 		sf::CircleShape visual;
 		std::vector<Triangle> triangles;
+		std::vector<PointEdge> edges;
 
 };
 

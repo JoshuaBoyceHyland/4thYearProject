@@ -650,13 +650,22 @@ void DungeonGeneration::minimiumSpanningCircle()
 
 	edges   = edgesL;
 
-	std::vector<std::vector<PointEdge>>edgesSorted(m_centers.size());
-
-	for (int i = 0; i < edgesSorted.size(); i++)
+	// connect edges to room
+	for (int i = 0; i < edges.size(); i++)
 	{
-
+		m_centers[edges[i].m_roomAId].edges.push_back({ edges[i].m_roomAId, edges[i].m_roomAPos, edges[i].m_roomBId, edges[i].m_roomBPos });
+		m_centers[edges[i].m_roomBId].edges.push_back({ edges[i].m_roomBId, edges[i].m_roomBPos, edges[i].m_roomAId, edges[i].m_roomAPos  });
 	}
 
+
+
+	for (int i = 0; i < m_centers.size(); i++)
+	{
+		for (int k = 0; k < m_centers[k].edges.size(); k++)
+		{
+			PointEdge 
+		}
+	}
 	//for (int i = 0; i < edgesL.size(); i++)
 	//{
 	//	edgesSorted[edgesL[i].m_roomAId].push_back(edges[i]);
