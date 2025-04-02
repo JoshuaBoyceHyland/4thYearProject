@@ -23,7 +23,7 @@ void DungeonGeneration::generateRooms()
 	int minHeight = 4;
 	int maxHeight = 12;
 
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < 100; i++)
 	{
 
 		int randWidth = rand() % maxWidth + minWidth;
@@ -132,6 +132,10 @@ void DungeonGeneration::update()
 			break;
 		case GenerationState::MinSpanning:
 			
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+			{
+				minimise();
+			}
 			break;
 		default:
 			break;
@@ -649,7 +653,7 @@ void DungeonGeneration::minimiumSpanningCircle()
 	}
 
 	
-
+	
 	// connect edges to room
 	for (int i = 0; i < edgesL.size(); i++)
 	{
@@ -658,25 +662,59 @@ void DungeonGeneration::minimiumSpanningCircle()
 	}
 
 
+	edges = edgesL;
+
+
+
+}
+
+void DungeonGeneration::minimise()
+{
+	int connected = 0;
+	int currentNode = 0;
+
 	std::vector<PointEdge> lowestCostEdges;
-	for (int i = 0; i < m_centers.size(); i++)
+	while (connected < m_centers.size() - 1)
 	{
-		PointEdge* lowestCost = &m_centers[i].edges[0];
-		for (int k = 0; k < m_centers[i].edges.size(); k++)
-		{
-			if (*lowestCost < m_centers[i].edges[k] )
-			{
-				lowestCost = & m_centers[i].edges[k];
-				lowestCostEdges.push_back((*lowestCost));
-			}
 		
+		PointEdge* lowestCost = nullptr;
+		for (int k = 0; k < m_centers[currentNode].edges.size(); k++)
+		{
+
+			if (!m_centers[currentNode].edges[k].visited)
+			{
+				if (lowestCost == nullptr)
+				{
+					lowestCost = &m_centers[currentNode].edges[k];
+				}
+				else if (*lowestCost > m_centers[currentNode].edges[k])
+				{
+					lowestCost = &m_centers[currentNode].edges[k];
+
+				}
+			}
 			
 		}
-		
 
+		if (lowestCost != nullptr)
+		{
+			connected++;
+			lowestCost->visited = true;
+			lowestCostEdges.push_back((*lowestCost));
+			currentNode = lowestCost->m_roomBId;
+		}
+		else
+		{
+			currentNode = lowestCostEdges.back().m_roomBId;
+		}
+			
+	
 	}
-	edges = lowestCostEdges;
 
+
+	
+	
+	edges = lowestCostEdges;
 }
 
 bool DungeonGeneration::listContainsEdge(std::vector<PointEdge> edges, PointEdge e)

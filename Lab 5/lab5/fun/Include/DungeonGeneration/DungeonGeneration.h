@@ -105,7 +105,10 @@ public:
 		
 		m_text.setString(std::to_string(cost));
 	}
-
+	bool operator>(const PointEdge& other)const
+	{
+		return cost > other.cost;
+	}
 	bool operator<(const PointEdge& other)const
 	{
 		return cost < other.cost;
@@ -137,7 +140,7 @@ public:
 
 	int m_roomAId = -1;
 	int m_roomBId = -1;
-
+	bool visited = false;
 	sf::Text m_text;
 	sf::Font* f;
 	float cost = 0;
@@ -237,6 +240,7 @@ class Triangle
 
 		sf::VertexArray visualiseation;
 
+		
 		bool drawVis = true;
 		int size = 0;
 	
@@ -268,7 +272,7 @@ class Point
 			return false;
 		}
 
-		bool connectedto = false;
+	
 		sf::CircleShape visual;
 		std::vector<Triangle> triangles;
 		std::vector<PointEdge> edges;
@@ -318,6 +322,8 @@ class DungeonGeneration
 
 		void minimiumSpanningCircle();
 
+		void minimise();
+
 		bool listContainsEdge(std::vector<PointEdge> edges, PointEdge e);
 
 		bool partOfSuperTriangle(PointEdge e);
@@ -349,5 +355,8 @@ class DungeonGeneration
 		std::vector<CircumCircle> circsF;
 		std::vector<Triangle> trianglesF;
 		int current = 0;
+
+
+
 };
 
