@@ -91,10 +91,24 @@ public:
 		m_roomBId(t_roomBId), m_roomBPos(t_roomBPos), 
 		visulisations(sf::Lines)
 	{
+		Loader* l = Loader::getInstance();
+		f = l->loadFont("ASSETS/FONTS/nulshock.otf");
 
+		m_text.setFont(*f);
+		m_text.setFillColor(sf::Color::White);
+		m_text.setCharacterSize(10);
+		m_text.setPosition(sf::Vector2f((t_roomAPos.x + t_roomBPos.x) / 2.0f, (t_roomAPos.y + t_roomBPos.y) / 2.0f));
+		
 		visulisations.append(sf::Vertex(t_roomAPos, sf::Color::Green));
 		visulisations.append(sf::Vertex(t_roomBPos, sf::Color::Green));
-		cost = (t_roomAPos.x - t_roomBPos.x) + (t_roomAPos.y - t_roomBPos.y);
+		cost = std::sqrt(std::pow(t_roomAPos.x - t_roomBPos.x, 2) + std::pow(t_roomAPos.y - t_roomBPos.y, 2));
+		
+		m_text.setString(std::to_string(cost));
+	}
+
+	bool operator<(const PointEdge& other)const
+	{
+		return cost < other.cost;
 	}
 	bool operator==(const sf::Vector2f& other)
 	{
@@ -103,7 +117,6 @@ public:
 		return (static_cast<sf::Vector2i>(m_roomAPos) == static_cast<sf::Vector2i>(other)) ||
 			(static_cast<sf::Vector2i>(m_roomBPos) == static_cast<sf::Vector2i>(other));
 	}
-
 	bool operator==(const PointEdge& other) const
 	{
 		return (static_cast<sf::Vector2i>(m_roomAPos) == static_cast<sf::Vector2i>(other.m_roomAPos) &&
@@ -115,6 +128,7 @@ public:
 	void draw(sf::RenderWindow& t_window)
 	{
 		t_window.draw(visulisations);
+		t_window.draw(m_text);
 	}
 
 	sf::Vector2f m_roomAPos;
@@ -124,8 +138,11 @@ public:
 	int m_roomAId = -1;
 	int m_roomBId = -1;
 
+	sf::Text m_text;
+	sf::Font* f;
 	float cost = 0;
 	sf::VertexArray visulisations;
+	
 };
 
 class Triangle
@@ -144,6 +161,7 @@ class Triangle
 		{
 			return a.points[0].x > b.points[0].x;
 		}
+
 		bool operator==(const Triangle& other)
 		{
 			int matchingPoints = 0;
@@ -250,7 +268,7 @@ class Point
 			return false;
 		}
 
-
+		bool connectedto = false;
 		sf::CircleShape visual;
 		std::vector<Triangle> triangles;
 		std::vector<PointEdge> edges;
@@ -306,6 +324,9 @@ class DungeonGeneration
 
 		double EPSILON = 1e-12;
 		
+
+		
+
 		std::vector< PointEdge> edges;
 		std::vector<Point> m_centers;
 

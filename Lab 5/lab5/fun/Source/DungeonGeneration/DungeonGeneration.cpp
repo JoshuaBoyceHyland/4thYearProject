@@ -23,7 +23,7 @@ void DungeonGeneration::generateRooms()
 	int minHeight = 4;
 	int maxHeight = 12;
 
-	for (int i = 0; i < 25; i++)
+	for (int i = 0; i < 10; i++)
 	{
 
 		int randWidth = rand() % maxWidth + minWidth;
@@ -648,33 +648,35 @@ void DungeonGeneration::minimiumSpanningCircle()
 		}
 	}
 
-	edges   = edgesL;
+	
 
 	// connect edges to room
-	for (int i = 0; i < edges.size(); i++)
+	for (int i = 0; i < edgesL.size(); i++)
 	{
-		m_centers[edges[i].m_roomAId].edges.push_back({ edges[i].m_roomAId, edges[i].m_roomAPos, edges[i].m_roomBId, edges[i].m_roomBPos });
-		m_centers[edges[i].m_roomBId].edges.push_back({ edges[i].m_roomBId, edges[i].m_roomBPos, edges[i].m_roomAId, edges[i].m_roomAPos  });
+		m_centers[edgesL[i].m_roomAId].edges.push_back({ edgesL[i].m_roomAId, edgesL[i].m_roomAPos, edgesL[i].m_roomBId, edgesL[i].m_roomBPos });
+		m_centers[edgesL[i].m_roomBId].edges.push_back({ edgesL[i].m_roomBId, edgesL[i].m_roomBPos, edgesL[i].m_roomAId, edgesL[i].m_roomAPos  });
 	}
 
 
-
+	std::vector<PointEdge> lowestCostEdges;
 	for (int i = 0; i < m_centers.size(); i++)
 	{
-		for (int k = 0; k < m_centers[k].edges.size(); k++)
+		PointEdge* lowestCost = &m_centers[i].edges[0];
+		for (int k = 0; k < m_centers[i].edges.size(); k++)
 		{
-			PointEdge 
+			if (*lowestCost < m_centers[i].edges[k] )
+			{
+				lowestCost = & m_centers[i].edges[k];
+				lowestCostEdges.push_back((*lowestCost));
+			}
+		
+			
 		}
+		
+
 	}
-	//for (int i = 0; i < edgesL.size(); i++)
-	//{
-	//	edgesSorted[edgesL[i].m_roomAId].push_back(edges[i]);
+	edges = lowestCostEdges;
 
-	//}
-
-
-	//std::vector<float> costs;
-	
 }
 
 bool DungeonGeneration::listContainsEdge(std::vector<PointEdge> edges, PointEdge e)
