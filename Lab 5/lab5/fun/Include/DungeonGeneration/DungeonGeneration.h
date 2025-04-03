@@ -272,10 +272,12 @@ class Point
 			return false;
 		}
 
-	
+		
+		bool visited = false;
 		sf::CircleShape visual;
 		std::vector<Triangle> triangles;
 		std::vector<PointEdge> edges;
+		
 
 };
 
@@ -322,7 +324,7 @@ class DungeonGeneration
 
 		void minimiumSpanningCircle();
 
-		void minimise();
+		std::vector<PointEdge> minimise();
 
 		bool listContainsEdge(std::vector<PointEdge> edges, PointEdge e);
 

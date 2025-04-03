@@ -23,7 +23,7 @@ void DungeonGeneration::generateRooms()
 	int minHeight = 4;
 	int maxHeight = 12;
 
-	for (int i = 0; i < 100; i++)
+	for (int i = 0; i < 25; i++)
 	{
 
 		int randWidth = rand() % maxWidth + minWidth;
@@ -134,7 +134,7 @@ void DungeonGeneration::update()
 			
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 			{
-				minimise();
+				edges = minimise();
 			}
 			break;
 		default:
@@ -668,53 +668,59 @@ void DungeonGeneration::minimiumSpanningCircle()
 
 }
 
-void DungeonGeneration::minimise()
+std::vector<PointEdge> DungeonGeneration::minimise()
 {
-	int connected = 0;
-	int currentNode = 0;
+
 
 	std::vector<PointEdge> lowestCostEdges;
-	while (connected < m_centers.size() - 1)
-	{
-		
-		PointEdge* lowestCost = nullptr;
-		for (int k = 0; k < m_centers[currentNode].edges.size(); k++)
-		{
 
-			if (!m_centers[currentNode].edges[k].visited)
+	
+	for (int i = 0; i < m_centers.size(); i++)
+	{
+		PointEdge* lowestCost = nullptr;
+		for (int k = 0; k < m_centers[i].edges.size(); k++)
+		{
+		
+			if (!m_centers[i].edges[k].visited)
 			{
 				if (lowestCost == nullptr)
 				{
-					lowestCost = &m_centers[currentNode].edges[k];
+					lowestCost = &m_centers[i].edges[k];
 				}
-				else if (*lowestCost > m_centers[currentNode].edges[k])
+				else if (*lowestCost > m_centers[i].edges[k])
 				{
-					lowestCost = &m_centers[currentNode].edges[k];
+					lowestCost = &m_centers[i].edges[k];
 
 				}
 			}
-			
-		}
 
+			
+	
+		}
 		if (lowestCost != nullptr)
 		{
-			connected++;
 			lowestCost->visited = true;
-			lowestCostEdges.push_back((*lowestCost));
-			currentNode = lowestCost->m_roomBId;
+
+			for (int j = 0; j < m_centers[lowestCost->m_roomBId].edges.size(); j++)
+			{
+				if (m_centers[lowestCost->m_roomBId].edges[j].m_roomBId == i)
+				{
+					m_centers[lowestCost->m_roomBId].edges[j].visited = true;
+					break;
+				}
+			}
+
+			std::cout << "Processing center " << i << "adding edge: "<< lowestCost->cost << "\n";
+			lowestCostEdges.push_back(*lowestCost);
 		}
-		else
-		{
-			currentNode = lowestCostEdges.back().m_roomBId;
-		}
-			
-	
+		
+
+
+
+		
 	}
-
-
-	
-	
-	edges = lowestCostEdges;
+		
+	return lowestCostEdges;
 }
 
 bool DungeonGeneration::listContainsEdge(std::vector<PointEdge> edges, PointEdge e)
