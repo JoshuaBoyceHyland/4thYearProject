@@ -36,7 +36,8 @@ void DungeonGeneration::generateRooms()
 		m_roomsGenerated.push_back(new Grid(randWidth, randHeight,100 , 100, t.getPosition()));
 
 
-		m_roomCollider.push_back(sf::RectangleShape({ (float)randHeight * 100, (float)randWidth * 100 }));
+		m_roomCollider.push_back(sf::RectangleShape({ ((float)randHeight * 100) * 2, ((float)randWidth * 100 ) *2  }));
+
 		m_roomCollider[i].setPosition(m_roomsGenerated[i]->m_cells[0][0].m_body.getPosition().x - 50, m_roomsGenerated[i]->m_cells[0][0].m_body.getPosition().y - 50);
 		m_roomCollider[i].setFillColor(sf::Color::Red);
 		m_seperation.push_back({0.01f,0.1f});
@@ -128,6 +129,7 @@ void DungeonGeneration::update()
 			{
 				state = GenerationState::MinSpanning;
 				minimiumSpanningCircle();
+				AssignCorners();
 			}
 			break;
 		case GenerationState::MinSpanning:
@@ -179,6 +181,7 @@ bool DungeonGeneration::allRoomsAreSeperated()
 void DungeonGeneration::AssignCorners()
 {
 	Grid* furthersLeftRoom = m_roomsGenerated[0];
+
 
 	for (int i = 0; i < m_roomsGenerated.size(); i++)
 	{
@@ -283,7 +286,7 @@ void DungeonGeneration::cullRooms()
 		else
 		{
 
-			m_centers.push_back(Point({ m_roomsGenerated[i]->m_cells[0][0].m_body.getPosition().x + (m_roomCollider[i].getSize().x / 2) - 50, m_roomsGenerated[i]->m_cells[0][0].m_body.getPosition().y + (m_roomCollider[i].getSize().y / 2) - 50 }));
+			m_centers.push_back(Point({ m_roomsGenerated[i]->m_cells[0][0].m_body.getPosition().x + (m_roomCollider[i].getSize().x / 4) - 50, m_roomsGenerated[i]->m_cells[0][0].m_body.getPosition().y + (m_roomCollider[i].getSize().y / 4) - 50 }));
 
 			m_roomCollider[i].setFillColor(sf::Color::Yellow);
 			m_mainRoomCollider.push_back(m_roomCollider[i]);
@@ -664,6 +667,12 @@ void DungeonGeneration::minimiumSpanningCircle()
 
 	edges = edgesL;
 
+
+
+}
+
+void DungeonGeneration::straightenEdges()
+{
 
 
 }

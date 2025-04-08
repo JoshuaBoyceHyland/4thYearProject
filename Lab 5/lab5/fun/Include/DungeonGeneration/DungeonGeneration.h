@@ -334,6 +334,8 @@ class DungeonGeneration
 
 		void minimiumSpanningCircle();
 
+		void straightenEdges();
+
 
 		/// <summary>
 		/// Prim min spanninggp 
