@@ -81,6 +81,8 @@ class CircumCircle
 
 };
 
+
+
 class PointEdge
 {
 public:
@@ -146,6 +148,14 @@ public:
 	float cost = 0;
 	sf::VertexArray visulisations;
 	
+};
+
+class pQPointEdgeComparer
+{
+	public:
+		bool operator()(const PointEdge& a , const PointEdge& b) const {
+			return a.cost > b.cost;
+		}
 };
 
 class Triangle
@@ -324,7 +334,13 @@ class DungeonGeneration
 
 		void minimiumSpanningCircle();
 
-		std::vector<PointEdge> minimise();
+
+		/// <summary>
+		/// Prim min spanninggp 
+		/// greedy search
+		/// </summary>
+		/// <returns></returns>
+		std::vector<PointEdge> minSpanning();
 
 		bool listContainsEdge(std::vector<PointEdge> edges, PointEdge e);
 

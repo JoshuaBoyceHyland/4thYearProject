@@ -23,7 +23,7 @@ void DungeonGeneration::generateRooms()
 	int minHeight = 4;
 	int maxHeight = 12;
 
-	for (int i = 0; i < 25; i++)
+	for (int i = 0; i < 100; i++)
 	{
 
 		int randWidth = rand() % maxWidth + minWidth;
@@ -134,7 +134,7 @@ void DungeonGeneration::update()
 			
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 			{
-				edges = minimise();
+				edges = minSpanning();
 			}
 			break;
 		default:
@@ -668,59 +668,74 @@ void DungeonGeneration::minimiumSpanningCircle()
 
 }
 
-std::vector<PointEdge> DungeonGeneration::minimise()
+std::vector<PointEdge> DungeonGeneration::minSpanning()
 {
 
 
-	std::vector<PointEdge> lowestCostEdges;
+	std::vector<PointEdge> finalEdges;
 
-	
-	for (int i = 0; i < m_centers.size(); i++)
+
+	std::vector<bool> visited(m_centers.size(), false);
+	std::priority_queue<PointEdge, std::vector<PointEdge>, pQPointEdgeComparer> remaingEdges;
+
+
+	visited[0] = true;
+
+	for (int i = 0; i < m_centers[0].edges.size(); i++)
 	{
-		PointEdge* lowestCost = nullptr;
-		for (int k = 0; k < m_centers[i].edges.size(); k++)
-		{
-		
-			if (!m_centers[i].edges[k].visited)
-			{
-				if (lowestCost == nullptr)
-				{
-					lowestCost = &m_centers[i].edges[k];
-				}
-				else if (*lowestCost > m_centers[i].edges[k])
-				{
-					lowestCost = &m_centers[i].edges[k];
-
-				}
-			}
-
-			
-	
-		}
-		if (lowestCost != nullptr)
-		{
-			lowestCost->visited = true;
-
-			for (int j = 0; j < m_centers[lowestCost->m_roomBId].edges.size(); j++)
-			{
-				if (m_centers[lowestCost->m_roomBId].edges[j].m_roomBId == i)
-				{
-					m_centers[lowestCost->m_roomBId].edges[j].visited = true;
-					break;
-				}
-			}
-
-			std::cout << "Processing center " << i << "adding edge: "<< lowestCost->cost << "\n";
-			lowestCostEdges.push_back(*lowestCost);
-		}
-		
-
-
-
-		
+		remaingEdges.push(m_centers[0].edges[i]);
 	}
+
+
+
+	while (!remaingEdges.empty())
+	{
+		// next edge pop
+		PointEdge currentEdge = remaingEdges.top();
+		remaingEdges.pop();
+
+		int nextRoom = currentEdge.m_roomBId;
+
+		// if visited then we want to skip this edge
+		if (visited[nextRoom]) { continue; }
+
+
+		// mark it as visted now that we are looking at it
+		visited[nextRoom] = true;
+
+		finalEdges.push_back(currentEdge);
+
+		// make sure the edge leading back to our current center are also set to false
+		for (int i = 0; i < m_centers[currentEdge.m_roomAId].edges.size(); i++)
+		{
+			if (m_centers[currentEdge.m_roomAId].edges[i].m_roomBId == currentEdge.m_roomBId)
+			{
+				m_centers[currentEdge.m_roomAId].edges[i].visited = true;
+			}
+		}
+		for (int i = 0; i < m_centers[currentEdge.m_roomBId].edges.size(); i++)
+		{
+			if (m_centers[currentEdge.m_roomBId].edges[i].m_roomBId == currentEdge.m_roomAId)
+			{
+				m_centers[currentEdge.m_roomBId].edges[i].visited = true;
+			}
+		}
+
+
+		// add new edges
+
+		for (int i = 0; i < m_centers[nextRoom].edges.size(); i++)
+		{
+			if (!visited[m_centers[nextRoom].edges[i].m_roomBId])
+			{
+				remaingEdges.push(m_centers[nextRoom].edges[i]);
+			}
+		}
+	}
+
+
 		
-	return lowestCostEdges;
+	return finalEdges;
 }
 
 bool DungeonGeneration::listContainsEdge(std::vector<PointEdge> edges, PointEdge e)
