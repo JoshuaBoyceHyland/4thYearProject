@@ -6,7 +6,8 @@
 #include <algorithm>
 #include <unordered_set>
 #include <queue>
-enum class GenerationState { RoomSeperation, RoomCulling, Triangle, MinSpanning };
+#include "World/Room.h"
+enum class GenerationState { RoomSeperation, RoomCulling, Triangle, MinSpanning, HallwayGen, Done };
 
 
 
@@ -142,11 +143,15 @@ public:
 
 	int m_roomAId = -1;
 	int m_roomBId = -1;
+
+
 	bool visited = false;
 	sf::Text m_text;
 	sf::Font* f;
 	float cost = 0;
 	sf::VertexArray visulisations;
+
+
 	
 };
 
@@ -344,9 +349,17 @@ class DungeonGeneration
 		/// <returns></returns>
 		std::vector<PointEdge> minSpanning();
 
+		
+		
+
 		bool listContainsEdge(std::vector<PointEdge> edges, PointEdge e);
 
 		bool partOfSuperTriangle(PointEdge e);
+
+
+		void placeEnclosingGrid();
+
+		void generateHalways();
 
 		double EPSILON = 1e-12;
 		
@@ -376,6 +389,11 @@ class DungeonGeneration
 		std::vector<Triangle> trianglesF;
 		int current = 0;
 
+
+		sf::Vector2f gridstart = { 0,0 };
+		sf::Vector2f gridEnd = { 0, 0 };
+	
+		Grid* enclosingGrid;
 
 
 };
