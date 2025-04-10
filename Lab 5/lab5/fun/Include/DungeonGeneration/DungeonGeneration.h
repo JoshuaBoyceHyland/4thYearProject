@@ -330,7 +330,7 @@ class DungeonGeneration
 		sf::Text m_stateText;
 		sf::Text m_continueText;
 		sf::Text m_restartText;
-		bool waitingForNextState = false;
+		bool waitingForNextState = true;
 	private:
 		
 

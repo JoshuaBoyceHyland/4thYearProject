@@ -105,8 +105,8 @@ void DungeonGeneration::calculateSeperation()
 			m_seperation[i].y = m_seperation[i].y / (m_roomsGenerated.size() - 2);
 
 			m_seperation[i] = VectorMath::unitVector(m_seperation[i]) ;
-			m_seperation[i].x *= 10;
-			m_seperation[i].y *= 10;
+			m_seperation[i].x *= 30;
+			m_seperation[i].y *= 30;
 		}
 		else
 		{
