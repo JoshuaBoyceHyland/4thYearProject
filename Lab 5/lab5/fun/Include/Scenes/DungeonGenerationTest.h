@@ -19,5 +19,6 @@ class DungeonGenerationTestScene : public Scene
 
 	private:
 		MovableCamera m_camera;
-		DungeonGeneration m_dg;
+		DungeonGeneration* m_dg;
+		sf::View uiView;
 };

@@ -2,6 +2,25 @@
 
 DungeonGeneration::DungeonGeneration() : lines( sf::Lines), superTriangle(sf::LineStrip)
 {
+	Loader* loader = Loader::getInstance();
+	m_font = loader->loadFont("ASSETS/FONTS/nulshock.otf");
+
+	m_stateText.setFont(*m_font);
+	m_stateText.setCharacterSize(20);
+	m_stateText.setFillColor(sf::Color::White);
+	m_stateText.setPosition(10, 10);
+
+	m_continueText.setFont(*m_font);
+	m_continueText.setCharacterSize(16);
+	m_continueText.setFillColor(sf::Color::Yellow);
+	m_continueText.setString("Press SPACE to continue to next state");
+	m_continueText.setPosition(10, 40);
+
+	m_restartText.setFont(*m_font);
+	m_restartText.setCharacterSize(16);
+	m_restartText.setFillColor(sf::Color::Cyan);
+	m_restartText.setString("Press R to restart at any time");
+	m_restartText.setPosition(10, 65);
 }
 
 void DungeonGeneration::generateRooms()
@@ -104,16 +123,38 @@ void DungeonGeneration::calculateSeperation()
 
 void DungeonGeneration::update()
 {
+	std::string stateString;
+	switch (state)
+	{
+	case GenerationState::RoomSeperation: stateString = "Room Separation"; break;
+	case GenerationState::RoomCulling:    stateString = "Culling Rooms"; break;
+	case GenerationState::Triangle:       stateString = "Delauney Triangle"; break;
+	case GenerationState::ConvexHull:    stateString = "Convex Hull"; break;
+	case GenerationState::MinSpanning:     stateString = "Min Spanning Tree ( Finished )"; break;
+	case GenerationState::Done:           stateString = "Min Spanning Tree completed ( to be coninues... )"; break;
+	}
+	m_stateText.setString("State: " + stateString);
+
 
 	switch (state)
 	{
 		case GenerationState::RoomSeperation:
 			if (allRoomsAreSeperated())
 			{
-				state = GenerationState::RoomCulling;
-				break;
+
+				if (!waitingForNextState)
+				{
+					state = GenerationState::RoomCulling;
+					waitingForNextState = true;
+					break;
+				}
+				
 			}
-			seperateRooms();
+			else
+			{
+				seperateRooms();
+			}
+			
 			break;
 
 		case GenerationState::RoomCulling:
@@ -125,25 +166,28 @@ void DungeonGeneration::update()
 			break;
 		case GenerationState::Triangle:
 
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+			if (!waitingForNextState)
 			{
-				state = GenerationState::MinSpanning;
+				state = GenerationState::ConvexHull;
 				minimiumSpanningCircle();
-				AssignCorners();
+				//AssignCorners();
+				waitingForNextState = true;
 			}
 			break;
-		case GenerationState::MinSpanning:
+		case GenerationState::ConvexHull:
 			
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+			if (!waitingForNextState)
 			{
 				edges = minSpanning();
-				straightenEdges();
-				placeEnclosingGrid();
+				waitingForNextState = true;
+				state = GenerationState::MinSpanning;
+				/*straightenEdges();
+				placeEnclosingGrid();*/
 			}
 			break;
 
-		case GenerationState::HallwayGen:
-			
+		case GenerationState::MinSpanning:
+			state = GenerationState::Done;
 			break;
 
 		case GenerationState::Done:
@@ -530,6 +574,24 @@ void DungeonGeneration::draw(sf::RenderWindow& t_window)
 				circsF[i].draw(t_window);
 			}
 			break;
+		case GenerationState::ConvexHull:
+
+			if (enclosingGrid != nullptr)
+			{
+				enclosingGrid->draw(t_window);
+			}
+			for (int i = 0; i < m_mainRooms.size(); i++)
+			{
+				//t_window.draw(m_mainRoomCollider[i]);
+				m_mainRooms[i]->draw(t_window);
+
+			}
+			for (int i = 0; i < edges.size(); i++)
+			{
+				edges[i].draw(t_window);
+			}
+			break;
+
 		case GenerationState::MinSpanning:
 
 			if (enclosingGrid != nullptr)
@@ -539,7 +601,25 @@ void DungeonGeneration::draw(sf::RenderWindow& t_window)
 			for (int i = 0; i < m_mainRooms.size(); i++)
 			{
 				//t_window.draw(m_mainRoomCollider[i]);
-				//m_mainRooms[i]->draw(t_window);
+				m_mainRooms[i]->draw(t_window);
+
+			}
+			for (int i = 0; i < edges.size(); i++)
+			{
+				edges[i].draw(t_window);
+			}
+			break;
+
+		case GenerationState::Done:
+
+			if (enclosingGrid != nullptr)
+			{
+				enclosingGrid->draw(t_window);
+			}
+			for (int i = 0; i < m_mainRooms.size(); i++)
+			{
+				//t_window.draw(m_mainRoomCollider[i]);
+				m_mainRooms[i]->draw(t_window);
 
 			}
 			for (int i = 0; i < edges.size(); i++)

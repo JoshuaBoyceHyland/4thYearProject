@@ -25,7 +25,7 @@ class MovableCamera
 
 		sf::Vector2f getPosition();
 
-		
+		sf::View m_camera;
 	private:
 
 		/// <summary>
@@ -36,7 +36,7 @@ class MovableCamera
 		/// <summary>
 		/// Camer for view
 		/// </summary>
-		sf::View m_camera;
+		
 
 		/// <summary>
 		/// Whether the player has the mouse held down

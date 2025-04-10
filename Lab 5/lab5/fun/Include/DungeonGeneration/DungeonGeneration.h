@@ -7,7 +7,7 @@
 #include <unordered_set>
 #include <queue>
 #include "World/Room.h"
-enum class GenerationState { RoomSeperation, RoomCulling, Triangle, MinSpanning, HallwayGen, Done };
+enum class GenerationState { RoomSeperation, RoomCulling, Triangle, ConvexHull, MinSpanning, Done };
 
 
 
@@ -325,6 +325,12 @@ class DungeonGeneration
 		GenerationState state = GenerationState::RoomSeperation;
 		
 		sf::Vector2f pos = { 0,0 };
+
+		sf::Font* m_font;
+		sf::Text m_stateText;
+		sf::Text m_continueText;
+		sf::Text m_restartText;
+		bool waitingForNextState = false;
 	private:
 		
 
@@ -365,7 +371,7 @@ class DungeonGeneration
 		
 
 		
-
+		
 		std::vector< PointEdge> edges;
 		std::vector<Point> m_centers;
 
