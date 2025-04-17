@@ -113,6 +113,10 @@ bool Room::emplaceOnGrid(Grid* t_backgroundGrid, sf::Vector2f t_mosuePosition)
                 t_backgroundGrid->m_cells[row][column].setTexture(m_grid.m_cells[placedPieceRow][placedPieceColumn].getTexture());
                 t_backgroundGrid->m_cells[row][column].setProperty(m_grid.m_cells[placedPieceRow][placedPieceColumn].getProperty());
             }
+            else
+            {
+                t_backgroundGrid->m_cells[row][column].setColor(sf::Color::White);
+            }
 
             
         }

@@ -138,7 +138,7 @@ void DungeonGeneration::update()
 			{
 				edges = minSpanning();
 				straightenEdges();
-				placeEnclosingGrid();
+				//placeEnclosingGrid();
 			}
 			break;
 
@@ -238,7 +238,7 @@ void DungeonGeneration::AssignCorners()
 	}
 
 	int furthestX = furthersRightRoom->m_cells[0].size() - 1;
-	gridEnd.x = furthersRightRoom->m_cells[0][furthestX].m_body.getPosition().x;
+	gridEnd.x = furthersRightRoom->m_cells[0][furthestX].m_body.getPosition().x + 100;
 	
 
 	Grid* topRoom = m_roomsGenerated[0];
@@ -287,7 +287,7 @@ void DungeonGeneration::AssignCorners()
 	}
 
 	int furthestY = bottomRoom->m_cells.size() - 1;
-	gridEnd.y = bottomRoom->m_cells[furthestY][0].m_body.getPosition().y;
+	gridEnd.y = bottomRoom->m_cells[furthestY][0].m_body.getPosition().y + 100;
 }
 
 
@@ -539,7 +539,7 @@ void DungeonGeneration::draw(sf::RenderWindow& t_window)
 			for (int i = 0; i < m_mainRooms.size(); i++)
 			{
 				//t_window.draw(m_mainRoomCollider[i]);
-				//m_mainRooms[i]->draw(t_window);
+				m_mainRooms[i]->draw(t_window);
 
 			}
 			for (int i = 0; i < edges.size(); i++)
@@ -697,84 +697,44 @@ void DungeonGeneration::minimiumSpanningCircle()
 
 }
 
-void DungeonGeneration::straightenEdges()
-{
-
-	//std::vector<PointEdge*> straightEdges;
-	//std::vector<PointEdge*> corneredEdges;
-
-	//for (int i = 0; i < edges.size(); i++)
-	//{
-	//	sf::Vector2f aPos = edges[i].m_roomAPos; 
-	//	sf::Vector2f bPos = edges[i].m_roomBPos;
-
-	//	sf::Vector2f corner = { bPos.x, aPos.y };
-
-
-	//	sf::Vector2f unitVec = VectorMath::directionVector(edges[i].m_roomAPos, edges[i].m_roomBPos);
-
-	//	float angledHalwayThreshold = 0.3f;
-
-	//	bool cornerHalway = std::abs(unitVec.x) > angledHalwayThreshold && std::abs(unitVec.y) > angledHalwayThreshold;
-	//	if (cornerHalway)
-	//	{
-	//		edges[i].visulisations[0].color = sf::Color::Yellow;
-	//		edges[i].visulisations[1].color = sf::Color::Yellow;
-
-	//		corneredEdges.push_back(&edges[i]);
-	//	}
-	//	else
-	//	{
-	//		edges[i].visulisations[0].color = sf::Color::Red;
-	//		edges[i].visulisations[1].color = sf::Color::Red;
-	//		straightEdges.push_back(&edges[i]);
-	//	}
-	//}
-
-
-	//for (int i = 0; i < straightEdges.size(); i++)
-	//{
-	//	Point& pointA = m_centers[straightEdges[i]->m_roomAId];
-	//	Point& pointB = m_centers[straightEdges[i]->m_roomBId];
-
-	//	sf::Vector2f aPos = pointA.visual.getPosition();
-	//	sf::Vector2f bPos = pointB.visual.getPosition();
-
-	//	sf::Vector2f dir = bPos - aPos;
-
-	//	if (std::abs(dir.x) > std::abs(dir.y))
-	//	{
-
-	//		// More horizontal – align vertically (same Y)
-	//		pointB.visual.setPosition({ bPos.x, aPos.y });
-
-
-
-	//		straightEdges[i]->m_roomBPos = { pointB.visual.getPosition() };
-
-	//		for (int k = 0; k < pointB.edges.size(); k++)
-	//		{
-	//			pointB.edges[k].m_roomAPos = pointB.visual.getPosition();
-	//		}
-	//		straightEdges[i]->visulisations[1].position = { pointB.visual.getPosition() };
-
-
-	//		m_mainRooms[straightEdges[i]->m_roomBId]->setPosition({ pointB.visual.getPosition().x + ((m_roomCollider[straightEdges[i]->m_roomBId].getSize().x / 4) - 50), pointB.visual.getPosition().y + ((m_roomCollider[straightEdges[i]->m_roomBId].getSize().y / 4) - 50) });
-
-	//	}
-	//	else
-	//	{
-	//		// More vertical – align horizontally (same X)
-	//		pointB.visual.setPosition({ aPos.x, bPos.y  });
-
-	//		straightEdges[i]->m_roomBPos = { pointB.visual.getPosition() };
-	//		straightEdges[i]->visulisations[1].position = { pointB.visual.getPosition() };
-	//		m_mainRooms[straightEdges[i]->m_roomBId]->setPosition({ pointB.visual.getPosition().x + ((m_roomCollider[straightEdges[i]->m_roomBId].getSize().x / 4) - 50), pointB.visual.getPosition().y + ((m_roomCollider[straightEdges[i]->m_roomBId].getSize().y / 4) - 50) });
-	//	}
-	//}
-
-
-}
+//void DungeonGeneration::straightenEdges()
+//{
+//
+//	std::vector<PointEdge*> straightEdges;
+//	std::vector<PointEdge*> corneredEdges;
+//
+//	for (int i = 0; i < edges.size(); i++)
+//	{
+//		sf::Vector2f aPos = edges[i].m_roomAPos; 
+//		sf::Vector2f bPos = edges[i].m_roomBPos;
+//
+//		sf::Vector2f corner = { bPos.x, aPos.y };
+//
+//
+//		sf::Vector2f unitVec = VectorMath::directionVector(edges[i].m_roomAPos, edges[i].m_roomBPos);
+//
+//		float angledHalwayThreshold = 0.3f;
+//
+//		bool cornerHalway = std::abs(unitVec.x) > angledHalwayThreshold && std::abs(unitVec.y) > angledHalwayThreshold;
+//		if (cornerHalway)
+//		{
+//			edges[i].visulisations[0].color = sf::Color::Yellow;
+//			edges[i].visulisations[1].color = sf::Color::Yellow;
+//
+//			corneredEdges.push_back(&edges[i]);
+//		}
+//		else
+//		{
+//			edges[i].visulisations[0].color = sf::Color::Red;
+//			edges[i].visulisations[1].color = sf::Color::Red;
+//			straightEdges.push_back(&edges[i]);
+//		}
+//	}
+//
+//
+//
+//
+//}
 
 std::vector<PointEdge> DungeonGeneration::minSpanning()
 {
@@ -887,9 +847,10 @@ void DungeonGeneration::placeEnclosingGrid()
 	{
 		Room room(*m_mainRooms[i]);
 		
+		sf::Vector2f roomPos = m_mainRooms[i]->m_cells[0][0].m_body.getPosition();
+		sf::Vector2f localRoomPos = roomPos - gridstart;
 
-
-		room.emplaceOnGrid(enclosingGrid, m_mainRooms[i]->m_cells[0][0].m_body.getPosition());
+		room.emplaceOnGrid(enclosingGrid, localRoomPos);
 
 
 	}
