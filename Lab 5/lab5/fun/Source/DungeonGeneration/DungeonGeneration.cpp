@@ -301,7 +301,7 @@ void DungeonGeneration::cullRooms()
 {
 	int minRoomWidth = 10;
 	int minRoomHeight = 6;
-
+	int mainRoomsCreated = 0;
 	for (int i = 0; i < m_roomsGenerated.size(); i++)
 	{
 		if (m_roomsGenerated[i]->m_cells[0].size() < minRoomWidth || m_roomsGenerated[i]->m_cells.size() < minRoomHeight)
@@ -313,13 +313,16 @@ void DungeonGeneration::cullRooms()
 		else
 		{
 
-			m_centers.push_back(Point({ m_roomsGenerated[i]->m_cells[0][0].m_body.getPosition().x + (m_roomCollider[i].getSize().x / 4) - 50, m_roomsGenerated[i]->m_cells[0][0].m_body.getPosition().y + (m_roomCollider[i].getSize().y / 4) - 50 }));
+			
 
 			m_roomCollider[i].setFillColor(sf::Color::Yellow);
 			m_mainRoomCollider.push_back(m_roomCollider[i]);
-			m_mainRooms.push_back(m_roomsGenerated[i]);
 
-			//mainRoomRooms.push_back(new Room(*m_roomsGenerated[i]));
+			mainRoomRooms.push_back(new Room(*m_roomsGenerated[i]));
+			mainRoomRooms[mainRoomsCreated]->point = Point({ m_roomsGenerated[i]->m_cells[0][0].m_body.getPosition().x + (m_roomCollider[i].getSize().x / 4) - 50, m_roomsGenerated[i]->m_cells[0][0].m_body.getPosition().y + (m_roomCollider[i].getSize().y / 4) - 50 });
+			mainRoomRooms[mainRoomsCreated]->roomId = mainRoomsCreated;
+			mainRoomsCreated++;
+		
 		}
 	}
 
@@ -346,7 +349,7 @@ void DungeonGeneration::delauneyTriangle()
 
 	
 	// for every room we have
-	for (int centerI = 0; centerI < m_centers.size(); centerI++)
+	for (int centerI = 0; centerI < mainRoomRooms.size(); centerI++)
 	{
 		std::vector<CircumCircle> circs;
 		std::vector<Triangle> triangles;
@@ -358,10 +361,10 @@ void DungeonGeneration::delauneyTriangle()
 		{
 			Triangle currentTriangle;
 
-			edges.emplace_back(centerI, m_centers[centerI].visual.getPosition(), k, superTriangle[k].position);
+			edges.emplace_back(centerI, mainRoomRooms[centerI]->point.visual.getPosition(), k, superTriangle[k].position);
 
 			// add core point
-			currentTriangle.addPoint(centerI, m_centers[centerI].visual.getPosition());
+			currentTriangle.addPoint(centerI, mainRoomRooms[centerI]->point.visual.getPosition());
 			// first point of triangle
 			currentTriangle.addPoint(k, superTriangle[k].position);
 			currentTriangle.addPoint(k + 1, superTriangle[k + 1].position);
@@ -376,7 +379,7 @@ void DungeonGeneration::delauneyTriangle()
 
 
 		//// for every room
-		for (int k = 0; k < m_centers.size(); k++)
+		for (int k = 0; k < mainRoomRooms.size(); k++)
 		{
 
 			// dont want to connect to our own point
@@ -384,14 +387,14 @@ void DungeonGeneration::delauneyTriangle()
 			{
 
 				// core point for whole loop
-				sf::Vector2f core = m_centers[centerI].visual.getPosition();
+				sf::Vector2f core = mainRoomRooms[centerI]->point.visual.getPosition();
 					
 				// first step in triangle 
-				sf::Vector2f step = m_centers[k].visual.getPosition();
+				sf::Vector2f step = mainRoomRooms[k]->point.visual.getPosition();
 				
 
 				// look for last steps
-				for (int l = 0; l < m_centers.size(); l++)
+				for (int l = 0; l < mainRoomRooms.size(); l++)
 				{
 					// make sure we are not connect back to our selves
 					if ( l != centerI && l != k)
@@ -402,18 +405,18 @@ void DungeonGeneration::delauneyTriangle()
 						// step 
 						t.addPoint(k, step);
 						// last point 
-						t.addPoint(l, m_centers[l].visual.getPosition());
+						t.addPoint(l, mainRoomRooms[l]->point.visual.getPosition());
 
 						// visual
 						t.visualiseation[0].color = sf::Color::Yellow;
 						t.visualiseation[1].color = sf::Color::Yellow;
 						t.visualiseation[2].color = sf::Color::Yellow;
 
-						if (!m_centers[centerI].hasTriangle(t) && !m_centers[k].hasTriangle(t) && !m_centers[l].hasTriangle(t))
+						if (!mainRoomRooms[centerI]->point.hasTriangle(t) && !mainRoomRooms[k]->point.hasTriangle(t) && !mainRoomRooms[l]->point.hasTriangle(t))
 						{
-							m_centers[centerI].triangles.push_back(t);
-							m_centers[k].triangles.push_back(t);
-							m_centers[l].triangles.push_back(t);
+							mainRoomRooms[centerI]->point.triangles.push_back(t);
+							mainRoomRooms[k]->point.triangles.push_back(t);
+							mainRoomRooms[l]->point.triangles.push_back(t);
 							triangles.push_back(t);
 						}
 
@@ -441,11 +444,11 @@ void DungeonGeneration::delauneyTriangle()
 		//// checking if the circs over lap with the triangles
 		for (int i = 0; i < triangles.size(); i++)
 		{
-			for (int k = 0; k < m_centers.size(); k++)
+			for (int k = 0; k < mainRoomRooms.size(); k++)
 			{
-				if (!triangles[i].isPartOfTriangle( m_centers[k].visual.getPosition()))
+				if (!triangles[i].isPartOfTriangle(mainRoomRooms[k]->point.visual.getPosition()))
 				{
-					if (circs[i].inCircumCircle(m_centers[k].visual.getPosition()))
+					if (circs[i].inCircumCircle(mainRoomRooms[k]->point.visual.getPosition()))
 					{
 
 						triangles[i].drawVis = false;
@@ -505,16 +508,16 @@ void DungeonGeneration::draw(sf::RenderWindow& t_window)
 			break;
 
 		case GenerationState::RoomCulling:
-			for (int i = 0; i < m_mainRooms.size(); i++)
+			for (int i = 0; i < mainRoomRooms.size(); i++)
 			{
-				m_mainRooms[i]->draw(t_window);
+				mainRoomRooms[i]->draw(t_window);
 			}
 			break;
 		case GenerationState::Triangle:
-			for (int i = 0; i < m_mainRooms.size(); i++)
+			for (int i = 0; i < mainRoomRooms.size(); i++)
 			{
 				//t_window.draw(m_mainRoomCollider[i]);
-				m_mainRooms[i]->draw(t_window);
+				mainRoomRooms[i]->draw(t_window);
 
 
 
@@ -547,10 +550,10 @@ void DungeonGeneration::draw(sf::RenderWindow& t_window)
 			{
 				enclosingGrid->draw(t_window);
 			}
-			for (int i = 0; i < m_mainRooms.size(); i++)
+			for (int i = 0; i < mainRoomRooms.size(); i++)
 			{
 				//t_window.draw(m_mainRoomCollider[i]);
-				m_mainRooms[i]->draw(t_window);
+				mainRoomRooms[i]->draw(t_window);
 
 			}
 			for (int i = 0; i < edges.size(); i++)
@@ -571,14 +574,14 @@ void DungeonGeneration::draw(sf::RenderWindow& t_window)
 				edges[i].draw(t_window);
 			}*/
 
-			for (int i = 0; i < m_centers.size(); i++)
+			for (int i = 0; i < mainRoomRooms.size(); i++)
 			{
-				for (int k = 0; k < m_centers[i].edges.size(); k++)
+				for (int k = 0; k < mainRoomRooms[i]->point.edges.size(); k++)
 				{
-					m_centers[i].edges[k].draw(t_window);
+					mainRoomRooms[i]->point.edges[k].draw(t_window);
 
 				}
-				t_window.draw(m_centers[i].m_text);
+				t_window.draw(mainRoomRooms[i]->point.m_text);
 			}
 
 
@@ -619,18 +622,18 @@ sf::Vector2f DungeonGeneration::getRandomPointInARadius(float t_radius)
 std::vector<Point> DungeonGeneration::createSuperTriangle()
 {
 
-	float minX = m_centers[0].visual.getPosition().x;
-	float minY = m_centers[0].visual.getPosition().y;
-	float maxX = m_centers[0].visual.getPosition().x;
-	float maxY = m_centers[0].visual.getPosition().y;
+	float minX = mainRoomRooms[0]->point.visual.getPosition().x;
+	float minY = mainRoomRooms[0]->point.visual.getPosition().y;
+	float maxX = mainRoomRooms[0]->point.visual.getPosition().x;
+	float maxY = mainRoomRooms[0]->point.visual.getPosition().y;
 
 
-	for (int i = 0; i <  m_centers.size(); i++)
+	for (int i = 0; i < mainRoomRooms.size(); i++)
 	{
-		minX = std::min(minX, m_centers[i].visual.getPosition().x);
-		maxX = std::max(maxX, m_centers[i].visual.getPosition().x);
-		minY = std::min(minY, m_centers[i].visual.getPosition().y);
-		maxY = std::max(maxY, m_centers[i].visual.getPosition().y);
+		minX = std::min(minX, mainRoomRooms[i]->point.visual.getPosition().x);
+		maxX = std::max(maxX, mainRoomRooms[i]->point.visual.getPosition().x);
+		minY = std::min(minY, mainRoomRooms[i]->point.visual.getPosition().y);
+		maxY = std::max(maxY, mainRoomRooms[i]->point.visual.getPosition().y);
 	}
 
 	sf::Vector2f center = { (minX + maxX) / 2.0f, (minY + maxY) / 2.0f };
@@ -654,29 +657,22 @@ std::vector<Point> DungeonGeneration::createSuperTriangle()
 void DungeonGeneration::sort()
 {
 
-	for (int i = 0; i < m_centers.size(); i++)
+	for (int i = 0; i < mainRoomRooms.size(); i++)
 	{
-		std::cout <<"Old: " << m_centers[i].visual.getPosition().x << std::endl;
+		std::cout <<"Old: " << mainRoomRooms[i]->point.visual.getPosition().x << std::endl;
 	}
 	std::cout << "\n";
 
-	std::sort(m_centers.begin(), m_centers.end(), [](const auto& a, const auto& b) { return a.visual.getPosition().x < b.visual.getPosition().x; });
-	std::sort(m_centers.begin(), m_centers.end(), [](const auto& a, const auto& b) { return a.visual.getPosition().x < b.visual.getPosition().x; });
-	for (int i = 0; i < m_centers.size(); i++)
+	std::sort(mainRoomRooms.begin(), mainRoomRooms.end(), [](const Room* a, const Room* b) { return a->point.visual.getPosition().x < b->point.visual.getPosition().x; });
+	std::sort(mainRoomRooms.begin(), mainRoomRooms.end(), [](const Room* a, const Room* b) { return a->point.visual.getPosition().x < b->point.visual.getPosition().x; });
+	
+	for (int i = 0; i < mainRoomRooms.size(); i++)
 	{
-		std::cout << "New: " << m_centers[i].visual.getPosition().x << std::endl;
+		std::cout << "New: " << mainRoomRooms[i]->point.visual.getPosition().x << std::endl;
 	}
 }
 
-std::vector<Point> DungeonGeneration::sortByDistance(sf::Vector2f position)
-{
-	std::vector<Point> shortest = m_centers;
-	std::sort(shortest.begin(), shortest.end(), [position](const auto& a, const auto& b) { return VectorMath::vectorLength(position, a.visual.getPosition()) < VectorMath::vectorLength(position, b.visual.getPosition()); });
-	std::sort(shortest.begin(), shortest.end(), [position](const auto& a, const auto& b) {  return VectorMath::vectorLength(position, a.visual.getPosition()) < VectorMath::vectorLength(position, b.visual.getPosition()); });
 
-
-	return shortest;
-}
 
 bool DungeonGeneration::inCircle(sf::Vector2f A, sf::Vector2f B, sf::Vector2f C, sf::Vector2f P)
 {
@@ -725,8 +721,8 @@ void DungeonGeneration::minimiumSpanningCircle()
 	// connect edges to room
 	for (int i = 0; i < edgesL.size(); i++)
 	{
-		m_centers[edgesL[i].m_roomAId].edges.push_back({ edgesL[i].m_roomAId, edgesL[i].m_roomAPos, edgesL[i].m_roomBId, edgesL[i].m_roomBPos });
-		m_centers[edgesL[i].m_roomBId].edges.push_back({ edgesL[i].m_roomBId, edgesL[i].m_roomBPos, edgesL[i].m_roomAId, edgesL[i].m_roomAPos  });
+		mainRoomRooms[edgesL[i].m_roomAId]->point.edges.push_back({ edgesL[i].m_roomAId, edgesL[i].m_roomAPos, edgesL[i].m_roomBId, edgesL[i].m_roomBPos });
+		mainRoomRooms[edgesL[i].m_roomBId]->point.edges.push_back({ edgesL[i].m_roomBId, edgesL[i].m_roomBPos, edgesL[i].m_roomAId, edgesL[i].m_roomAPos  });
 	}
 
 
@@ -782,13 +778,13 @@ std::vector<PointEdge> DungeonGeneration::minSpanning()
 
 
 	std::vector<PointEdge> finalEdges;
-	std::vector<bool> visited(m_centers.size(), false);
+	std::vector<bool> visited(mainRoomRooms.size(), false);
 	std::priority_queue<PointEdge, std::vector<PointEdge>, pQPointEdgeComparer> remaingEdges;
 
 	visited[0] = true;
-	for (int i = 0; i < m_centers[0].edges.size(); i++)
+	for (int i = 0; i < mainRoomRooms[0]->point.edges.size(); i++)
 	{
-		remaingEdges.push(m_centers[0].edges[i]);
+		remaingEdges.push(mainRoomRooms[0]->point.edges[i]);
 	}
 
 	while (!remaingEdges.empty())
@@ -809,30 +805,30 @@ std::vector<PointEdge> DungeonGeneration::minSpanning()
 
 		// make sure the edge leading back to our current center are also set to false
 
-		for (int i = 0; i < m_centers[currentEdge.m_roomAId].edges.size(); i++)
+		for (int i = 0; i < mainRoomRooms[currentEdge.m_roomAId]->point.edges.size(); i++)
 		{
-			if (m_centers[currentEdge.m_roomAId].edges[i].m_roomBId == currentEdge.m_roomBId)
+			if (mainRoomRooms[currentEdge.m_roomAId]->point.edges[i].m_roomBId == currentEdge.m_roomBId)
 			{
-				m_centers[currentEdge.m_roomAId].edges[i].visited = true;
+				mainRoomRooms[currentEdge.m_roomAId]->point.edges[i].visited = true;
 				break;
 			}
 		}
-		for (int i = 0; i < m_centers[currentEdge.m_roomBId].edges.size(); i++)
+		for (int i = 0; i < mainRoomRooms[currentEdge.m_roomBId]->point.edges.size(); i++)
 		{
-			if (m_centers[currentEdge.m_roomBId].edges[i].m_roomBId == currentEdge.m_roomAId)
+			if (mainRoomRooms[currentEdge.m_roomBId]->point.edges[i].m_roomBId == currentEdge.m_roomAId)
 			{
-				m_centers[currentEdge.m_roomBId].edges[i].visited = true;
+				mainRoomRooms[currentEdge.m_roomBId]->point.edges[i].visited = true;
 				break;
 			}
 		}
 
 
 		// add new edges
-		for (int i = 0; i < m_centers[nextRoom].edges.size(); i++)
+		for (int i = 0; i < mainRoomRooms[nextRoom]->point.edges.size(); i++)
 		{
-			if (!visited[m_centers[nextRoom].edges[i].m_roomBId])
+			if (!visited[mainRoomRooms[nextRoom]->point.edges[i].m_roomBId])
 			{
-				remaingEdges.push(m_centers[nextRoom].edges[i]);
+				remaingEdges.push(mainRoomRooms[nextRoom]->point.edges[i]);
 			}
 		}
 	}
@@ -840,12 +836,12 @@ std::vector<PointEdge> DungeonGeneration::minSpanning()
 	// lambda for removing the edges not in min span 
 	auto minSpanningClean = [](const PointEdge& edge) { return !edge.visited; };
 	
-	for (int i = 0; i < m_centers.size(); i++)
+	for (int i = 0; i < mainRoomRooms.size(); i++)
 	{
-		m_centers[i].edges.erase(std::remove_if(m_centers[i].edges.begin(), m_centers[i].edges.end(), minSpanningClean), m_centers[i].edges.end());
+		mainRoomRooms[i]->point.edges.erase(std::remove_if(mainRoomRooms[i]->point.edges.begin(), mainRoomRooms[i]->point.edges.end(), minSpanningClean), mainRoomRooms[i]->point.edges.end());
 	
-		m_centers[i].m_text.setString(std::to_string(m_centers[i].edges.size()));
-		m_centers[i].m_text.setPosition(m_centers[i].visual.getPosition());
+		mainRoomRooms[i]->point.m_text.setString(std::to_string(mainRoomRooms[i]->point.edges.size()));
+		mainRoomRooms[i]->point.m_text.setPosition(mainRoomRooms[i]->point.visual.getPosition());
 	}
 
 	return finalEdges;
@@ -888,30 +884,29 @@ void DungeonGeneration::placeEnclosingGrid()
 	enclosingGrid = new Grid(rowNum, coluumnNum, 100, 100, { gridstart });
 
 
-	for (int i = 0; i < m_mainRooms.size(); i++)
+	for (int i = 0; i < mainRoomRooms.size(); i++)
 	{
-		Room* room = new Room(*m_mainRooms[i]);
 
-		sf::Vector2f roomPos = m_mainRooms[i]->m_cells[0][0].m_body.getPosition();
+		sf::Vector2f roomPos = mainRoomRooms[i]->m_grid.m_cells[0][0].m_body.getPosition();
 		sf::Vector2f localRoomPos = roomPos - gridstart;
 
-		room->emplaceOnGrid(enclosingGrid, localRoomPos);
-		roomsInGrid.emplace_back(room);
+		mainRoomRooms[i]->emplaceOnGrid(enclosingGrid, localRoomPos);
+
 	}
 }
 
 void DungeonGeneration::generateHallways()
 {
-	for (int currentRoom = 0; currentRoom < roomsInGrid.size(); currentRoom++)
+	for (int currentRoom = 0; currentRoom < mainRoomRooms.size(); currentRoom++)
 	{
-		for (int currentEdge = 0; currentEdge < m_centers[currentRoom].edges.size(); currentEdge++)
+		for (int currentEdge = 0; currentEdge < mainRoomRooms[currentRoom]->point.edges.size(); currentEdge++)
 		{
 			
-			const PointEdge& edge = m_centers[currentRoom].edges[currentEdge];
+			const PointEdge& edge = mainRoomRooms[currentRoom]->point.edges[currentEdge];
 			int otherRoom = (edge.m_roomAId == currentRoom) ? edge.m_roomBId : edge.m_roomAId;
 
-			sf::Vector2f roomsAPos = m_centers[currentRoom].visual.getPosition();
-			sf::Vector2f roomsBPos = m_centers[otherRoom].visual.getPosition();
+			sf::Vector2f roomsAPos = mainRoomRooms[currentRoom]->point.visual.getPosition();
+			sf::Vector2f roomsBPos = mainRoomRooms[otherRoom]->point.visual.getPosition();
 
 			sf::Vector2f direction = roomsBPos - roomsAPos;
 
@@ -919,21 +914,21 @@ void DungeonGeneration::generateHallways()
 
 			Cell* startingCell = nullptr;
 
-			int gridCols = static_cast<int>(roomsInGrid[currentRoom]->m_grid.m_cells[0].size() - 1);
+			int gridCols = static_cast<int>(mainRoomRooms[currentRoom]->m_grid.m_cells[0].size() - 1);
 
-			int gridRows = static_cast<int>(roomsInGrid[currentRoom]->m_grid.m_cells.size() - 1);
+			int gridRows = static_cast<int>(mainRoomRooms[currentRoom]->m_grid.m_cells.size() - 1);
 
 			if (angle >= -45 && angle < 45)
-				startingCell = roomsInGrid[currentRoom]->cellsOccupied[static_cast<int>(gridRows / 2)][gridCols];
+				startingCell = mainRoomRooms[currentRoom]->cellsOccupied[static_cast<int>(gridRows / 2)][gridCols];
 			else if (angle >= 45 && angle < 135)
-				startingCell = roomsInGrid[currentRoom]->cellsOccupied[gridRows][static_cast<int>(gridCols / 2)];
+				startingCell = mainRoomRooms[currentRoom]->cellsOccupied[gridRows][static_cast<int>(gridCols / 2)];
 			// Room B is below Room A
 			else if (angle >= -135 && angle < -45)
 				// Room B is above Room A
-				startingCell = roomsInGrid[currentRoom]->cellsOccupied[0][static_cast<int>(gridCols / 2)];
+				startingCell = mainRoomRooms[currentRoom]->cellsOccupied[0][static_cast<int>(gridCols / 2)];
 			else
 
-				startingCell = roomsInGrid[currentRoom]->cellsOccupied[static_cast<int>(gridRows / 2)][0];
+				startingCell = mainRoomRooms[currentRoom]->cellsOccupied[static_cast<int>(gridRows / 2)][0];
 			// Room B is to the left of Room A
 
 
