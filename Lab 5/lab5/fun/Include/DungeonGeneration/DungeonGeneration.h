@@ -274,6 +274,15 @@ class Point
 			visual.setOrigin(10, 10);
 			visual.setPosition(t_position);
 			visual.setFillColor(sf::Color::Yellow);
+
+			Loader* l = Loader::getInstance();
+			f = l->loadFont("ASSETS/FONTS/nulshock.otf");
+
+			m_text.setFont(*f);
+			m_text.setFillColor(sf::Color::Black);
+			m_text.setCharacterSize(100);
+			m_text.setPosition(t_position);
+
 		}
 		bool hasTriangle(Triangle triange)
 		{
@@ -292,6 +301,9 @@ class Point
 		sf::CircleShape visual;
 		std::vector<Triangle> triangles;
 		std::vector<PointEdge> edges;
+
+		sf::Text m_text;
+		sf::Font* f;
 		
 
 };
@@ -306,6 +318,8 @@ class DungeonGeneration
 		void calculateSeperation();
 
 		void update();
+
+		void generateHallways();
 
 		void seperateRooms();
 
@@ -370,6 +384,9 @@ class DungeonGeneration
 		std::vector<Point> m_centers;
 
 		std::vector<sf::Vector2f> m_seperation;
+
+		
+
 		std::vector<Grid*> m_mainRooms;
 		std::vector<sf::RectangleShape> m_mainRoomCollider;
 
@@ -394,7 +411,10 @@ class DungeonGeneration
 		sf::Vector2f gridEnd = { 0, 0 };
 	
 		Grid* enclosingGrid;
+		std::vector<Room*> roomsInGrid;
 
+
+		std::vector<Room*> mainRoomRooms;
 
 };
 

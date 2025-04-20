@@ -34,12 +34,16 @@ class Room
 		void rotate();
 
 		Grid getGrid();
-	private:
+
+		Grid m_grid;
+
 
 
 		std::queue<Cell*> projectedOn;
 
-		Grid m_grid;
+		std::vector<std::vector<Cell*>> cellsOccupied;
+
+		
 
 };
 

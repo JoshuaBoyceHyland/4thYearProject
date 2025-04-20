@@ -137,12 +137,16 @@ void DungeonGeneration::update()
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 			{
 				edges = minSpanning();
-				straightenEdges();
-				//placeEnclosingGrid();
+				//straightenEdges();
+				placeEnclosingGrid();
+
+				state = GenerationState::HallwayGen;
+				generateHallways();
 			}
 			break;
 
 		case GenerationState::HallwayGen:
+	
 			
 			break;
 
@@ -154,6 +158,8 @@ void DungeonGeneration::update()
 
 	
 }
+
+
 
 void DungeonGeneration::seperateRooms()
 {
@@ -312,8 +318,13 @@ void DungeonGeneration::cullRooms()
 			m_roomCollider[i].setFillColor(sf::Color::Yellow);
 			m_mainRoomCollider.push_back(m_roomCollider[i]);
 			m_mainRooms.push_back(m_roomsGenerated[i]);
+
+			//mainRoomRooms.push_back(new Room(*m_roomsGenerated[i]));
 		}
 	}
+
+	
+
 }
 
 void DungeonGeneration::delauneyTriangle()
@@ -547,6 +558,34 @@ void DungeonGeneration::draw(sf::RenderWindow& t_window)
 				edges[i].draw(t_window);
 			}
 			break;
+
+		case GenerationState::HallwayGen:
+
+			if (enclosingGrid != nullptr)
+			{
+				enclosingGrid->draw(t_window);
+			}
+
+			/*for (int i = 0; i < edges.size(); i++)
+			{
+				edges[i].draw(t_window);
+			}*/
+
+			for (int i = 0; i < m_centers.size(); i++)
+			{
+				for (int k = 0; k < m_centers[i].edges.size(); k++)
+				{
+					m_centers[i].edges[k].draw(t_window);
+
+				}
+				t_window.draw(m_centers[i].m_text);
+			}
+
+
+
+
+			break;
+
 		default:
 			break;
 	}
@@ -697,64 +736,60 @@ void DungeonGeneration::minimiumSpanningCircle()
 
 }
 
-//void DungeonGeneration::straightenEdges()
-//{
-//
-//	std::vector<PointEdge*> straightEdges;
-//	std::vector<PointEdge*> corneredEdges;
-//
-//	for (int i = 0; i < edges.size(); i++)
-//	{
-//		sf::Vector2f aPos = edges[i].m_roomAPos; 
-//		sf::Vector2f bPos = edges[i].m_roomBPos;
-//
-//		sf::Vector2f corner = { bPos.x, aPos.y };
-//
-//
-//		sf::Vector2f unitVec = VectorMath::directionVector(edges[i].m_roomAPos, edges[i].m_roomBPos);
-//
-//		float angledHalwayThreshold = 0.3f;
-//
-//		bool cornerHalway = std::abs(unitVec.x) > angledHalwayThreshold && std::abs(unitVec.y) > angledHalwayThreshold;
-//		if (cornerHalway)
-//		{
-//			edges[i].visulisations[0].color = sf::Color::Yellow;
-//			edges[i].visulisations[1].color = sf::Color::Yellow;
-//
-//			corneredEdges.push_back(&edges[i]);
-//		}
-//		else
-//		{
-//			edges[i].visulisations[0].color = sf::Color::Red;
-//			edges[i].visulisations[1].color = sf::Color::Red;
-//			straightEdges.push_back(&edges[i]);
-//		}
-//	}
-//
-//
-//
-//
-//}
+void DungeonGeneration::straightenEdges()
+{
+	//for (auto& edge : edges)
+	//{
+	//	sf::Vector2f posA = m_mainRooms[edge.m_roomAId]->m_cells[0][0].m_body.getPosition();
+	//	sf::Vector2f posB = m_mainRooms[edge.m_roomBId]->m_cells[0][0].m_body.getPosition();
+
+	//	sf::Vector2f centerA = edge.m_roomAPos;
+	//	sf::Vector2f centerB = edge.m_roomBPos;
+
+	//	sf::Vector2f diff = centerB - centerA;
+
+	//	// Decide whether to align horizontally or vertically
+	//	if (std::abs(diff.x) > std::abs(diff.y))
+	//	{
+	//		// Align vertically (same Y)
+	//		float newY = centerA.y;
+
+	//		// Offset the whole room B so that centerY aligns
+	//		sf::Vector2f delta = { 0, newY - centerB.y };
+	//		m_mainRooms[edge.m_roomBId]->setPosition(posB + delta);
+	//		m_roomCollider[edge.m_roomBId].setPosition(m_roomCollider[edge.m_roomBId].getPosition() + delta);
+	//	}
+	//	else
+	//	{
+	//		// Align horizontally (same X)
+	//		float newX = centerA.x;
+
+	//		// Offset the whole room B so that centerX aligns
+	//		sf::Vector2f delta = { newX - centerB.x, 0 };
+	//		m_mainRooms[edge.m_roomBId]->setPosition(posB + delta);
+	//		m_roomCollider[edge.m_roomBId].setPosition(m_roomCollider[edge.m_roomBId].getPosition() + delta);
+	//	}
+
+	//	// Recalculate the center after alignment
+	//	sf::Vector2f newCenter = m_mainRooms[edge.m_roomBId]->m_cells[0][0].m_body.getPosition();
+	//	edge.m_roomBPos = newCenter;
+	//}
+
+}
 
 std::vector<PointEdge> DungeonGeneration::minSpanning()
 {
 
 
 	std::vector<PointEdge> finalEdges;
-
-
 	std::vector<bool> visited(m_centers.size(), false);
 	std::priority_queue<PointEdge, std::vector<PointEdge>, pQPointEdgeComparer> remaingEdges;
 
-
 	visited[0] = true;
-
 	for (int i = 0; i < m_centers[0].edges.size(); i++)
 	{
 		remaingEdges.push(m_centers[0].edges[i]);
 	}
-
-
 
 	while (!remaingEdges.empty())
 	{
@@ -767,18 +802,19 @@ std::vector<PointEdge> DungeonGeneration::minSpanning()
 		// if visited then we want to skip this edge
 		if (visited[nextRoom]) { continue; }
 
-
 		// mark it as visted now that we are looking at it
 		visited[nextRoom] = true;
 
 		finalEdges.push_back(currentEdge);
 
 		// make sure the edge leading back to our current center are also set to false
+
 		for (int i = 0; i < m_centers[currentEdge.m_roomAId].edges.size(); i++)
 		{
 			if (m_centers[currentEdge.m_roomAId].edges[i].m_roomBId == currentEdge.m_roomBId)
 			{
 				m_centers[currentEdge.m_roomAId].edges[i].visited = true;
+				break;
 			}
 		}
 		for (int i = 0; i < m_centers[currentEdge.m_roomBId].edges.size(); i++)
@@ -786,12 +822,12 @@ std::vector<PointEdge> DungeonGeneration::minSpanning()
 			if (m_centers[currentEdge.m_roomBId].edges[i].m_roomBId == currentEdge.m_roomAId)
 			{
 				m_centers[currentEdge.m_roomBId].edges[i].visited = true;
+				break;
 			}
 		}
 
 
 		// add new edges
-
 		for (int i = 0; i < m_centers[nextRoom].edges.size(); i++)
 		{
 			if (!visited[m_centers[nextRoom].edges[i].m_roomBId])
@@ -801,8 +837,17 @@ std::vector<PointEdge> DungeonGeneration::minSpanning()
 		}
 	}
 
+	// lambda for removing the edges not in min span 
+	auto minSpanningClean = [](const PointEdge& edge) { return !edge.visited; };
+	
+	for (int i = 0; i < m_centers.size(); i++)
+	{
+		m_centers[i].edges.erase(std::remove_if(m_centers[i].edges.begin(), m_centers[i].edges.end(), minSpanningClean), m_centers[i].edges.end());
+	
+		m_centers[i].m_text.setString(std::to_string(m_centers[i].edges.size()));
+		m_centers[i].m_text.setPosition(m_centers[i].visual.getPosition());
+	}
 
-		
 	return finalEdges;
 }
 
@@ -845,21 +890,58 @@ void DungeonGeneration::placeEnclosingGrid()
 
 	for (int i = 0; i < m_mainRooms.size(); i++)
 	{
-		Room room(*m_mainRooms[i]);
-		
+		Room* room = new Room(*m_mainRooms[i]);
+
 		sf::Vector2f roomPos = m_mainRooms[i]->m_cells[0][0].m_body.getPosition();
 		sf::Vector2f localRoomPos = roomPos - gridstart;
 
-		room.emplaceOnGrid(enclosingGrid, localRoomPos);
-
-
+		room->emplaceOnGrid(enclosingGrid, localRoomPos);
+		roomsInGrid.emplace_back(room);
 	}
 }
 
-void DungeonGeneration::generateHalways()
+void DungeonGeneration::generateHallways()
 {
+	for (int currentRoom = 0; currentRoom < roomsInGrid.size(); currentRoom++)
+	{
+		for (int currentEdge = 0; currentEdge < m_centers[currentRoom].edges.size(); currentEdge++)
+		{
+			
+			const PointEdge& edge = m_centers[currentRoom].edges[currentEdge];
+			int otherRoom = (edge.m_roomAId == currentRoom) ? edge.m_roomBId : edge.m_roomAId;
 
-	
+			sf::Vector2f roomsAPos = m_centers[currentRoom].visual.getPosition();
+			sf::Vector2f roomsBPos = m_centers[otherRoom].visual.getPosition();
+
+			sf::Vector2f direction = roomsBPos - roomsAPos;
+
+			float angle = std::atan2(direction.y, direction.x) * 180 / RotationMath::PI;
+
+			Cell* startingCell = nullptr;
+
+			int gridCols = static_cast<int>(roomsInGrid[currentRoom]->m_grid.m_cells[0].size() - 1);
+
+			int gridRows = static_cast<int>(roomsInGrid[currentRoom]->m_grid.m_cells.size() - 1);
+
+			if (angle >= -45 && angle < 45)
+				startingCell = roomsInGrid[currentRoom]->cellsOccupied[static_cast<int>(gridRows / 2)][gridCols];
+			else if (angle >= 45 && angle < 135)
+				startingCell = roomsInGrid[currentRoom]->cellsOccupied[gridRows][static_cast<int>(gridCols / 2)];
+			// Room B is below Room A
+			else if (angle >= -135 && angle < -45)
+				// Room B is above Room A
+				startingCell = roomsInGrid[currentRoom]->cellsOccupied[0][static_cast<int>(gridCols / 2)];
+			else
+
+				startingCell = roomsInGrid[currentRoom]->cellsOccupied[static_cast<int>(gridRows / 2)][0];
+			// Room B is to the left of Room A
+
+
+			startingCell->setColor(sf::Color(255, 127, 8));
+		
+		}
+	}
+
 }
 
 

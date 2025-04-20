@@ -102,11 +102,15 @@ bool Room::emplaceOnGrid(Grid* t_backgroundGrid, sf::Vector2f t_mosuePosition)
         int startingColumn = placingCell->getNode()->m_column;
         int endingColumn = placingCell->getNode()->m_column + m_grid.m_cells[placedPieceRow].size();
 
+        cellsOccupied.push_back(std::vector<Cell*>());
+
         for (int column = startingColumn; column < endingColumn; column++)
         {
             
             int placedPieceColumn = column - startingColumn;
-          
+            
+            cellsOccupied[cellsOccupied.size() - 1].push_back(&t_backgroundGrid->m_cells[row][column]);
+            
             if (m_grid.m_cells[placedPieceRow][placedPieceColumn].getTexture() != nullptr)
             {
                 t_backgroundGrid->m_cells[row][column].setColor(sf::Color::White);
@@ -116,6 +120,7 @@ bool Room::emplaceOnGrid(Grid* t_backgroundGrid, sf::Vector2f t_mosuePosition)
             else
             {
                 t_backgroundGrid->m_cells[row][column].setColor(sf::Color::White);
+                
             }
 
             
