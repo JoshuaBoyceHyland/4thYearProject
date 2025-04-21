@@ -14,9 +14,6 @@ class CircumCircle
 {
 public:
 
-
-
-
 	CircumCircle(sf::Vector2f A, sf::Vector2f B, sf::Vector2f C)
 	{
 		double x1 = A.x, y1 = A.y;

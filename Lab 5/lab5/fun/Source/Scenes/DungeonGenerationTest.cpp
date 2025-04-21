@@ -4,13 +4,13 @@ DungeonGenerationTestScene::DungeonGenerationTestScene(sf::RenderWindow& t_windo
 	Scene( t_window), 
 	m_camera(m_window)
 {
-	m_dg.generateRooms();
+	m_dg.generateInitialGrids();
 }
 
 void DungeonGenerationTestScene::update(sf::Time t_deltaTime)
 {
 	m_camera.update();
-	m_dg.update();
+	m_dg.generationLoop();
 
 }
 

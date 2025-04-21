@@ -21,76 +21,123 @@ class DungeonGeneration
 	public:
 		DungeonGeneration();
 
-		void generateRooms();
+		/// <summary>
+		/// Generates out intial grids which will then get turned into rooms
+		/// </summary>
+		void generateInitialGrids();
 
-		void calculateSeperation();
+		/// <summary>
+		/// Gets a random point from within a radius
+		/// </summary>
+		/// <param name="t_radius">Radius where you would like random point to spawn within</param>
+		/// <returns>Position of random point in radisu</returns>
+		sf::Vector2f getRandomPointInARadius(float t_radius);
 
-		void update();
+		/// <summary>
+		/// looping through states of seperation
+		/// calling relevant functions dependant on the state
+		/// </summary>
+		void generationLoop();
 
-		void generateHallways();
-
+		/// <summary>
+		/// applies a caluclated seperation force to the rooms and their colliders
+		/// </summary>
 		void seperateRooms();
 
+		/// <summary>
+		/// calculates the speration force dependent on what rooms each room is currently colliding with
+		/// </summary>
+		void calculateSeperation();
+		
+		/// <summary>
+		/// checks the current seperation force of all rooms
+		/// if all are zero then the rooms have been seperated enough 
+		/// </summary>
+		/// <returns> whether all rooms are seperated and dont have colliders overlapping</returns>
 		bool allRoomsAreSeperated();
 
-		void AssignCorners();
-		
+		/// <summary>
+		/// Removes rooms of defined sizers which are not desired
+		/// </summary>
 		void cullRooms();
 
+		/// <summary>
+		/// Calculates a delauney triangle which will create a edges between rooms
+		/// </summary>
 		void delauneyTriangle();
 
-		void cullTriangles();
+		/// <summary>
+		/// Creates a super trianfle which will enclose all rooms which we have genrated
+		/// used to create triangulations between rooms in delauney triagnle
+		/// </summary>
+		/// <returns> vector filled with 3 points which make up our super triangle</returns>
+		std::vector<Point> createSuperTriangle();
+
+		/// <summary>
+		/// Removes duplicate trianglulations left over in vector for visualisation
+		/// </summary>
+		void cullDuplicateVisulalTriangles();
+
+		
+		/// <summary>
+		/// Adds edges from delauney triangle between rooms to the rooms
+		/// </summary>
+		void AddEdgesToRooms();
+
+		/// <summary>
+		/// Gets the dimensions required to create a grid which will encapsulate all the rooms
+		/// </summary>
+		void AssignCorners();
+		
+		void generateHallways();
 
 		void draw(sf::RenderWindow& t_window);
 
-		sf::Vector2f getRandomPointInARadius(float t_radius);
-		GenerationState state = GenerationState::RoomSeperation;
 		
-		sf::Vector2f pos = { 0,0 };
+
+		GenerationState state = GenerationState::RoomSeperation;
+	
 	private:
 		
 
-		std::vector<Point> createSuperTriangle();
-
-		sf::VertexArray lines;
-		void sort();
 		
-		std::vector<Point> sortByDistance(sf::Vector2f position);
 
 		bool inCircle(sf::Vector2f A, sf::Vector2f B, sf::Vector2f C, sf::Vector2f P);
 
-		void minimiumSpanningCircle();
+		
 
-		void straightenEdges();
 
 
 		/// <summary>
-		/// Prim min spanninggp 
-		/// greedy search
+		/// Prim minimium spannign tree, greedy search
+		/// Used to cut down edges which will then become the final hallways between rooms
 		/// </summary>
 		/// <returns></returns>
 		std::vector<PointEdge> minSpanning();
 
-		
-		
-
+		/// <summary>
+		/// Checks if a list of edges contains another edge
+		/// </summary>
+		/// <param name="edges"></param>
+		/// <param name="e"></param>
+		/// <returns></returns>
 		bool listContainsEdge(std::vector<PointEdge> edges, PointEdge e);
 
+		/// <summary>
+		/// Checks if a passed through edge is part of the super triangle eddges
+		/// </summary>
+		/// <param name="e"></param>
+		/// <returns></returns>
 		bool partOfSuperTriangle(PointEdge e);
 
-
+		/// <summary>
+		/// Places the rooms generated into a a grid
+		/// </summary>
 		void placeEnclosingGrid();
 
+		std::vector< PointEdge> m_visulalisedEdges;
 
-
-		double EPSILON = 1e-12;
-		
-
-		
-
-		std::vector< PointEdge> edges;
-
-		std::vector<sf::Vector2f> m_seperation;
+		std::vector<sf::Vector2f> m_seperationForce;
 
 		
 		std::vector<sf::RectangleShape> m_mainRoomCollider;
@@ -98,7 +145,7 @@ class DungeonGeneration
 		std::vector<Grid*> m_subRooms;
 		std::vector<sf::RectangleShape> m_subRoomCollider;
 
-		std::vector<Grid*> m_roomsGenerated;
+		std::vector<Grid*> m_gridsGenerated;
 		std::vector<sf::RectangleShape> m_roomCollider;
 		sf::CircleShape radius;
 		std::vector<sf::CircleShape>t_visuals;
@@ -118,7 +165,7 @@ class DungeonGeneration
 		Grid* enclosingGrid;
 
 
-		std::vector<Room*> mainRoomRooms;
+		std::vector<Room*> m_mainRooms;
 
 
 
