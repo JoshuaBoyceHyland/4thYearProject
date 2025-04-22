@@ -866,7 +866,7 @@ void DungeonGeneration::generateHallways()
 
 			if (angle >= 45 && angle < 135) //bottom
 			{
-			/*	int midPointRow = std::abs(startingCell->getNode()->m_row - endingCell->getNode()->m_row) / 2;
+				int midPointRow = std::abs(startingCell->getNode()->m_row - endingCell->getNode()->m_row) / 2;
 				midPointCell = &m_dungeon->m_cells[endingCell->getNode()->m_row - midPointRow][startingCell->getNode()->m_column];
 				midPointCell->setColor(sf::Color::Green);
 
@@ -876,7 +876,7 @@ void DungeonGeneration::generateHallways()
 
 				startingCell->setColor(sf::Color(255, 127, 8));
 				endingCell->setColor(sf::Color(255, 127, 8));
-				midPointCell->setColor(sf::Color::Green);*/
+				midPointCell->setColor(sf::Color::Green);
 				
 			}
 			else if (angle >= -45 && angle < 45) // right
@@ -886,33 +886,16 @@ void DungeonGeneration::generateHallways()
 				midPointCell->setColor(sf::Color::Green);
 
 
-				horizontalStrip(startingCell->getNode()->m_column, midPointCell->getNode()->m_row, midPointCell->getNode()->m_row);
-
+				horizontalStrip(startingCell->getNode()->m_column, midPointCell->getNode()->m_column, startingCell->getNode()->m_row);
+				verticalStrip(startingCell->getNode()->m_row, midPointCell->getNode()->m_row, midPointCell->getNode()->m_column);
+				horizontalStrip(midPointCell->getNode()->m_column, endingCell->getNode()->m_column, endingCell->getNode()->m_row);
 
 				startingCell->setColor(sf::Color(255, 127, 8));
 				endingCell->setColor(sf::Color(255, 127, 8));
 				midPointCell->setColor(sf::Color::Green);
-				break;
+			
 			}
-			else if (angle >= -135 && angle < -45) // top
-			{
-
-				/*int midPointRow = (startingCell->getNode()->m_row - endingCell->getNode()->m_row) / 2;
-				midPointCell = &m_dungeon->m_cells[endingCell->getNode()->m_row + midPointRow][startingCell->getNode()->m_column];
 				
-				
-				verticalStrip(startingCell->getNode()->m_row, midPointCell->getNode()->m_row, startingCell->getNode()->m_column);
-				horizontalStrip(midPointCell->getNode()->m_column, endingCell->getNode()->m_column, midPointCell->getNode()->m_row);
-				verticalStrip(midPointCell->getNode()->m_row, endingCell->getNode()->m_row, endingCell->getNode()->m_column);
-
-				startingCell->setColor(sf::Color(255, 127, 8));
-				endingCell->setColor(sf::Color(255, 127, 8));
-				midPointCell->setColor(sf::Color::Green);*/
-
-				
-			}
-
-						
 			
 		}
 

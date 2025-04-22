@@ -1,0 +1,24 @@
+﻿  DungeonGeneration.cpp
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Librarys\Loader.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(25,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Node.h(26,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\Utility\RotationMath.h(9,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Room.h(49,22): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Include\World\Room.h(100,19): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Source\DungeonGeneration\DungeonGeneration.cpp(506,17): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Source\DungeonGeneration\DungeonGeneration.cpp(507,16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Source\DungeonGeneration\DungeonGeneration.cpp(513,16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Source\DungeonGeneration\DungeonGeneration.cpp(531,17): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Source\DungeonGeneration\DungeonGeneration.cpp(532,16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Source\DungeonGeneration\DungeonGeneration.cpp(539,16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Source\DungeonGeneration\DungeonGeneration.cpp(826,17): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\fun\Source\DungeonGeneration\DungeonGeneration.cpp(827,13): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+  fun.vcxproj -> C:\Users\Joshua\Desktop\4thYearProject\Lab 5\lab5\x64\Debug\fun.exe
