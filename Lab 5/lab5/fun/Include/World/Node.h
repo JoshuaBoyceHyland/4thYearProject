@@ -38,7 +38,7 @@ class Node
 
 		std::vector<Node*> getNeighbours() { return m_neighbours; }
 
-
+		sf::Vector2i m_direction = { 0,0 };
 		Node* previous = nullptr;
 		int m_row = -1;
 		int m_column = -1;

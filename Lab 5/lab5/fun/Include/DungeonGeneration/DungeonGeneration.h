@@ -7,6 +7,7 @@
 #include <unordered_set>
 #include <queue>
 #include "World/Room.h"
+#include "World/Search.h"
 enum class GenerationState { RoomSeperation, RoomCulling, Triangle, MinSpanning, HallwayGen, Done };
 
 
@@ -91,6 +92,10 @@ class DungeonGeneration
 		
 		void generateHallways();
 
+		void horizontalStrip(int xStart, int xEnd, int row);
+
+		void verticalStrip(int yStart, int yEnd, int col);
+
 		void draw(sf::RenderWindow& t_window);
 
 		
@@ -135,6 +140,8 @@ class DungeonGeneration
 		/// </summary>
 		void placeEnclosingGrid();
 
+		Cell* DungeonGeneration::getHallywayEntry(int t_roomAId, int t_roomBId);
+
 		std::vector< PointEdge> m_visulalisedEdges;
 
 		std::vector<sf::Vector2f> m_seperationForce;
@@ -162,7 +169,7 @@ class DungeonGeneration
 		sf::Vector2f gridstart = { 0,0 };
 		sf::Vector2f gridEnd = { 0, 0 };
 	
-		Grid* enclosingGrid;
+		Grid* m_dungeon;
 
 
 		std::vector<Room*> m_mainRooms;

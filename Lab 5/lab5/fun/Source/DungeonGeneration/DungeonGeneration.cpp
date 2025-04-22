@@ -472,6 +472,7 @@ void DungeonGeneration::AddEdgesToRooms()
 	// connect edges between rooms
 	for (int i = 0; i < edgesL.size(); i++)
 	{
+
 		m_mainRooms[edgesL[i].m_roomAId]->point.edges.push_back({ edgesL[i].m_roomAId, edgesL[i].m_roomAPos, edgesL[i].m_roomBId, edgesL[i].m_roomBPos });
 		m_mainRooms[edgesL[i].m_roomBId]->point.edges.push_back({ edgesL[i].m_roomBId, edgesL[i].m_roomBPos, edgesL[i].m_roomAId, edgesL[i].m_roomAPos });
 	}
@@ -602,9 +603,9 @@ void DungeonGeneration::draw(sf::RenderWindow& t_window)
 			break;
 		case GenerationState::MinSpanning:
 
-			if (enclosingGrid != nullptr)
+			if (m_dungeon != nullptr)
 			{
-				enclosingGrid->draw(t_window);
+				m_dungeon->draw(t_window);
 			}
 			for (int i = 0; i < m_mainRooms.size(); i++)
 			{
@@ -620,9 +621,9 @@ void DungeonGeneration::draw(sf::RenderWindow& t_window)
 
 		case GenerationState::HallwayGen:
 
-			if (enclosingGrid != nullptr)
+			if (m_dungeon != nullptr)
 			{
-				enclosingGrid->draw(t_window);
+				m_dungeon->draw(t_window);
 			}
 
 			/*for (int i = 0; i < edges.size(); i++)
@@ -825,7 +826,7 @@ void DungeonGeneration::placeEnclosingGrid()
 	int coluumnNum = (gridEnd.x - gridstart.x) / 100;
 	int rowNum = (gridEnd.y - gridstart.y) / 100;
 
-	enclosingGrid = new Grid(rowNum, coluumnNum, 100, 100, { gridstart });
+	m_dungeon = new Grid(rowNum, coluumnNum, 100, 100, { gridstart });
 
 
 	for (int i = 0; i < m_mainRooms.size(); i++)
@@ -834,55 +835,141 @@ void DungeonGeneration::placeEnclosingGrid()
 		sf::Vector2f roomPos = m_mainRooms[i]->m_grid.m_cells[0][0].m_body.getPosition();
 		sf::Vector2f localRoomPos = roomPos - gridstart;
 
-		m_mainRooms[i]->emplaceOnGrid(enclosingGrid, localRoomPos);
+		m_mainRooms[i]->emplaceOnGrid(m_dungeon, localRoomPos);
 
 	}
 }
 
+
+
 void DungeonGeneration::generateHallways()
 {
+	//m_dungeon->setUpNeighbours(false);
 	for (int currentRoom = 0; currentRoom < m_mainRooms.size(); currentRoom++)
 	{
 		for (int currentEdge = 0; currentEdge < m_mainRooms[currentRoom]->point.edges.size(); currentEdge++)
 		{
+
+			Cell* startingCell = getHallywayEntry(currentRoom, m_mainRooms[currentRoom]->point.edges[currentEdge].m_roomBId);
+			Cell* endingCell = getHallywayEntry(m_mainRooms[currentRoom]->point.edges[currentEdge].m_roomBId, currentRoom);
 			
-			const PointEdge& edge = m_mainRooms[currentRoom]->point.edges[currentEdge];
-			int otherRoom = (edge.m_roomAId == currentRoom) ? edge.m_roomBId : edge.m_roomAId;
+
+			Cell* midPointCell = nullptr;
 
 			sf::Vector2f roomsAPos = m_mainRooms[currentRoom]->point.visual.getPosition();
-			sf::Vector2f roomsBPos = m_mainRooms[otherRoom]->point.visual.getPosition();
+			sf::Vector2f roomsBPos = m_mainRooms[m_mainRooms[currentRoom]->point.edges[currentEdge].m_roomBId]->point.visual.getPosition();
 
 			sf::Vector2f direction = roomsBPos - roomsAPos;
 
 			float angle = std::atan2(direction.y, direction.x) * 180 / RotationMath::PI;
 
-			Cell* startingCell = nullptr;
 
-			int gridCols = static_cast<int>(m_mainRooms[currentRoom]->m_grid.m_cells[0].size() - 1);
+			if (angle >= 45 && angle < 135) //bottom
+			{
+			/*	int midPointRow = std::abs(startingCell->getNode()->m_row - endingCell->getNode()->m_row) / 2;
+				midPointCell = &m_dungeon->m_cells[endingCell->getNode()->m_row - midPointRow][startingCell->getNode()->m_column];
+				midPointCell->setColor(sf::Color::Green);
 
-			int gridRows = static_cast<int>(m_mainRooms[currentRoom]->m_grid.m_cells.size() - 1);
+				verticalStrip(startingCell->getNode()->m_row, midPointCell->getNode()->m_row, startingCell->getNode()->m_column);
+				horizontalStrip(midPointCell->getNode()->m_column, endingCell->getNode()->m_column, midPointCell->getNode()->m_row);
+				verticalStrip(midPointCell->getNode()->m_row, endingCell->getNode()->m_row, endingCell->getNode()->m_column);
 
-			if (angle >= -45 && angle < 45)
-				startingCell = m_mainRooms[currentRoom]->cellsOccupied[static_cast<int>(gridRows / 2)][gridCols];
-			else if (angle >= 45 && angle < 135)
-				startingCell = m_mainRooms[currentRoom]->cellsOccupied[gridRows][static_cast<int>(gridCols / 2)];
-			// Room B is below Room A
-			else if (angle >= -135 && angle < -45)
-				// Room B is above Room A
-				startingCell = m_mainRooms[currentRoom]->cellsOccupied[0][static_cast<int>(gridCols / 2)];
-			else
-
-				startingCell = m_mainRooms[currentRoom]->cellsOccupied[static_cast<int>(gridRows / 2)][0];
-			// Room B is to the left of Room A
+				startingCell->setColor(sf::Color(255, 127, 8));
+				endingCell->setColor(sf::Color(255, 127, 8));
+				midPointCell->setColor(sf::Color::Green);*/
+				
+			}
+			else if (angle >= -45 && angle < 45) // right
+			{
+				int midPointCol = std::abs(startingCell->getNode()->m_column - endingCell->getNode()->m_column) / 2;
+				midPointCell = &m_dungeon->m_cells[endingCell->getNode()->m_row ][startingCell->getNode()->m_column + midPointCol];
+				midPointCell->setColor(sf::Color::Green);
 
 
-			startingCell->setColor(sf::Color(255, 127, 8));
-		
+				horizontalStrip(startingCell->getNode()->m_column, midPointCell->getNode()->m_row, midPointCell->getNode()->m_row);
+
+
+				startingCell->setColor(sf::Color(255, 127, 8));
+				endingCell->setColor(sf::Color(255, 127, 8));
+				midPointCell->setColor(sf::Color::Green);
+				break;
+			}
+			else if (angle >= -135 && angle < -45) // top
+			{
+
+				/*int midPointRow = (startingCell->getNode()->m_row - endingCell->getNode()->m_row) / 2;
+				midPointCell = &m_dungeon->m_cells[endingCell->getNode()->m_row + midPointRow][startingCell->getNode()->m_column];
+				
+				
+				verticalStrip(startingCell->getNode()->m_row, midPointCell->getNode()->m_row, startingCell->getNode()->m_column);
+				horizontalStrip(midPointCell->getNode()->m_column, endingCell->getNode()->m_column, midPointCell->getNode()->m_row);
+				verticalStrip(midPointCell->getNode()->m_row, endingCell->getNode()->m_row, endingCell->getNode()->m_column);
+
+				startingCell->setColor(sf::Color(255, 127, 8));
+				endingCell->setColor(sf::Color(255, 127, 8));
+				midPointCell->setColor(sf::Color::Green);*/
+
+				
+			}
+
+						
+			
 		}
+
+
 	}
 
 }
 
+void DungeonGeneration::horizontalStrip(int xStart, int xEnd, int row)
+{
+
+	if (xStart > xEnd) std::swap(xStart, xEnd);
+	for (int x = xStart; x <= xEnd; ++x)
+	{
+		Cell& cell = m_dungeon->m_cells[row][x];
+		cell.setColor(sf::Color::Cyan);
+		//cell.setWalkable(true); // or however you mark it
+	}
+}
+
+void DungeonGeneration::verticalStrip(int yStart, int yEnd, int col)
+{
+	if (yStart > yEnd) std::swap(yStart, yEnd);
+	for (int y = yStart; y <= yEnd; ++y)
+	{
+		Cell& cell = m_dungeon->m_cells[y][col];
+		cell.setColor(sf::Color::Cyan);
+		//cell.setWalkable(true);
+	}
+}
+
+Cell* DungeonGeneration::getHallywayEntry( int t_roomAId, int t_roomBId)
+{
+	Cell* startingCell = nullptr;
+
+	sf::Vector2f roomsAPos = m_mainRooms[t_roomAId]->point.visual.getPosition();
+	sf::Vector2f roomsBPos = m_mainRooms[t_roomBId]->point.visual.getPosition();
+
+	sf::Vector2f direction = roomsBPos - roomsAPos;
+
+	float angle = std::atan2(direction.y, direction.x) * 180 / RotationMath::PI;
+
+	int gridCols = static_cast<int>(m_mainRooms[t_roomAId]->m_grid.m_cells[0].size() - 1);
+	int gridRows = static_cast<int>(m_mainRooms[t_roomAId]->m_grid.m_cells.size() - 1);
+
+	if (angle >= -45 && angle < 45) // right
+		startingCell = m_mainRooms[t_roomAId]->cellsOccupied[static_cast<int>(gridRows / 2)][gridCols];
+	else if (angle >= 45 && angle < 135) // velow
+		startingCell = m_mainRooms[t_roomAId]->cellsOccupied[gridRows][static_cast<int>(gridCols / 2)];
+	else if (angle >= -135 && angle < -45) // above
+
+		startingCell = m_mainRooms[t_roomAId]->cellsOccupied[0][static_cast<int>(gridCols / 2)];
+	else // left
+		startingCell = m_mainRooms[t_roomAId]->cellsOccupied[static_cast<int>(gridRows / 2)][0];
+
+	return startingCell;
+}
 
 
 

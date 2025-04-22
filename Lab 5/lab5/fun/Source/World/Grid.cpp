@@ -94,7 +94,7 @@ void Grid::setForGamePlay()
 		}
 	}
 	
-	setUpNeighbours();
+	setUpNeighbours(true);
 }
 
 void Grid::deletePiece(sf::Vector2f t_mouseCLick, TraversalProperty t_currentEditorSection)
@@ -417,7 +417,7 @@ void Grid::rotate()
 }
 
 
-void Grid::setUpNeighbours()
+void Grid::setUpNeighbours(bool t_requiresTexture)
 {
 
 	const int NUM_OF_NEIGHBOURS = 8;
@@ -429,7 +429,7 @@ void Grid::setUpNeighbours()
 	{
 		for (int column = 0; column < m_cells[row].size(); column++)
 		{
-			if (m_cells[row][column].isOccupied())
+			if (m_cells[row][column].isOccupied() || !t_requiresTexture)
 			{
 				for (int i = 0; i < NUM_OF_NEIGHBOURS; i++)
 				{
@@ -441,7 +441,7 @@ void Grid::setUpNeighbours()
 					if (possibleColNeighbour < 0 || possibleColNeighbour >= m_cells[row].size()) { continue; }
 
 					
-					if (m_cells[possibleRowNeighbour][possibleColNeighbour].getProperty() == TraversalProperty::Walkable)
+					if (m_cells[possibleRowNeighbour][possibleColNeighbour].getProperty() == TraversalProperty::Walkable || !t_requiresTexture)
 					{
 						std::cout << "Row: " << row << " Col: " << column << " RowN: " << possibleRowNeighbour << " ColN: " << possibleColNeighbour << std::endl;
 						m_cells[row][column].getNode()->addNeighbour(m_cells[possibleRowNeighbour][possibleColNeighbour].getNode());

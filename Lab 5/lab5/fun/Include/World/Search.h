@@ -14,6 +14,8 @@ class Search
 
 		static std::deque<Node*> AStar (Node* t_startNode);
 
+		static std::deque<Node*> AStarDirectionBased(Node* t_startNode, sf::Vector2i t_startDirection);
+
 		static void nodeReset(std::vector<Node*> t_visitedNodes);
 };
 

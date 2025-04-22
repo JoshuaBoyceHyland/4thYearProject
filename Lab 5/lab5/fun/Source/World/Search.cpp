@@ -154,6 +154,83 @@ std::deque<Node*>Search::AStar(Node* t_startNode)
 	return path;
 }
 
+std::deque<Node*> Search::AStarDirectionBased(Node* t_startNode, sf::Vector2i t_startDirection)
+{
+
+	std::queue<Node*> expandedNodes;
+	std::priority_queue<Node*, std::vector<Node*>, NodeComparision > nodePriorityQueue;
+
+	t_startNode->setMarked(true);
+	t_startNode->setBeingChecked(true);
+	t_startNode->m_direction = { 0,0 };
+
+	for (Node* node : t_startNode->getNeighbours())
+	{
+
+		std::cout << "Checked Node: " << node->m_row << " " << node->m_column << std::endl;
+		
+		sf::Vector2i startDirection = static_cast<sf::Vector2i>(node->getPosition() - t_startNode->getPosition());
+		if (startDirection.x != 0) { startDirection.x /= std::abs(startDirection.x); }
+		if (startDirection.y != 0) { startDirection.y /= std::abs(startDirection.y); }
+		node->m_direction = startDirection;
+
+		node->previous = t_startNode;
+		node->setBeingChecked(true);
+
+		
+
+		nodePriorityQueue.push(node);
+	}
+
+	while (!nodePriorityQueue.empty())
+	{
+		if (nodePriorityQueue.top()->getHeurisitic() == 0)
+		{
+			break;
+		}
+
+		expandedNodes.push(nodePriorityQueue.top());
+		expandedNodes.back()->setMarked(true);
+		nodePriorityQueue.pop();
+
+		std::cout << "Expanded Node: " << expandedNodes.back()->m_row << " " << expandedNodes.back()->m_column << std::endl;
+
+		for (Node* node : expandedNodes.back()->getNeighbours())
+		{
+			// we dont want to add the node if its already been expanded or is in the queue to be expanded
+			if (!node->isMarked() && !node->isBeingChecked())
+			{
+				node->previous = expandedNodes.back();
+				node->setBeingChecked(true);
+				nodePriorityQueue.push(node);
+
+				std::cout << "Checked Node: " << node->m_row << " " << node->m_column << std::endl;
+			}
+		}
+
+
+	}
+
+	std::deque<Node*> path;
+
+	if (!nodePriorityQueue.empty())
+	{
+		Node* pathSteps = nodePriorityQueue.top();
+
+		while (pathSteps->previous != nullptr)
+		{
+			path.push_front(pathSteps);
+
+			pathSteps = pathSteps->previous;
+		}
+
+
+	}
+
+
+	return path;
+}
+
 void Search::nodeReset(std::vector<Node*> t_visitedNodes)
 {
 

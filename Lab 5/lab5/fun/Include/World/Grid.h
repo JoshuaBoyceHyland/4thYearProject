@@ -44,12 +44,14 @@ class Grid
 
 		void rotate();
 
+		void setUpNeighbours(bool t_requiresTexture);
+
 		std::vector<Cell*> m_traversableCells;
 		std::vector<std::vector<Cell>> m_cells;
 
 	private:
 
-		void setUpNeighbours();
+		
 
 		sf::Vector2f m_startPoint = { -100, -100 };
 
