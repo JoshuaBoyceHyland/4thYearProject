@@ -870,9 +870,9 @@ void DungeonGeneration::generateHallways()
 				midPointCell = &m_dungeon->m_cells[endingCell->getNode()->m_row - midPointRow][startingCell->getNode()->m_column];
 				midPointCell->setColor(sf::Color::Green);
 
-				verticalStrip(startingCell->getNode()->m_row, midPointCell->getNode()->m_row, startingCell->getNode()->m_column);
-				horizontalStrip(midPointCell->getNode()->m_column, endingCell->getNode()->m_column, midPointCell->getNode()->m_row);
-				verticalStrip(midPointCell->getNode()->m_row, endingCell->getNode()->m_row, endingCell->getNode()->m_column);
+				verticalStrip(startingCell->getNode()->m_row, midPointCell->getNode()->m_row , startingCell->getNode()->m_column, false);
+				horizontalStrip(midPointCell->getNode()->m_column , endingCell->getNode()->m_column , midPointCell->getNode()->m_row, true);
+				verticalStrip(midPointCell->getNode()->m_row, endingCell->getNode()->m_row, endingCell->getNode()->m_column, false);
 
 				startingCell->setColor(sf::Color(255, 127, 8));
 				endingCell->setColor(sf::Color(255, 127, 8));
@@ -886,9 +886,9 @@ void DungeonGeneration::generateHallways()
 				midPointCell->setColor(sf::Color::Green);
 
 
-				horizontalStrip(startingCell->getNode()->m_column, midPointCell->getNode()->m_column, startingCell->getNode()->m_row);
-				verticalStrip(startingCell->getNode()->m_row, midPointCell->getNode()->m_row, midPointCell->getNode()->m_column);
-				horizontalStrip(midPointCell->getNode()->m_column, endingCell->getNode()->m_column, endingCell->getNode()->m_row);
+				horizontalStrip(startingCell->getNode()->m_column , midPointCell->getNode()->m_column, startingCell->getNode()->m_row, false);
+				verticalStrip(startingCell->getNode()->m_row , midPointCell->getNode()->m_row , midPointCell->getNode()->m_column, true);
+				horizontalStrip(midPointCell->getNode()->m_column, endingCell->getNode()->m_column, endingCell->getNode()->m_row, false);
 
 				startingCell->setColor(sf::Color(255, 127, 8));
 				endingCell->setColor(sf::Color(255, 127, 8));
@@ -904,26 +904,59 @@ void DungeonGeneration::generateHallways()
 
 }
 
-void DungeonGeneration::horizontalStrip(int xStart, int xEnd, int row)
+void DungeonGeneration::horizontalStrip(int xStart, int xEnd, int row, bool corner)
 {
+	int HallWayPadding = 2;
 
+	if (xStart == xEnd) { return; }
 	if (xStart > xEnd) std::swap(xStart, xEnd);
+
+	if (corner)
+	{
+		xStart -= HallWayPadding;
+		xEnd += HallWayPadding;
+	}
+
+
 	for (int x = xStart; x <= xEnd; ++x)
 	{
-		Cell& cell = m_dungeon->m_cells[row][x];
-		cell.setColor(sf::Color::Cyan);
-		//cell.setWalkable(true); // or however you mark it
+		// create  halways with a thing nes of 3
+		
+		m_dungeon->m_cells[row][x].setColor(sf::Color::Cyan);
+		
+		for (int padding = 1; padding <= HallWayPadding; padding++)
+		{
+			m_dungeon->m_cells[row - padding][x ].setColor(sf::Color::Cyan);
+			m_dungeon->m_cells[row + padding][x ].setColor(sf::Color::Cyan);
+		}
+
+
+		//cell.setWalkable(true); //
 	}
 }
 
-void DungeonGeneration::verticalStrip(int yStart, int yEnd, int col)
+void DungeonGeneration::verticalStrip(int yStart, int yEnd, int col, bool corner)
 {
+	int HallWayPadding = 2;
+
+	if (yStart == yEnd) { return; }
 	if (yStart > yEnd) std::swap(yStart, yEnd);
+
+
+	if (corner)
+	{
+		yStart -= HallWayPadding;
+		yEnd += HallWayPadding;
+	}
+
 	for (int y = yStart; y <= yEnd; ++y)
 	{
-		Cell& cell = m_dungeon->m_cells[y][col];
-		cell.setColor(sf::Color::Cyan);
-		//cell.setWalkable(true);
+		m_dungeon->m_cells[y][col].setColor(sf::Color::Blue);	
+		for (int padding = 1; padding <= HallWayPadding; padding++)
+		{
+			m_dungeon->m_cells[y][col - padding].setColor(sf::Color::Blue);
+			m_dungeon->m_cells[y][col + padding].setColor(sf::Color::Blue);
+		}
 	}
 }
 

@@ -90,11 +90,26 @@ class DungeonGeneration
 		/// </summary>
 		void AssignCorners();
 		
+		/// <summary>
+		/// Generates halways in gird dependent on edges
+		/// </summary>
 		void generateHallways();
 
-		void horizontalStrip(int xStart, int xEnd, int row);
+		/// <summary>
+		/// creates a halway strip from one cell to another horizonitally
+		/// </summary>
+		/// <param name="xStart">start cell column</param>
+		/// <param name="xEnd">end cell column</param>
+		/// <param name="row">row of strip</param>
+		void horizontalStrip(int xStart, int xEnd, int row, bool corner);
 
-		void verticalStrip(int yStart, int yEnd, int col);
+		/// <summary>
+		/// creates a halway strip from one cell to another vertically
+		/// </summary>
+		/// <param name="yStart">start cell row</param>
+		/// <param name="yEnd">end cell row</param>
+		/// <param name="col">column of strip</param>
+		void verticalStrip(int yStart, int yEnd, int col, bool corner);
 
 		void draw(sf::RenderWindow& t_window);
 
