@@ -4,6 +4,18 @@
 
 
 
+enum class Direction {
+	Top = 0,
+	TopRight = 1,
+	Right = 2,
+	BottomRight = 3,
+	Bottom = 4,
+	BottomLeft = 5,
+	Left = 6,
+	TopLeft = 7
+};
+
+
 class Node
 {
 
@@ -16,7 +28,7 @@ class Node
 		void resetMarkings();
 
 		void addNeighbour(Node* t_neighbour) { m_neighbours.push_back(t_neighbour); }
-
+		void addNeighbourDirection(Direction t_direction) { m_neighbourDirections.push_back(t_direction); }
 
 		void setMarked(bool t_marked) { m_marked = t_marked; }
 		void setBeingChecked(bool t_beingChecked) { m_beingChecked = t_beingChecked; }
@@ -27,6 +39,8 @@ class Node
 
 		bool isMarked() { return m_marked; }
 		bool isBeingChecked() { return m_beingChecked; }
+
+		bool isWallNode();
 
 		int getCost() { return m_cost; };
 		int getManhattan() { return m_manhanttan; }
@@ -54,7 +68,7 @@ class Node
 		bool m_marked = false;
 		bool m_beingChecked = false;
 		
-
+		std::vector<Direction> m_neighbourDirections;
 		std::vector<Node*> m_neighbours;
 
 };

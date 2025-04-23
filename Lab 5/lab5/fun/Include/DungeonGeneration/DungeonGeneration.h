@@ -11,11 +11,6 @@
 enum class GenerationState { RoomSeperation, RoomCulling, DelauneyTriangulation, MinSpanningTree, HallwayGen, Done };
 
 
-
-
-
-
-
 class DungeonGeneration
 {
 

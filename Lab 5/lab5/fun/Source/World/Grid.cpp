@@ -424,7 +424,6 @@ void Grid::setUpNeighbours(bool t_requiresWalkable)
 
 	std::vector<int> rowNeighbour = {-1,  0,  1, -1, 1, -1, 0, 1};
 	std::vector<int> colNeighbour = { -1, -1, -1,  0, 0,  1, 1, 1 };
-	
 	for (int row = 0; row < m_cells.size(); row++)
 	{
 		for (int column = 0; column < m_cells[row].size(); column++)
@@ -445,6 +444,7 @@ void Grid::setUpNeighbours(bool t_requiresWalkable)
 					{
 						std::cout << "Row: " << row << " Col: " << column << " RowN: " << possibleRowNeighbour << " ColN: " << possibleColNeighbour << std::endl;
 						m_cells[row][column].getNode()->addNeighbour(m_cells[possibleRowNeighbour][possibleColNeighbour].getNode());
+						m_cells[row][column].getNode()->addNeighbourDirection(Direction(i));
 					}
 					
 				}

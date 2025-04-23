@@ -16,3 +16,9 @@ void Node::resetMarkings()
 	m_beingChecked = false;
 	previous = nullptr;
 }
+
+bool Node::isWallNode()
+{
+	return m_neighbours.size() < 8;
+}
+

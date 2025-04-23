@@ -196,6 +196,7 @@ void Cell::debug(bool t_debug)
 	
 }
 
+
 void Cell::setUpText()
 {
 	Loader* loader = Loader::getInstance();

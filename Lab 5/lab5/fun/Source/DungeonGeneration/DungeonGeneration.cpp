@@ -965,7 +965,16 @@ void DungeonGeneration::cellCheckIsWalkable()
 		{
 			if (m_dungeon->m_cells[nextNeighbours[i]->m_row][nextNeighbours[i]->m_column].getProperty() == TraversalProperty::Walkable)
 			{
-				m_dungeon->m_cells[nextNeighbours[i]->m_row][nextNeighbours[i]->m_column].setColor(sf::Color::Yellow);
+
+				if (m_dungeon->m_cells[nextNeighbours[i]->m_row][nextNeighbours[i]->m_column].getNode()->isWallNode())
+				{
+					m_dungeon->m_cells[nextNeighbours[i]->m_row][nextNeighbours[i]->m_column].setColor(sf::Color::Red);
+				}
+				else
+				{
+					m_dungeon->m_cells[nextNeighbours[i]->m_row][nextNeighbours[i]->m_column].setColor(sf::Color::Yellow);
+				}
+				
 			}
 			
 		}
