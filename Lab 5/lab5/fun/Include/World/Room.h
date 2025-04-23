@@ -324,6 +324,8 @@ class Room
 
 		void rotate();
 
+		void setWalkable();
+
 		Grid getGrid();
 
 		Grid m_grid;

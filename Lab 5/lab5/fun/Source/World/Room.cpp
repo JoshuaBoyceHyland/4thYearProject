@@ -120,6 +120,8 @@ bool Room::emplaceOnGrid(Grid* t_backgroundGrid, sf::Vector2f t_mosuePosition)
             else
             {
                 t_backgroundGrid->m_cells[row][column].setColor(sf::Color::White);
+                t_backgroundGrid->m_cells[row][column].setProperty(m_grid.m_cells[placedPieceRow][placedPieceColumn].getProperty());
+                
                 
             }
 
@@ -157,6 +159,17 @@ void Room::scaleDown(float t_scaleValue)
 void Room::rotate()
 {
     m_grid.rotate();
+}
+
+void Room::setWalkable()
+{
+    for (int row = 0; row < m_grid.m_cells.size(); row++)
+    {
+        for (int column = 0; column < m_grid.m_cells[row].size(); column++)
+        {
+            m_grid.m_cells[row][column].setProperty(TraversalProperty::Walkable);
+        }
+    }
 }
 
 Grid Room::getGrid()

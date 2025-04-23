@@ -1,18 +1,18 @@
 #include "DungeonGeneration/DungeonGeneration.h"
 
-DungeonGeneration::DungeonGeneration() : superTriangle(sf::LineStrip)
+DungeonGeneration::DungeonGeneration() : m_superTriangleVisual(sf::LineStrip)
 {
 }
 
 void DungeonGeneration::generateInitialGrids()
 {
-	radius.setRadius(500);
-	radius.setFillColor(sf::Color::Transparent);
-	radius.setOutlineThickness(1);
-	radius.setOutlineColor(sf::Color::Red);
-	radius.setOrigin( radius.getRadius() / 2, radius.getRadius() / 2);
-	radius.setPosition({Globals::SCREEN_WIDTH / 2, Globals::SCREEN_HEIGHT / 2});
-	radius.setOrigin(radius.getRadius() , radius.getRadius() );
+	m_spawnRadius.setRadius(500);
+	m_spawnRadius.setFillColor(sf::Color::Transparent);
+	m_spawnRadius.setOutlineThickness(1);
+	m_spawnRadius.setOutlineColor(sf::Color::Red);
+	m_spawnRadius.setOrigin( m_spawnRadius.getRadius() / 2, m_spawnRadius.getRadius() / 2);
+	m_spawnRadius.setPosition({Globals::SCREEN_WIDTH / 2, Globals::SCREEN_HEIGHT / 2});
+	m_spawnRadius.setOrigin(m_spawnRadius.getRadius() , m_spawnRadius.getRadius() );
 
 	int x = Globals::SCREEN_WIDTH / 2;
 	int y = Globals::SCREEN_HEIGHT / 2;
@@ -28,22 +28,22 @@ void DungeonGeneration::generateInitialGrids()
 
 		int randWidth = rand() % maxWidth + minWidth;
 		int randHeight = rand() % maxHeight + minHeight;
-		sf::CircleShape t(5);
+		sf::CircleShape circle(5);
 
 
-		t.setPosition( sf::Vector2f(Globals::SCREEN_WIDTH / 2, Globals::SCREEN_HEIGHT / 2) + getRandomPointInARadius(radius.getRadius()));
+		circle.setPosition( sf::Vector2f(Globals::SCREEN_WIDTH / 2, Globals::SCREEN_HEIGHT / 2) + getRandomPointInARadius(m_spawnRadius.getRadius()));
 
-		m_gridsGenerated.push_back(new Grid(randWidth, randHeight,100 , 100, t.getPosition()));
+		m_gridsGenerated.push_back(new Grid(randWidth, randHeight,100 , 100, circle.getPosition()));
 
 
 		m_roomCollider.push_back(sf::RectangleShape({ ((float)randHeight * 100) * 2, ((float)randWidth * 100 ) *2  }));
 
 		m_roomCollider[i].setPosition(m_gridsGenerated[i]->m_cells[0][0].m_body.getPosition().x - 50, m_gridsGenerated[i]->m_cells[0][0].m_body.getPosition().y - 50);
 		m_roomCollider[i].setFillColor(sf::Color::Red);
-		m_seperationForce.push_back({0.01f,0.1f});
-		t.setFillColor(sf::Color::Yellow);
-		t.setOrigin({ 2.5, 2.5 });
-		t_visuals.push_back(t);
+		m_seperationForces.push_back({0.01f,0.1f});
+		circle.setFillColor(sf::Color::Yellow);
+		circle.setOrigin({ 2.5, 2.5 });
+		m_spawnPointVisual.push_back(circle);
 
 		
 	}
@@ -98,18 +98,18 @@ void DungeonGeneration::generationLoop()
 			delauneyTriangle();
 			cullDuplicateVisulalTriangles();
 
-			state = GenerationState::Triangle;
+			state = GenerationState::DelauneyTriangulation;
 			break;
-		case GenerationState::Triangle:
+		case GenerationState::DelauneyTriangulation:
 
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 			{
-				state = GenerationState::MinSpanning;
+				state = GenerationState::MinSpanningTree;
 				AddEdgesToRooms();
 				AssignCorners();
 			}
 			break;
-		case GenerationState::MinSpanning:
+		case GenerationState::MinSpanningTree:
 			
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 			{
@@ -118,6 +118,11 @@ void DungeonGeneration::generationLoop()
 
 				state = GenerationState::HallwayGen;
 				generateHallways();
+				cellCheckIsWalkable();
+
+
+
+
 			}
 			break;
 
@@ -144,7 +149,7 @@ void DungeonGeneration::seperateRooms()
 	for (int i = 0; i < m_gridsGenerated.size(); i++)
 	{
 		
-		m_gridsGenerated[i]->setPosition(m_gridsGenerated[i]->m_cells[0][0].m_body.getPosition() + m_seperationForce[i]);
+		m_gridsGenerated[i]->setPosition(m_gridsGenerated[i]->m_cells[0][0].m_body.getPosition() + m_seperationForces[i]);
 
 
 	}
@@ -171,7 +176,7 @@ void DungeonGeneration::calculateSeperation()
 				if (m_roomCollider[currentRoom].getGlobalBounds().intersects(m_roomCollider[otherRoom].getGlobalBounds()))
 				{
 					// add to the seperation force direction
-					m_seperationForce[currentRoom] += m_gridsGenerated[currentRoom]->m_cells[0][0].m_body.getPosition() - m_gridsGenerated[otherRoom]->m_cells[0][0].m_body.getPosition();
+					m_seperationForces[currentRoom] += m_gridsGenerated[currentRoom]->m_cells[0][0].m_body.getPosition() - m_gridsGenerated[otherRoom]->m_cells[0][0].m_body.getPosition();
 					separationsCaluclated++;
 				}
 
@@ -185,17 +190,17 @@ void DungeonGeneration::calculateSeperation()
 		{
 			float seperationForceMultiplier = 10;
 			// averaging the force down
-			m_seperationForce[currentRoom].x = m_seperationForce[currentRoom].x / (m_gridsGenerated.size() - 2);
-			m_seperationForce[currentRoom].y = m_seperationForce[currentRoom].y / (m_gridsGenerated.size() - 2);
+			m_seperationForces[currentRoom].x = m_seperationForces[currentRoom].x / (m_gridsGenerated.size() - 2);
+			m_seperationForces[currentRoom].y = m_seperationForces[currentRoom].y / (m_gridsGenerated.size() - 2);
 
-			m_seperationForce[currentRoom] = VectorMath::unitVector(m_seperationForce[currentRoom]);
+			m_seperationForces[currentRoom] = VectorMath::unitVector(m_seperationForces[currentRoom]);
 
-			m_seperationForce[currentRoom].x *= seperationForceMultiplier;
-			m_seperationForce[currentRoom].y *= seperationForceMultiplier;
+			m_seperationForces[currentRoom].x *= seperationForceMultiplier;
+			m_seperationForces[currentRoom].y *= seperationForceMultiplier;
 		}
 		else // room has been seperated 
 		{
-			m_seperationForce[currentRoom] = { 0,0 };
+			m_seperationForces[currentRoom] = { 0,0 };
 			m_gridsGenerated[currentRoom]->setPosition(m_gridsGenerated[currentRoom]->m_cells[0][0].m_body.getPosition());
 		}
 
@@ -208,9 +213,9 @@ bool DungeonGeneration::allRoomsAreSeperated()
 
 	int roomsSeperated = 0;
 
-	for (int i = 0; i < m_seperationForce.size(); i++)
+	for (int i = 0; i < m_seperationForces.size(); i++)
 	{
-		if (m_seperationForce[i].x == 0 && m_seperationForce[i].y == 0) 
+		if (m_seperationForces[i].x == 0 && m_seperationForces[i].y == 0) 
 		{
 			roomsSeperated++;
 		}
@@ -219,7 +224,7 @@ bool DungeonGeneration::allRoomsAreSeperated()
 			return false;
 		}
 	}
-	return roomsSeperated == m_seperationForce.size();
+	return roomsSeperated == m_seperationForces.size();
 }
 
 
@@ -236,9 +241,7 @@ void DungeonGeneration::cullRooms()
 	{
 		if (m_gridsGenerated[i]->m_cells[0].size() < minRoomWidth || m_gridsGenerated[i]->m_cells.size() < minRoomHeight)
 		{
-			m_subRoomCollider.push_back(m_roomCollider[i]);
-			m_subRooms.push_back(m_gridsGenerated[i]);
-
+			// if we need to keep any subj rooms for later
 		}
 		else
 		{
@@ -251,6 +254,7 @@ void DungeonGeneration::cullRooms()
 			m_mainRooms.push_back(new Room(*m_gridsGenerated[i]));
 			m_mainRooms[mainRoomsCreated]->point = Point({ m_gridsGenerated[i]->m_cells[0][0].m_body.getPosition().x + (m_roomCollider[i].getSize().x / 4) - 50, m_gridsGenerated[i]->m_cells[0][0].m_body.getPosition().y + (m_roomCollider[i].getSize().y / 4) - 50 });
 			m_mainRooms[mainRoomsCreated]->roomId = mainRoomsCreated;
+			m_mainRooms[mainRoomsCreated]->setWalkable();
 			mainRoomsCreated++;
 
 		}
@@ -264,6 +268,7 @@ void DungeonGeneration::delauneyTriangle()
 {
 
 	std::vector<PointEdge> edges;
+	std::vector<Point> superTrianglePoints;
 
 	// sort the rooms based on position on x axis
 	auto xPosbasedSort = [](const Room* a, const Room* b) { return a->point.visual.getPosition().x < b->point.visual.getPosition().x; };
@@ -276,9 +281,9 @@ void DungeonGeneration::delauneyTriangle()
 	// create super triangle visual
 	for (int i = 0; i < superTrianglePoints.size(); i++)
 	{
-		superTriangle.append(sf::Vertex(superTrianglePoints[i].visual.getPosition(), sf::Color::Green));
+		m_superTriangleVisual.append(sf::Vertex(superTrianglePoints[i].visual.getPosition(), sf::Color::Green));
 	}
-	superTriangle.append(sf::Vertex(superTrianglePoints[0].visual.getPosition(), sf::Color::Green));
+	m_superTriangleVisual.append(sf::Vertex(superTrianglePoints[0].visual.getPosition(), sf::Color::Green));
 
 
 	// for every room we have
@@ -292,14 +297,14 @@ void DungeonGeneration::delauneyTriangle()
 		{
 			Triangle currentTriangle;
 
-			edges.emplace_back(firstRoom, m_mainRooms[firstRoom]->point.visual.getPosition(), k, superTriangle[k].position);
+			edges.emplace_back(firstRoom, m_mainRooms[firstRoom]->point.visual.getPosition(), k, m_superTriangleVisual[k].position);
 
 			// add core point
 			currentTriangle.addPoint(firstRoom, m_mainRooms[firstRoom]->point.visual.getPosition());
 			// first point of triangle
 
-			currentTriangle.addPoint(k, superTriangle[k].position);
-			currentTriangle.addPoint(k + 1, superTriangle[k + 1].position);
+			currentTriangle.addPoint(k, m_superTriangleVisual[k].position);
+			currentTriangle.addPoint(k + 1, m_superTriangleVisual[k + 1].position);
 			
 
 			triangles.push_back(currentTriangle);
@@ -394,9 +399,7 @@ void DungeonGeneration::delauneyTriangle()
 		{
 			if (triangles[i].drawVis)
 			{
-				trianglesF.push_back(triangles[i]);
-				//circsF.push_back(circs[i]); / /debug to visualise the circum circles
-
+				m_finalTriangulations.push_back(triangles[i]);
 			}
 
 
@@ -445,8 +448,8 @@ std::vector<Point> DungeonGeneration::createSuperTriangle()
 void DungeonGeneration::cullDuplicateVisulalTriangles()
 {
 
-	std::sort(trianglesF.begin(), trianglesF.end());   
-	trianglesF.erase(std::unique(trianglesF.begin(), trianglesF.end()), trianglesF.end());
+	std::sort(m_finalTriangulations.begin(), m_finalTriangulations.end());   
+	m_finalTriangulations.erase(std::unique(m_finalTriangulations.begin(), m_finalTriangulations.end()), m_finalTriangulations.end());
 }
 
 
@@ -457,14 +460,14 @@ void DungeonGeneration::AddEdgesToRooms()
 	std::vector<PointEdge> edgesL;
 
 	// cutting down duplicate edges and adding them to list
-	for (int i = 0; i < trianglesF.size(); i++)
+	for (int i = 0; i < m_finalTriangulations.size(); i++)
 	{
-		for (int k = 0; k < trianglesF[i].edges.size(); k++)
+		for (int k = 0; k < m_finalTriangulations[i].edges.size(); k++)
 		{
 
-			if (!partOfSuperTriangle(trianglesF[i].edges[k]) && !listContainsEdge(edgesL, trianglesF[i].edges[k]))
+			if (!partOfSuperTriangle(m_finalTriangulations[i].edges[k]) && !listContainsEdge(edgesL, m_finalTriangulations[i].edges[k]))
 			{
-				edgesL.push_back(trianglesF[i].edges[k]);
+				edgesL.push_back(m_finalTriangulations[i].edges[k]);
 			}
 		}
 	}
@@ -553,15 +556,11 @@ void DungeonGeneration::draw(sf::RenderWindow& t_window)
 			{
 				t_window.draw(m_roomCollider[i]);
 				m_gridsGenerated[i]->draw(t_window);
-
+				t_window.draw(m_spawnPointVisual[i]);
 			}
 
-			t_window.draw(radius);
+			t_window.draw(m_spawnRadius);
 
-			for (int i = 0; i < t_visuals.size(); i++)
-			{
-				t_window.draw(t_visuals[i]);
-			}
 			break;
 
 		case GenerationState::RoomCulling:
@@ -570,38 +569,27 @@ void DungeonGeneration::draw(sf::RenderWindow& t_window)
 				m_mainRooms[i]->draw(t_window);
 			}
 			break;
-		case GenerationState::Triangle:
+		case GenerationState::DelauneyTriangulation:
 			for (int i = 0; i < m_mainRooms.size(); i++)
 			{
-				//t_window.draw(m_mainRoomCollider[i]);
+		
 				m_mainRooms[i]->draw(t_window);
 
-
-
-
-				//t_window.draw(lines);
-				t_window.draw(superTriangle);
-
-				//t_window.draw(m_centers[i].visual);
+				t_window.draw(m_superTriangleVisual);
 
 
 			}
-			for (int i = 0; i < trianglesF.size(); i++)
+			for (int i = 0; i < m_finalTriangulations.size(); i++)
 			{
-				/*if (trianglesF[i].visualiseation[0].color != sf::Color::Yellow && trianglesF[i].visualiseation[1].color != sf::Color::Yellow && trianglesF[i].visualiseation[2].color != sf::Color::Yellow )
-				{*/
-					trianglesF[i].draw(t_window);
-				//}
+			
+				m_finalTriangulations[i].draw(t_window);
+				
 				
 
 			}
 
-			for (int i = 0; i < circsF.size(); i++)
-			{
-				circsF[i].draw(t_window);
-			}
 			break;
-		case GenerationState::MinSpanning:
+		case GenerationState::MinSpanningTree:
 
 			if (m_dungeon != nullptr)
 			{
@@ -609,9 +597,8 @@ void DungeonGeneration::draw(sf::RenderWindow& t_window)
 			}
 			for (int i = 0; i < m_mainRooms.size(); i++)
 			{
-				//t_window.draw(m_mainRoomCollider[i]);
 				m_mainRooms[i]->draw(t_window);
-
+				
 			}
 			for (int i = 0; i < m_visulalisedEdges.size(); i++)
 			{
@@ -626,11 +613,7 @@ void DungeonGeneration::draw(sf::RenderWindow& t_window)
 				m_dungeon->draw(t_window);
 			}
 
-			/*for (int i = 0; i < edges.size(); i++)
-			{
-				edges[i].draw(t_window);
-			}*/
-
+	
 			for (int i = 0; i < m_mainRooms.size(); i++)
 			{
 				for (int k = 0; k < m_mainRooms[i]->point.edges.size(); k++)
@@ -675,48 +658,6 @@ bool DungeonGeneration::inCircle(sf::Vector2f A, sf::Vector2f B, sf::Vector2f C,
 
 	return det > 1e-9;  // Ensure correct precision handling
 }
-
-//
-//void DungeonGeneration::straightenEdges()
-//{
-//	//for (auto& edge : edges)
-//	//{
-//	//	sf::Vector2f posA = m_mainRooms[edge.m_roomAId]->m_cells[0][0].m_body.getPosition();
-//	//	sf::Vector2f posB = m_mainRooms[edge.m_roomBId]->m_cells[0][0].m_body.getPosition();
-//
-//	//	sf::Vector2f centerA = edge.m_roomAPos;
-//	//	sf::Vector2f centerB = edge.m_roomBPos;
-//
-//	//	sf::Vector2f diff = centerB - centerA;
-//
-//	//	// Decide whether to align horizontally or vertically
-//	//	if (std::abs(diff.x) > std::abs(diff.y))
-//	//	{
-//	//		// Align vertically (same Y)
-//	//		float newY = centerA.y;
-//
-//	//		// Offset the whole room B so that centerY aligns
-//	//		sf::Vector2f delta = { 0, newY - centerB.y };
-//	//		m_mainRooms[edge.m_roomBId]->setPosition(posB + delta);
-//	//		m_roomCollider[edge.m_roomBId].setPosition(m_roomCollider[edge.m_roomBId].getPosition() + delta);
-//	//	}
-//	//	else
-//	//	{
-//	//		// Align horizontally (same X)
-//	//		float newX = centerA.x;
-//
-//	//		// Offset the whole room B so that centerX aligns
-//	//		sf::Vector2f delta = { newX - centerB.x, 0 };
-//	//		m_mainRooms[edge.m_roomBId]->setPosition(posB + delta);
-//	//		m_roomCollider[edge.m_roomBId].setPosition(m_roomCollider[edge.m_roomBId].getPosition() + delta);
-//	//	}
-//
-//	//	// Recalculate the center after alignment
-//	//	sf::Vector2f newCenter = m_mainRooms[edge.m_roomBId]->m_cells[0][0].m_body.getPosition();
-//	//	edge.m_roomBPos = newCenter;
-//	//}
-//
-//}
 
 std::vector<PointEdge> DungeonGeneration::minSpanning()
 {
@@ -810,9 +751,9 @@ bool DungeonGeneration::listContainsEdge(std::vector<PointEdge> edges, PointEdge
 bool DungeonGeneration::partOfSuperTriangle(PointEdge e)
 {
 
-	for (int i = 0; i < superTriangle.getVertexCount(); i++)
+	for (int i = 0; i < m_superTriangleVisual.getVertexCount(); i++)
 	{
-		if (e == superTriangle[i].position)
+		if (e == m_superTriangleVisual[i].position)
 		{
 			return true;
 		}
@@ -844,7 +785,7 @@ void DungeonGeneration::placeEnclosingGrid()
 
 void DungeonGeneration::generateHallways()
 {
-	//m_dungeon->setUpNeighbours(false);
+
 	for (int currentRoom = 0; currentRoom < m_mainRooms.size(); currentRoom++)
 	{
 		for (int currentEdge = 0; currentEdge < m_mainRooms[currentRoom]->point.edges.size(); currentEdge++)
@@ -863,7 +804,7 @@ void DungeonGeneration::generateHallways()
 
 			float angle = std::atan2(direction.y, direction.x) * 180 / RotationMath::PI;
 
-
+			// only need to do bottom and right and each edge will be represented both way in rooms
 			if (angle >= 45 && angle < 135) //bottom
 			{
 				int midPointRow = std::abs(startingCell->getNode()->m_row - endingCell->getNode()->m_row) / 2;
@@ -906,15 +847,15 @@ void DungeonGeneration::generateHallways()
 
 void DungeonGeneration::horizontalStrip(int xStart, int xEnd, int row, bool corner)
 {
-	int HallWayPadding = 2;
+
 
 	if (xStart == xEnd) { return; }
 	if (xStart > xEnd) std::swap(xStart, xEnd);
 
 	if (corner)
 	{
-		xStart -= HallWayPadding;
-		xEnd += HallWayPadding;
+		xStart -= m_hallWayPadding;
+		xEnd += m_hallWayPadding;
 	}
 
 
@@ -923,39 +864,45 @@ void DungeonGeneration::horizontalStrip(int xStart, int xEnd, int row, bool corn
 		// create  halways with a thing nes of 3
 		
 		m_dungeon->m_cells[row][x].setColor(sf::Color::Cyan);
-		
-		for (int padding = 1; padding <= HallWayPadding; padding++)
+		m_dungeon->m_cells[row][x].setProperty(TraversalProperty::Walkable);
+
+		for (int padding = 1; padding <= m_hallWayPadding; padding++)
 		{
 			m_dungeon->m_cells[row - padding][x ].setColor(sf::Color::Cyan);
+			m_dungeon->m_cells[row - padding][x].setProperty(TraversalProperty::Walkable);
 			m_dungeon->m_cells[row + padding][x ].setColor(sf::Color::Cyan);
+			m_dungeon->m_cells[row + padding][x].setProperty(TraversalProperty::Walkable);
 		}
 
 
-		//cell.setWalkable(true); //
+	
 	}
 }
 
 void DungeonGeneration::verticalStrip(int yStart, int yEnd, int col, bool corner)
 {
-	int HallWayPadding = 2;
-
+	
 	if (yStart == yEnd) { return; }
 	if (yStart > yEnd) std::swap(yStart, yEnd);
 
 
 	if (corner)
 	{
-		yStart -= HallWayPadding;
-		yEnd += HallWayPadding;
+		yStart -= m_hallWayPadding;
+		yEnd += m_hallWayPadding;
 	}
 
 	for (int y = yStart; y <= yEnd; ++y)
 	{
 		m_dungeon->m_cells[y][col].setColor(sf::Color::Blue);	
-		for (int padding = 1; padding <= HallWayPadding; padding++)
+		m_dungeon->m_cells[y][col].setProperty(TraversalProperty::Walkable);
+		for (int padding = 1; padding <= m_hallWayPadding; padding++)
 		{
 			m_dungeon->m_cells[y][col - padding].setColor(sf::Color::Blue);
+			m_dungeon->m_cells[y][col - padding].setProperty(TraversalProperty::Walkable);
 			m_dungeon->m_cells[y][col + padding].setColor(sf::Color::Blue);
+			m_dungeon->m_cells[y][col + padding].setProperty(TraversalProperty::Walkable);
+		
 		}
 	}
 }
@@ -985,6 +932,46 @@ Cell* DungeonGeneration::getHallywayEntry( int t_roomAId, int t_roomBId)
 		startingCell = m_mainRooms[t_roomAId]->cellsOccupied[static_cast<int>(gridRows / 2)][0];
 
 	return startingCell;
+}
+
+void DungeonGeneration::cellCheckIsWalkable()
+{
+	
+	m_dungeon->setUpNeighbours(true);
+	std::vector<Node*> nextNeighbours;
+
+	for (int row = 0; row < m_dungeon->m_cells.size(); row++)
+	{
+		for (int column = 0; column < m_dungeon->m_cells[row].size(); column++)
+		{
+			if (m_dungeon->m_cells[row][column].getNode()->getNeighbours().size() != 0) 
+			{
+				int size = m_dungeon->m_cells[row][column].getNode()->getNeighbours().size();
+				nextNeighbours = m_dungeon->m_cells[row][column].getNode()->getNeighbours();
+				break;
+			}
+		}
+
+		if (!nextNeighbours.empty())
+		{
+			break;
+		}
+	}
+	  
+
+	while (!nextNeighbours.empty())
+	{
+		for (int  i = 0; i < nextNeighbours.size(); i++)
+		{
+			if (m_dungeon->m_cells[nextNeighbours[i]->m_row][nextNeighbours[i]->m_column].getProperty() == TraversalProperty::Walkable)
+			{
+				m_dungeon->m_cells[nextNeighbours[i]->m_row][nextNeighbours[i]->m_column].setColor(sf::Color::Yellow);
+			}
+			
+		}
+		nextNeighbours = Search::breadhFirstIncremental(nextNeighbours, m_dungeon->m_cells[m_dungeon->m_cells.size() - 1][m_dungeon->m_cells[0].size() - 1].m_body.getPosition());
+	}
+	
 }
 
 

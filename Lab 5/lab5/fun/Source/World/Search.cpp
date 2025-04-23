@@ -56,7 +56,7 @@ std::vector<Node*> Search::breadhFirstGridCostAssignment(Node* t_goalNode, sf::V
 	return nextNeighbours;
 }
 
-std::vector<Node*> Search::breadhFirst(std::vector<Node*> t_neighbours, int& t_cost, sf::Vector2f t_goalPos)
+std::vector<Node*> Search::breadhFirstCostAssignmentIncremental(std::vector<Node*> t_neighbours, int& t_cost, sf::Vector2f t_goalPos)
 {
 	std::vector<Node*> nextNeighbours;
 
@@ -86,6 +86,33 @@ std::vector<Node*> Search::breadhFirst(std::vector<Node*> t_neighbours, int& t_c
 
 
     return  nextNeighbours;
+}
+
+std::vector<Node*> Search::breadhFirstIncremental(std::vector<Node*> t_neighbours, sf::Vector2f t_goalPos)
+{
+	std::vector<Node*> nextNeighbours;
+
+	for (int i = 0; i < t_neighbours.size(); i++)
+	{
+		// if marked or goal dont set cost
+		if (!t_neighbours[i]->isMarked() && t_neighbours[i]->getManhattan() != 0)
+		{
+			t_neighbours[i]->setMarked(true);
+		}
+
+		for (int k = 0; k < t_neighbours[i]->getNeighbours().size(); k++)
+		{
+			if (!t_neighbours[i]->getNeighbours()[k]->isMarked() && !t_neighbours[i]->getNeighbours()[k]->isBeingChecked())
+			{
+				t_neighbours[i]->getNeighbours()[k]->setBeingChecked(true);
+				nextNeighbours.push_back(t_neighbours[i]->getNeighbours()[k]);
+			}
+
+		}
+
+	}
+
+	return  nextNeighbours;
 }
 
 std::deque<Node*>Search::AStar(Node* t_startNode)

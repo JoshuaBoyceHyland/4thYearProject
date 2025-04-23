@@ -8,7 +8,7 @@
 #include <queue>
 #include "World/Room.h"
 #include "World/Search.h"
-enum class GenerationState { RoomSeperation, RoomCulling, Triangle, MinSpanning, HallwayGen, Done };
+enum class GenerationState { RoomSeperation, RoomCulling, DelauneyTriangulation, MinSpanningTree, HallwayGen, Done };
 
 
 
@@ -111,6 +111,7 @@ class DungeonGeneration
 		/// <param name="col">column of strip</param>
 		void verticalStrip(int yStart, int yEnd, int col, bool corner);
 
+
 		void draw(sf::RenderWindow& t_window);
 
 		
@@ -119,15 +120,9 @@ class DungeonGeneration
 	
 	private:
 		
-
-		
-
 		bool inCircle(sf::Vector2f A, sf::Vector2f B, sf::Vector2f C, sf::Vector2f P);
 
 		
-
-
-
 		/// <summary>
 		/// Prim minimium spannign tree, greedy search
 		/// Used to cut down edges which will then become the final hallways between rooms
@@ -157,39 +152,32 @@ class DungeonGeneration
 
 		Cell* DungeonGeneration::getHallywayEntry(int t_roomAId, int t_roomBId);
 
-		std::vector< PointEdge> m_visulalisedEdges;
-
-		std::vector<sf::Vector2f> m_seperationForce;
-
+		void cellCheckIsWalkable();
 		
-		std::vector<sf::RectangleShape> m_mainRoomCollider;
 
-		std::vector<Grid*> m_subRooms;
-		std::vector<sf::RectangleShape> m_subRoomCollider;
+		std::vector<sf::Vector2f> m_seperationForces;
+
+		std::vector<sf::RectangleShape> m_mainRoomCollider;
 
 		std::vector<Grid*> m_gridsGenerated;
 		std::vector<sf::RectangleShape> m_roomCollider;
-		sf::CircleShape radius;
-		std::vector<sf::CircleShape>t_visuals;
 
+		sf::CircleShape m_spawnRadius;
+		sf::VertexArray m_superTriangleVisual;
+		std::vector< PointEdge> m_visulalisedEdges;
+		std::vector<sf::CircleShape>m_spawnPointVisual;
 
-		std::vector<Point> superTrianglePoints;
-		sf::VertexArray superTriangle;
-		
-		std::vector<CircumCircle> circsF;
-		std::vector<Triangle> trianglesF;
-		int current = 0;
+		std::vector<Triangle> m_finalTriangulations;
 
 
 		sf::Vector2f gridstart = { 0,0 };
 		sf::Vector2f gridEnd = { 0, 0 };
 	
 		Grid* m_dungeon;
-
-
 		std::vector<Room*> m_mainRooms;
 
 
+		int m_hallWayPadding = 1;
 
 };
 

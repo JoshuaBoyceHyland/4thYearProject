@@ -417,7 +417,7 @@ void Grid::rotate()
 }
 
 
-void Grid::setUpNeighbours(bool t_requiresTexture)
+void Grid::setUpNeighbours(bool t_requiresWalkable)
 {
 
 	const int NUM_OF_NEIGHBOURS = 8;
@@ -429,7 +429,7 @@ void Grid::setUpNeighbours(bool t_requiresTexture)
 	{
 		for (int column = 0; column < m_cells[row].size(); column++)
 		{
-			if (m_cells[row][column].isOccupied() || !t_requiresTexture)
+			if (m_cells[row][column].isOccupied() || !t_requiresWalkable)
 			{
 				for (int i = 0; i < NUM_OF_NEIGHBOURS; i++)
 				{
@@ -441,7 +441,7 @@ void Grid::setUpNeighbours(bool t_requiresTexture)
 					if (possibleColNeighbour < 0 || possibleColNeighbour >= m_cells[row].size()) { continue; }
 
 					
-					if (m_cells[possibleRowNeighbour][possibleColNeighbour].getProperty() == TraversalProperty::Walkable || !t_requiresTexture)
+					if (m_cells[possibleRowNeighbour][possibleColNeighbour].getProperty() == TraversalProperty::Walkable || !t_requiresWalkable)
 					{
 						std::cout << "Row: " << row << " Col: " << column << " RowN: " << possibleRowNeighbour << " ColN: " << possibleColNeighbour << std::endl;
 						m_cells[row][column].getNode()->addNeighbour(m_cells[possibleRowNeighbour][possibleColNeighbour].getNode());
