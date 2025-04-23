@@ -10,7 +10,7 @@ DungeonGenerationTestScene::DungeonGenerationTestScene(sf::RenderWindow& t_windo
 void DungeonGenerationTestScene::update(sf::Time t_deltaTime)
 {
 	m_camera.update();
-	m_dg.generationLoop();
+	m_dg.generationLoopStepThrough();
 
 }
 

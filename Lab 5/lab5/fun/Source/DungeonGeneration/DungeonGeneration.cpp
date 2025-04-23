@@ -17,17 +17,13 @@ void DungeonGeneration::generateInitialGrids()
 	int x = Globals::SCREEN_WIDTH / 2;
 	int y = Globals::SCREEN_HEIGHT / 2;
 
-	int minWidth = 4;
-	int maxWidth = 12;
 
-	int minHeight = 4;
-	int maxHeight = 12;
 
 	for (int i = 0; i < 35; i++)
 	{
 
-		int randWidth = rand() % maxWidth + minWidth;
-		int randHeight = rand() % maxHeight + minHeight;
+		int randWidth = rand() % m_maxWidthGridGen + m_minWidthGridGen;
+		int randHeight = rand() % m_maxHeightGridGen + m_minHeightGridGen;
 		sf::CircleShape circle(5);
 
 
@@ -79,7 +75,59 @@ sf::Vector2f DungeonGeneration::getRandomPointInARadius(float t_radius)
 	return randPoint;
 }
 
-void DungeonGeneration::generationLoop()
+Grid* DungeonGeneration::generate()
+{
+
+	generateInitialGrids();
+
+	while (state != GenerationState::Done)
+	{
+		switch (state)
+		{
+			case GenerationState::RoomSeperation:
+				if (allRoomsAreSeperated())
+				{
+					state = GenerationState::RoomCulling;
+					break;
+				}
+				seperateRooms();
+				break;
+
+			case GenerationState::RoomCulling:
+				cullRooms();
+				delauneyTriangle();
+				cullDuplicateVisulalTriangles();
+
+				state = GenerationState::DelauneyTriangulation;
+				break;
+			case GenerationState::DelauneyTriangulation:
+				state = GenerationState::MinSpanningTree;
+				AddEdgesToRooms();
+				AssignCorners();
+				break;
+			case GenerationState::MinSpanningTree:
+				m_visulalisedEdges = minSpanning();
+				placeEnclosingGrid();
+				state = GenerationState::HallwayGen;
+				generateHallways();
+			
+			case GenerationState::HallwayGen:
+				applyTextures();
+				state = GenerationState::Done;
+				break;
+
+			case GenerationState::Done:
+				break;
+			default:
+				break;
+		}
+	}
+	
+
+	return m_dungeon;
+}
+
+void DungeonGeneration::generationLoopStepThrough()
 {
 
 	switch (state)
@@ -115,20 +163,17 @@ void DungeonGeneration::generationLoop()
 			{
 				m_visulalisedEdges = minSpanning();
 				placeEnclosingGrid();
-
 				state = GenerationState::HallwayGen;
 				generateHallways();
-				cellCheckIsWalkable();
-
-
-
-
 			}
 			break;
 
 		case GenerationState::HallwayGen:
 	
-			
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+			{
+				applyTextures();
+			}
 			break;
 
 		case GenerationState::Done:
@@ -230,16 +275,13 @@ bool DungeonGeneration::allRoomsAreSeperated()
 
 void DungeonGeneration::cullRooms()
 {
-	// desired min dimension of rooms
-	int minRoomWidth = 10;
-	int minRoomHeight = 6;
 
 	// index to acces main rooms
 	int mainRoomsCreated = 0;
 
 	for (int i = 0; i < m_gridsGenerated.size(); i++)
 	{
-		if (m_gridsGenerated[i]->m_cells[0].size() < minRoomWidth || m_gridsGenerated[i]->m_cells.size() < minRoomHeight)
+		if (m_gridsGenerated[i]->m_cells[0].size() < m_minRoomWidthFinal || m_gridsGenerated[i]->m_cells.size() < m_minRoomHeightFinal)
 		{
 			// if we need to keep any subj rooms for later
 		}
@@ -934,7 +976,7 @@ Cell* DungeonGeneration::getHallywayEntry( int t_roomAId, int t_roomBId)
 	return startingCell;
 }
 
-void DungeonGeneration::cellCheckIsWalkable()
+void DungeonGeneration::applyTextures()
 {
 	
 	m_dungeon->setUpNeighbours(true);
@@ -959,6 +1001,8 @@ void DungeonGeneration::cellCheckIsWalkable()
 	}
 	  
 
+	TileLibrary* loader = TileLibrary::getInstance();;
+
 	while (!nextNeighbours.empty())
 	{
 		for (int  i = 0; i < nextNeighbours.size(); i++)
@@ -968,11 +1012,13 @@ void DungeonGeneration::cellCheckIsWalkable()
 
 				if (m_dungeon->m_cells[nextNeighbours[i]->m_row][nextNeighbours[i]->m_column].getNode()->isWallNode())
 				{
-					m_dungeon->m_cells[nextNeighbours[i]->m_row][nextNeighbours[i]->m_column].setColor(sf::Color::Red);
+					m_dungeon->m_cells[nextNeighbours[i]->m_row][nextNeighbours[i]->m_column].setTexture(loader->getTile( TraversalProperty::Unwalkable, 4)->m_textures[0]);
+					m_dungeon->m_cells[nextNeighbours[i]->m_row][nextNeighbours[i]->m_column].setColor(sf::Color::White);
 				}
 				else
 				{
-					m_dungeon->m_cells[nextNeighbours[i]->m_row][nextNeighbours[i]->m_column].setColor(sf::Color::Yellow);
+					m_dungeon->m_cells[nextNeighbours[i]->m_row][nextNeighbours[i]->m_column].setTexture(loader->getTile(TraversalProperty::Walkable, 0)->m_textures[0]);
+					m_dungeon->m_cells[nextNeighbours[i]->m_row][nextNeighbours[i]->m_column].setColor(sf::Color::White);
 				}
 				
 			}

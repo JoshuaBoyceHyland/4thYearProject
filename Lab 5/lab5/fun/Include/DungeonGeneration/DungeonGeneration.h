@@ -8,7 +8,7 @@
 #include <queue>
 #include "World/Room.h"
 #include "World/Search.h"
-enum class GenerationState { RoomSeperation, RoomCulling, DelauneyTriangulation, MinSpanningTree, HallwayGen, Done };
+enum class GenerationState { RoomSeperation, RoomCulling, DelauneyTriangulation, MinSpanningTree, HallwayGen,TextureApplication, Done };
 
 
 class DungeonGeneration
@@ -22,19 +22,40 @@ class DungeonGeneration
 		/// </summary>
 		void generateInitialGrids();
 
-		/// <summary>
-		/// Gets a random point from within a radius
-		/// </summary>
-		/// <param name="t_radius">Radius where you would like random point to spawn within</param>
-		/// <returns>Position of random point in radisu</returns>
-		sf::Vector2f getRandomPointInARadius(float t_radius);
+		
 
 		/// <summary>
-		/// looping through states of seperation
+		/// Generates a Dungeon and returns it
+		/// </summary>
+		/// <returns></returns>
+		Grid* generate();
+
+		/// <summary>
+		/// looping through states of seperation step by step using keys
 		/// calling relevant functions dependant on the state
 		/// </summary>
-		void generationLoop();
+		void generationLoopStepThrough();
 
+		void draw(sf::RenderWindow& t_window);
+
+		GenerationState state = GenerationState::RoomSeperation;
+		
+		/// <summary>
+		/// Halway width
+		/// </summary>
+		int m_hallWayPadding = 2;
+
+		// intial generation of grids parameters
+		int m_minWidthGridGen = 4;
+		int m_maxWidthGridGen = 12;
+		int m_minHeightGridGen = 4;
+		int m_maxHeightGridGen = 12;
+
+		// final rooms desired min widths and heights
+		int m_minRoomWidthFinal = 10;
+		int m_minRoomHeightFinal = 6;
+
+	private:
 		/// <summary>
 		/// applies a caluclated seperation force to the rooms and their colliders
 		/// </summary>
@@ -44,7 +65,7 @@ class DungeonGeneration
 		/// calculates the speration force dependent on what rooms each room is currently colliding with
 		/// </summary>
 		void calculateSeperation();
-		
+
 		/// <summary>
 		/// checks the current seperation force of all rooms
 		/// if all are zero then the rooms have been seperated enough 
@@ -74,7 +95,7 @@ class DungeonGeneration
 		/// </summary>
 		void cullDuplicateVisulalTriangles();
 
-		
+
 		/// <summary>
 		/// Adds edges from delauney triangle between rooms to the rooms
 		/// </summary>
@@ -84,7 +105,7 @@ class DungeonGeneration
 		/// Gets the dimensions required to create a grid which will encapsulate all the rooms
 		/// </summary>
 		void AssignCorners();
-		
+
 		/// <summary>
 		/// Generates halways in gird dependent on edges
 		/// </summary>
@@ -106,18 +127,23 @@ class DungeonGeneration
 		/// <param name="col">column of strip</param>
 		void verticalStrip(int yStart, int yEnd, int col, bool corner);
 
-
-		void draw(sf::RenderWindow& t_window);
-
-		
-
-		GenerationState state = GenerationState::RoomSeperation;
-	
-	private:
-		
+		/// <summary>
+		/// Tells us whether a point lies with in a circle
+		/// </summary>
+		/// <param name="A"></param>
+		/// <param name="B"></param>
+		/// <param name="C"></param>
+		/// <param name="P"></param>
+		/// <returns></returns>
 		bool inCircle(sf::Vector2f A, sf::Vector2f B, sf::Vector2f C, sf::Vector2f P);
 
-		
+		/// <summary>
+		/// Gets a random point from within a radius
+		/// </summary>
+		/// <param name="t_radius">Radius where you would like random point to spawn within</param>
+		/// <returns>Position of random point in radisu</returns>
+		sf::Vector2f getRandomPointInARadius(float t_radius);
+
 		/// <summary>
 		/// Prim minimium spannign tree, greedy search
 		/// Used to cut down edges which will then become the final hallways between rooms
@@ -147,7 +173,7 @@ class DungeonGeneration
 
 		Cell* DungeonGeneration::getHallywayEntry(int t_roomAId, int t_roomBId);
 
-		void cellCheckIsWalkable();
+		void applyTextures();
 		
 
 		std::vector<sf::Vector2f> m_seperationForces;
@@ -172,7 +198,7 @@ class DungeonGeneration
 		std::vector<Room*> m_mainRooms;
 
 
-		int m_hallWayPadding = 1;
+		
 
 };
 
