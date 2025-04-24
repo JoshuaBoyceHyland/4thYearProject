@@ -4,13 +4,14 @@ DungeonGenerationTestScene::DungeonGenerationTestScene(sf::RenderWindow& t_windo
 	Scene( t_window), 
 	m_camera(m_window)
 {
-	m_dg.generateInitialGrids();
+	dungeon = m_dg.generate();
+	//m_dg.generateInitialGrids();
 }
 
 void DungeonGenerationTestScene::update(sf::Time t_deltaTime)
 {
 	m_camera.update();
-	m_dg.generationLoopStepThrough();
+	//m_dg.generationLoopStepThrough();
 
 }
 
@@ -20,8 +21,8 @@ void DungeonGenerationTestScene::render()
 
 	
 	m_window.clear();
-	m_dg.draw(m_window);
-
+	///m_dg.draw(m_window);
+	dungeon->draw(m_window);
 	
 	m_window.display();
 }

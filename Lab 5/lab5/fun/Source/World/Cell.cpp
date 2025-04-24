@@ -113,7 +113,7 @@ void Cell::setPosition(sf::Vector2f t_position)
 {
 	m_position = t_position;
 	m_body.setPosition(m_position);
-
+	m_node.setPosition(m_position);
 	if (m_cellJob != nullptr)
 	{
 		m_cellJob->setPosition(m_position);

@@ -20,4 +20,5 @@ class DungeonGenerationTestScene : public Scene
 	private:
 		MovableCamera m_camera;
 		DungeonGeneration m_dg;
+		Grid* dungeon;
 };

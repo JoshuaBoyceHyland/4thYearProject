@@ -1014,6 +1014,7 @@ void DungeonGeneration::applyTextures()
 				{
 					m_dungeon->m_cells[nextNeighbours[i]->m_row][nextNeighbours[i]->m_column].setTexture(loader->getTile( TraversalProperty::Unwalkable, 4)->m_textures[0]);
 					m_dungeon->m_cells[nextNeighbours[i]->m_row][nextNeighbours[i]->m_column].setColor(sf::Color::White);
+					m_dungeon->m_cells[nextNeighbours[i]->m_row][nextNeighbours[i]->m_column].setProperty(TraversalProperty::Unwalkable);
 				}
 				else
 				{

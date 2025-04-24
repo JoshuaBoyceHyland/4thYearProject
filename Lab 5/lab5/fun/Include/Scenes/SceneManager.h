@@ -8,6 +8,7 @@
 #include "Scenes/BaseBuilderScene.h"
 #include "Scenes/BaseGameplayScene.h"
 #include "Scenes/DungeonGenerationTest.h"
+#include "Scenes/GeneratedDungionNPCTest.h"
 
 
 class SceneManager

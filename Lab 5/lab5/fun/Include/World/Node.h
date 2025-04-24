@@ -27,6 +27,7 @@ class Node
 
 		void resetMarkings();
 
+		void clearNeighbours() { m_neighbours.clear(); }
 		void addNeighbour(Node* t_neighbour) { m_neighbours.push_back(t_neighbour); }
 		void addNeighbourDirection(Direction t_direction) { m_neighbourDirections.push_back(t_direction); }
 
@@ -36,6 +37,7 @@ class Node
 		void setManhattan(int t_manhanttan) { m_manhanttan = t_manhanttan; }
 		void setEudclidian(float t_euclidian) { m_euclidian = t_euclidian; }
 		void setHeuristic(float t_heuristic) { m_heuristic = t_heuristic; }
+		void setPosition(sf::Vector2f t_position) { m_position = t_position; }
 
 		bool isMarked() { return m_marked; }
 		bool isBeingChecked() { return m_beingChecked; }

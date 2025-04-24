@@ -50,6 +50,10 @@ class Grid
 
 		void setUpNeighbours(bool t_requiresTexture);
 
+		Cell* getRandomTraverableCell();
+
+		sf::Vector2i getRowsInView();
+
 		std::vector<Cell*> m_traversableCells;
 		std::vector<std::vector<Cell>> m_cells;
 
@@ -64,7 +68,6 @@ class Grid
 
 		int MAX_ROWS;
 		int MAX_COLUMS;
-
 		
 };
 

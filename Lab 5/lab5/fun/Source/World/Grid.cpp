@@ -46,14 +46,39 @@ bool Grid::isInGrid(sf::Vector2f t_position)
 
 void Grid::draw(sf::RenderWindow& t_window)
 {
-	for (int row = 0; row < m_cells.size(); row++)
+	
+
+	sf::View view = t_window.getView();
+
+	// bounds of camera
+	sf::FloatRect viewRender(view.getCenter().x - view.getSize().x / 2.0f, view.getCenter().y - view.getSize().y / 2.0f, view.getSize().x, view.getSize().y );
+
+	sf::Vector2f gridStart = m_cells[0][0].m_body.getPosition() - (m_cells[0][0].m_body.getSize() / 2.0f);
+
+	// Use the first cell position as the origin
+	float xMin = viewRender.left - gridStart.x;
+	float yMin = viewRender.top - gridStart.y;
+
+	float xMax = xMin + viewRender.width;
+	float yMax = yMin + viewRender.height;
+
+	// see what cells are visible from camera
+	int colStart = std::max(0, static_cast<int>( xMin / m_cellWidth) ) ;
+	int colEnd = std::min((int)m_cells[0].size() - 1, static_cast<int>( xMax / m_cellWidth));
+
+	int rowStart = std::max(0, static_cast<int>(yMin / m_cellHeight));
+	int rowEnd = std::min((int)m_cells.size() - 1, static_cast<int>(yMax / m_cellHeight));
+
+	for (int row = rowStart; row <= rowEnd; ++row)
 	{
-		for (int column = 0; column < m_cells[row].size(); column++)
+		for (int col = colStart; col <= colEnd; ++col)
 		{
-			m_cells[row][column].draw(t_window);
+			m_cells[row][col].draw(t_window);
 		}
 	}
 }
+
+
 
 
 void Grid::changeToWalkable(sf::Vector2f t_mouseCLick)
@@ -75,10 +100,13 @@ void Grid::changeToWalkable(sf::Vector2f t_mouseCLick)
 
 void Grid::setForGamePlay()
 {
+
+	
 	for (int row = 0; row < m_cells.size(); row++)
 	{
 		for (int column = 0; column < m_cells[row].size(); column++)
 		{
+			m_cells[row][column].getNode()->clearNeighbours(); // if generated just clears previousl assigned neighbours which wouldnt be valid for game play
 			if (m_cells[row][column].getTexture() == nullptr)
 			{
 				m_cells[row][column].setColor(sf::Color::Transparent);
@@ -353,7 +381,7 @@ void Grid::setPosition(sf::Vector2f t_position)
 			yAxisIncrement = m_cells[row][column].m_body.getSize().y * m_cells[row][column].m_body.getScale().x;
 
 			m_cells[row][column].setPosition(t_position);
-
+		
 			t_position.x += xAxisIncrement;
 		}
 
@@ -454,4 +482,11 @@ void Grid::setUpNeighbours(bool t_requiresWalkable)
 
 		}
 	}
+}
+
+Cell* Grid::getRandomTraverableCell()
+{
+	int randomCell = rand() % m_traversableCells.size();
+	
+	return m_traversableCells[randomCell];
 }

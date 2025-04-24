@@ -43,8 +43,6 @@ class Cell
 
 		bool isOccupied() { return m_occupied; };
 
-		bool isWallNode();
-
 		Node* getNode() { return &m_node; }
 
 		Texture* getTexture() { return m_texture; };

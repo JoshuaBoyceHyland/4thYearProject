@@ -33,6 +33,8 @@ void SceneManager::switchScene(SceneType t_newScene)
 	case DungeonGenerationTest:
 		m_currentScene = new DungeonGenerationTestScene(m_window);
 		break;
+	case GeneratedDungionNPCTest:
+		m_currentScene =  new GeneratedDungionNPCTestScene(m_window);
 	default:
 		break;
 	}

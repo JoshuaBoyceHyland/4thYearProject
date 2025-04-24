@@ -22,8 +22,6 @@ class DungeonGeneration
 		/// </summary>
 		void generateInitialGrids();
 
-		
-
 		/// <summary>
 		/// Generates a Dungeon and returns it
 		/// </summary>
@@ -46,14 +44,14 @@ class DungeonGeneration
 		int m_hallWayPadding = 2;
 
 		// intial generation of grids parameters
-		int m_minWidthGridGen = 4;
-		int m_maxWidthGridGen = 12;
-		int m_minHeightGridGen = 4;
-		int m_maxHeightGridGen = 12;
+		int m_minWidthGridGen = 8;
+		int m_maxWidthGridGen = 20;
+		int m_minHeightGridGen = 8;
+		int m_maxHeightGridGen = 20;
 
 		// final rooms desired min widths and heights
-		int m_minRoomWidthFinal = 10;
-		int m_minRoomHeightFinal = 6;
+		int m_minRoomWidthFinal = 20;
+		int m_minRoomHeightFinal = 12;
 
 	private:
 		/// <summary>
