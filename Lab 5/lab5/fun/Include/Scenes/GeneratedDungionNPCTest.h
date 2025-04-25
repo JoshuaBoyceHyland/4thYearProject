@@ -2,6 +2,7 @@
 #include "NPC/NPC.h"
 #include "Scene.h"
 #include "MovableCamera.h"
+#include "BasePlayer.h"
 #include "DungeonGeneration/DungeonGeneration.h"
 class GeneratedDungionNPCTestScene : public Scene
 {
@@ -19,6 +20,8 @@ class GeneratedDungionNPCTestScene : public Scene
 
 
 	private:
+
+		BasePlayer* m_player;
 		std::vector<NPC*> m_npc;
 		Grid* m_dungeon;
 		MovableCamera m_camera;

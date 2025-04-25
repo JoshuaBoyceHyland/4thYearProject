@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Include\NPC\BehaviourTree\ConditionNodes.h" />
+    <ClInclude Include="Include\NPC\BehaviourTree\BehaviourNode.h" />
     <ClInclude Include="GeneratedRoom.h" />
     <ClInclude Include="Include\DungeonGeneration\DungeonGeneration.h" />
     <ClInclude Include="Include\Scenes\DungeonGenerationTest.h" />
@@ -109,6 +111,8 @@
     <ClInclude Include="resource.h" />
     <ClInclude Include="Include\NPC\Action.h" />
     <ClInclude Include="Include\World\ShipBuilderTerminal.h" />
+    <ClInclude Include="Include\NPC\BehaviourTree\Selector.h" />
+    <ClInclude Include="Include\NPC\BehaviourTree\Sequence.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="ASSETS\IMAGES\SFML-LOGO.png">

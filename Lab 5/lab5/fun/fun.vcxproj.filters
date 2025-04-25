@@ -91,6 +91,10 @@
     <ClInclude Include="Include\DungeonGeneration\DungeonGeneration.h" />
     <ClInclude Include="GeneratedRoom.h" />
     <ClInclude Include="Include\Scenes\GeneratedDungionNPCTest.h" />
+    <ClInclude Include="Include\NPC\BehaviourTree\BehaviourNode.h" />
+    <ClInclude Include="Include\NPC\BehaviourTree\Selector.h" />
+    <ClInclude Include="Include\NPC\BehaviourTree\ConditionNodes.h" />
+    <ClInclude Include="Include\NPC\BehaviourTree\Sequence.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="fun.rc" />

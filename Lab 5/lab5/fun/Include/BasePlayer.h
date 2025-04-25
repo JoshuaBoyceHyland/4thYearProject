@@ -11,6 +11,7 @@ class BasePlayer
 
 		void draw(sf::RenderWindow& t_window);
 
+		void setPosition(sf::Vector2f t_position) { m_animator.m_sprite.setPosition(t_position); };
 		sf::Vector2f getPosition() { return m_animator.m_sprite.getPosition(); }
 	private:
 

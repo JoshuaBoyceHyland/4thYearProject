@@ -16,6 +16,11 @@ void BasePlayer::update(float t_deltaTime)
 
 void BasePlayer::draw(sf::RenderWindow& t_window)
 {
+	sf::CircleShape t(10);
+	t.setPosition(m_animator.m_sprite.getPosition());
+	t.setOrigin({ 10,10 });
+	t.setFillColor(sf::Color::Cyan);
+	t_window.draw(t);
 	t_window.draw(m_animator.m_sprite);
 }
 

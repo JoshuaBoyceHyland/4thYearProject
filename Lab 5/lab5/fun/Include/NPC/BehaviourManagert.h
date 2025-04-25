@@ -1,7 +1,9 @@
 #pragma once
 #include "Behaviour.h"
 #include "Wander.h"
-#include "BehaviourTypes.h"
+#include "BehaviourTree/Selector.h"
+#include "BehaviourTree/Sequence.h"
+#include "BehaviourTree/ConditionNodes.h"
 
 class BehaviourManager
 {
@@ -10,16 +12,16 @@ class BehaviourManager
 
 		void update(float t_deltaTime);
 
-		BehaviourType getCurrentBehaviourType();
+		
 
 		Agent m_agent;
 
 	private:
 		
-		
+		bool closeToPlayer() { return false; };
 		Grid* m_grid = nullptr;
-		BehaviourType m_currentType;
 		Behaviour* m_currentBehaviour = nullptr;
+		BehaviourNode* m_behaviourTree;
 		
 
 };

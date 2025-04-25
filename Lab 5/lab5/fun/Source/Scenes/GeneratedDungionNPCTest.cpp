@@ -5,9 +5,10 @@ Scene( t_window),
 m_camera(m_window)
 {
 	m_dungeon = m_dungeonGenerator.generate();
-	m_dungeon->setPosition({ -50, -50 });
+	m_dungeon->setPosition({ 0, 0 });
 	m_dungeon->setForGamePlay();
-	
+	m_player = new BasePlayer(m_dungeon);
+	m_player->setPosition(m_dungeon->getRandomTraverableCell()->getNode()->getPosition());
 	for (int i = 0; i < 10; i++)
 	{
 
@@ -18,12 +19,16 @@ m_camera(m_window)
 
 void GeneratedDungionNPCTestScene::update(sf::Time t_deltaTime)
 {
-	m_camera.update();
+
 
 	for (int i = 0; i < m_npc.size(); i++)
 	{
 		m_npc[i]->update(t_deltaTime.asMilliseconds());
 	}
+
+	m_camera.follow(m_player->getPosition());
+	m_camera.update();
+	m_player->update(t_deltaTime.asMilliseconds());
 }
 
 void GeneratedDungionNPCTestScene::render()
@@ -35,6 +40,7 @@ void GeneratedDungionNPCTestScene::render()
 	{
 		m_npc[i]->draw(m_window);
 	}
+	m_player->draw(m_window);
 	m_window.display();
 }
 
@@ -45,25 +51,31 @@ void GeneratedDungionNPCTestScene::processKeys(sf::Event t_event)
 
 void GeneratedDungionNPCTestScene::processMousePress(sf::Event t_event)
 {
-
-	if (sf::Mouse::Middle == t_event.mouseButton.button)
+	Cell* cell = m_dungeon->cellSelection(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)));
+	
+	
+	if (cell != nullptr)
 	{
-		m_camera.startMove();
+		cell->setColor(sf::Color::Red);
 	}
+	//if (sf::Mouse::Middle == t_event.mouseButton.button)
+	//{
+	//	m_camera.startMove();
+	//}
 
 }
 
 void GeneratedDungionNPCTestScene::processMouseRelease(sf::Event t_event)
 {
-	if (sf::Mouse::Middle == t_event.mouseButton.button)
-	{
-		m_camera.endMove();
-	}
+	//if (sf::Mouse::Middle == t_event.mouseButton.button)
+	//{
+	//	m_camera.endMove();
+	//}
 }
 
 void GeneratedDungionNPCTestScene::processMouseMove(sf::Event t_event)
 {
-	m_camera.move();
+	//m_camera.move();
 }
 
 void GeneratedDungionNPCTestScene::processMouseWheel(sf::Event t_event)
