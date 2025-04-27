@@ -1,8 +1,9 @@
 #pragma once
+#include "GameObject.h"
 #include "World/Grid.h"
 #include "NPC/Animator.h"
 #include "WorldItems/ShipBuilderTerminal.h"
-class BasePlayer
+class BasePlayer : public GameObject
 {
 	public:
 		BasePlayer(Grid* t_map);
@@ -12,6 +13,7 @@ class BasePlayer
 		void draw(sf::RenderWindow& t_window);
 
 		void setPosition(sf::Vector2f t_position) { m_animator.m_sprite.setPosition(t_position); };
+		
 		sf::Vector2f getPosition() { return m_animator.m_sprite.getPosition(); }
 	private:
 
@@ -28,7 +30,6 @@ class BasePlayer
 		Grid* m_map;
 		
 		Animator m_animator;
-		
-
+	
 };
 

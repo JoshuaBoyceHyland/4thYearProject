@@ -5,7 +5,7 @@ Scene( t_window),
 m_camera(m_window)
 {
 	m_dungeon = m_dungeonGenerator.generate();
-	m_dungeon->setPosition({ 0, 0 });
+	m_dungeon->setPosition({ 50,50 });
 	m_dungeon->setForGamePlay();
 	m_player = new BasePlayer(m_dungeon);
 	m_player->setPosition(m_dungeon->getRandomTraverableCell()->getNode()->getPosition());

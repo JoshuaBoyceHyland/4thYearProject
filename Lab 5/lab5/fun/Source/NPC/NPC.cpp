@@ -2,10 +2,10 @@
 
 NPC::NPC(Grid* t_map, sf::Vector2f t_position) :  
 m_behaviour( t_map, t_position), 
-m_animator("ASSETS/IMAGES/NPC/1")
+m_animator("ASSETS/IMAGES/NPC/1", m_body)
 {
-	
-	
+	m_tag = Enemy;
+
 }
 
 
@@ -31,11 +31,11 @@ void NPC::update(float deltatime)
 	{
 		if (m_behaviour.m_agent.m_direction.x > 0)
 		{
-			m_animator.m_sprite.setScale(1, 1);
+			m_body.setScale(1, 1);
 		}
 		else
 		{
-			m_animator.m_sprite.setScale(-1, 1);
+			m_body.setScale(-1, 1);
 		}
 	}
 
@@ -48,7 +48,7 @@ void NPC::update(float deltatime)
 		m_animator.m_currentState = 1;
 	}
 
-	m_animator.m_sprite.setPosition(m_behaviour.m_agent.m_position);
+	m_body.setPosition(m_behaviour.m_agent.m_position);
 
 }
 
@@ -61,7 +61,7 @@ void NPC::draw(sf::RenderWindow& t_window)
 	t.setFillColor(sf::Color::Magenta);
 	t.setPosition(m_behaviour.m_agent.m_position);
 	
-	t_window.draw(m_animator.m_sprite);
+	t_window.draw(m_body);
 	t_window.draw(t);
 }
 

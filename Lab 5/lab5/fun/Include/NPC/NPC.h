@@ -1,8 +1,9 @@
 #pragma once
+#include "GameObject.h"
 #include "Animator.h"
 #include "BehaviourManagert.h"
 
-class NPC
+class NPC : public GameObject
 {
 
 	public:

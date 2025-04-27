@@ -23,9 +23,9 @@ class Animator
 {
 
 	public:
-		Animator(std::string t_texturesPath);
+		Animator(std::string t_texturesPath, sf::Sprite& t_sprite);
 
-		sf::Sprite m_sprite;
+		sf::Sprite& m_sprite;
 
 		void animate();
 		int m_currentState = 0;

@@ -95,6 +95,7 @@
     <ClInclude Include="Include\NPC\BehaviourTree\Selector.h" />
     <ClInclude Include="Include\NPC\BehaviourTree\ConditionNodes.h" />
     <ClInclude Include="Include\NPC\BehaviourTree\Sequence.h" />
+    <ClInclude Include="Include\GameObject.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="fun.rc" />

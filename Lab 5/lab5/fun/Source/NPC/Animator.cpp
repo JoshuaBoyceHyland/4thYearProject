@@ -1,6 +1,6 @@
 #include "NPC/Animator.h"
 
-Animator::Animator(std::string t_texturesPath)
+Animator::Animator(std::string t_texturesPath, sf::Sprite& t_sprite) : m_sprite(t_sprite)
 {
 	Loader* loader = Loader::getInstance();
 	

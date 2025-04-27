@@ -1,8 +1,9 @@
 #include "BasePlayer.h"
 
-BasePlayer::BasePlayer(Grid* t_map) : m_animator("ASSETS/IMAGES/Player"), m_map( t_map)
+BasePlayer::BasePlayer(Grid* t_map) : m_animator("ASSETS/IMAGES/Player", m_body), m_map( t_map)
 {
-	m_animator.m_sprite.setPosition({ 600, 600 });
+	m_body.setPosition({ 600, 600 });
+	m_tag = Player;
 }
 
 void BasePlayer::update(float t_deltaTime)
@@ -17,11 +18,11 @@ void BasePlayer::update(float t_deltaTime)
 void BasePlayer::draw(sf::RenderWindow& t_window)
 {
 	sf::CircleShape t(10);
-	t.setPosition(m_animator.m_sprite.getPosition());
+	t.setPosition(m_body.getPosition());
 	t.setOrigin({ 10,10 });
 	t.setFillColor(sf::Color::Cyan);
 	t_window.draw(t);
-	t_window.draw(m_animator.m_sprite);
+	t_window.draw(m_body);
 }
 
 void BasePlayer::input(float t_deltaTime)
@@ -37,11 +38,11 @@ void BasePlayer::input(float t_deltaTime)
 	{
 		if (m_direction.x > 0)
 		{
-			m_animator.m_sprite.setScale({ 1, 1 });
+			m_body.setScale({ 1, 1 });
 		}
 		else
 		{
-			m_animator.m_sprite.setScale({ -1, 1 });
+			m_body.setScale({ -1, 1 });
 		}
 	}
 
@@ -61,25 +62,24 @@ void BasePlayer::input(float t_deltaTime)
 void BasePlayer::cellManagement()
 {
 	
-	Cell* currentCell = m_map->cellSelection(m_animator.m_sprite.getPosition());
-	Cell* projectedCell = m_map->cellSelection(m_animator.m_sprite.getPosition() + m_direction);
+	Cell* currentCell = m_map->cellSelection(m_body.getPosition());
+	Cell* projectedCell = m_map->cellSelection(m_body.getPosition() + m_direction);
 
 	
-
-
-
 	// collsion
 	if (projectedCell->getProperty() != TraversalProperty::Unwalkable)
 	{
-		m_animator.m_sprite.setPosition(m_animator.m_sprite.getPosition() + m_direction);
+		m_body.setPosition(m_body.getPosition() + m_direction);
 
+		
+		projectedCell->addToGameObjects(this);
 
-		// resetpreviousCell
-
+		// resetpreviousCell if the current cell and projected cell arent the same
 		if (currentCell->getNode()->m_column != projectedCell->getNode()->m_column || currentCell->getNode()->m_row != projectedCell->getNode()->m_row)
 		{
+			currentCell->removeGameObject(this);
 			WorldItem* possibleInteraction = currentCell->m_cellJob;
-
+			
 			if (possibleInteraction != nullptr)
 			{
 				PlayerInteractableItem* interactableItem = static_cast<PlayerInteractableItem*>(possibleInteraction);
@@ -98,9 +98,9 @@ void BasePlayer::cellManagement()
 void BasePlayer::checkMapInteractions()
 {
 	
-		Cell* cell = m_map->cellSelection(m_animator.m_sprite.getPosition());
+		Cell* cell = m_map->cellSelection(m_body.getPosition());
 
-		cell->setColor(sf::Color::Yellow);
+		//cell->setColor(sf::Color::Yellow);
 		WorldItem* possibleInteraction = cell->m_cellJob;
 
 		if (possibleInteraction != nullptr)

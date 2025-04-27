@@ -3,7 +3,8 @@
 #include "Librarys/Loader.h"
 #include "World/Node.h"
 #include "WorldItems/WorldITem.h"
-
+#include <unordered_set>
+#include "GameObject.h"
 
 enum class TraversalProperty { Walkable, Unwalkable, Job };
 
@@ -27,6 +28,10 @@ class Cell
 
 		void setProperty(TraversalProperty t_property);
 
+		void addToGameObjects(GameObject* t_gameObject) { /*m_body.setFillColor(sf::Color::Green);*/ m_gameObjects.insert(t_gameObject); };
+
+		void removeGameObject(GameObject* t_gameObject) { /*m_body.setFillColor(sf::Color::White);*/ m_gameObjects.erase(t_gameObject); };
+
 		void setColor(sf::Color t_color) { m_body.setFillColor(t_color); }
 
 		void project(Texture* t_texture);
@@ -49,6 +54,8 @@ class Cell
 
 		TraversalProperty getProperty() { return m_property; }
 
+		std::unordered_set<GameObject*> getGameObjects() { return m_gameObjects; };
+
 		sf::RectangleShape m_body;
 
 		WorldItem* m_cellJob = nullptr;
@@ -58,9 +65,6 @@ class Cell
 
 		int m_row;
 		int m_column;
-
-
-
 
 		Node m_node;
 
@@ -78,8 +82,9 @@ class Cell
 
 		bool m_occupied = false;
 
-		
-		
+
+		std::unordered_set<GameObject*> m_gameObjects;
+
 		std::map<TraversalProperty, std::string> m_cellPropertyString{ {TraversalProperty::Walkable, "Walkable"}, {TraversalProperty::Unwalkable, "Unwalkable"},{TraversalProperty::Job, "Job"} };
 };
 
