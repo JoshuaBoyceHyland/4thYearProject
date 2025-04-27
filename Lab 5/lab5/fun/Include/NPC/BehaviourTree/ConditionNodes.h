@@ -7,7 +7,7 @@ class NearPlayerCondition : public BehaviourNode
 		NearPlayerCondition(std::function<bool()> t_condition) :m_condition(t_condition) {}
 
 	
-		BehaviourState update() override
+		BehaviourState update(float t_deltaTime) override
 		{
 			if (m_condition())
 			{

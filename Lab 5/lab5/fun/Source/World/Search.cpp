@@ -88,7 +88,7 @@ std::vector<Node*> Search::breadhFirstCostAssignmentIncremental(std::vector<Node
     return  nextNeighbours;
 }
 
-std::vector<Node*> Search::breadhFirstIncremental(std::vector<Node*> t_neighbours, sf::Vector2f t_goalPos)
+std::vector<Node*> Search::breadhFirstIncrementalGoal(std::vector<Node*> t_neighbours, sf::Vector2f t_goalPos)
 {
 	std::vector<Node*> nextNeighbours;
 

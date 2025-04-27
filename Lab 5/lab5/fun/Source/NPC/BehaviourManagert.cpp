@@ -5,12 +5,12 @@ BehaviourManager::BehaviourManager(Grid* t_grid, sf::Vector2f t_position) : m_gr
     
 
 
-    Wander* wander = new Wander(t_grid, &m_agent);
+   /* Wander* wander = new Wander(t_grid, &m_agent);
 
     NearPlayerCondition* condition = new NearPlayerCondition(std::bind(&BehaviourManager::closeToPlayer, this));
    
     WanderNode* wanderNode = new WanderNode(wander);
-    TalkingNode* talkingNode = new TalkingNode(wander);
+    TalkingNode* talkingNode = new TalkingNode();
 
     BehaviourNode* treeBase = new Selector({
         new Sequence({condition, talkingNode}),
@@ -19,7 +19,7 @@ BehaviourManager::BehaviourManager(Grid* t_grid, sf::Vector2f t_position) : m_gr
 
     m_behaviourTree = treeBase;
 
-    m_agent.m_user.push_back(wander);
+    m_agent.m_user.push_back(wander);*/
     
 }
 
@@ -30,7 +30,7 @@ void BehaviourManager::update(float t_deltaTime)
     
     if (m_behaviourTree)
     {
-        m_behaviourTree->update();
+        m_behaviourTree->update(t_deltaTime);
     }
 }
 

@@ -1025,7 +1025,7 @@ void DungeonGeneration::applyTextures()
 			}
 			
 		}
-		nextNeighbours = Search::breadhFirstIncremental(nextNeighbours, m_dungeon->m_cells[m_dungeon->m_cells.size() - 1][m_dungeon->m_cells[0].size() - 1].m_body.getPosition());
+		nextNeighbours = Search::breadhFirstIncrementalGoal(nextNeighbours, m_dungeon->m_cells[m_dungeon->m_cells.size() - 1][m_dungeon->m_cells[0].size() - 1].m_body.getPosition());
 	}
 	
 }

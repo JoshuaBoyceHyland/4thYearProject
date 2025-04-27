@@ -7,12 +7,12 @@ class Wander : public Behaviour
 {
 	public:
 
-		Wander(Grid* t_grid, Agent* t_agent);
+		Wander(Grid* t_grid, Agent* t_agent, Animator* t_animator);
 
 		/// <summary>
 		/// Update the wander timer and checking if we should find anotherpoint on the grid to travel to
 		/// </summary>
-		void update() override;
+		void update(float t_deltaTime) override;
 
 		/// <summary>
 		/// Inherited from Agent user so we can specify what we do simply once we have reached the target
@@ -41,6 +41,7 @@ class Wander : public Behaviour
 		/// <summary>
 		/// Timer for character
 		/// </summary>
-		sf::Clock m_timer;		
+		sf::Clock m_timer;	
+
 
 };

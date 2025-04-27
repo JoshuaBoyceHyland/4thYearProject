@@ -12,8 +12,6 @@ class BehaviourManager
 
 		void update(float t_deltaTime);
 
-		
-
 		Agent m_agent;
 
 	private:

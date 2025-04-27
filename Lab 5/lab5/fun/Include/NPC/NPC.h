@@ -12,11 +12,16 @@ class NPC : public GameObject
 		void update(float deltatime);
 
 		void draw(sf::RenderWindow& t_window);
+
+		void setUpBehaviourTree(Grid* t_map);
+
 	private:
 
-		Animator m_animator;
+		bool closeToPlayer();
 
-		BehaviourManager m_behaviour;
-		
+		Grid* m_grid;
+		Agent m_agent;
+		Animator m_animator;
+		BehaviourNode* m_behaviourTree;
 };
 

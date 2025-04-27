@@ -114,6 +114,7 @@
     <ClInclude Include="Include\World\ShipBuilderTerminal.h" />
     <ClInclude Include="Include\NPC\BehaviourTree\Selector.h" />
     <ClInclude Include="Include\NPC\BehaviourTree\Sequence.h" />
+    <ClInclude Include="Include\NPC\Talking.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="ASSETS\IMAGES\SFML-LOGO.png">
@@ -191,6 +192,7 @@
     <ClCompile Include="Source\World\Room.cpp" />
     <ClCompile Include="Source\World\Search.cpp" />
     <ClCompile Include="Source\World\Tile.cpp" />
+    <ClCompile Include="Source\NPC\Talking.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="map.txt" />

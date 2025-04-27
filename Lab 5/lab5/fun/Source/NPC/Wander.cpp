@@ -1,21 +1,43 @@
 #include "NPC/Wander.h"
 
-Wander::Wander(Grid* t_grid, Agent* t_agent) : Behaviour( t_grid, t_agent)
+Wander::Wander(Grid* t_grid, Agent* t_agent, Animator* t_animator) : Behaviour( t_grid, t_agent, t_animator)
 {
 
     m_agent->pathFindTo(getRandomNode());
 
 }
 
-void Wander::update()
+void Wander::update(float t_deltaTime)
 {
 
     if (timeToFindNewTarget())
     {
         m_agent->pathFindTo(getRandomNode());  
     }
-    
+
+    m_agent->update(t_deltaTime);
+
+    if (m_agent->m_direction.x != 0)
+    {
+        if (m_agent->m_direction.x > 0)
+        {
+            m_animator->m_sprite.setScale(1, 1);
+        }
+        else
+        {
+            m_animator->m_sprite.setScale(-1, 1);
+        }
+    }
    
+    // if we are stopping for moment after reaching desitination
+    if (m_agent->m_direction.x == 0 && m_agent->m_direction.y == 0)
+    {
+        m_animator->m_currentState = 0;
+    }
+    else
+    {
+        m_animator->m_currentState = 1;
+    }
 }
 
 void Wander::reachedTarget()

@@ -1,5 +1,5 @@
 #pragma once
-
+#include "NPC/Talking.h"
 #include "NPC/Wander.h"
 
 enum class BehaviourState{ Failed, Running, Succeeded};
@@ -8,7 +8,7 @@ enum class BehaviourState{ Failed, Running, Succeeded};
 class BehaviourNode
 {
 	public:
-		virtual BehaviourState update() = 0;
+		virtual BehaviourState update(float t_deltaTime) = 0;
 };
 
 
@@ -16,10 +16,10 @@ class WanderNode : public BehaviourNode {
 public:
     WanderNode(Wander* wander) : m_wander(wander) {}
 
-    BehaviourState update() override {
+    BehaviourState update(float t_deltaTime) override {
 
         std::cout << "Wandering" << std::endl;
-        m_wander->update();
+        m_wander->update(t_deltaTime);
         return BehaviourState::Running;
     }
 
@@ -29,15 +29,15 @@ private:
 
 class TalkingNode : public BehaviourNode {
 public:
-    TalkingNode(Wander* wander) : m_wander(wander) {}
+    TalkingNode(Talking* talking) : m_talking(talking){}
 
-    BehaviourState update() override {
+    BehaviourState update(float t_deltaTime) override {
 
         std::cout << "talking" << std::endl;
-        m_wander->update();
-        return BehaviourState::Running;
+        m_talking->update(t_deltaTime);
+        return BehaviourState::Succeeded;
     }
 
 private:
-    Wander* m_wander;
+   Talking* m_talking;
 };
