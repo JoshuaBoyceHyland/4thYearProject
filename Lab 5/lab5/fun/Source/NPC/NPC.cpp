@@ -50,12 +50,23 @@ void NPC::setUpBehaviourTree(Grid* t_map)
 	WanderNode* wanderNode = new WanderNode(wander);
 	TalkingNode* talkingNode = new TalkingNode(talking);
 
-	BehaviourNode* treeBase = new Selector({
-		new Sequence({nearPlayer, talkingNode}), wanderNode } 
-	
-	);
+	//BehaviourNode* treeBase = std::make_unique < Selector>({
+	//	new Sequence({nearPlayer, talkingNode}), wanderNode } 
+	//
+	//);
 
-	m_behaviourTree = treeBase;
+	// talk sequence
+	std::vector<std::unique_ptr<BehaviourNode>> talkSequenceChildren;
+	talkSequenceChildren.push_back(std::make_unique<NearPlayerCondition>(std::bind(&NPC::closeToPlayer, this)));
+	talkSequenceChildren.push_back(std::make_unique<TalkingNode>(talking));
+	std::unique_ptr<Sequence>  talkSequence = std::make_unique<Sequence>(std::move(talkSequenceChildren));
+
+	std::vector<std::unique_ptr<BehaviourNode>> selectorChildren;
+	selectorChildren.push_back(std::move(talkSequence));
+	selectorChildren.push_back(std::make_unique<WanderNode>(wander));
+
+	m_behaviourTree = std::make_unique<Selector>(std::move(selectorChildren));
+
 	m_agent.m_user.push_back(wander);
 }
 

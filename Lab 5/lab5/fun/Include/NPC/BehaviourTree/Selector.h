@@ -4,7 +4,7 @@
 class Selector : public BehaviourNode
 {
 	public:
-		Selector(std::vector<BehaviourNode*> t_children) : m_decisions(t_children){}
+		Selector(std::vector<std::unique_ptr<BehaviourNode>>&& t_children) : m_decisions(std::move(t_children)){}
 		
 		BehaviourState update(float t_deltaTime) override
 		{
@@ -21,6 +21,6 @@ class Selector : public BehaviourNode
 			return BehaviourState::Failed;
 		}
 	private:
-		std::vector<BehaviourNode*> m_decisions;
+		std::vector < std::unique_ptr<BehaviourNode>> m_decisions;
 };
 

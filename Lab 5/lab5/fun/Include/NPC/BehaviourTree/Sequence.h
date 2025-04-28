@@ -3,7 +3,7 @@
 class Sequence : public BehaviourNode
 {
 	public:
-		Sequence(const std::vector<BehaviourNode*>& t_children) : m_children(t_children) {}
+		Sequence(std::vector<std::unique_ptr<BehaviourNode>>&& t_children) : m_children(std::move(t_children)) {}
 		
 		BehaviourState update(float t_deltaTime) override
 		{
@@ -19,7 +19,7 @@ class Sequence : public BehaviourNode
 			return BehaviourState::Succeeded;
 		}
 	private:
-		std::vector<BehaviourNode*> m_children;
+		std::vector<std::unique_ptr<BehaviourNode>> m_children;
 
 		
 };

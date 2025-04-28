@@ -9,6 +9,7 @@ class BehaviourNode
 {
 	public:
 		virtual BehaviourState update(float t_deltaTime) = 0;
+        virtual ~BehaviourNode() = default;
 };
 
 

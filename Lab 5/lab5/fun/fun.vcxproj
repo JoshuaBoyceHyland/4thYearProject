@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Include\NPC\Attack.h" />
     <ClInclude Include="Include\GameObject.h" />
     <ClInclude Include="Include\NPC\BehaviourTree\ConditionNodes.h" />
     <ClInclude Include="Include\NPC\BehaviourTree\BehaviourNode.h" />
@@ -138,6 +139,7 @@
     <None Include="map.json" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Include\NPC\Attack.cpp" />
     <ClCompile Include="GeneratedRoom.cpp" />
     <ClCompile Include="Source\Scenes\GeneratedDungionNPCTest.cpp" />
     <ClCompile Include="Source\DungeonGeneration\DungeonGeneration.cpp" />

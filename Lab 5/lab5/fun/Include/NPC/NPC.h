@@ -22,6 +22,6 @@ class NPC : public GameObject
 		Grid* m_grid;
 		Agent m_agent;
 		Animator m_animator;
-		BehaviourNode* m_behaviourTree;
+		std::unique_ptr<BehaviourNode> m_behaviourTree;
 };
 
