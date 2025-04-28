@@ -1,5 +1,5 @@
 #pragma once
-#include "World/Grid.h"
+ 
 #include "Behaviour.h"
 
 
@@ -42,6 +42,5 @@ class Wander : public Behaviour
 		/// Timer for character
 		/// </summary>
 		sf::Clock m_timer;	
-
 
 };

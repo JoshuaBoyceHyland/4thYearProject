@@ -1,20 +1,22 @@
 #pragma once
 #include "BehaviourNode.h"
 #include <functional>
+
+
 class NearPlayerCondition : public BehaviourNode
 {
 	public:
 		NearPlayerCondition(std::function<bool()> t_condition) :m_condition(t_condition) {}
 
 	
-		BehaviourState update(float t_deltaTime) override
+		BehaviourNode* update(float t_deltaTime) override
 		{
 			if (m_condition())
 			{
-				return BehaviourState::Succeeded;
+				return  this;
 			}
 
-			return BehaviourState::Failed;
+			return nullptr;
 		}
 
 	private:

@@ -8,7 +8,11 @@ enum class BehaviourState{ Failed, Running, Succeeded};
 class BehaviourNode
 {
 	public:
-		virtual BehaviourState update(float t_deltaTime) = 0;
+
+		virtual BehaviourNode* update(float t_deltaTime)= 0;
+        virtual void onEnter() {}
+        virtual void preform(float t_deltaTime) {}
+        virtual void onExit() {}
         virtual ~BehaviourNode() = default;
 };
 
@@ -17,11 +21,15 @@ class WanderNode : public BehaviourNode {
 public:
     WanderNode(Wander* wander) : m_wander(wander) {}
 
-    BehaviourState update(float t_deltaTime) override {
+    BehaviourNode* update(float t_deltaTime) override {
 
         std::cout << "Wandering" << std::endl;
+        return this;
+    }
+
+    void preform(float t_deltaTime) override
+    {
         m_wander->update(t_deltaTime);
-        return BehaviourState::Running;
     }
 
 private:
@@ -32,13 +40,16 @@ class TalkingNode : public BehaviourNode {
 public:
     TalkingNode(Talking* talking) : m_talking(talking){}
 
-    BehaviourState update(float t_deltaTime) override {
+    BehaviourNode* update(float t_deltaTime) override {
 
         std::cout << "talking" << std::endl;
-        m_talking->update(t_deltaTime);
-        return BehaviourState::Succeeded;
+        return this;
     }
 
+    void preform(float t_deltaTime) override
+    {
+        m_talking->update(t_deltaTime);
+    }
 private:
    Talking* m_talking;
 };

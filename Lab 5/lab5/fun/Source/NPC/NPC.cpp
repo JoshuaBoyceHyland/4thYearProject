@@ -14,9 +14,27 @@ void NPC::update(float deltatime)
 {
 	
 
-	if (m_behaviourTree)
+	BehaviourNode* newDecision = m_behaviourTree->update(deltatime);
+
+	if (newDecision != m_currentBehaviour)
 	{
-		m_behaviourTree->update(deltatime);
+		if (m_currentBehaviour)
+		{
+			m_currentBehaviour->onExit();
+		}
+
+		if (newDecision)
+		{
+			newDecision->onEnter();
+		}
+
+		m_currentBehaviour = newDecision;
+	}
+
+
+	if (m_currentBehaviour)
+	{
+		m_currentBehaviour->preform(deltatime);
 	}
 
 	m_animator.animate();
