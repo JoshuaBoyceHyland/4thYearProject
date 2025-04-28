@@ -126,7 +126,7 @@ std::deque<Node*>Search::AStar(Node* t_startNode)
 
 	for (Node* node : t_startNode->getNeighbours())
 	{
-		std::cout<< "Checked Node: " << node->m_row << " " << node->m_column << std::endl;
+		//std::cout<< "Checked Node: " << node->m_row << " " << node->m_column << std::endl;
 		node->previous=t_startNode;
 		node->setBeingChecked(true);
 		nodePriorityQueue.push(node);
@@ -143,7 +143,7 @@ std::deque<Node*>Search::AStar(Node* t_startNode)
 		expandedNodes.back()->setMarked(true);
 		nodePriorityQueue.pop();
 
-		std::cout << "Expanded Node: " << expandedNodes.back()->m_row << " " << expandedNodes.back()->m_column << std::endl;
+		//std::cout << "Expanded Node: " << expandedNodes.back()->m_row << " " << expandedNodes.back()->m_column << std::endl;
 
 		for (Node* node : expandedNodes.back()->getNeighbours())
 		{
@@ -154,7 +154,7 @@ std::deque<Node*>Search::AStar(Node* t_startNode)
 				node->setBeingChecked(true);
 				nodePriorityQueue.push(node);
 
-				std::cout << "Checked Node: " << node->m_row << " " << node->m_column << std::endl;
+				//std::cout << "Checked Node: " << node->m_row << " " << node->m_column << std::endl;
 			}
 		}
 

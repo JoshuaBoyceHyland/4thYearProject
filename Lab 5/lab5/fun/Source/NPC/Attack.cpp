@@ -5,8 +5,16 @@ Attack::Attack(Grid* t_grid, Agent* t_agent, Animator* t_animator) : Behaviour(t
 
 }
 
+void Attack::enter()
+{
+	getPointAroundPlayer();
+}
+
 void Attack::update(float t_deltaTime)
 {
+
+	m_agent->update(t_deltaTime);
+
 	if (m_player->m_body.getPosition().x > m_animator->m_sprite.getPosition().x)
 	{
 		m_animator->m_sprite.setScale(1, 1);
@@ -28,26 +36,31 @@ void Attack::update(float t_deltaTime)
 
 void Attack::reachedTarget()
 {
-	
+	getPointAroundPlayer();
+}
+
+void Attack::exit()
+{
+	m_agent->reset();
 }
 
 void Attack::getPointAroundPlayer()
 {
-	/*Cell* cellAroundPlayer = nullptr;
+	Cell* cellAroundPlayer = nullptr;
 
 	while (cellAroundPlayer == nullptr)
 	{
 		std::vector<int> direction = { -1, 0, 1 };
-		std::vector<int> distances = { 100, 200, 300, 400, 500 };
+		std::vector<float> distances = { 100, 200, 300, 400, 500 };
 
 		int randXDir = rand() % direction.size();
 		int randYDir = rand() % direction.size();
 
-		int randXDistance = rand() % distances.size();
-		int randYDistance = rand() % distances.size();
+		float randXDistance = rand() % distances.size();
+		float randYDistance = rand() % distances.size();
 
 
-		sf::Vector2f randDirection = { randXDir * randXDistance,randYDir * randYDistance };
+		sf::Vector2f randDirection = { direction[randXDir] * distances[randXDistance],direction[randYDir] * distances[randYDistance] };
 
 
 		cellAroundPlayer = m_grid->cellSelection(m_player->getPosition() + randDirection);
@@ -63,7 +76,7 @@ void Attack::getPointAroundPlayer()
 	}
 	
 
-	m_agent->pathFindTo(cellAroundPlayer->getNode());*/
+	m_agent->pathFindTo(cellAroundPlayer->getNode());
 
 
 }

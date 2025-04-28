@@ -19,6 +19,10 @@ class Wander : public Behaviour
 		/// </summary>
 		void reachedTarget() override;
 
+		void enter();
+
+		void reset();
+
 	private:
 
 		/// <summary>
@@ -37,6 +41,8 @@ class Wander : public Behaviour
 		/// The waiting time between wandering to new place
 		/// </summary>
 		int m_targetWaitingTime = 1;
+
+		Node* previousTarget = nullptr;
 
 		/// <summary>
 		/// Timer for character

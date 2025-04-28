@@ -9,16 +9,17 @@ class Agent
 	public:
 
 		Agent( Grid* t_map, sf::Vector2f t_position);
-		Agent(std::vector<AgentUser*> t_user, Grid* t_map, sf::Vector2f t_position);
+		Agent(AgentUser* t_user, Grid* t_map, sf::Vector2f t_position);
 
 		void update(float t_deltaTime);
 
 		void followPath(float t_deltaTime);
 
+		void reset();
 
 		std::deque<Node*> pathFindTo(Node* t_goalNode);
 
-		std::vector<AgentUser*> m_user;
+		AgentUser* m_user;
 
 		float m_speed = 2.5;
 		float m_rotation;

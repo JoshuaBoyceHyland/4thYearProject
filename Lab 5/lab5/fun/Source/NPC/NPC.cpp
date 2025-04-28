@@ -1,12 +1,16 @@
 #include "NPC/NPC.h"
 
-NPC::NPC(Grid* t_map, sf::Vector2f t_position) :  
+NPC::NPC(Grid* t_map, BasePlayer* player, sf::Vector2f t_position) :
 m_grid(t_map),
 m_agent(t_map, t_position),
 m_animator("ASSETS/IMAGES/NPC/1", m_body)
 {
 	m_tag = Enemy;
 	setUpBehaviourTree(t_map);
+
+	talking->m_player = player;
+	m_agent.m_user = talking;
+	talking->enter();
 }
 
 
@@ -14,28 +18,31 @@ void NPC::update(float deltatime)
 {
 	
 
-	BehaviourNode* newDecision = m_behaviourTree->update(deltatime);
+	//BehaviourNode* newDecision = m_behaviourTree->decide(deltatime);
 
-	if (newDecision != m_currentBehaviour)
-	{
-		if (m_currentBehaviour)
-		{
-			m_currentBehaviour->onExit();
-		}
+	//if (newDecision != m_currentBehaviour)
+	//{
+	//	if (m_currentBehaviour)
+	//	{
+	//		m_currentBehaviour->onExit();
+	//	}
 
-		if (newDecision)
-		{
-			newDecision->onEnter();
-		}
+	//	if (newDecision)
+	//	{
+	//		newDecision->onEnter();
+	//	}
 
-		m_currentBehaviour = newDecision;
-	}
+	//	m_currentBehaviour = newDecision;
+	//	m_agent.m_user = m_currentBehaviour->getBehaviour();
+	//}
 
 
-	if (m_currentBehaviour)
-	{
-		m_currentBehaviour->preform(deltatime);
-	}
+	//if (m_currentBehaviour)
+	//{
+	//	m_currentBehaviour->preform(deltatime);
+	//}
+
+	talking->update(deltatime);
 
 	m_animator.animate();
 
@@ -61,12 +68,12 @@ void NPC::setUpBehaviourTree(Grid* t_map)
 {
 
 	Wander* wander = new Wander(t_map, &m_agent, &m_animator);
-	Talking* talking = new Talking(t_map, &m_agent, &m_animator);
+	talking = new Attack(t_map, &m_agent, &m_animator);
 
 	NearPlayerCondition* nearPlayer = new NearPlayerCondition(std::bind(&NPC::closeToPlayer, this));
 
 	WanderNode* wanderNode = new WanderNode(wander);
-	TalkingNode* talkingNode = new TalkingNode(talking);
+	AttackingNode* talkingNode = new AttackingNode(talking);
 
 	//BehaviourNode* treeBase = std::make_unique < Selector>({
 	//	new Sequence({nearPlayer, talkingNode}), wanderNode } 
@@ -74,18 +81,18 @@ void NPC::setUpBehaviourTree(Grid* t_map)
 	//);
 
 	// talk sequence
-	std::vector<std::unique_ptr<BehaviourNode>> talkSequenceChildren;
-	talkSequenceChildren.push_back(std::make_unique<NearPlayerCondition>(std::bind(&NPC::closeToPlayer, this)));
-	talkSequenceChildren.push_back(std::make_unique<TalkingNode>(talking));
-	std::unique_ptr<Sequence>  talkSequence = std::make_unique<Sequence>(std::move(talkSequenceChildren));
+	//std::vector<std::unique_ptr<BehaviourNode>> talkSequenceChildren;
+	//talkSequenceChildren.push_back(std::make_unique<NearPlayerCondition>(std::bind(&NPC::closeToPlayer, this)));
+	////talkSequenceChildren.push_back(std::make_unique<TalkingNode>(talking));
+	//std::unique_ptr<Sequence>  talkSequence = std::make_unique<Sequence>(std::move(talkSequenceChildren));
 
-	std::vector<std::unique_ptr<BehaviourNode>> selectorChildren;
-	selectorChildren.push_back(std::move(talkSequence));
-	selectorChildren.push_back(std::make_unique<WanderNode>(wander));
+	//std::vector<std::unique_ptr<BehaviourNode>> selectorChildren;
+	//selectorChildren.push_back(std::move(talkSequence));
+	//selectorChildren.push_back(std::make_unique<WanderNode>(wander));
 
-	m_behaviourTree = std::make_unique<Selector>(std::move(selectorChildren));
+	//m_behaviourTree = std::make_unique<Selector>(std::move(selectorChildren));
 
-	m_agent.m_user.push_back(wander);
+	/*m_agent.m_user.push_back(wander);*/
 }
 
 bool NPC::closeToPlayer()

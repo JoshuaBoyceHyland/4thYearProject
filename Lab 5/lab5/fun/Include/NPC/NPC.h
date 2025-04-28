@@ -2,12 +2,13 @@
 #include "GameObject.h"
 #include "Animator.h"
 #include "BehaviourManagert.h"
+#include "Attack.h"
 
 class NPC : public GameObject
 {
 
 	public:
-		NPC(Grid* t_map, sf::Vector2f t_position= {-500, -500});
+		NPC(Grid* t_map,  BasePlayer* player, sf::Vector2f t_position= {-500, -500});
 
 		void update(float deltatime);
 
@@ -15,6 +16,7 @@ class NPC : public GameObject
 
 		void setUpBehaviourTree(Grid* t_map);
 
+		Attack* talking;
 	private:
 
 		bool closeToPlayer();

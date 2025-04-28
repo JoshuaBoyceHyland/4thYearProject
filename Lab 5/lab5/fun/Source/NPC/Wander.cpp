@@ -3,7 +3,7 @@
 Wander::Wander(Grid* t_grid, Agent* t_agent, Animator* t_animator) : Behaviour( t_grid, t_agent, t_animator)
 {
 
-    m_agent->pathFindTo(getRandomNode());
+   
 
 }
 
@@ -46,6 +46,20 @@ void Wander::reachedTarget()
     
     m_timer.restart();
     m_targetWaitingTime = rand() % 15;
+}
+
+void Wander::enter()
+{
+    if (previousTarget != nullptr)
+    {
+        m_agent->pathFindTo(previousTarget);
+    }
+}
+
+void Wander::reset()
+{
+    previousTarget = m_agent->m_currentPath.back();
+    m_agent->reset();
 }
 
 

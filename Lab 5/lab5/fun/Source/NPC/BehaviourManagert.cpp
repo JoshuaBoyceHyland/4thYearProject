@@ -30,7 +30,7 @@ void BehaviourManager::update(float t_deltaTime)
     
     if (m_behaviourTree)
     {
-        m_behaviourTree->update(t_deltaTime);
+        m_behaviourTree->decide(t_deltaTime);
     }
 }
 

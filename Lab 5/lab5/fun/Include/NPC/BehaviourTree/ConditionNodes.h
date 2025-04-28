@@ -9,11 +9,11 @@ class NearPlayerCondition : public BehaviourNode
 		NearPlayerCondition(std::function<bool()> t_condition) :m_condition(t_condition) {}
 
 	
-		BehaviourNode* update(float t_deltaTime) override
+		BehaviourNode* decide(float t_deltaTime) override
 		{
 			if (m_condition())
 			{
-				return  this;
+				return this;
 			}
 
 			return nullptr;

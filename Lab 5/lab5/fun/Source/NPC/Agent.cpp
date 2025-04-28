@@ -4,7 +4,7 @@ Agent::Agent(Grid* t_map, sf::Vector2f t_position) : m_map(t_map), m_position(t_
 {
 }
 
-Agent::Agent(std::vector<AgentUser*> t_user, Grid* t_map, sf::Vector2f t_position) : m_user( t_user), m_map(t_map), m_position(t_position)
+Agent::Agent(AgentUser* t_user, Grid* t_map, sf::Vector2f t_position) : m_user( t_user), m_map(t_map), m_position(t_position)
 {
 
 }
@@ -56,15 +56,22 @@ void Agent::followPath(float t_deltaTime)
                 m_hasTarget = false;
             }
             
-            for (int i = 0; i < m_user.size(); i++)
-            {
-                m_user[i]->reachedTarget();
-            }
+            
+            m_user->reachedTarget();
+            
             
         }
 
     }
 
+}
+
+void Agent::reset()
+{
+    m_hasTarget = false;
+    m_target = nullptr;
+    m_currentPath.clear();
+    //m_previousPath.
 }
 
 std::deque<Node*>Agent::pathFindTo(Node* t_goalNode)
