@@ -4,7 +4,7 @@
 class MachineGun : public Weapon
 {
 	public:
-		MachineGun(sf::Vector2f& t_holdPoint);
+		MachineGun(sf::Vector2f& t_holdPoint, Grid* t_grid);
 
 		void update(float t_deltaTime) override;
 		
@@ -21,7 +21,7 @@ class MachineGun : public Weapon
 		Animator m_animator;
 
 		std::vector < std::unique_ptr<Bullet>> m_bulletShot;
-		// Inherited via Weapon
+		
 		
 
 };

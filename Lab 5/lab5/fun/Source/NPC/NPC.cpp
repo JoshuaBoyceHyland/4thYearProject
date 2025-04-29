@@ -3,14 +3,10 @@
 NPC::NPC(Grid* t_map, BasePlayer* player, sf::Vector2f t_position) :
 m_grid(t_map),
 m_agent(t_map, t_position),
-m_animator("ASSETS/IMAGES/NPC/1", { "/Idle", "/Run" }, m_body, { 20.0f, 56.0f })
+m_animator("ASSETS/IMAGES/NPC/1", { "/Idle", "/Run", "/Dead"}, m_body, {20.0f, 56.0f})
 {
 	m_tag = Enemy;
-	setUpBehaviourTree(t_map);
-
-	talking->m_player = player;
-	m_agent.m_user = talking;
-	talking->enter();
+	setUpBehaviourTree(t_map, player);
 
 }
 
@@ -19,35 +15,42 @@ void NPC::update(float deltatime)
 {
 	
 
-	//BehaviourNode* newDecision = m_behaviourTree->decide(deltatime);
+	BehaviourNode* newDecision = m_behaviourTree->decide(deltatime);
 
-	//if (newDecision != m_currentBehaviour)
-	//{
-	//	if (m_currentBehaviour)
-	//	{
-	//		m_currentBehaviour->onExit();
-	//	}
+	if (newDecision != m_currentBehaviour)
+	{
+		if (m_currentBehaviour)
+		{
+			m_currentBehaviour->onExit();
+		}
 
-	//	if (newDecision)
-	//	{
-	//		newDecision->onEnter();
-	//	}
+		if (newDecision)
+		{
+			newDecision->onEnter();
+		}
 
-	//	m_currentBehaviour = newDecision;
-	//	m_agent.m_user = m_currentBehaviour->getBehaviour();
-	//}
+		m_currentBehaviour = newDecision;
+		m_agent.m_user = m_currentBehaviour->getBehaviour();
+	}
 
 
-	//if (m_currentBehaviour)
-	//{
-	//	m_currentBehaviour->preform(deltatime);
-	//}
+	if (m_currentBehaviour)
+	{
+		m_currentBehaviour->preform(deltatime);
+	}
 
-	talking->update(deltatime);
 
-	m_animator.animate();
+	
+
+	Cell* previousCell = m_grid->cellSelection(m_body.getPosition());
+
+	previousCell->removeGameObject(this);
+
 	m_body.setPosition(m_agent.m_position);
 
+	Cell* currentCell = m_grid->cellSelection(m_body.getPosition());
+
+	currentCell->addToGameObjects(this);
 }
 
 void NPC::draw(sf::RenderWindow& t_window)
@@ -63,33 +66,47 @@ void NPC::draw(sf::RenderWindow& t_window)
 	t_window.draw(t);
 }
 
-void NPC::setUpBehaviourTree(Grid* t_map)
+void NPC::setUpBehaviourTree(Grid* t_map, BasePlayer* t_player)
 {
 
 	Wander* wander = new Wander(t_map, &m_agent, &m_animator);
-	talking = new Attack(t_map, &m_agent, &m_animator);
+	Death* death = new Death(t_map, &m_agent, &m_animator);
 
-	NearPlayerCondition* nearPlayer = new NearPlayerCondition(std::bind(&NPC::closeToPlayer, this));
+	Talking* talk = new Talking(t_map, &m_agent, &m_animator);
+	Attack* attack = new Attack(t_map, &m_agent, &m_animator);
+	attack->m_player = t_player;
+	attaacking = new Attack(t_map, &m_agent, &m_animator);
+
+	Condition* nearPlayer = new Condition(std::bind(&NPC::closeToPlayer, this));
 
 	WanderNode* wanderNode = new WanderNode(wander);
-	AttackingNode* talkingNode = new AttackingNode(talking);
+	AttackingNode* talkingNode = new AttackingNode(attaacking);
 
 	//BehaviourNode* treeBase = std::make_unique < Selector>({
 	//	new Sequence({nearPlayer, talkingNode}), wanderNode } 
 	//
 	//);
 
-	// talk sequence
-	//std::vector<std::unique_ptr<BehaviourNode>> talkSequenceChildren;
-	//talkSequenceChildren.push_back(std::make_unique<NearPlayerCondition>(std::bind(&NPC::closeToPlayer, this)));
-	////talkSequenceChildren.push_back(std::make_unique<TalkingNode>(talking));
-	//std::unique_ptr<Sequence>  talkSequence = std::make_unique<Sequence>(std::move(talkSequenceChildren));
+	 //talk sequence
 
-	//std::vector<std::unique_ptr<BehaviourNode>> selectorChildren;
-	//selectorChildren.push_back(std::move(talkSequence));
-	//selectorChildren.push_back(std::make_unique<WanderNode>(wander));
+	std::vector<std::unique_ptr<BehaviourNode>> deathSequenceChildren;
+	deathSequenceChildren.push_back(std::make_unique<Condition>(std::bind(&NPC::dead, this)));
+	deathSequenceChildren.push_back(std::make_unique<DeathNode>(death));
+	std::unique_ptr<Sequence> deathSequence = std::make_unique<Sequence>(std::move(deathSequenceChildren));
 
-	//m_behaviourTree = std::make_unique<Selector>(std::move(selectorChildren));
+
+	std::vector<std::unique_ptr<BehaviourNode>> attackSequenceChildren;
+	attackSequenceChildren.push_back(std::make_unique<Condition>(std::bind(&NPC::closeToPlayer, this)));
+	attackSequenceChildren.push_back(std::make_unique<AttackingNode>(attack));
+	std::unique_ptr<Sequence>  attackSequence = std::make_unique<Sequence>(std::move(attackSequenceChildren));
+
+	std::vector<std::unique_ptr<BehaviourNode>> selectorChildren;
+
+	selectorChildren.push_back(std::move(deathSequence)); //  check if dead
+	selectorChildren.push_back(std::move(attackSequence)); // check if in attacking range
+	selectorChildren.push_back(std::make_unique<WanderNode>(wander)); // else wander
+
+	m_behaviourTree = std::make_unique<Selector>(std::move(selectorChildren));
 
 	/*m_agent.m_user.push_back(wander);*/
 }
@@ -122,6 +139,15 @@ bool NPC::closeToPlayer()
 	}
 
 	return false;
+}
+
+void NPC::collisionWith(Tag t_tag)
+{
+
+	if (t_tag == Bullet_Player)
+	{
+		m_health -= 100;
+	}
 }
 
 

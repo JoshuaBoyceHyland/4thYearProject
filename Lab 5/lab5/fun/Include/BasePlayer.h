@@ -22,6 +22,9 @@ class BasePlayer : public GameObject
 		
 		void fireWeapon();
 
+		
+		void collisionWith(Tag t_tag) override;
+
 private:
 
 		void input(float t_deltaTime);
@@ -41,5 +44,7 @@ private:
 		sf::Vector2f m_characterMidOffset = { -10,  15 };
 		sf::Vector2f m_gunHoldPoint = { 0,0 };
 		Weapon* m_currentWeapon;
+
+		
 };
 

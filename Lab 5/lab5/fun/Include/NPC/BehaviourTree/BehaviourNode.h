@@ -3,6 +3,7 @@
 #include "NPC/Attack.h"
 #include "NPC/Talking.h"
 #include "NPC/Wander.h"
+#include "NPC/Death.h"
 
 enum class BehaviourState{ Failed, Running, Succeeded};
 
@@ -104,4 +105,33 @@ public:
 
 private:
    Attack* m_attacking;
+};
+
+class DeathNode : public BehaviourNode {
+public:
+    DeathNode(Death* t_dying) : m_dying(t_dying) {}
+
+    BehaviourNode* decide(float t_deltaTime) override {
+
+        std::cout << "Dying" << std::endl;
+        return this;
+    }
+    void onEnter() override
+    {
+        m_dying->startDeath();
+    }
+    void preform(float t_deltaTime) override
+    {
+        
+        m_dying->update(t_deltaTime);
+    }
+
+    void onExit() override
+    {
+      
+    }
+    virtual Behaviour* getBehaviour() override { return  m_dying; };
+
+private:
+    Death* m_dying;
 };

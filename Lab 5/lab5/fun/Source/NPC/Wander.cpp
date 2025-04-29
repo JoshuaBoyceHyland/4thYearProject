@@ -58,7 +58,11 @@ void Wander::enter()
 
 void Wander::reset()
 {
-    previousTarget = m_agent->m_currentPath.back();
+    if (!m_agent->m_currentPath.empty())
+    {
+        previousTarget = m_agent->m_currentPath.back();
+    }
+    
     m_agent->reset();
 }
 

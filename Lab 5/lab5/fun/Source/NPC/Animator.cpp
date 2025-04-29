@@ -33,8 +33,13 @@ bool Animator::animate()
 		if (m_animations[m_currentState].m_currentFrame >= m_animations[m_currentState].m_maxFrames)
 		{
 			
-			m_animations[m_currentState].m_currentFrame = 0;
-			m_sprite.setTexture(m_animations[m_currentState].m_sprites[m_animations[m_currentState].m_currentFrame]->texture);
+			if (m_assignLasFrame)
+			{
+				m_animations[m_currentState].m_currentFrame = 0;
+				m_sprite.setTexture(m_animations[m_currentState].m_sprites[m_animations[m_currentState].m_currentFrame]->texture);
+			}
+			
+			
 			return true; // animation finished a loop
 
 		}

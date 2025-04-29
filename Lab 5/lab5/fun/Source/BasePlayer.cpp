@@ -7,7 +7,7 @@ m_map(t_map)
 	m_body.setPosition({ 600, 600 });
 	m_tag = Player;
 
-	m_currentWeapon = new MachineGun(m_gunHoldPoint);
+	m_currentWeapon = new MachineGun(m_gunHoldPoint, t_map);
 }
 
 void BasePlayer::update(float t_deltaTime)
@@ -157,4 +157,8 @@ void BasePlayer::checkMapInteractions()
 				
 	
 
+}
+
+void BasePlayer::collisionWith(Tag t_tag)
+{
 }

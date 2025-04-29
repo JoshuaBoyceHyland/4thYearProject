@@ -4,14 +4,19 @@
 #include "Utility/Texture.h"
 #include "GameObject.h"
 
+#include "World/Grid.h"
+
+
+
 class Bullet : public GameObject
 {
 	public: 
 		
-		Bullet(std::string t_texturePath, float t_speed) : m_speed(t_speed)
+		Bullet(std::string t_texturePath, float t_speed, Grid* t_grid) : m_speed(t_speed), m_grid( t_grid)
 		{
 			Loader* loader = Loader::getInstance();
 			Texture* texture = loader->loadTexture(t_texturePath);
+			m_tag = Bullet_Player;
 			m_body.setTexture(texture->texture);
 
 			m_velocity = { t_speed, t_speed };
@@ -19,7 +24,36 @@ class Bullet : public GameObject
 
 		void update(float t_deltaTime)
 		{
+			
+			currnetCell = m_grid->cellSelection(m_body.getPosition() + m_velocity);
+		
 			m_body.setPosition(m_body.getPosition() + m_velocity);
+		}
+
+		bool collisionCheck()
+		{
+			if (currnetCell->getProperty() == TraversalProperty::Unwalkable)
+			{
+				return true;
+			}
+
+			std::unordered_set<GameObject*> gameObjects = currnetCell->getGameObjects();
+
+
+			for (GameObject* gameObject : gameObjects)
+			{
+				if (gameObject->m_tag == Tag::Enemy)
+				{
+					if (m_body.getGlobalBounds().intersects(gameObject->m_body.getGlobalBounds()))
+					{
+						gameObject->collisionWith(m_tag);
+						return true;
+					}
+			
+				}
+			}
+
+			return false;
 		}
 
 		void shoot(sf::Vector2f t_startPoint, sf::Vector2f t_targetDirection)
@@ -29,6 +63,9 @@ class Bullet : public GameObject
 			float angle = VectorMath::vectorToAngle(direction);
 			m_body.setRotation(angle);
 			m_velocity = direction * m_speed;
+
+			currnetCell = m_grid->cellSelection(t_startPoint);
+
 			
 		}
 
@@ -36,11 +73,19 @@ class Bullet : public GameObject
 		{
 			t_window.draw(m_body);
 		}
+
+		void collisionWith(Tag t_tag)
+		{
+
+		}
 		
 
 	protected:
 
 		float m_speed = 1;
 		sf::Vector2f m_velocity;
+
+		Cell* currnetCell = nullptr;
+		Grid* m_grid = nullptr;
 };
 

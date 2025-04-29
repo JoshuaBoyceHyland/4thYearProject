@@ -53,11 +53,6 @@ void GeneratedDungionNPCTestScene::processMousePress(sf::Event t_event)
 {
 	Cell* cell = m_dungeon->cellSelection(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)));
 	
-	
-	if (cell != nullptr)
-	{
-		cell->setColor(sf::Color::Red);
-	}
 
 	if (sf::Mouse::Left == t_event.mouseButton.button)
 	{

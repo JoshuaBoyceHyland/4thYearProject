@@ -1,7 +1,7 @@
 #include "Weapons/MachineGun.h"
 
-MachineGun::MachineGun(sf::Vector2f& t_holdPoint) :
-	Weapon( t_holdPoint,{58 - 18, 10 - 19}),
+MachineGun::MachineGun(sf::Vector2f& t_holdPoint, Grid* t_grid) :
+	Weapon( t_holdPoint,{58 - 18, 10 - 19}, t_grid),
 	m_animator("ASSETS/IMAGES/Weapons", { "/MachineGun" }, m_body, { 18,19 })
 {
 	
@@ -27,9 +27,15 @@ void MachineGun::update(float t_deltaTime )
 
 	for (int i = 0; i < m_bulletShot.size(); i++)
 	{
-		m_bulletShot[i]->update( 0);
+		m_bulletShot[i]->update( t_deltaTime);
 	}
-	
+
+	// remove bullets if they collide with wall or enems
+	m_bulletShot.erase(
+		std::remove_if(m_bulletShot.begin(), m_bulletShot.end(),
+			[](const std::unique_ptr<Bullet>& bullet) {return bullet->collisionCheck();}),
+		m_bulletShot.end()
+	);
 }
 
 void MachineGun::startShot()
@@ -79,7 +85,7 @@ void MachineGun::draw(sf::RenderWindow& t_window)
 
 void MachineGun::shoot()
 {
-	std::unique_ptr<Bullet> bullet = std::make_unique<Bullet>("ASSETS/IMAGES/Weapons/Ammo/Bullet_MachineGun.png", 20);
+	std::unique_ptr<Bullet> bullet = std::make_unique<Bullet>("ASSETS/IMAGES/Weapons/Ammo/Bullet_MachineGun.png", 20 ,m_grid);
 	
 	sf::Vector2f ShootPointStart =m_animator.m_sprite.getPosition() + RotationMath::rotatedVector(m_shootingPointOffset, m_body.getRotation());
 	sf::Vector2f targetDirection = (m_animator.m_sprite.getPosition() + (RotationMath::rotatedVector({ m_shootingPointOffset.x * 2.0f, m_shootingPointOffset.y }, m_body.getRotation())));

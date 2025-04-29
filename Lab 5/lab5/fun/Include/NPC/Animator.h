@@ -33,6 +33,8 @@ class Animator
 
 		int m_currentState = 0;
 
+		bool m_assignLasFrame = true;
+
 
 	private:
 

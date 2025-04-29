@@ -3,10 +3,10 @@
 #include <functional>
 
 
-class NearPlayerCondition : public BehaviourNode
+class Condition : public BehaviourNode
 {
 	public:
-		NearPlayerCondition(std::function<bool()> t_condition) :m_condition(t_condition) {}
+		Condition(std::function<bool()> t_condition) :m_condition(t_condition) {}
 
 	
 		BehaviourNode* decide(float t_deltaTime) override

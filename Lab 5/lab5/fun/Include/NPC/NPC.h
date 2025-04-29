@@ -3,6 +3,7 @@
 #include "Animator.h"
 #include "BehaviourManagert.h"
 #include "Attack.h"
+#include "Death.h"
 
 class NPC : public GameObject
 {
@@ -14,17 +15,24 @@ class NPC : public GameObject
 
 		void draw(sf::RenderWindow& t_window);
 
-		void setUpBehaviourTree(Grid* t_map);
+		void setUpBehaviourTree(Grid* t_map, BasePlayer* t_player);
 
-		Attack* talking;
+		void collisionWith(Tag t_tag) override;
+
+		Attack* attaacking;
 	private:
 
 		bool closeToPlayer();
+
+		bool dead() { return m_health <= 0; };
 
 		Grid* m_grid;
 		Agent m_agent;
 		Animator m_animator;
 		BehaviourNode* m_currentBehaviour = nullptr;
 		std::unique_ptr<BehaviourNode> m_behaviourTree;
+		float m_health = 100;
+		// Inherited via GameObject
+		
 };
 

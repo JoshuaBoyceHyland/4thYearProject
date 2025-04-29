@@ -2,11 +2,12 @@
 #include "Utility/VectorMath.h"
 #include "Utility/RotationMath.h"
 #include "NPC/Animator.h"
+#include "World/Grid.h"
 
 class Weapon
 {
 	public :
-		Weapon( sf::Vector2f& t_holdPoint, sf::Vector2f t_shootingPointOffset) : m_holdingPoint(t_holdPoint), m_shootingPointOffset(t_shootingPointOffset), m_rightShootPoint(t_shootingPointOffset.y) {}
+		Weapon( sf::Vector2f& t_holdPoint, sf::Vector2f t_shootingPointOffset, Grid* t_grid) : m_holdingPoint(t_holdPoint), m_shootingPointOffset(t_shootingPointOffset), m_rightShootPoint(t_shootingPointOffset.y), m_grid(t_grid){}
 		
 	
 
@@ -29,6 +30,8 @@ class Weapon
 		bool m_firing = false;
 		
 		float m_rightShootPoint = 0;
+
+		Grid* m_grid = nullptr;
 
 		sf::Vector2f m_shootingPointOffset;
 
