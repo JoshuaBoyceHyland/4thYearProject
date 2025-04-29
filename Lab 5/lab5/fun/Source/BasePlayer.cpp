@@ -17,7 +17,7 @@ void BasePlayer::update(float t_deltaTime)
 	m_animator.animate();
 
 	checkMapInteractions();
-	m_currentWeapon->update();
+	m_currentWeapon->update(t_deltaTime);
 }
 
 void BasePlayer::draw(sf::RenderWindow& t_window)

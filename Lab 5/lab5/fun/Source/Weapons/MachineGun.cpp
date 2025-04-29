@@ -7,7 +7,7 @@ MachineGun::MachineGun(sf::Vector2f& t_holdPoint) :
 	
 }
 
-void MachineGun::update()
+void MachineGun::update(float t_deltaTime )
 {
 
 	
@@ -20,7 +20,14 @@ void MachineGun::update()
 		{
 			m_firing = false;
 
+			shoot();
+
 		}
+	}
+
+	for (int i = 0; i < m_bulletShot.size(); i++)
+	{
+		m_bulletShot[i]->update( 0);
 	}
 	
 }
@@ -47,8 +54,37 @@ void MachineGun::draw(sf::RenderWindow& t_window)
 	s.setOrigin({ 5,5 });
 	s.setFillColor(sf::Color::Cyan);
 
-	t_window.draw(s);
-	t_window.draw(t);
+
+
+	sf::Vector2f projected = (m_animator.m_sprite.getPosition() + (RotationMath::rotatedVector({ m_shootingPointOffset.x * 2.0f, m_shootingPointOffset.y}, m_body.getRotation())));
+	sf::CircleShape b(5);
+	b.setPosition(projected );
+	b.setOrigin({ 5,5 });
+	b.setFillColor(sf::Color::Cyan);
+
+
+	//t_window.draw(b);
+	//t_window.draw(s);
+	//t_window.draw(t);
+	
 	t_window.draw(m_animator.m_sprite);
+
+
+
+	for (int i = 0; i < m_bulletShot.size(); i++)
+	{
+		m_bulletShot[i]->draw(t_window);
+	}
+}
+
+void MachineGun::shoot()
+{
+	std::unique_ptr<Bullet> bullet = std::make_unique<Bullet>("ASSETS/IMAGES/Weapons/Ammo/Bullet_MachineGun.png", 20);
+	
+	sf::Vector2f ShootPointStart =m_animator.m_sprite.getPosition() + RotationMath::rotatedVector(m_shootingPointOffset, m_body.getRotation());
+	sf::Vector2f targetDirection = (m_animator.m_sprite.getPosition() + (RotationMath::rotatedVector({ m_shootingPointOffset.x * 2.0f, m_shootingPointOffset.y }, m_body.getRotation())));
+	bullet->shoot(ShootPointStart, targetDirection);
+
+	m_bulletShot.push_back(std::move( bullet));
 }
 
