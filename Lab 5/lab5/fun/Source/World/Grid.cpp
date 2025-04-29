@@ -470,7 +470,7 @@ void Grid::setUpNeighbours(bool t_requiresWalkable)
 					
 					if (m_cells[possibleRowNeighbour][possibleColNeighbour].getProperty() == TraversalProperty::Walkable || !t_requiresWalkable)
 					{
-						std::cout << "Row: " << row << " Col: " << column << " RowN: " << possibleRowNeighbour << " ColN: " << possibleColNeighbour << std::endl;
+						//std::cout << "Row: " << row << " Col: " << column << " RowN: " << possibleRowNeighbour << " ColN: " << possibleColNeighbour << std::endl;
 						m_cells[row][column].getNode()->addNeighbour(m_cells[possibleRowNeighbour][possibleColNeighbour].getNode());
 						m_cells[row][column].getNode()->addNeighbourDirection(Direction(i));
 					}
