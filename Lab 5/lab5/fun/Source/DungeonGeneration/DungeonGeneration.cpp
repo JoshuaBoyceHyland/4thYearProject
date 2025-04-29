@@ -19,7 +19,7 @@ void DungeonGeneration::generateInitialGrids()
 
 
 
-	for (int i = 0; i < 15; i++)
+	for (int i = 0; i < 20; i++)
 	{
 
 		int randWidth = rand() % m_maxWidthGridGen + m_minWidthGridGen;

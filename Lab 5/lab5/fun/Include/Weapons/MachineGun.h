@@ -4,6 +4,7 @@ class MachineGun : public Weapon
 {
 	public:
 		MachineGun(sf::Vector2f& t_holdPoint);
+
 		void update() override;
 		
 		void startShot() override;

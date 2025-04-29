@@ -35,14 +35,14 @@ bool Animator::animate()
 			
 			m_animations[m_currentState].m_currentFrame = 0;
 			m_sprite.setTexture(m_animations[m_currentState].m_sprites[m_animations[m_currentState].m_currentFrame]->texture);
-			return true;
+			return true; // animation finished a loop
 
 		}
 	}
 
 	m_sprite.setTexture(m_animations[m_currentState].m_sprites[m_animations[m_currentState].m_currentFrame]->texture);
 
-	return false;
+	return false; // animation not finished a loop
 }
 
 bool Animator::onLastFrame()

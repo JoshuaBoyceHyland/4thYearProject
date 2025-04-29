@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Bullet.h" />
     <ClInclude Include="Include\NPC\Attack.h" />
     <ClInclude Include="Include\GameObject.h" />
     <ClInclude Include="Include\NPC\BehaviourTree\ConditionNodes.h" />
@@ -141,6 +142,7 @@
     <None Include="map.json" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Source\Weapons\MachineGun.cpp" />
     <ClCompile Include="Source\NPC\Attack.cpp" />
     <ClCompile Include="GeneratedRoom.cpp" />

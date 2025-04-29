@@ -100,6 +100,7 @@
     <ClInclude Include="Include\NPC\Attack.h" />
     <ClInclude Include="Include\Weapons\Weapon.h" />
     <ClInclude Include="Include\Weapons\MachineGun.h" />
+    <ClInclude Include="Bullet.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="fun.rc" />
@@ -173,6 +174,7 @@
     <ClCompile Include="Source\NPC\Attack.cpp" />
     <ClCompile Include="Source\Weapons\Weapon.cpp" />
     <ClCompile Include="Source\Weapons\MachineGun.cpp" />
+    <ClCompile Include="Bullet.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="map.txt" />
