@@ -23,11 +23,14 @@ class Animator
 {
 
 	public:
-		Animator(std::string t_texturesPath, sf::Sprite& t_sprite);
+		Animator(std::string t_texturesPathBase, std::vector<std::string> t_animationFolderNames, sf::Sprite& t_sprite, sf::Vector2f t_spriteOrigin );
 
 		sf::Sprite& m_sprite;
 
-		void animate();
+		bool animate();
+
+		bool onLastFrame();
+
 		int m_currentState = 0;
 
 

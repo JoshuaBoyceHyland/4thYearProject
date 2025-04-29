@@ -3,7 +3,7 @@
 NPC::NPC(Grid* t_map, BasePlayer* player, sf::Vector2f t_position) :
 m_grid(t_map),
 m_agent(t_map, t_position),
-m_animator("ASSETS/IMAGES/NPC/1", m_body)
+m_animator("ASSETS/IMAGES/NPC/1", { "/Idle", "/Run" }, m_body, { 20.0f, 56.0f })
 {
 	m_tag = Enemy;
 	setUpBehaviourTree(t_map);
@@ -11,6 +11,7 @@ m_animator("ASSETS/IMAGES/NPC/1", m_body)
 	talking->m_player = player;
 	m_agent.m_user = talking;
 	talking->enter();
+
 }
 
 
@@ -45,8 +46,6 @@ void NPC::update(float deltatime)
 	talking->update(deltatime);
 
 	m_animator.animate();
-
-
 	m_body.setPosition(m_agent.m_position);
 
 }

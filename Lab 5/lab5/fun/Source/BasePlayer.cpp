@@ -1,9 +1,13 @@
 #include "BasePlayer.h"
 
-BasePlayer::BasePlayer(Grid* t_map) : m_animator("ASSETS/IMAGES/Player", m_body), m_map( t_map)
+BasePlayer::BasePlayer(Grid* t_map) : 
+m_animator("ASSETS/IMAGES/Player", { "/Idle", "/Run"}, m_body, {20.0f, 100.0f}),
+m_map(t_map)
 {
 	m_body.setPosition({ 600, 600 });
 	m_tag = Player;
+
+	m_currentWeapon = new MachineGun(m_gunHoldPoint);
 }
 
 void BasePlayer::update(float t_deltaTime)
@@ -13,6 +17,7 @@ void BasePlayer::update(float t_deltaTime)
 	m_animator.animate();
 
 	checkMapInteractions();
+	m_currentWeapon->update();
 }
 
 void BasePlayer::draw(sf::RenderWindow& t_window)
@@ -21,8 +26,34 @@ void BasePlayer::draw(sf::RenderWindow& t_window)
 	t.setPosition(m_body.getPosition());
 	t.setOrigin({ 10,10 });
 	t.setFillColor(sf::Color::Cyan);
+	
+
 	t_window.draw(t);
-	t_window.draw(m_body);
+	t_window.draw(m_body); 
+	m_currentWeapon->draw(t_window);
+	
+}
+
+void BasePlayer::rotateWeapon(sf::Vector2f t_lookAt)
+{
+	m_currentWeapon->updateWeaponRotation(t_lookAt);
+
+
+	if (t_lookAt.x > m_body.getPosition().x)
+	{
+		m_characterMidOffset.x = -10;
+		m_body.setScale({ 1, 1 });
+	}
+	else
+	{
+		m_characterMidOffset.x = 10;
+		m_body.setScale({ -1, 1 });
+	}
+}
+
+void BasePlayer::fireWeapon()
+{
+	m_currentWeapon->startShot();
 }
 
 void BasePlayer::input(float t_deltaTime)
@@ -71,7 +102,8 @@ void BasePlayer::cellManagement()
 	{
 		m_body.setPosition(m_body.getPosition() + m_direction);
 
-		
+		m_gunHoldPoint = m_body.getPosition() - m_characterMidOffset;
+	
 		projectedCell->addToGameObjects(this);
 
 		// resetpreviousCell if the current cell and projected cell arent the same

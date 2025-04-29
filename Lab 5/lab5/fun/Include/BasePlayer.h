@@ -3,6 +3,8 @@
 #include "World/Grid.h"
 #include "NPC/Animator.h"
 #include "WorldItems/ShipBuilderTerminal.h"
+#include "Weapons/MachineGun.h"
+
 class BasePlayer : public GameObject
 {
 	public:
@@ -15,7 +17,12 @@ class BasePlayer : public GameObject
 		void setPosition(sf::Vector2f t_position) { m_animator.m_sprite.setPosition(t_position); };
 		
 		sf::Vector2f getPosition() { return m_animator.m_sprite.getPosition(); }
-	private:
+		
+		void rotateWeapon(sf::Vector2f t_lookAt);
+		
+		void fireWeapon();
+
+private:
 
 		void input(float t_deltaTime);
 
@@ -30,6 +37,9 @@ class BasePlayer : public GameObject
 		Grid* m_map;
 		
 		Animator m_animator;
-	
+		
+		sf::Vector2f m_characterMidOffset = { -10,  15 };
+		sf::Vector2f m_gunHoldPoint = { 0,0 };
+		Weapon* m_currentWeapon;
 };
 

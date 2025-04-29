@@ -1,21 +1,24 @@
 #include "NPC/Animator.h"
 
-Animator::Animator(std::string t_texturesPath, sf::Sprite& t_sprite) : m_sprite(t_sprite)
+Animator::Animator(std::string t_texturesPathBase, std::vector<std::string> t_animationFolderNames, sf::Sprite& t_sprite,  sf::Vector2f t_spriteOrigin ) : 
+	m_sprite(t_sprite)
 {
 	Loader* loader = Loader::getInstance();
 	
-	m_animations.push_back(loader->loadAllTexturesInFile(t_texturesPath + "/Idle"));
-	m_animations.push_back(loader->loadAllTexturesInFile(t_texturesPath + "/Run"));
 
-	float spriteWidth = m_animations[0].m_sprites[0]->texture.getSize().x ;
-	float spriteHeight = m_animations[0].m_sprites[0]->texture.getSize().y ;
+	for (int i = 0; i < t_animationFolderNames.size(); i++)
+	{
+		m_animations.push_back(loader->loadAllTexturesInFile(t_texturesPathBase + t_animationFolderNames[i]));
+	}
 
+
+	// default to first first frame to start
 	m_sprite.setTexture(m_animations[0].m_sprites[0]->texture);
 
-	m_sprite.setOrigin({(float)20, (float)spriteHeight });
+	m_sprite.setOrigin(t_spriteOrigin);
 }
 
-void Animator::animate()
+bool Animator::animate()
 {
 
 	m_elapsedTime++;
@@ -29,11 +32,22 @@ void Animator::animate()
 
 		if (m_animations[m_currentState].m_currentFrame >= m_animations[m_currentState].m_maxFrames)
 		{
+			
 			m_animations[m_currentState].m_currentFrame = 0;
+			m_sprite.setTexture(m_animations[m_currentState].m_sprites[m_animations[m_currentState].m_currentFrame]->texture);
+			return true;
 
 		}
 	}
 
-
 	m_sprite.setTexture(m_animations[m_currentState].m_sprites[m_animations[m_currentState].m_currentFrame]->texture);
+
+	return false;
 }
+
+bool Animator::onLastFrame()
+{
+	return m_animations[m_currentState].m_currentFrame ==m_animations[m_currentState].m_maxFrames - 1;
+}
+
+

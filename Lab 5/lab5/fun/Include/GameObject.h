@@ -9,5 +9,6 @@ class GameObject
 		Tag m_tag;
 		sf::Sprite m_body;
 		
+		
 };
 

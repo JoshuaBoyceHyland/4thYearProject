@@ -21,7 +21,7 @@ class Agent
 
 		AgentUser* m_user;
 
-		float m_speed = 2.5;
+		float m_speed = 5;
 		float m_rotation;
 		sf::Vector2f m_position;
 

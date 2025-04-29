@@ -46,7 +46,7 @@ void GeneratedDungionNPCTestScene::render()
 
 void GeneratedDungionNPCTestScene::processKeys(sf::Event t_event)
 {
-	
+
 }
 
 void GeneratedDungionNPCTestScene::processMousePress(sf::Event t_event)
@@ -57,6 +57,11 @@ void GeneratedDungionNPCTestScene::processMousePress(sf::Event t_event)
 	if (cell != nullptr)
 	{
 		cell->setColor(sf::Color::Red);
+	}
+
+	if (sf::Mouse::Left == t_event.mouseButton.button)
+	{
+		m_player->fireWeapon();
 	}
 	//if (sf::Mouse::Middle == t_event.mouseButton.button)
 	//{
@@ -75,6 +80,7 @@ void GeneratedDungionNPCTestScene::processMouseRelease(sf::Event t_event)
 
 void GeneratedDungionNPCTestScene::processMouseMove(sf::Event t_event)
 {
+	m_player->rotateWeapon(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)));
 	//m_camera.move();
 }
 

@@ -110,12 +110,14 @@
     <ClInclude Include="Include\World\Search.h" />
     <ClInclude Include="Include\World\Tile.h" />
     <ClInclude Include="json.hpp" />
+    <ClInclude Include="Include\Weapons\MachineGun.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Include\NPC\Action.h" />
     <ClInclude Include="Include\World\ShipBuilderTerminal.h" />
     <ClInclude Include="Include\NPC\BehaviourTree\Selector.h" />
     <ClInclude Include="Include\NPC\BehaviourTree\Sequence.h" />
     <ClInclude Include="Include\NPC\Talking.h" />
+    <ClInclude Include="Include\Weapons\Weapon.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="ASSETS\IMAGES\SFML-LOGO.png">
@@ -139,6 +141,7 @@
     <None Include="map.json" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Weapons\MachineGun.cpp" />
     <ClCompile Include="Source\NPC\Attack.cpp" />
     <ClCompile Include="GeneratedRoom.cpp" />
     <ClCompile Include="Source\Scenes\GeneratedDungionNPCTest.cpp" />
@@ -195,6 +198,7 @@
     <ClCompile Include="Source\World\Search.cpp" />
     <ClCompile Include="Source\World\Tile.cpp" />
     <ClCompile Include="Source\NPC\Talking.cpp" />
+    <ClCompile Include="Source\Weapons\Weapon.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="map.txt" />

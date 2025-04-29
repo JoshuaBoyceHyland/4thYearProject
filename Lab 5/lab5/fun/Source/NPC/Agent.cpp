@@ -13,7 +13,7 @@ void Agent::update(float t_deltaTime)
 {
     m_currentNode = m_map->cellSelection(m_position)->getNode();
 
-    if (m_target != nullptr)
+    if (m_target != nullptr )
     {
         followPath(t_deltaTime);
     }
@@ -96,14 +96,18 @@ std::deque<Node*>Agent::pathFindTo(Node* t_goalNode)
     m_map->resetGridCellForPathFinding(false, true);
     m_currentPath = Search::AStar(m_currentNode);
 
-    m_target = m_currentPath.front();
-    m_currentPath.pop_front();
-
-    while (!path.empty())
+    if (!m_currentPath.empty())
     {
-        m_map->m_cells[path.front()->m_row][path.front()->m_column].setColor(sf::Color::Green);
-        path.pop_front();
+        m_target = m_currentPath.front();
+        m_currentPath.pop_front();
+
+        while (!path.empty())
+        {
+            m_map->m_cells[path.front()->m_row][path.front()->m_column].setColor(sf::Color::Green);
+            path.pop_front();
+        }
     }
+    
 
 
     return path;
