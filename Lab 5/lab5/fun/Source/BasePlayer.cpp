@@ -95,7 +95,7 @@ void BasePlayer::checkMapInteractions()
 	
 		Cell* cell = m_map->cellSelection(m_animator.m_sprite.getPosition());
 
-		cell->setColor(sf::Color::Yellow);
+		//cell->setColor(sf::Color::Yellow);
 		WorldItem* possibleInteraction = cell->m_cellJob;
 
 		if (possibleInteraction != nullptr)

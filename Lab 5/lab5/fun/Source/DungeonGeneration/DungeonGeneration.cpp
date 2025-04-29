@@ -42,7 +42,7 @@ void DungeonGeneration::generateRooms()
 	int minHeight = 4;
 	int maxHeight = 12;
 
-	for (int i = 0; i < 35; i++)
+	for (int i = 0; i < 60; i++)
 	{
 
 		int randWidth = rand() % maxWidth + minWidth;

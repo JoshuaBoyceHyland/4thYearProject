@@ -4,19 +4,13 @@
          "PartType",
          1,
          "Texture: ",
-         0
-      ],
-      [
-         "PartType",
-         1,
-         "Texture: ",
          1
       ],
       [
          "PartType",
          1,
          "Texture: ",
-         1
+         0
       ],
       [
          "PartType",
@@ -27,18 +21,6 @@
       [
          "PartType",
          2,
-         "Texture: ",
-         1
-      ],
-      [
-         "PartType",
-         3,
-         "Texture: ",
-         0
-      ],
-      [
-         "PartType",
-         3,
          "Texture: ",
          1
       ],
@@ -50,13 +32,7 @@
       ],
       [
          "PartType",
-         2,
-         "Texture: ",
-         0
-      ],
-      [
-         "PartType",
-         4,
+         3,
          "Texture: ",
          1
       ],
@@ -67,12 +43,18 @@
          0
       ],
       [
+         "PartType",
+         4,
+         "Texture: ",
+         1
+      ],
+      [
          "ShipOriginX: ",
-         1046.0
+         993.0
       ],
       [
          "ShipOriginY: ",
-         484.0
+         572.0
       ]
    ]
 ]

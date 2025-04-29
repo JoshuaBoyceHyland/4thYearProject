@@ -17,7 +17,7 @@
 /// load and setup thne image
 /// </summary>
 Game::Game() :
-	m_window{ sf::VideoMode{ Globals::SCREEN_WIDTH, Globals::SCREEN_HEIGHT, 32U }, "SFML Game"/*, sf::Style::Fullscreen*/ },
+	m_window{ sf::VideoMode{ Globals::SCREEN_WIDTH, Globals::SCREEN_HEIGHT, 32U }, "SFML Game", sf::Style::Fullscreen},
 	m_exitGame{ false },
 	m_sceneManager(m_window)
 {
@@ -26,7 +26,7 @@ Game::Game() :
 	lbrary->setFunction(std::bind(&SceneManager::switchScene, &m_sceneManager, std::placeholders::_1));
 	lbrary->loadTextures();
 	m_sceneManager.switchScene(DungeonGenerationTest);
-
+	//m_sceneManager.switchScene(BaseGameplay);
 	
 	
 }

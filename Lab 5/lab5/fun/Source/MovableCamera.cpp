@@ -76,13 +76,13 @@ float MovableCamera::zoom(float t_mouseWheelDelta)
 	}
 	else
 	{
-		zoomValue = 1 + (t_mouseWheelDelta * -0.1f);
-
-		m_camera.zoom(zoomValue);
+		
 
 	}
 
+	zoomValue = 1 + (t_mouseWheelDelta * -0.1f);
 
+	m_camera.zoom(zoomValue);
 	return zoomValue;
 }
 
