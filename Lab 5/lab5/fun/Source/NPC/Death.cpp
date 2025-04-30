@@ -22,10 +22,27 @@ void Death::update(float t_deltaTime)
 			m_death = true;
 		}
 	}
+	else
+	{
+		m_fadeTimer += t_deltaTime;
+
+		if (m_fadeTimer > 50)
+		{
+			m_fadeTimer = 0;
+			sf::Color currentColour = m_animator->m_sprite.getColor();
+			currentColour.a = std::max(0.0f, currentColour.a - m_alphaDecrement);
+
+			m_animator->m_sprite.setColor(currentColour);
+		}
+	}
 		
 	
 }
 
 void Death::reachedTarget()
+{
+}
+
+void Death::draw(sf::RenderWindow& t_window)
 {
 }

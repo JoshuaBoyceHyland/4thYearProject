@@ -9,7 +9,7 @@ m_camera(m_window)
 	m_dungeon->setForGamePlay();
 	m_player = new BasePlayer(m_dungeon);
 	m_player->setPosition(m_dungeon->getRandomTraverableCell()->getNode()->getPosition());
-	for (int i = 0; i < 1; i++)
+	for (int i = 0; i < 10; i++)
 	{
 
 		Cell* randCell = m_dungeon->getRandomTraverableCell();

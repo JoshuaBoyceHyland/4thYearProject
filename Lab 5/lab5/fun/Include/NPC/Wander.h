@@ -23,6 +23,9 @@ class Wander : public Behaviour
 
 		void reset();
 
+
+		// Inherited via Behaviour
+		void draw(sf::RenderWindow& t_window) override;
 	private:
 
 		/// <summary>
@@ -48,5 +51,7 @@ class Wander : public Behaviour
 		/// Timer for character
 		/// </summary>
 		sf::Clock m_timer;	
+
+
 
 };

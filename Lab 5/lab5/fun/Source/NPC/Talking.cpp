@@ -12,3 +12,7 @@ void Talking::update(float t_deltaTime)
 void Talking::reachedTarget()
 {
 }
+
+void Talking::draw(sf::RenderWindow& t_window)
+{
+}

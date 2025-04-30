@@ -20,6 +20,8 @@ class MachineGun : public Weapon
 		
 		Animator m_animator;
 
+
+		std::vector < std::unique_ptr<ParticleSystem>> m_particleSystem;
 		std::vector < std::unique_ptr<Bullet>> m_bulletShot;
 		
 		

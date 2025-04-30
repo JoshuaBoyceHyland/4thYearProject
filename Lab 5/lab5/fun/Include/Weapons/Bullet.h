@@ -5,7 +5,7 @@
 #include "GameObject.h"
 
 #include "World/Grid.h"
-
+#include "ParticleSystem.h"
 
 
 class Bullet : public GameObject
@@ -34,6 +34,7 @@ class Bullet : public GameObject
 		{
 			if (currnetCell->getProperty() == TraversalProperty::Unwalkable)
 			{
+				
 				return true;
 			}
 
@@ -42,7 +43,7 @@ class Bullet : public GameObject
 
 			for (GameObject* gameObject : gameObjects)
 			{
-				if (gameObject->m_tag == Tag::Enemy)
+				if (gameObject->m_tag == Tag::Enemy || gameObject->m_tag == Tag::Player)
 				{
 					if (m_body.getGlobalBounds().intersects(gameObject->m_body.getGlobalBounds()))
 					{
@@ -51,6 +52,8 @@ class Bullet : public GameObject
 					}
 			
 				}
+
+
 			}
 
 			return false;
@@ -87,5 +90,7 @@ class Bullet : public GameObject
 
 		Cell* currnetCell = nullptr;
 		Grid* m_grid = nullptr;
+
+		
 };
 

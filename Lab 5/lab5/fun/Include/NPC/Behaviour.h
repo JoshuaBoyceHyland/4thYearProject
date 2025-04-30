@@ -11,7 +11,7 @@ class Behaviour : public AgentUser
 		Behaviour( Grid* t_grid, Agent* t_agent, Animator* t_animator) : m_grid( t_grid), m_agent( t_agent), m_animator( t_animator){}
 		virtual void update(float t_deltaTime) = 0;
 		virtual void reachedTarget() = 0;
-
+		virtual void draw(sf::RenderWindow& t_window) = 0;
 
 		
 	protected:

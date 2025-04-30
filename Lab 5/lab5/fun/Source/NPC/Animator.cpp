@@ -29,7 +29,7 @@ bool Animator::animate()
 
 		m_animations[m_currentState].m_currentFrame++;
 
-
+	
 		if (m_animations[m_currentState].m_currentFrame >= m_animations[m_currentState].m_maxFrames)
 		{
 			

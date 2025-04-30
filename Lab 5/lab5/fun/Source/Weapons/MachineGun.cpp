@@ -33,9 +33,26 @@ void MachineGun::update(float t_deltaTime )
 	// remove bullets if they collide with wall or enems
 	m_bulletShot.erase(
 		std::remove_if(m_bulletShot.begin(), m_bulletShot.end(),
-			[](const std::unique_ptr<Bullet>& bullet) {return bullet->collisionCheck();}),
+			[&](const std::unique_ptr<Bullet>& bullet) 
+			{
+
+				if (bullet->collisionCheck())
+				{
+					m_particleSystem.push_back(std::make_unique<ParticleSystem>(bullet->m_body.getPosition()));
+				
+					return true;
+				}
+				return false ;
+			
+			
+			}),
 		m_bulletShot.end()
 	);
+
+	for (int i = 0; i < m_particleSystem.size(); i++)
+	{
+		m_particleSystem[i]->update();
+	}
 }
 
 void MachineGun::startShot()
@@ -80,6 +97,11 @@ void MachineGun::draw(sf::RenderWindow& t_window)
 	for (int i = 0; i < m_bulletShot.size(); i++)
 	{
 		m_bulletShot[i]->draw(t_window);
+	}
+
+	for (int i = 0; i < m_particleSystem.size(); i++)
+	{
+		m_particleSystem[i]->draw(t_window);
 	}
 }
 

@@ -10,5 +10,9 @@ class Talking : public Behaviour
 
 		void reachedTarget() override;
 
+
+		// Inherited via Behaviour
+		void draw(sf::RenderWindow& t_window) override;
+
 };
 

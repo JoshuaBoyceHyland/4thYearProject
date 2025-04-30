@@ -61,9 +61,14 @@ void NPC::draw(sf::RenderWindow& t_window)
 	t.setOrigin({ 5, 5 });
 	t.setFillColor(sf::Color::Magenta);
 	t.setPosition(m_agent.m_position);
-	
-	t_window.draw(m_body);
 	t_window.draw(t);
+	t_window.draw(m_body);
+	if (m_currentBehaviour)
+	{
+		m_currentBehaviour->getBehaviour()->draw(t_window);
+	}
+	 // most behaviours dont need to draw 
+	
 }
 
 void NPC::setUpBehaviourTree(Grid* t_map, BasePlayer* t_player)
@@ -75,19 +80,7 @@ void NPC::setUpBehaviourTree(Grid* t_map, BasePlayer* t_player)
 	Talking* talk = new Talking(t_map, &m_agent, &m_animator);
 	Attack* attack = new Attack(t_map, &m_agent, &m_animator);
 	attack->m_player = t_player;
-	attaacking = new Attack(t_map, &m_agent, &m_animator);
 
-	Condition* nearPlayer = new Condition(std::bind(&NPC::closeToPlayer, this));
-
-	WanderNode* wanderNode = new WanderNode(wander);
-	AttackingNode* talkingNode = new AttackingNode(attaacking);
-
-	//BehaviourNode* treeBase = std::make_unique < Selector>({
-	//	new Sequence({nearPlayer, talkingNode}), wanderNode } 
-	//
-	//);
-
-	 //talk sequence
 
 	std::vector<std::unique_ptr<BehaviourNode>> deathSequenceChildren;
 	deathSequenceChildren.push_back(std::make_unique<Condition>(std::bind(&NPC::dead, this)));
@@ -96,7 +89,7 @@ void NPC::setUpBehaviourTree(Grid* t_map, BasePlayer* t_player)
 
 
 	std::vector<std::unique_ptr<BehaviourNode>> attackSequenceChildren;
-	attackSequenceChildren.push_back(std::make_unique<Condition>(std::bind(&NPC::closeToPlayer, this)));
+	attackSequenceChildren.push_back(std::make_unique<Condition>(std::bind(&NPC::attackPlayer, this)));
 	attackSequenceChildren.push_back(std::make_unique<AttackingNode>(attack));
 	std::unique_ptr<Sequence>  attackSequence = std::make_unique<Sequence>(std::move(attackSequenceChildren));
 
@@ -139,6 +132,33 @@ bool NPC::closeToPlayer()
 	}
 
 	return false;
+}
+
+bool NPC::attackPlayer()
+{
+
+	if (!m_startedAttacking)
+	{
+		Node* currentNode = m_grid->cellSelection(m_body.getPosition())->getNode();
+		std::vector<Node*> neighbours = currentNode->getNeighbours();
+
+		for (int i = 0; i < neighbours.size(); i++)
+		{
+			std::unordered_set<GameObject*> gameobjects = m_grid->m_cells[neighbours[i]->m_row][neighbours[i]->m_column].getGameObjects();
+
+			for (GameObject* gameobject : gameobjects)
+			{
+				if (gameobject->m_tag == Player)
+				{
+					m_startedAttacking = true;
+					return true;
+				}
+			}
+		}
+	}
+	
+
+	return m_startedAttacking;
 }
 
 void NPC::collisionWith(Tag t_tag)

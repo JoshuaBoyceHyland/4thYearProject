@@ -96,3 +96,7 @@ bool Wander::timeToFindNewTarget()
 
     return false;
 }
+
+void Wander::draw(sf::RenderWindow& t_window)
+{
+}

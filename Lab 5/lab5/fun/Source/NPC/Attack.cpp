@@ -2,7 +2,7 @@
 
 Attack::Attack(Grid* t_grid, Agent* t_agent, Animator* t_animator) : Behaviour(t_grid, t_agent, t_animator)
 {
-
+	m_weapon = new MachineGun( m_gunHoldPoint, t_grid);
 }
 
 void Attack::enter()
@@ -12,15 +12,22 @@ void Attack::enter()
 
 void Attack::update(float t_deltaTime)
 {
-
+	m_weapon->updateWeaponRotation(m_player->getPosition());
+	m_weapon->update(t_deltaTime);
 	m_agent->update(t_deltaTime);
+
+	m_weapon->startShot();
+
+	
 
 	if (m_player->m_body.getPosition().x > m_animator->m_sprite.getPosition().x)
 	{
+		m_characterMidOffset.x = -10;
 		m_animator->m_sprite.setScale(1, 1);
 	}
 	else
 	{
+		m_characterMidOffset.x = 10;
 		m_animator->m_sprite.setScale(-1, 1);
 	}
 
@@ -32,6 +39,9 @@ void Attack::update(float t_deltaTime)
 	{
 		m_animator->m_currentState = 1;
 	}
+
+	m_gunHoldPoint = m_animator->m_sprite.getPosition() - m_characterMidOffset;
+	m_animator->animate();
 }
 
 void Attack::reachedTarget()
@@ -42,6 +52,11 @@ void Attack::reachedTarget()
 void Attack::exit()
 {
 	m_agent->reset();
+}
+
+void Attack::draw(sf::RenderWindow& t_window)
+{
+	m_weapon->draw(t_window);
 }
 
 void Attack::getPointAroundPlayer()

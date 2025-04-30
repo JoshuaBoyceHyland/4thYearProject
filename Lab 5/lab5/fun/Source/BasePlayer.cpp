@@ -161,4 +161,9 @@ void BasePlayer::checkMapInteractions()
 
 void BasePlayer::collisionWith(Tag t_tag)
 {
+
+	if (t_tag == Bullet_Player)
+	{
+
+	}
 }

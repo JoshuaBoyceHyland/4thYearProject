@@ -19,10 +19,11 @@ class NPC : public GameObject
 
 		void collisionWith(Tag t_tag) override;
 
-		Attack* attaacking;
 	private:
 
 		bool closeToPlayer();
+
+		bool attackPlayer();
 
 		bool dead() { return m_health <= 0; };
 
@@ -32,7 +33,9 @@ class NPC : public GameObject
 		BehaviourNode* m_currentBehaviour = nullptr;
 		std::unique_ptr<BehaviourNode> m_behaviourTree;
 		float m_health = 100;
-		// Inherited via GameObject
+
+		bool m_startedAttacking = false;
+
 		
 };
 

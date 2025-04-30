@@ -14,10 +14,17 @@ class Attack : public Behaviour
 
 		void exit();
 
+		void draw(sf::RenderWindow& t_window) override;
+
 		BasePlayer* m_player;
 	private:
-		void getPointAroundPlayer();
 
 		
+		void getPointAroundPlayer();
+
+		Weapon* m_weapon;
+
+		sf::Vector2f m_characterMidOffset = { -10,  15 };
+		sf::Vector2f m_gunHoldPoint = { 0,0 };
 };
 
