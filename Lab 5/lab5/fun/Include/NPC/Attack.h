@@ -23,7 +23,7 @@ class Attack : public Behaviour
 		void getPointAroundPlayer();
 
 		Weapon* m_weapon;
-
+		int times = 0;
 		sf::Vector2f m_characterMidOffset = { -10,  15 };
 		sf::Vector2f m_gunHoldPoint = { 0,0 };
 };

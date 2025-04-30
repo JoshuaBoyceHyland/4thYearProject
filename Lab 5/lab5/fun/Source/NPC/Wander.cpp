@@ -37,6 +37,7 @@ void Wander::update(float t_deltaTime)
     else
     {
         m_animator->m_currentState = 1;
+        m_animator->animate();
     }
 }
 

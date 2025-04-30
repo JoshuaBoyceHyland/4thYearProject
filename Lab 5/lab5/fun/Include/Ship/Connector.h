@@ -55,6 +55,7 @@ struct Connection
 	sf::Vector2f* anchorPoint = nullptr;
 	Connection* connectedTo = nullptr;
 
+
 	Connection(sf::Vector2f t_position, sf::Vector2f* t_anchorPoint) : position(t_position), anchorPoint( t_anchorPoint) {}
 	Connection(const Connection& t_other)
 	{

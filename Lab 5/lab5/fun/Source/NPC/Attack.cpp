@@ -2,7 +2,7 @@
 
 Attack::Attack(Grid* t_grid, Agent* t_agent, Animator* t_animator) : Behaviour(t_grid, t_agent, t_animator)
 {
-	m_weapon = new MachineGun( m_gunHoldPoint, t_grid);
+	m_weapon = new MachineGun( m_gunHoldPoint, t_grid, Bullet_Enemy);
 }
 
 void Attack::enter()
@@ -63,7 +63,7 @@ void Attack::getPointAroundPlayer()
 {
 	Cell* cellAroundPlayer = nullptr;
 
-	while (cellAroundPlayer == nullptr)
+	while (cellAroundPlayer == nullptr  )
 	{
 		std::vector<int> direction = { -1, 0, 1 };
 		std::vector<float> distances = { 100, 200, 300, 400, 500 };
@@ -81,7 +81,7 @@ void Attack::getPointAroundPlayer()
 		cellAroundPlayer = m_grid->cellSelection(m_player->getPosition() + randDirection);
 
 
-		if (cellAroundPlayer != nullptr)
+		if (cellAroundPlayer != nullptr || cellAroundPlayer != m_grid->cellSelection(m_player->getPosition()) || cellAroundPlayer != m_grid->cellSelection(m_animator->m_sprite.getPosition()));
 		{
 			if (cellAroundPlayer->getProperty() != TraversalProperty::Walkable)
 			{
@@ -89,8 +89,9 @@ void Attack::getPointAroundPlayer()
 			}
 		}
 	}
-	
-
+	times++;
+	std::cout <<"Time: "<< times<< " Row: " << cellAroundPlayer->getNode()->m_row << " Column: " << cellAroundPlayer->getNode()->m_column << " Type: "<< m_grid->m_cells[0][0].m_cellPropertyString[  m_grid->m_cells[cellAroundPlayer->getNode()->m_row][cellAroundPlayer->getNode()->m_column].getProperty()]<< std::endl;
+	std::cout << "Currrent " << " Row: " << m_grid->cellSelection(m_animator->m_sprite.getPosition())->getNode()->m_row << " Column: " << m_grid->cellSelection(m_animator->m_sprite.getPosition())->getNode()->m_column << std::endl;
 	m_agent->pathFindTo(cellAroundPlayer->getNode());
 
 

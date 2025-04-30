@@ -12,11 +12,11 @@ class Bullet : public GameObject
 {
 	public: 
 		
-		Bullet(std::string t_texturePath, float t_speed, Grid* t_grid) : m_speed(t_speed), m_grid( t_grid)
+		Bullet(std::string t_texturePath, float t_speed, Grid* t_grid, Tag t_tag) : m_speed(t_speed), m_grid( t_grid)
 		{
 			Loader* loader = Loader::getInstance();
 			Texture* texture = loader->loadTexture(t_texturePath);
-			m_tag = Bullet_Player;
+			m_tag = t_tag;
 			m_body.setTexture(texture->texture);
 
 			m_velocity = { t_speed, t_speed };

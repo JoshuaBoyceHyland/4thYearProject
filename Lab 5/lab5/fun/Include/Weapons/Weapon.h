@@ -7,7 +7,7 @@
 class Weapon
 {
 	public :
-		Weapon( sf::Vector2f& t_holdPoint, sf::Vector2f t_shootingPointOffset, Grid* t_grid) : m_holdingPoint(t_holdPoint), m_shootingPointOffset(t_shootingPointOffset), m_rightShootPoint(t_shootingPointOffset.y), m_grid(t_grid){}
+		Weapon( sf::Vector2f& t_holdPoint, sf::Vector2f t_shootingPointOffset, Grid* t_grid, Tag t_tag) : m_holdingPoint(t_holdPoint), m_shootingPointOffset(t_shootingPointOffset), m_rightShootPoint(t_shootingPointOffset.y), m_grid(t_grid), m_bulletType(t_tag){}
 		
 	
 
@@ -26,6 +26,7 @@ class Weapon
 		sf::Sprite m_body;
 	protected:
 		
+		Tag m_bulletType = Bullet_Enemy;
 
 		bool m_firing = false;
 		

@@ -288,8 +288,6 @@ void DungeonGeneration::cullRooms()
 		else
 		{
 
-
-
 			m_roomCollider[i].setFillColor(sf::Color::Yellow); // debug
 
 			m_mainRoomCollider.push_back(m_roomCollider[i]);

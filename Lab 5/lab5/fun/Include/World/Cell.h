@@ -59,6 +59,8 @@ class Cell
 		sf::RectangleShape m_body;
 
 		WorldItem* m_cellJob = nullptr;
+
+		std::map<TraversalProperty, std::string> m_cellPropertyString{ {TraversalProperty::Walkable, "Walkable"}, {TraversalProperty::Unwalkable, "Unwalkable"},{TraversalProperty::Job, "Job"} };
 	protected:
 
 		void setUpText();
@@ -85,6 +87,6 @@ class Cell
 
 		std::unordered_set<GameObject*> m_gameObjects;
 
-		std::map<TraversalProperty, std::string> m_cellPropertyString{ {TraversalProperty::Walkable, "Walkable"}, {TraversalProperty::Unwalkable, "Unwalkable"},{TraversalProperty::Job, "Job"} };
+		
 };
 

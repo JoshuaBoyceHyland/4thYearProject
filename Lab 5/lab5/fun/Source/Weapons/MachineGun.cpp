@@ -1,7 +1,7 @@
 #include "Weapons/MachineGun.h"
 
-MachineGun::MachineGun(sf::Vector2f& t_holdPoint, Grid* t_grid) :
-	Weapon( t_holdPoint,{58 - 18, 10 - 19}, t_grid),
+MachineGun::MachineGun(sf::Vector2f& t_holdPoint, Grid* t_grid, Tag t_bulletTag) :
+	Weapon( t_holdPoint,{58 - 18, 10 - 19}, t_grid, t_bulletTag),
 	m_animator("ASSETS/IMAGES/Weapons", { "/MachineGun" }, m_body, { 18,19 })
 {
 	
@@ -107,7 +107,7 @@ void MachineGun::draw(sf::RenderWindow& t_window)
 
 void MachineGun::shoot()
 {
-	std::unique_ptr<Bullet> bullet = std::make_unique<Bullet>("ASSETS/IMAGES/Weapons/Ammo/Bullet_MachineGun.png", 20 ,m_grid);
+	std::unique_ptr<Bullet> bullet = std::make_unique<Bullet>("ASSETS/IMAGES/Weapons/Ammo/Bullet_MachineGun.png", 20 ,m_grid, m_bulletType);
 	
 	sf::Vector2f ShootPointStart =m_animator.m_sprite.getPosition() + RotationMath::rotatedVector(m_shootingPointOffset, m_body.getRotation());
 	sf::Vector2f targetDirection = (m_animator.m_sprite.getPosition() + (RotationMath::rotatedVector({ m_shootingPointOffset.x * 2.0f, m_shootingPointOffset.y }, m_body.getRotation())));
