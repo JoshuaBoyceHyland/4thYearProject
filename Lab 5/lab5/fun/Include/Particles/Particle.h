@@ -12,8 +12,10 @@ class Particle
 		void update(int t_timePassed);
 
 		void draw(sf::RenderWindow& t_window);
-	private:
+
 		bool m_alive = true;
+	private:
+		
 		int m_millisecondsToLive;
 		float m_speed;
 		sf::RectangleShape m_body;

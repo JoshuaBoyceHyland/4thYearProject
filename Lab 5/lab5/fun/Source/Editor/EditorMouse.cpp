@@ -41,7 +41,7 @@ void ShipEditorMouse::checkForPartSelection()
 			break;
 		}
 	}
-	test = new ParticleSystem(m_position, sf::Color::Yellow);
+	//test = new ParticleExplosion(m_position, sf::Color::Yellow, {0,0});
 }
 
 void ShipEditorMouse::releaseSelectedPart()

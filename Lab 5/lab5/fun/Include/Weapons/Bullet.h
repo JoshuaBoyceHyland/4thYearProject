@@ -5,7 +5,7 @@
 #include "GameObject.h"
 
 #include "World/Grid.h"
-#include "ParticleSystem.h"
+#include "Particles/ParticleExplosion.h"
 
 
 class Bullet : public GameObject
@@ -82,11 +82,11 @@ class Bullet : public GameObject
 
 		}
 		
-
+		sf::Vector2f m_velocity;
 	protected:
 
 		float m_speed = 1;
-		sf::Vector2f m_velocity;
+		
 
 		Cell* currnetCell = nullptr;
 		Grid* m_grid = nullptr;

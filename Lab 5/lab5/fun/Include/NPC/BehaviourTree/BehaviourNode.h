@@ -28,7 +28,7 @@ public:
 
     BehaviourNode* decide(float t_deltaTime) override {
 
-        std::cout << "Wandering" << std::endl;
+        //std::cout << "Wandering" << std::endl;
         return this;
     }
 
@@ -56,7 +56,7 @@ public:
 
     BehaviourNode* decide(float t_deltaTime) override {
 
-        std::cout << "talking" << std::endl;
+       // std::cout << "talking" << std::endl;
         return this;
     }
     void onEnter() override
@@ -85,7 +85,7 @@ public:
 
     BehaviourNode* decide(float t_deltaTime) override {
 
-        std::cout << "attacking" << std::endl;
+       // std::cout << "attacking" << std::endl;
         return this;
     }
     void onEnter() override
@@ -113,7 +113,7 @@ public:
 
     BehaviourNode* decide(float t_deltaTime) override {
 
-        std::cout << "Dying" << std::endl;
+       // std::cout << "Dying" << std::endl;
         return this;
     }
     void onEnter() override
