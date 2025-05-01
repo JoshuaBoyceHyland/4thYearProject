@@ -83,6 +83,12 @@ std::deque<Node*>Agent::pathFindTo(Node* t_goalNode)
         m_currentNode = m_map->cellSelection(m_position)->getNode();
     }
 
+    if (m_currentNode->m_row == t_goalNode->m_row && m_currentNode->m_column == t_goalNode->m_column)
+    {
+        m_user->reachedTarget();
+        return path;
+    }
+
     m_hasTarget = true;
     
     m_map->resetGridCellForPathFinding(true, true);

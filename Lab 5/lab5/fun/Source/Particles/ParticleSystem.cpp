@@ -19,8 +19,6 @@ void ParticleSystem::update(float t_deltaTime)
 		m_activeParticles.end() 
 	);
 
-	std::cout << "Particles active: " <<m_activeParticles.size() <<std::endl;
-
 	for (int i = 0; i < m_activeParticles.size(); i++)
 	{
 		m_activeParticles[i]->update();

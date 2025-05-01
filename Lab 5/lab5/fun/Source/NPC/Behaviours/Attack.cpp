@@ -62,6 +62,7 @@ void Attack::draw(sf::RenderWindow& t_window)
 void Attack::getPointAroundPlayer()
 {
 	Cell* cellAroundPlayer = nullptr;
+	Cell* playerCell = m_grid->cellSelection(m_player->getPosition());
 
 	while (cellAroundPlayer == nullptr  )
 	{
@@ -80,10 +81,12 @@ void Attack::getPointAroundPlayer()
 
 		cellAroundPlayer = m_grid->cellSelection(m_player->getPosition() + randDirection);
 
-
-		if (cellAroundPlayer != nullptr || cellAroundPlayer != m_grid->cellSelection(m_player->getPosition()) || cellAroundPlayer != m_grid->cellSelection(m_animator->m_sprite.getPosition()));
+		
+		if (cellAroundPlayer != nullptr );
 		{
-			if (cellAroundPlayer->getProperty() != TraversalProperty::Walkable)
+			bool sameCellAsPlayer = playerCell->getNode()->m_row == cellAroundPlayer->getNode()->m_row && playerCell->getNode()->m_column == cellAroundPlayer->getNode()->m_column;
+
+			if (cellAroundPlayer->getProperty() != TraversalProperty::Walkable || sameCellAsPlayer)
 			{
 				cellAroundPlayer = nullptr;
 			}

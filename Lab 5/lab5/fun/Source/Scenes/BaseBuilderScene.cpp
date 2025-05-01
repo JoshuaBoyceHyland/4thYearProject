@@ -98,7 +98,7 @@ void BaseBuilderScene::processMouseWheel(sf::Event t_event)
 	float delta = t_event.mouseWheel.delta;
 
 	float zoomValue = m_camera.zoom(delta);
-	std::cout << zoomValue << std::endl;
+	//std::cout << zoomValue << std::endl;
 	m_editor.updateScale(zoomValue);
 	m_editor.updatePosition(m_window.mapPixelToCoords({ 0,0 }));
 }

@@ -100,7 +100,7 @@ void BaseGameplayScene::processMouseMove(sf::Event t_event)
 
 void BaseGameplayScene::processMouseWheel(sf::Event t_event)
 {
-	std::cout << m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)).x << " " << m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)).y << std::endl;
+	//std::cout << m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)).x << " " << m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)).y << std::endl;
 	float delta = t_event.mouseWheel.delta;
 
 	float zoomValue = m_camera.zoom(delta);

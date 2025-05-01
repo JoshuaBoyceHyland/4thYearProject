@@ -102,7 +102,7 @@ float Weapon::updateWeaponRotation(sf::Vector2f t_lookDirection)
 		m_body.setScale({ 1, -1 });
 	}
 
-	std::cout << angle << std::endl;
+	//std::cout << angle << std::endl;
 
 	return angle;
 }
