@@ -1,6 +1,6 @@
 #include "ParticleSystem.h"
 
-ParticleSystem::ParticleSystem(sf::Vector2f t_position)
+ParticleSystem::ParticleSystem(sf::Vector2f t_position, sf::Color t_color)
 {
 	for (int i = 0; i < 200; i++)
 	{
@@ -13,7 +13,7 @@ ParticleSystem::ParticleSystem(sf::Vector2f t_position)
 		int randTTL = rand() % 10001;
 		float randRotation = rand() % 360;
 
-		m_particles.push_back(Particle(randTTL,randVelocity, t_position,randRotation, sf::Color::Red, 1, 1));
+		m_particles.push_back(Particle(randTTL,randVelocity, t_position,randRotation, t_color, 1, 1));
 	}
 
 	m_clock.restart();

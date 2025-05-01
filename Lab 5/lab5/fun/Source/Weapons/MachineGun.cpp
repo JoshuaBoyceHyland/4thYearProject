@@ -1,8 +1,7 @@
 #include "Weapons/MachineGun.h"
 
 MachineGun::MachineGun(sf::Vector2f& t_holdPoint, Grid* t_grid) :
-	Weapon( t_holdPoint,{58 - 18, 10 - 19}, t_grid),
-	m_animator("ASSETS/IMAGES/Weapons", { "/MachineGun" }, m_body, { 18,19 })
+	Weapon( t_holdPoint,{58 - 18, 10 - 19}, t_grid, "ASSETS/IMAGES/Weapons", { "/MachineGun" }, { 18,19 }, sf::Color::Red)
 {
 	
 }
@@ -38,7 +37,7 @@ void MachineGun::update(float t_deltaTime )
 
 				if (bullet->collisionCheck())
 				{
-					m_particleSystem.push_back(std::make_unique<ParticleSystem>(bullet->m_body.getPosition()));
+					m_particleSystem.push_back(std::make_unique<ParticleSystem>(bullet->m_body.getPosition(), m_particleColour));
 				
 					return true;
 				}

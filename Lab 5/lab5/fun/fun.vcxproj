@@ -120,6 +120,7 @@
     <ClInclude Include="Include\NPC\BehaviourTree\Sequence.h" />
     <ClInclude Include="Include\NPC\Talking.h" />
     <ClInclude Include="Include\Weapons\Weapon.h" />
+    <ClInclude Include="Include\Weapons\ShotGun.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="ASSETS\IMAGES\SFML-LOGO.png">
@@ -143,6 +144,7 @@
     <None Include="map.json" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Weapons\ShotGun.cpp" />
     <ClCompile Include="Source\NPC\Death.cpp" />
     <ClCompile Include="Source\Weapons\Bullet.cpp" />
     <ClCompile Include="Source\Weapons\MachineGun.cpp" />

@@ -41,7 +41,7 @@ void ShipEditorMouse::checkForPartSelection()
 			break;
 		}
 	}
-	test = new ParticleSystem(m_position);
+	test = new ParticleSystem(m_position, sf::Color::Yellow);
 }
 
 void ShipEditorMouse::releaseSelectedPart()

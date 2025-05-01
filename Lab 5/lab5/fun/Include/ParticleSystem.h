@@ -6,7 +6,7 @@ class ParticleSystem
 
 
 	public:
-		ParticleSystem(sf::Vector2f t_position);
+		ParticleSystem(sf::Vector2f t_position, sf::Color t_color);
 
 		void update();
 		void draw(sf::RenderWindow& t_window);
