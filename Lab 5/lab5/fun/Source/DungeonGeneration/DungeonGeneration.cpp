@@ -815,10 +815,7 @@ void DungeonGeneration::placeEnclosingGrid()
 	for (int i = 0; i < m_mainRooms.size(); i++)
 	{
 
-		sf::Vector2f roomPos = m_mainRooms[i]->m_grid.m_cells[0][0].m_body.getPosition();
-		sf::Vector2f localRoomPos = roomPos - gridstart;
-
-		m_mainRooms[i]->emplaceOnGrid(m_dungeon, localRoomPos);
+		m_mainRooms[i]->emplaceOnGrid(m_dungeon, m_mainRooms[i]->m_grid.m_cells[0][0].m_body.getPosition());
 
 	}
 }

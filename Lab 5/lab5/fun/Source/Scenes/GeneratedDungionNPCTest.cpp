@@ -5,7 +5,6 @@ Scene( t_window),
 m_camera(m_window)
 {
 	m_dungeon = m_dungeonGenerator.generate();
-	m_dungeon->setPosition({ 50,50 });
 	m_dungeon->setForGamePlay();
 	m_player = new BasePlayer(m_dungeon);
 	m_player->setPosition(m_dungeon->getRandomTraverableCell()->getNode()->getPosition());
@@ -58,19 +57,30 @@ void GeneratedDungionNPCTestScene::processMousePress(sf::Event t_event)
 	{
 		m_player->fireWeapon();
 	}
-	//if (sf::Mouse::Middle == t_event.mouseButton.button)
-	//{
-	//	m_camera.startMove();
-	//}
+
+
+	if (sf::Mouse::Right == t_event.mouseButton.button)
+	{
+		if (prev)
+		{
+			prev->setColor(sf::Color::White);
+		}
+		cell->setColor(sf::Color::Red);
+		prev = cell;
+	}
+	if (sf::Mouse::Middle == t_event.mouseButton.button)
+	{
+		m_camera.startMove();
+	}
 
 }
 
 void GeneratedDungionNPCTestScene::processMouseRelease(sf::Event t_event)
 {
-	//if (sf::Mouse::Middle == t_event.mouseButton.button)
-	//{
-	//	m_camera.endMove();
-	//}
+	/*if (sf::Mouse::Middle == t_event.mouseButton.button)
+	{
+		m_camera.endMove();
+	}*/
 }
 
 void GeneratedDungionNPCTestScene::processMouseMove(sf::Event t_event)

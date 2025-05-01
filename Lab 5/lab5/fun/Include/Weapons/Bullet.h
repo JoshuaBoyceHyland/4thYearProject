@@ -43,7 +43,7 @@ class Bullet : public GameObject
 
 			for (GameObject* gameObject : gameObjects)
 			{
-				if (gameObject->m_tag == Tag::Enemy || gameObject->m_tag == Tag::Player)
+				if (gameObject->m_tag == Tag::Enemy || (gameObject->m_tag == Tag::Player && m_tag != Bullet_Player) )
 				{
 					if (m_body.getGlobalBounds().intersects(gameObject->m_body.getGlobalBounds()))
 					{
