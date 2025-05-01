@@ -1,4 +1,4 @@
-#include "NPC/Agent.h"
+#include "NPC/Actors/Agent.h"
 
 Agent::Agent(Grid* t_map, sf::Vector2f t_position) : m_map(t_map), m_position(t_position)
 {

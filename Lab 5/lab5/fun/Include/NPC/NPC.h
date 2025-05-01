@@ -1,10 +1,12 @@
 #pragma once
 #include "GameObject.h"
-#include "Animator.h"
-#include "BehaviourManagert.h"
-#include "Attack.h"
-#include "Death.h"
-
+#include "Actors/Animator.h"
+#include "Behaviours/Attack.h"
+#include "Behaviours/Death.h"
+#include "BehaviourTree/ConditionNodes.h"
+#include "BehaviourTree/Selector.h"
+#include "BehaviourTree/Sequence.h"
+#include "BehaviourTree/BehaviourNode.h"
 class NPC : public GameObject
 {
 

@@ -1,4 +1,4 @@
-#include "NPC/Death.h"
+#include "NPC/Behaviours/Death.h"
 
 Death::Death(Grid* t_grid, Agent* t_agent, Animator* t_animator) : 
 	Behaviour( t_grid, t_agent, t_animator)

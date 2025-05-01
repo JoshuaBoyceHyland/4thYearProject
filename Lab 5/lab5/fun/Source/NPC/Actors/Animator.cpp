@@ -1,4 +1,4 @@
-#include "NPC/Animator.h"
+#include "NPC/Actors/Animator.h"
 
 Animator::Animator(std::string t_texturesPathBase, std::vector<std::string> t_animationFolderNames, sf::Sprite& t_sprite,  sf::Vector2f t_spriteOrigin ) : 
 	m_sprite(t_sprite)

@@ -1,5 +1,5 @@
 #pragma once
-#include "NPC/Behaviour.h"
+#include "NPC/Behaviours/Behaviour.h"
 
 class Death : public Behaviour
 {

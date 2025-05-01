@@ -1,4 +1,4 @@
-#include "NPC/Attack.h"
+#include "NPC/Behaviours/Attack.h"
 
 Attack::Attack(Grid* t_grid, Agent* t_agent, Animator* t_animator) : Behaviour(t_grid, t_agent, t_animator)
 {

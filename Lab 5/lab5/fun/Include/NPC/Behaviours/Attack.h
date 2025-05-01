@@ -1,6 +1,7 @@
   #pragma once
 #include "Behaviour.h"
 #include "BasePlayer.h"
+
 class Attack : public Behaviour
 {
 	public:

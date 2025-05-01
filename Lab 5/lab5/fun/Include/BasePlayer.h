@@ -1,7 +1,7 @@
 #pragma once
 #include "GameObject.h"
 #include "World/Grid.h"
-#include "NPC/Animator.h"
+#include "NPC/Actors/Animator.h"
 #include "WorldItems/ShipBuilderTerminal.h"
 #include "Weapons/MachineGun.h"
 #include "Weapons/ShotGun.h"

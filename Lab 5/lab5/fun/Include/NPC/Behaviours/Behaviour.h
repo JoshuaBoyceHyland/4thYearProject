@@ -1,9 +1,8 @@
 #pragma once
-#include "Action.h"
 #include "World/Grid.h"
-#include "Agent.h"
-#include "AgentUser.h"
-#include "Animator.h"
+#include "NPC/Actors/Agent.h"
+#include "NPC/Actors/AgentUser.h"
+#include "NPC/Actors/Animator.h"
 
 class Behaviour : public AgentUser
 {

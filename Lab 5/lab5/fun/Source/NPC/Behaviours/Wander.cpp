@@ -1,4 +1,4 @@
-#include "NPC/Wander.h"
+#include "NPC/Behaviours/Wander.h"
 
 Wander::Wander(Grid* t_grid, Agent* t_agent, Animator* t_animator) : Behaviour( t_grid, t_agent, t_animator)
 {

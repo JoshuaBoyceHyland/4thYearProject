@@ -1,7 +1,7 @@
 #pragma once
 #include "Utility/VectorMath.h"
 #include "Utility/RotationMath.h"
-#include "NPC/Animator.h"
+#include "NPC/Actors/Animator.h"
 #include "World/Grid.h"
 #include "Bullet.h"
 #include "Particles/ParticleSystem.h"

@@ -1,6 +1,6 @@
 #pragma once
-#include "Behaviour.h"
-#include "Wander.h"
+#include "Behaviours/Behaviour.h"
+#include "Behaviours/Wander.h"
 #include "BehaviourTree/Selector.h"
 #include "BehaviourTree/Sequence.h"
 #include "BehaviourTree/ConditionNodes.h"

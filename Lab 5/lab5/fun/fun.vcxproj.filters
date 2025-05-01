@@ -41,15 +41,10 @@
     <ClInclude Include="Include\Scenes\BaseGamePlayScene.h" />
     <ClInclude Include="Include\Scenes\RoomBuilderScene.h" />
     <ClInclude Include="Include\Scenes\ShipEditorScene.h" />
-    <ClInclude Include="Include\NPC\Agent.h" />
-    <ClInclude Include="Include\NPC\Animator.h" />
     <ClInclude Include="Include\NPC\NPC.h" />
     <ClInclude Include="Include\NPC\Behaviour.h" />
-    <ClInclude Include="Include\NPC\AgentUser.h" />
     <ClInclude Include="Include\NPC\BehaviourManagert.h" />
     <ClInclude Include="Include\NPC\BehaviourTypes.h" />
-    <ClInclude Include="Include\NPC\Wander.h" />
-    <ClInclude Include="Include\NPC\Action.h" />
     <ClInclude Include="Include\RoomBuilderEditiorBox.h" />
     <ClInclude Include="Include\Utility\FileReader.h" />
     <ClInclude Include="Include\Utility\MapSaver.h" />
@@ -96,14 +91,19 @@
     <ClInclude Include="Include\NPC\BehaviourTree\ConditionNodes.h" />
     <ClInclude Include="Include\NPC\BehaviourTree\Sequence.h" />
     <ClInclude Include="Include\GameObject.h" />
-    <ClInclude Include="Include\NPC\Talking.h" />
-    <ClInclude Include="Include\NPC\Attack.h" />
     <ClInclude Include="Include\Weapons\Weapon.h" />
     <ClInclude Include="Include\Weapons\MachineGun.h" />
     <ClInclude Include="Include\Weapons\Bullet.h" />
-    <ClInclude Include="Include\NPC\Death.h" />
     <ClInclude Include="Include\Weapons\ShotGun.h" />
     <ClInclude Include="Include\Particles\ParticleSystem.h" />
+    <ClInclude Include="Include\NPC\Actors\Animator.h" />
+    <ClInclude Include="Include\NPC\Actors\AgentUser.h" />
+    <ClInclude Include="Include\NPC\Actors\Agent.h" />
+    <ClInclude Include="Include\NPC\Behaviours\Attack.h" />
+    <ClInclude Include="Include\NPC\Behaviours\Behaviour.h" />
+    <ClInclude Include="Include\NPC\Behaviours\Death.h" />
+    <ClInclude Include="Include\NPC\Behaviours\Talking.h" />
+    <ClInclude Include="Include\NPC\Behaviours\Wander.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="fun.rc" />
@@ -133,11 +133,8 @@
     <ClCompile Include="Source\Scenes\MenuScene.cpp" />
     <ClCompile Include="Source\Scenes\Scene.cpp" />
     <ClCompile Include="Source\Scenes\SceneManager.cpp" />
-    <ClCompile Include="Source\NPC\Agent.cpp" />
-    <ClCompile Include="Source\NPC\Animator.cpp" />
     <ClCompile Include="Source\NPC\NPC.cpp" />
     <ClCompile Include="Source\NPC\BehaviourManagert.cpp" />
-    <ClCompile Include="Source\NPC\Wander.cpp" />
     <ClCompile Include="Source\Utility\MapSaver.cpp" />
     <ClCompile Include="Source\Utility\RotationMath.cpp" />
     <ClCompile Include="Source\Utility\VectorMath.cpp" />
@@ -173,14 +170,17 @@
     <ClCompile Include="Source\DungeonGeneration\DungeonGeneration.cpp" />
     <ClCompile Include="GeneratedRoom.cpp" />
     <ClCompile Include="Source\Scenes\GeneratedDungionNPCTest.cpp" />
-    <ClCompile Include="Source\NPC\Talking.cpp" />
-    <ClCompile Include="Source\NPC\Attack.cpp" />
     <ClCompile Include="Source\Weapons\Weapon.cpp" />
     <ClCompile Include="Source\Weapons\MachineGun.cpp" />
     <ClCompile Include="Source\Weapons\Bullet.cpp" />
-    <ClCompile Include="Source\NPC\Death.cpp" />
     <ClCompile Include="Source\Weapons\ShotGun.cpp" />
     <ClCompile Include="Source\Particles\ParticleSystem.cpp" />
+    <ClCompile Include="Source\NPC\Actors\Agent.cpp" />
+    <ClCompile Include="Source\NPC\Actors\Animator.cpp" />
+    <ClCompile Include="Source\NPC\Behaviours\Attack.cpp" />
+    <ClCompile Include="Source\NPC\Behaviours\Death.cpp" />
+    <ClCompile Include="Source\NPC\Behaviours\Talking.cpp" />
+    <ClCompile Include="Source\NPC\Behaviours\Wander.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="map.txt" />

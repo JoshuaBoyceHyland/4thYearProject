@@ -1,9 +1,9 @@
 #pragma once
 
-#include "NPC/Attack.h"
-#include "NPC/Talking.h"
-#include "NPC/Wander.h"
-#include "NPC/Death.h"
+#include "NPC/Behaviours/Attack.h"
+#include "NPC/Behaviours/Talking.h"
+#include "NPC/Behaviours/Wander.h"
+#include "NPC/Behaviours/Death.h"
 
 enum class BehaviourState{ Failed, Running, Succeeded};
 
