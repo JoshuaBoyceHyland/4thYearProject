@@ -1,7 +1,7 @@
 #include "Weapons/MachineGun.h"
 
-MachineGun::MachineGun(sf::Vector2f& t_holdPoint, Grid* t_grid) :
-	Weapon( t_holdPoint,{58 - 18, 10 - 19}, t_grid, "ASSETS/IMAGES/Weapons", { "/MachineGun" }, { 18,19 }, sf::Color::Red, 100, 500)
+MachineGun::MachineGun(sf::Vector2f& t_holdPoint, Grid* t_grid, Tag t_bulletTag) :
+	Weapon( t_holdPoint,{58 - 18, 10 - 19}, t_grid, "ASSETS/IMAGES/Weapons", { "/MachineGun" }, { 18,19 }, sf::Color::Red, 100, 500, t_bulletTag)
 {
 	
 }

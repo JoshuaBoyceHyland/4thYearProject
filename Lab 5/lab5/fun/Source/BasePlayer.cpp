@@ -7,7 +7,7 @@ m_map(t_map)
 	m_body.setPosition({ 600, 600 });
 	m_tag = Player;
 
-	m_currentWeapon = new MachineGun(m_gunHoldPoint, t_map, Bullet_Player);
+	m_currentWeapon = new ShotGun(m_gunHoldPoint, t_map, Bullet_Player);
 }
 
 void BasePlayer::update(float t_deltaTime)

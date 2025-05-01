@@ -4,7 +4,7 @@
 class ShotGun :  public Weapon
 {
 	public:
-		ShotGun(sf::Vector2f& t_holdPoint, Grid* t_grid);
+		ShotGun(sf::Vector2f& t_holdPoint, Grid* t_grid, Tag t_bulletTag);
 		void shoot() override;
 	private:
 

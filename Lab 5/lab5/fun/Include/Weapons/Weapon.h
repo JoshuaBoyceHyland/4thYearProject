@@ -11,13 +11,15 @@ class Weapon
 	public :
 		Weapon( sf::Vector2f& t_holdPoint, sf::Vector2f t_shootingPointOffset, Grid* t_grid,
 		std::string t_spriteFolder, std::vector<std::string>t_animationFolderPath, sf::Vector2f t_spriteOrigin, 
-		sf::Color t_particleColour, int t_numOfParticles, int t_particleTTL) : 
+		sf::Color t_particleColour, int t_numOfParticles, int t_particleTTL, 
+			Tag t_bulletType) : 
 		m_holdingPoint(t_holdPoint), 
 		m_shootingPointOffset(t_shootingPointOffset), 
 		m_rightShootPoint(t_shootingPointOffset.y), 
 		m_grid(t_grid),
 		m_animator( t_spriteFolder, t_animationFolderPath, m_body, t_spriteOrigin),
-		m_particleSystem(t_particleColour, t_numOfParticles, t_particleTTL )
+		m_particleSystem(t_particleColour, t_numOfParticles, t_particleTTL ), 
+		m_bulletType(t_bulletType)
 		{}
 		
 		virtual void update(float t_deltaTime);
