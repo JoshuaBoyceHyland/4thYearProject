@@ -14,8 +14,8 @@
     <ClInclude Include="Include\MovableCamera.h" />
     <ClInclude Include="Include\Node.h" />
     <ClInclude Include="Include\NPC.h" />
-    <ClInclude Include="Include\ParticleSystem.h" />
-    <ClInclude Include="Include\Particle.h" />
+    <ClInclude Include="Include\Particles\ParticleExplosion.h" />
+    <ClInclude Include="Include\Particles\Particle.h" />
     <ClInclude Include="Include\PartsLibarary.h" />
     <ClInclude Include="Include\Room.h" />
     <ClInclude Include="Include\RotationMath.h" />
@@ -102,6 +102,8 @@
     <ClInclude Include="Include\Weapons\MachineGun.h" />
     <ClInclude Include="Include\Weapons\Bullet.h" />
     <ClInclude Include="Include\NPC\Death.h" />
+    <ClInclude Include="Include\Weapons\ShotGun.h" />
+    <ClInclude Include="Include\Particles\ParticleSystem.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="fun.rc" />
@@ -121,8 +123,8 @@
     <ClCompile Include="Source\Game.cpp" />
     <ClCompile Include="Source\GameData.cpp" />
     <ClCompile Include="Source\MovableCamera.cpp" />
-    <ClCompile Include="Source\Particle.cpp" />
-    <ClCompile Include="Source\ParticleSystem.cpp" />
+    <ClCompile Include="Source\Particles\Particle.cpp" />
+    <ClCompile Include="Source\Particles\ParticleExplosion.cpp" />
     <ClCompile Include="Source\TextureSplitter.cpp" />
     <ClCompile Include="Source\Scenes\RoomBuilderScene.cpp" />
     <ClCompile Include="Source\Scenes\BaseGamePlayScene.cpp" />
@@ -177,6 +179,8 @@
     <ClCompile Include="Source\Weapons\MachineGun.cpp" />
     <ClCompile Include="Source\Weapons\Bullet.cpp" />
     <ClCompile Include="Source\NPC\Death.cpp" />
+    <ClCompile Include="Source\Weapons\ShotGun.cpp" />
+    <ClCompile Include="Source\Particles\ParticleSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="map.txt" />

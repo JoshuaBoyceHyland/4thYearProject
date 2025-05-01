@@ -202,11 +202,17 @@ void Grid::highlightNeighbours(sf::Vector2f t_mouseCLick)
 
 Cell* Grid::cellSelection(sf::Vector2f t_mouseCLick)
 {
-	if (t_mouseCLick.y < 0) { return nullptr; }
-	if (t_mouseCLick.x < 0) { return nullptr; }
 
-	int row = t_mouseCLick.y / m_cellHeight;
-	int column = t_mouseCLick.x / m_cellWidth;
+	sf::Vector2f gridStart = m_cells[0][0].m_body.getPosition() - (m_cells[0][0].m_body.getSize() / 2.0f);
+
+	sf::Vector2f offsettedClick = t_mouseCLick - gridStart;
+
+
+	if (offsettedClick.y < 0) { return nullptr; }
+	if (offsettedClick.x < 0) { return nullptr; }
+
+	int row = offsettedClick.y / m_cellHeight;
+	int column = offsettedClick.x / m_cellWidth;
 
 	// checking the row and column is in the bounds
 	if (row < 0 || row >= MAX_ROWS) { return nullptr; }

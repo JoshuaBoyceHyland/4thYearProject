@@ -5,7 +5,7 @@
 #include "GameObject.h"
 
 #include "World/Grid.h"
-#include "ParticleSystem.h"
+#include "Particles/ParticleExplosion.h"
 
 
 class Bullet : public GameObject
@@ -43,7 +43,7 @@ class Bullet : public GameObject
 
 			for (GameObject* gameObject : gameObjects)
 			{
-				if (gameObject->m_tag == Tag::Enemy || gameObject->m_tag == Tag::Player)
+				if (gameObject->m_tag == Tag::Enemy || (gameObject->m_tag == Tag::Player && m_tag != Bullet_Player) )
 				{
 					if (m_body.getGlobalBounds().intersects(gameObject->m_body.getGlobalBounds()))
 					{
@@ -82,11 +82,11 @@ class Bullet : public GameObject
 
 		}
 		
-
+		sf::Vector2f m_velocity;
 	protected:
 
 		float m_speed = 1;
-		sf::Vector2f m_velocity;
+		
 
 		Cell* currnetCell = nullptr;
 		Grid* m_grid = nullptr;

@@ -3,7 +3,7 @@
 #include "Ship/ShipPart.h"
 #include "Utility/VectorMath.h"
 #include "Ship/Connector.h"
-#include "ParticleSystem.h"
+#include "Particles/ParticleExplosion.h"
 /// <summary>
 /// Will track mouse position and is in charge of selecting any ShipPart and connecting it to another.
 /// </summary>
@@ -56,7 +56,7 @@ class ShipEditorMouse
 		/// </summary>
 		ShipPart* m_shipOrigin = nullptr;
 
-		ParticleSystem* test = nullptr;
+		ParticleExplosion* test = nullptr;
 	private:
 
 		/// <summary>

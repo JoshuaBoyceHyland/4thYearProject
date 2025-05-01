@@ -21,6 +21,7 @@ class GeneratedDungionNPCTestScene : public Scene
 
 	private:
 
+		Cell* prev;
 		BasePlayer* m_player;
 		std::vector<NPC*> m_npc;
 		Grid* m_dungeon;

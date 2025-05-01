@@ -4,7 +4,7 @@
 #include "NPC/Animator.h"
 #include "WorldItems/ShipBuilderTerminal.h"
 #include "Weapons/MachineGun.h"
-
+#include "Weapons/ShotGun.h"
 class BasePlayer : public GameObject
 {
 	public:
