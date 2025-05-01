@@ -3,7 +3,7 @@
 NPC::NPC(Grid* t_map, BasePlayer* player, sf::Vector2f t_position) :
 m_grid(t_map),
 m_agent(t_map, t_position),
-m_animator("ASSETS/IMAGES/NPC/1", { "/Idle", "/Run", "/Dead"}, m_body, {20.0f, 56.0f})
+m_animator("ASSETS/IMAGES/NPC/1", { "/Idle", "/Run", "/Death", "/Dash"}, m_body, {20.0f, 100.0f})
 {
 	m_tag = Enemy;
 	setUpBehaviourTree(t_map, player);
@@ -17,7 +17,7 @@ void NPC::update(float deltatime)
 
 	BehaviourNode* newDecision = m_behaviourTree->decide(deltatime);
 
-	if (newDecision != m_currentBehaviour)
+	if ( newDecision && newDecision != m_currentBehaviour )
 	{
 		if (m_currentBehaviour)
 		{
@@ -78,6 +78,7 @@ void NPC::setUpBehaviourTree(Grid* t_map, BasePlayer* t_player)
 	Death* death = new Death(t_map, &m_agent, &m_animator);
 
 	Talking* talk = new Talking(t_map, &m_agent, &m_animator);
+	Dash* dash = new Dash(t_map, &m_agent, &m_animator, m_startDashing);
 	Attack* attack = new Attack(t_map, &m_agent, &m_animator);
 	attack->m_player = t_player;
 
@@ -87,6 +88,10 @@ void NPC::setUpBehaviourTree(Grid* t_map, BasePlayer* t_player)
 	deathSequenceChildren.push_back(std::make_unique<DeathNode>(death));
 	std::unique_ptr<Sequence> deathSequence = std::make_unique<Sequence>(std::move(deathSequenceChildren));
 
+	std::vector<std::unique_ptr<BehaviourNode>> dashSequenceChildren;
+	dashSequenceChildren.push_back(std::make_unique<Condition>(std::bind(&NPC::bulletDetected, this)));
+	dashSequenceChildren.push_back(std::make_unique<DashNode>(dash));
+	std::unique_ptr<Sequence> dashSequence = std::make_unique<Sequence>(std::move(dashSequenceChildren));
 
 	std::vector<std::unique_ptr<BehaviourNode>> attackSequenceChildren;
 	attackSequenceChildren.push_back(std::make_unique<Condition>(std::bind(&NPC::attackPlayer, this)));
@@ -94,14 +99,49 @@ void NPC::setUpBehaviourTree(Grid* t_map, BasePlayer* t_player)
 	std::unique_ptr<Sequence>  attackSequence = std::make_unique<Sequence>(std::move(attackSequenceChildren));
 
 	std::vector<std::unique_ptr<BehaviourNode>> selectorChildren;
+	selectorChildren.push_back(std::move(dashSequence));
 
-	selectorChildren.push_back(std::move(deathSequence)); //  check if dead
-	selectorChildren.push_back(std::move(attackSequence)); // check if in attacking range
-	selectorChildren.push_back(std::make_unique<WanderNode>(wander)); // else wander
+	//selectorChildren.push_back(std::move(deathSequence)); //  check if dead
+	//selectorChildren.push_back(std::move(attackSequence)); // check if in attacking range
+	//selectorChildren.push_back(std::make_unique<WanderNode>(wander)); // else wander
 
 	m_behaviourTree = std::make_unique<Selector>(std::move(selectorChildren));
 
 	/*m_agent.m_user.push_back(wander);*/
+}
+
+bool NPC::bulletDetected()
+{
+	if (!m_startDashing)
+	{
+		Node* currentNode = m_grid->cellSelection(m_body.getPosition())->getNode();
+		std::vector<Node*> neighbours = currentNode->getNeighbours();
+
+		for (int i = 0; i < neighbours.size(); i++)
+		{
+			std::unordered_set<GameObject*> gameobjects = m_grid->m_cells[neighbours[i]->m_row][neighbours[i]->m_column].getGameObjects();
+
+			for (GameObject* gameobject : gameobjects)
+			{
+				if (gameobject->m_tag == Bullet_Player)
+				{
+					m_startDashing = true;
+					if (gameobject->m_body.getPosition().x > m_body.getPosition().x)
+					{
+						m_body.setScale(-1, 1);
+					}
+					else
+					{
+						m_body.setScale(1, 1);
+					}
+					return true;
+				}
+			}
+		}
+	}
+	
+
+	return false;
 }
 
 bool NPC::closeToPlayer()

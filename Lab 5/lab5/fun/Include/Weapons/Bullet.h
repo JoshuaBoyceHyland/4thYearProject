@@ -12,75 +12,18 @@ class Bullet : public GameObject
 {
 	public: 
 		
-		Bullet(std::string t_texturePath, float t_speed, Grid* t_grid, Tag t_tag) : m_speed(t_speed), m_grid( t_grid)
-		{
-			Loader* loader = Loader::getInstance();
-			Texture* texture = loader->loadTexture(t_texturePath);
-			m_tag = t_tag;
-			m_body.setTexture(texture->texture);
+		Bullet(std::string t_texturePath, float t_speed, Grid* t_grid, Tag t_tag);
 
-			m_velocity = { t_speed, t_speed };
-		}
-
-		void update(float t_deltaTime)
-		{
-			
-			currnetCell = m_grid->cellSelection(m_body.getPosition() + m_velocity);
+		void update(float t_deltaTime);
 		
-			m_body.setPosition(m_body.getPosition() + m_velocity);
-		}
 
-		bool collisionCheck()
-		{
-			if (currnetCell->getProperty() == TraversalProperty::Unwalkable)
-			{
-				
-				return true;
-			}
+		bool collisionCheck();
 
-			std::unordered_set<GameObject*> gameObjects = currnetCell->getGameObjects();
+		void shoot(sf::Vector2f t_startPoint, sf::Vector2f t_targetDirection);
 
+		void draw(sf::RenderWindow& t_window);
 
-			for (GameObject* gameObject : gameObjects)
-			{
-				if (gameObject->m_tag == Tag::Enemy || (gameObject->m_tag == Tag::Player && m_tag != Bullet_Player) )
-				{
-					if (m_body.getGlobalBounds().intersects(gameObject->m_body.getGlobalBounds()))
-					{
-						gameObject->collisionWith(m_tag);
-						return true;
-					}
-			
-				}
-
-
-			}
-
-			return false;
-		}
-
-		void shoot(sf::Vector2f t_startPoint, sf::Vector2f t_targetDirection)
-		{
-			m_body.setPosition(t_startPoint);
-			sf::Vector2f direction = VectorMath::unitVector(t_targetDirection - t_startPoint );
-			float angle = VectorMath::vectorToAngle(direction);
-			m_body.setRotation(angle);
-			m_velocity = direction * m_speed;
-
-			currnetCell = m_grid->cellSelection(t_startPoint);
-
-			
-		}
-
-		void draw(sf::RenderWindow& t_window)
-		{
-			t_window.draw(m_body);
-		}
-
-		void collisionWith(Tag t_tag)
-		{
-
-		}
+		void collisionWith(Tag t_tag);
 		
 		sf::Vector2f m_velocity;
 	protected:

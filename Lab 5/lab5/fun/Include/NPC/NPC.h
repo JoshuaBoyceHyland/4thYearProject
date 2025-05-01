@@ -22,6 +22,8 @@ class NPC : public GameObject
 		void collisionWith(Tag t_tag) override;
 
 	private:
+		
+		bool bulletDetected();
 
 		bool closeToPlayer();
 
@@ -37,7 +39,7 @@ class NPC : public GameObject
 		float m_health = 100;
 
 		bool m_startedAttacking = false;
-
+		bool m_startDashing = false;
 		
 };
 

@@ -4,6 +4,7 @@
 #include "NPC/Behaviours/Talking.h"
 #include "NPC/Behaviours/Wander.h"
 #include "NPC/Behaviours/Death.h"
+#include "NPC/Behaviours/Dash.h"
 
 enum class BehaviourState{ Failed, Running, Succeeded};
 
@@ -134,4 +135,34 @@ public:
 
 private:
     Death* m_dying;
+};
+
+
+class DashNode : public BehaviourNode {
+public:
+    DashNode(Dash* t_dying) : m_dash(t_dying) {}
+
+    BehaviourNode* decide(float t_deltaTime) override {
+
+        std::cout << "Dashing" << std::endl;
+        return this;
+    }
+    void onEnter() override
+    {
+        m_dash->startDash();
+    }
+    void preform(float t_deltaTime) override
+    {
+
+        m_dash->update(t_deltaTime);
+    }
+
+    void onExit() override
+    {
+
+    }
+    virtual Behaviour* getBehaviour() override { return  m_dash; };
+
+private:
+    Dash* m_dash;
 };

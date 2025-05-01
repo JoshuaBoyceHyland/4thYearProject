@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Include\NPC\Behaviours\Dash.h" />
     <ClInclude Include="Include\NPC\Actors\Agent.h" />
     <ClInclude Include="Include\NPC\Actors\AgentUser.h" />
     <ClInclude Include="Include\NPC\Actors\Animator.h" />
@@ -149,6 +150,7 @@
     <None Include="map.json" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\NPC\Behaviours\Dash.cpp" />
     <ClCompile Include="Source\NPC\Actors\Agent.cpp" />
     <ClCompile Include="Source\NPC\Actors\Animator.cpp" />
     <ClCompile Include="Source\NPC\Behaviours\Attack.cpp" />

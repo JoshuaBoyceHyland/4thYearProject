@@ -104,6 +104,11 @@
     <ClInclude Include="Include\NPC\Behaviours\Death.h" />
     <ClInclude Include="Include\NPC\Behaviours\Talking.h" />
     <ClInclude Include="Include\NPC\Behaviours\Wander.h" />
+    <ClInclude Include="Include\NPC\Death.h" />
+    <ClInclude Include="Include\NPC\AgentUser.h" />
+    <ClInclude Include="Include\NPC\Wander.h" />
+    <ClInclude Include="Include\NPC\Talking.h" />
+    <ClInclude Include="Include\NPC\Behaviours\Dash.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="fun.rc" />
@@ -181,6 +186,7 @@
     <ClCompile Include="Source\NPC\Behaviours\Death.cpp" />
     <ClCompile Include="Source\NPC\Behaviours\Talking.cpp" />
     <ClCompile Include="Source\NPC\Behaviours\Wander.cpp" />
+    <ClCompile Include="Source\NPC\Behaviours\Dash.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="map.txt" />
