@@ -10,6 +10,7 @@ class Dash : public Behaviour
 		void draw(sf::RenderWindow& t_window) override;
 		void startDash();
 
+		sf::Vector2f m_dashDirection;
 	private:
 		bool& m_dashing;
 };

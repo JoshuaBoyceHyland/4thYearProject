@@ -31,6 +31,8 @@ class NPC : public GameObject
 
 		bool dead() { return m_health <= 0; };
 
+
+		Dash* m_dashBehaviour = nullptr;
 		Grid* m_grid;
 		Agent m_agent;
 		Animator m_animator;

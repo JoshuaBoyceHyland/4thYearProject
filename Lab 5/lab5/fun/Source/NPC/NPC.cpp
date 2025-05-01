@@ -78,7 +78,7 @@ void NPC::setUpBehaviourTree(Grid* t_map, BasePlayer* t_player)
 	Death* death = new Death(t_map, &m_agent, &m_animator);
 
 	Talking* talk = new Talking(t_map, &m_agent, &m_animator);
-	Dash* dash = new Dash(t_map, &m_agent, &m_animator, m_startDashing);
+	m_dashBehaviour = new Dash(t_map, &m_agent, &m_animator, m_startDashing);
 	Attack* attack = new Attack(t_map, &m_agent, &m_animator);
 	attack->m_player = t_player;
 
@@ -90,7 +90,7 @@ void NPC::setUpBehaviourTree(Grid* t_map, BasePlayer* t_player)
 
 	std::vector<std::unique_ptr<BehaviourNode>> dashSequenceChildren;
 	dashSequenceChildren.push_back(std::make_unique<Condition>(std::bind(&NPC::bulletDetected, this)));
-	dashSequenceChildren.push_back(std::make_unique<DashNode>(dash));
+	dashSequenceChildren.push_back(std::make_unique<DashNode>(m_dashBehaviour));
 	std::unique_ptr<Sequence> dashSequence = std::make_unique<Sequence>(std::move(dashSequenceChildren));
 
 	std::vector<std::unique_ptr<BehaviourNode>> attackSequenceChildren;
@@ -156,15 +156,21 @@ bool NPC::closeToPlayer()
 
 		for (GameObject* gameobject : gameobjects)
 		{
+			sf::Vector2f bulletDirection = static_cast<Bullet*>(gameobject)->m_velocity;
+			sf::Vector2f dir = VectorMath::unitVector(bulletDirection);
+
 			if (gameobject->m_tag == Player)
 			{
 				if (gameobject->m_body.getPosition().x > m_body.getPosition().x)
 				{
 					m_body.setScale(1, 1);
+					
+					m_dashBehaviour->m_dashDirection = { dir.y, -dir.x };
 				}
 				else
 				{
 					m_body.setScale(-1, 1);
+					m_dashBehaviour->m_dashDirection = { -dir.y, dir.x };
 				}
 				return true;
 			}
