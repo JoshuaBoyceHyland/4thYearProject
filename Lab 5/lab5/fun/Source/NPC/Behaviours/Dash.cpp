@@ -18,46 +18,11 @@ void Dash::startDash()
 	m_animator->m_currentState = 3;
 
 
-	sf::Vector2 dashDirection = m_dashDirection * 300.0f;
-
-	bool dashFound = false;
-	for (int i = 0; i < 3; i++)
+	if (!tryDash(m_dashDirection))
 	{
-		sf::Vector2 finalDashDirection = dashDirection + (-m_dashDirection * (100.0f * i));
-
-		Cell* dashTarget = m_grid->cellSelection(m_animator->m_sprite.getPosition() + finalDashDirection);
-
-		if (dashTarget != nullptr&& dashTarget->getProperty() == TraversalProperty::Walkable)
-		{
-			m_agent->pathFindTo(dashTarget->getNode());
-			dashFound = true;
-			break;
-		}
-	}
-	
-
-	if (!dashFound)
-	{
-
-		sf::Vector2 dashDirection2 = -m_dashDirection * 300.0f;
-
-
-		for (int i = 0; i < 3; i++)
-		{
-			sf::Vector2 finalDashDirection = dashDirection2 + (m_dashDirection * (100.0f * i));
-
-			Cell* dashTarget = m_grid->cellSelection(m_animator->m_sprite.getPosition() + finalDashDirection);
-
-			if (dashTarget != nullptr && dashTarget->getProperty() == TraversalProperty::Walkable)
-			{
-				m_agent->pathFindTo(dashTarget->getNode());
-				break;
-			}
-		}
+		tryDash(-m_dashDirection);
 	}
 
-
-	
 
 	std::cout << "Dash started on " << m_animator->m_animations[m_animator->m_currentState].m_currentFrame << std::endl;
 	
@@ -69,6 +34,27 @@ void Dash::endDash()
 	m_animator->m_elapseReset = 8;
 	std::cout << "Dash finished on " << m_animator->m_animations[m_animator->m_currentState].m_currentFrame << std::endl;
 	
+}
+bool Dash::tryDash(sf::Vector2f t_direction)
+{
+
+	sf::Vector2f dash = t_direction * 300.0f;
+
+	for (int i = 0; i < 3; i++)
+	{
+		sf::Vector2f offset = -t_direction * (100.0f * i);
+		sf::Vector2f finalTarget = m_animator->m_sprite.getPosition() + dash + offset;
+
+
+		Cell* dashTarget = m_grid->cellSelection(finalTarget);
+
+		if (dashTarget != nullptr && dashTarget->getProperty() == TraversalProperty::Walkable)
+		{
+			m_agent->pathFindTo(dashTarget->getNode());
+			return true;
+		}
+	}
+	return false;
 }
 void Dash::update(float t_deltaTime)
 {

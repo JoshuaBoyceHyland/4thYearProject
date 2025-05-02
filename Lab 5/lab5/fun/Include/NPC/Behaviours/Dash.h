@@ -11,8 +11,12 @@ class Dash : public Behaviour
 		void startDash();
 		void endDash();
 
+		
+
 		sf::Vector2f m_dashDirection;
 	private:
+		bool tryDash(sf::Vector2f t_direction);
+
 		bool& m_dashing;
 };
 
