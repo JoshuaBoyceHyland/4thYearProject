@@ -34,9 +34,14 @@ void NPC::update(float deltatime)
 	}
 
 
-	if (m_currentBehaviour)
+	if (m_currentBehaviour->getBehaviour() != nullptr)
 	{
 		m_currentBehaviour->preform(deltatime);
+	}
+	else
+	{
+		m_animator.m_currentState = 0;
+		m_animator.animate();
 	}
 
 
@@ -65,7 +70,11 @@ void NPC::draw(sf::RenderWindow& t_window)
 	t_window.draw(m_body);
 	if (m_currentBehaviour)
 	{
-		m_currentBehaviour->getBehaviour()->draw(t_window);
+		if (m_currentBehaviour->getBehaviour())
+		{
+			m_currentBehaviour->getBehaviour()->draw(t_window);
+		}
+		
 	}
 	 // most behaviours dont need to draw 
 	
@@ -99,10 +108,12 @@ void NPC::setUpBehaviourTree(Grid* t_map, BasePlayer* t_player)
 	std::unique_ptr<Sequence>  attackSequence = std::make_unique<Sequence>(std::move(attackSequenceChildren));
 
 	std::vector<std::unique_ptr<BehaviourNode>> selectorChildren;
+	selectorChildren.push_back(std::move(deathSequence));
 	selectorChildren.push_back(std::move(dashSequence));
+	selectorChildren.push_back(std::make_unique<EmptyNode>());
 
 	//selectorChildren.push_back(std::move(deathSequence)); //  check if dead
-	//selectorChildren.push_back(std::move(attackSequence)); // check if in attacking range
+	selectorChildren.push_back(std::move(attackSequence)); // check if in attacking range
 	//selectorChildren.push_back(std::make_unique<WanderNode>(wander)); // else wander
 
 	m_behaviourTree = std::make_unique<Selector>(std::move(selectorChildren));
@@ -141,7 +152,7 @@ bool NPC::bulletDetected()
 	}
 	
 
-	return false;
+	return m_startDashing;
 }
 
 bool NPC::closeToPlayer()

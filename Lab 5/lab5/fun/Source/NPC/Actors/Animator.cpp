@@ -18,7 +18,7 @@ Animator::Animator(std::string t_texturesPathBase, std::vector<std::string> t_an
 	m_sprite.setOrigin(t_spriteOrigin);
 }
 
-bool Animator::animate()
+bool Animator::animate(bool t_debug)
 {
 
 	m_elapsedTime++;
@@ -29,10 +29,16 @@ bool Animator::animate()
 
 		m_animations[m_currentState].m_currentFrame++;
 
+		if (t_debug)
+		{
+			std::cout << "CurrentFrame: " << m_animations[m_currentState].m_currentFrame << std::endl;
+		}
 	
 		if (m_animations[m_currentState].m_currentFrame >= m_animations[m_currentState].m_maxFrames)
 		{
 			
+			
+
 			if (m_assignLasFrame)
 			{
 				m_animations[m_currentState].m_currentFrame = 0;

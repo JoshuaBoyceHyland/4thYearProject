@@ -9,6 +9,7 @@ class Dash : public Behaviour
 		void reachedTarget() override;
 		void draw(sf::RenderWindow& t_window) override;
 		void startDash();
+		void endDash();
 
 		sf::Vector2f m_dashDirection;
 	private:

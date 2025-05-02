@@ -144,7 +144,7 @@ public:
 
     BehaviourNode* decide(float t_deltaTime) override {
 
-        std::cout << "Dashing" << std::endl;
+      //  std::cout << "Dashing" << std::endl;
         return this;
     }
     void onEnter() override
@@ -159,10 +159,40 @@ public:
 
     void onExit() override
     {
-
+        m_dash->endDash();
     }
     virtual Behaviour* getBehaviour() override { return  m_dash; };
 
 private:
     Dash* m_dash;
+};
+
+
+class EmptyNode : public BehaviourNode {
+public:
+    EmptyNode() {}
+
+    BehaviourNode* decide(float t_deltaTime) override {
+
+       // std::cout << "Emptu" << std::endl;
+        return this;
+    }
+    void onEnter() override
+    {
+
+    }
+    void preform(float t_deltaTime) override
+    {
+
+
+    }
+
+    void onExit() override
+    {
+
+    }
+    virtual Behaviour* getBehaviour() override { return  nullptr; };
+
+private:
+
 };

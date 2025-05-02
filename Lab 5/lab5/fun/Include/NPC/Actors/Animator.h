@@ -27,7 +27,7 @@ class Animator
 
 		sf::Sprite& m_sprite;
 
-		bool animate();
+		bool animate(bool t_debug = false);
 
 		bool onLastFrame();
 
@@ -35,12 +35,13 @@ class Animator
 
 		bool m_assignLasFrame = true;
 
-
-	private:
-
 		int m_elapsedTime = 0;
 		int m_elapseReset = 8;
 		std::vector<Animation> m_animations;
+
+	private:
+
+
 
 
 	

@@ -17,7 +17,7 @@ void Death::update(float t_deltaTime)
 
 	if (!m_death)
 	{
-		if (m_animator->animate())
+		if (m_animator->animate(true))
 		{
 			m_death = true;
 		}

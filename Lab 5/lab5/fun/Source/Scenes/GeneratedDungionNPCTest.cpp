@@ -7,11 +7,13 @@ m_camera(m_window)
 	m_dungeon = m_dungeonGenerator.generate();
 	m_dungeon->setForGamePlay();
 	m_player = new BasePlayer(m_dungeon);
-	m_player->setPosition(m_dungeon->getRandomTraverableCell()->getNode()->getPosition());
-	for (int i = 0; i < 10; i++)
+
+	Cell* randCell = m_dungeon->getRandomTraverableCell();
+	m_player->setPosition(randCell->getNode()->getPosition());
+	for (int i = 0; i < 1; i++)
 	{
 
-		Cell* randCell = m_dungeon->getRandomTraverableCell();
+		
 		m_npc.push_back(new NPC(m_dungeon,m_player, randCell->m_body.getPosition()));
 	}
 }
