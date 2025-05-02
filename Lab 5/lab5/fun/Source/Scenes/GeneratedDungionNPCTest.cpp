@@ -79,10 +79,10 @@ void GeneratedDungionNPCTestScene::processMousePress(sf::Event t_event)
 
 void GeneratedDungionNPCTestScene::processMouseRelease(sf::Event t_event)
 {
-	/*if (sf::Mouse::Middle == t_event.mouseButton.button)
+	if (sf::Mouse::Middle == t_event.mouseButton.button)
 	{
-		m_camera.endMove();
-	}*/
+		m_npc.push_back(new NPC(m_dungeon, m_player, m_dungeon->cellSelection(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)))->getNode()->getPosition()));
+	}
 }
 
 void GeneratedDungionNPCTestScene::processMouseMove(sf::Event t_event)
