@@ -26,11 +26,12 @@ void NPC::update(float deltatime)
 
 		if (newDecision)
 		{
+			m_agent.m_user = newDecision->getBehaviour();
 			newDecision->onEnter();
 		}
 
 		m_currentBehaviour = newDecision;
-		m_agent.m_user = m_currentBehaviour->getBehaviour();
+		
 	}
 
 
@@ -134,16 +135,20 @@ bool NPC::bulletDetected()
 
 			for (GameObject* gameobject : gameobjects)
 			{
+				sf::Vector2f bulletDirection = static_cast<Bullet*>(gameobject)->m_velocity;
+				sf::Vector2f dir = VectorMath::unitVector(bulletDirection);
 				if (gameobject->m_tag == Bullet_Player)
 				{
 					m_startDashing = true;
 					if (gameobject->m_body.getPosition().x > m_body.getPosition().x)
 					{
 						m_body.setScale(-1, 1);
+						m_dashBehaviour->m_dashDirection = { dir.y, -dir.x };
 					}
 					else
 					{
 						m_body.setScale(1, 1);
+						m_dashBehaviour->m_dashDirection = { -dir.y, dir.x };
 					}
 					return true;
 				}
@@ -167,8 +172,7 @@ bool NPC::closeToPlayer()
 
 		for (GameObject* gameobject : gameobjects)
 		{
-			sf::Vector2f bulletDirection = static_cast<Bullet*>(gameobject)->m_velocity;
-			sf::Vector2f dir = VectorMath::unitVector(bulletDirection);
+
 
 			if (gameobject->m_tag == Player)
 			{
@@ -176,12 +180,12 @@ bool NPC::closeToPlayer()
 				{
 					m_body.setScale(1, 1);
 					
-					m_dashBehaviour->m_dashDirection = { dir.y, -dir.x };
+					
 				}
 				else
 				{
 					m_body.setScale(-1, 1);
-					m_dashBehaviour->m_dashDirection = { -dir.y, dir.x };
+					
 				}
 				return true;
 			}

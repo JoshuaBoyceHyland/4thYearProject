@@ -53,7 +53,6 @@ std::vector<Texture*> Loader::loadAllTexturesInFile(std::string t_path)
 	std::vector<Texture*> textures;
 	std::vector<std::string> fileNames = FileReading::getAllInFile(t_path);
 
-	//std::sort(fileNames.begin(), fileNames.end());
 
 	for (std::string fileName : fileNames)
 	{
