@@ -109,6 +109,8 @@
     <ClInclude Include="Include\NPC\Wander.h" />
     <ClInclude Include="Include\NPC\Talking.h" />
     <ClInclude Include="Include\NPC\Behaviours\Dash.h" />
+    <ClInclude Include="BehaviourTreeCreator.h" />
+    <ClInclude Include="Include\SignalIndicaor.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="fun.rc" />
@@ -187,6 +189,8 @@
     <ClCompile Include="Source\NPC\Behaviours\Talking.cpp" />
     <ClCompile Include="Source\NPC\Behaviours\Wander.cpp" />
     <ClCompile Include="Source\NPC\Behaviours\Dash.cpp" />
+    <ClCompile Include="BehaviourTreeCreator.cpp" />
+    <ClCompile Include="Source\SignalIndicaor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="map.txt" />

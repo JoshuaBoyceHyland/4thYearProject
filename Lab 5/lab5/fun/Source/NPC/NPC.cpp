@@ -120,8 +120,8 @@ void NPC::setUpBehaviourTree(Grid* t_map, BasePlayer* t_player)
 	std::unique_ptr<Sequence>  attackSequence = std::make_unique<Sequence>(std::move(attackSequenceChildren));
 
 	std::vector<std::unique_ptr<BehaviourNode>> selectorChildren;
-	selectorChildren.push_back(std::move(deathSequence));
-	selectorChildren.push_back(std::move(attackSequence));
+	//selectorChildren.push_back(std::move(deathSequence));
+	//selectorChildren.push_back(std::move(attackSequence));
 	selectorChildren.push_back(std::make_unique<WanderNode>(wander)); // else wander
 
 	m_behaviourTree = std::make_unique<Selector>(std::move(selectorChildren));

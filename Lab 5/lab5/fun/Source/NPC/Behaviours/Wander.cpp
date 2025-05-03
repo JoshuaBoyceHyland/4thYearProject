@@ -33,6 +33,7 @@ void Wander::update(float t_deltaTime)
     if (m_agent->m_direction.x == 0 && m_agent->m_direction.y == 0)
     {
         m_animator->m_currentState = 0;
+        m_animator->animate();
     }
     else
     {

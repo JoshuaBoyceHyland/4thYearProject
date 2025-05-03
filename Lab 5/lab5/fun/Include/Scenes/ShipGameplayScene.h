@@ -5,6 +5,8 @@
 #include "UI/UIScreenBorder.h"
 #include "World/Grid.h"
 #include "MovableCamera.h"
+#include "DungeonGeneration/DungeonGeneration.h"
+#include "SignalIndicaor.h"
 
 class ShipGameplayScene : public Scene
 {
@@ -23,7 +25,10 @@ class ShipGameplayScene : public Scene
 		UIScreenBorder m_uiBorder;
 		Ship m_player;
 		Grid* m_grid;
+		Grid* m_dungeon;
 		MovableCamera m_camera;
+		DungeonGeneration m_generator;
+		SignalIndicaor* singal = nullptr;
 		// Inherited via Scene
 		
 };

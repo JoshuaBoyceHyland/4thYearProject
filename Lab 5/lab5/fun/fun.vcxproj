@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BehaviourTreeCreator.h" />
     <ClInclude Include="Include\NPC\Behaviours\Dash.h" />
     <ClInclude Include="Include\NPC\Actors\Agent.h" />
     <ClInclude Include="Include\NPC\Actors\AgentUser.h" />
@@ -127,6 +128,7 @@
     <ClInclude Include="Include\NPC\Talking.h" />
     <ClInclude Include="Include\Weapons\Weapon.h" />
     <ClInclude Include="Include\Weapons\ShotGun.h" />
+    <ClInclude Include="Include\SignalIndicaor.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="ASSETS\IMAGES\SFML-LOGO.png">
@@ -150,6 +152,8 @@
     <None Include="map.json" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BehaviourTreeCreator.cpp" />
+    <ClCompile Include="Source\SignalIndicaor.cpp" />
     <ClCompile Include="Source\NPC\Behaviours\Dash.cpp" />
     <ClCompile Include="Source\NPC\Actors\Agent.cpp" />
     <ClCompile Include="Source\NPC\Actors\Animator.cpp" />

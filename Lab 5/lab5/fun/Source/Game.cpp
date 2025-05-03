@@ -10,8 +10,7 @@ Game::Game() :
 	WorldItemLibrary* lbrary = WorldItemLibrary::getInstance();
 	lbrary->setFunction(std::bind(&SceneManager::switchScene, &m_sceneManager, std::placeholders::_1));
 	lbrary->loadTextures();
-	m_sceneManager.switchScene(GeneratedDungionNPCTest);
-	//m_sceneManager.switchScene(DungeonGenerationTest);
+	m_sceneManager.switchScene(BaseGameplay);
 	
 	
 }
