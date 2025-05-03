@@ -11,7 +11,7 @@ class Ship
 		void draw(sf::RenderWindow& t_window);
 		void setPart(ShipPart t_part);
 		void setOrigin(sf::Vector2f t_originPos);
-	
+		float getRadius();
 		sf::Vector2f getPosition() { return m_position; };
 
 		std::vector<sf::Vector2f> m_offsets;

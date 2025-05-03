@@ -83,6 +83,28 @@ void Ship::setOrigin(sf::Vector2f t_originPos)
 	m_position = t_originPos;
 }
 
+float Ship::getRadius()
+{
+
+	float maxRadius = 0.0f;
+	sf::Vector2f shipPos = getPosition();
+
+	for (int i = 0; i < m_parts.size(); ++i)
+	{
+	
+		float distance = VectorMath::vectorLength(shipPos, m_parts[i].getPosition());
+
+		sf::Vector2f size = { m_parts[i].m_texture->texture.getSize().x * m_parts[i].m_body.getScale().x,m_parts[i].m_texture->texture.getSize().y * m_parts[i].m_body.getScale().y };
+		
+		float radius = std::sqrt(size.x * size.x + size.y * size.y) / 2.0f;
+
+		// finding the bigest distance to base radus off
+		maxRadius = std::max(maxRadius, distance + radius);
+	}
+	
+	return maxRadius;
+}
+
 
 
 

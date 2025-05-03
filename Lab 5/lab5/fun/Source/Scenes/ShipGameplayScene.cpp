@@ -33,13 +33,13 @@ void ShipGameplayScene::update(sf::Time t_deltaTime)
 	m_camera.follow(m_player.getPosition());
 	m_camera.update();
 	m_player.update(t_deltaTime.asMilliseconds());
-	singal->update();
+	singal->update(m_dungeon->m_cells[0][0].m_body.getPosition());
 }
 
 void ShipGameplayScene::render()
 {
 
-	sf::Vector2f distanceFromDungeon = m_dungeon->m_cells[0][0].m_body.getPosition() -  m_player.getPosition(); 
+	sf::Vector2f distanceFromDungeon = -  m_player.getPosition(); 
 	std::cout << "Distance X: " << distanceFromDungeon.x << " Y: " << distanceFromDungeon.y << std::endl;
 	m_window.clear(sf::Color::Black);
 	m_player.draw(m_window);
