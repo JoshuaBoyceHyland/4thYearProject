@@ -73,6 +73,7 @@ void Dash::update(float t_deltaTime)
 
 void Dash::reachedTarget()
 {
+	m_dashing = false;
 }
 
 void Dash::draw(sf::RenderWindow& t_window)

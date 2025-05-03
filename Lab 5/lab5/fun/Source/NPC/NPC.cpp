@@ -92,30 +92,37 @@ void NPC::setUpBehaviourTree(Grid* t_map, BasePlayer* t_player)
 	Attack* attack = new Attack(t_map, &m_agent, &m_animator);
 	attack->m_player = t_player;
 
-
+	// dead die
 	std::vector<std::unique_ptr<BehaviourNode>> deathSequenceChildren;
 	deathSequenceChildren.push_back(std::make_unique<Condition>(std::bind(&NPC::dead, this)));
 	deathSequenceChildren.push_back(std::make_unique<DeathNode>(death));
 	std::unique_ptr<Sequence> deathSequence = std::make_unique<Sequence>(std::move(deathSequenceChildren));
 
+	//
 	std::vector<std::unique_ptr<BehaviourNode>> dashSequenceChildren;
 	dashSequenceChildren.push_back(std::make_unique<Condition>(std::bind(&NPC::bulletDetected, this)));
 	dashSequenceChildren.push_back(std::make_unique<DashNode>(m_dashBehaviour));
 	std::unique_ptr<Sequence> dashSequence = std::make_unique<Sequence>(std::move(dashSequenceChildren));
 
 	std::vector<std::unique_ptr<BehaviourNode>> attackSequenceChildren;
+	// should we attack
 	attackSequenceChildren.push_back(std::make_unique<Condition>(std::bind(&NPC::attackPlayer, this)));
-	attackSequenceChildren.push_back(std::make_unique<AttackingNode>(attack));
+	
+	std::vector<std::unique_ptr<BehaviourNode>> attackDodgeSequence;
+	attackDodgeSequence.push_back(std::move(dashSequence));// check dodge
+	attackDodgeSequence.push_back(std::make_unique<AttackingNode>(attack)); // else attack
+
+	std::unique_ptr<Selector> attackDodgeSelector = std::make_unique<Selector>(std::move(attackDodgeSequence));
+
+	attackSequenceChildren.push_back(std::move(attackDodgeSelector)); // add to it
+
+
 	std::unique_ptr<Sequence>  attackSequence = std::make_unique<Sequence>(std::move(attackSequenceChildren));
 
 	std::vector<std::unique_ptr<BehaviourNode>> selectorChildren;
 	selectorChildren.push_back(std::move(deathSequence));
-	selectorChildren.push_back(std::move(dashSequence));
-	selectorChildren.push_back(std::make_unique<EmptyNode>());
-
-	//selectorChildren.push_back(std::move(deathSequence)); //  check if dead
-	selectorChildren.push_back(std::move(attackSequence)); // check if in attacking range
-	//selectorChildren.push_back(std::make_unique<WanderNode>(wander)); // else wander
+	selectorChildren.push_back(std::move(attackSequence));
+	selectorChildren.push_back(std::make_unique<WanderNode>(wander)); // else wander
 
 	m_behaviourTree = std::make_unique<Selector>(std::move(selectorChildren));
 
