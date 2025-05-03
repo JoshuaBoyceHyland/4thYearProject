@@ -120,6 +120,7 @@
     <ClInclude Include="json.hpp" />
     <ClInclude Include="Include\Weapons\MachineGun.h" />
     <ClInclude Include="Include\Particles\ParticleSystem.h" />
+    <ClInclude Include="Include\MiniMap.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Include\World\ShipBuilderTerminal.h" />
     <ClInclude Include="Include\NPC\BehaviourTree\Selector.h" />
@@ -150,6 +151,7 @@
     <None Include="map.json" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MiniMap.cpp" />
     <ClCompile Include="Source\NPC\Behaviours\Dash.cpp" />
     <ClCompile Include="Source\NPC\Actors\Agent.cpp" />
     <ClCompile Include="Source\NPC\Actors\Animator.cpp" />

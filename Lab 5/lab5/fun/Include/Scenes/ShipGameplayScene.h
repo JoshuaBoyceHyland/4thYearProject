@@ -5,7 +5,7 @@
 #include "UI/UIScreenBorder.h"
 #include "World/Grid.h"
 #include "MovableCamera.h"
-
+#include "Minimap.h"
 class ShipGameplayScene : public Scene
 {
 	public:
@@ -24,6 +24,7 @@ class ShipGameplayScene : public Scene
 		Ship m_player;
 		Grid* m_grid;
 		MovableCamera m_camera;
+		MiniMap m_minimap;
 		// Inherited via Scene
 		
 };

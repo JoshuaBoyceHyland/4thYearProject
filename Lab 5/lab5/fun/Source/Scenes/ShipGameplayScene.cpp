@@ -13,11 +13,12 @@ ShipGameplayScene::ShipGameplayScene(sf::RenderWindow& t_window) :
 
 void ShipGameplayScene::update(sf::Time t_deltaTime)
 {
+	
 
 	m_camera.follow(m_player.getPosition());
 	m_camera.update();
 	m_player.update(t_deltaTime.asMilliseconds());
-
+	m_minimap.update(m_player.getPosition());
 }
 
 void ShipGameplayScene::render()
@@ -25,10 +26,11 @@ void ShipGameplayScene::render()
 	m_window.clear(sf::Color::Black);
 	m_player.draw(m_window);
 	m_grid->draw(m_window);
-	
+	m_window.display();
 	//m_uiBorder.draw(m_window);
 	
-	m_window.display();
+	//m_window.setView(m_minimap.miniMapView);
+	//m_player.draw(m_window);
 	
 }
 
