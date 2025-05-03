@@ -43,6 +43,11 @@ void Ship::update(float deltaTime)
 
 	m_speed *= 0.99f;
 
+	if (VectorMath::vectorLength({ 0, 0 }, m_velocity) > 0.01f)
+	{
+		m_lastDirection = VectorMath::unitVector(m_velocity);
+	}
+
 	
 }
 	
@@ -64,6 +69,13 @@ void Ship::draw(sf::RenderWindow& t_window)
 	display.setPosition(m_position);
 	t_window.draw(display);
 
+
+	sf::CircleShape movementMarker(5.f);
+	movementMarker.setFillColor(sf::Color::Green);
+	movementMarker.setOrigin(5.f, 5.f);
+	movementMarker.setPosition(m_position + m_lastDirection * 100.f); // adjust scale for clarity
+
+	t_window.draw(movementMarker);
 
 
 }

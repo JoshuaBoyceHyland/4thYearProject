@@ -16,12 +16,16 @@ class Ship
 
 		std::vector<sf::Vector2f> m_offsets;
 		std::vector<ShipPart> m_parts;
+		
+		sf::Vector2f m_lastDirection = { 0.f, -1.f };
 	private:
 		
 
 		float m_speed = 0;
-		float m_rotation = 0; 
+		
+		float m_rotation = 0;
 		sf::Vector2f m_velocity = { 0, 0 };
+
 		sf::Vector2f m_position = { Globals::SCREEN_WIDTH / 4, Globals::SCREEN_HEIGHT / 4 };
 	
 };

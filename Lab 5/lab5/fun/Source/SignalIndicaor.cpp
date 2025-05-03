@@ -16,10 +16,14 @@ SignalIndicaor::SignalIndicaor(Ship* t_ship) : m_ship(t_ship)
 
 void SignalIndicaor::update(sf::Vector2f t_targetPosition)
 {
+
 	m_ring.setPosition(m_ship->getPosition());
+	sf::Vector2f toTarget = t_targetPosition - m_ship->getPosition();
 
-	float distance = VectorMath::vectorLength( m_ship->getPosition(), t_targetPosition);
-
+	if (VectorMath::vectorLength({ 0, 0 }, toTarget) > 0.01f)
+	{
+		m_lastTargetDirection = VectorMath::unitVector(toTarget);
+	}
 }
 
 
@@ -27,4 +31,12 @@ void SignalIndicaor::update(sf::Vector2f t_targetPosition)
 void SignalIndicaor::draw(sf::RenderWindow& t_winodw)
 {
 	t_winodw.draw(m_ring);
+
+	sf::CircleShape targetMarker(5.f);
+	targetMarker.setFillColor(sf::Color::Magenta);
+	targetMarker.setOrigin(5.f, 5.f);
+	targetMarker.setPosition(m_ship->getPosition() + m_lastTargetDirection * 100.f); // scale as needed
+
+	t_winodw.draw(targetMarker);
+
 }
