@@ -17,6 +17,6 @@ class SignalIndicaor
 		sf::CircleShape m_ring;
 		sf::Color m_color = sf::Color(0, 255, 255, 150);
 		Ship* m_ship;
-	
+		sf::Clock m_clock;
 };
 

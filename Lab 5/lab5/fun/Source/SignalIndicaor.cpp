@@ -18,12 +18,7 @@ void SignalIndicaor::update(sf::Vector2f t_targetPosition)
 {
 
 	m_ring.setPosition(m_ship->getPosition());
-	sf::Vector2f toTarget = t_targetPosition - m_ship->getPosition();
 
-	if (VectorMath::vectorLength({ 0, 0 }, toTarget) > 0.01f)
-	{
-		m_lastTargetDirection = VectorMath::unitVector(toTarget);
-	}
 }
 
 
