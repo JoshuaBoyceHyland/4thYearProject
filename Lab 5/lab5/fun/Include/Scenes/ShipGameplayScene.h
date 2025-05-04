@@ -24,7 +24,7 @@ class ShipGameplayScene : public Scene
 		Ship m_player;
 		Grid* m_grid = nullptr;
 		MovableCamera m_camera;
-		MiniMap m_minimap;
+		MiniMap* m_minimap;
 		// Inherited via Scene
 		
 };

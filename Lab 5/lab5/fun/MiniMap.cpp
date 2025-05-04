@@ -1,9 +1,8 @@
 #include "MiniMap.h"
 
-MiniMap::MiniMap(sf::RenderWindow& t_window, GameObject* t_player, Grid** t_base) :
+MiniMap::MiniMap(sf::RenderWindow& t_window, GameObject* t_player, std::vector<GameObject*> t_icons) :
 	m_window(t_window), 
-	m_player(t_player), 
-	m_base(t_base)
+	m_player(t_player)
 {
 	m_miniMapView.setSize(Globals::SCREEN_WIDTH, Globals::SCREEN_HEIGHT);
 	m_miniMapView.setViewport(sf::FloatRect(0.75f, 0.75f, 0.2f, 0.2f));
@@ -13,33 +12,20 @@ MiniMap::MiniMap(sf::RenderWindow& t_window, GameObject* t_player, Grid** t_base
 	m_border.setFillColor(sf::Color::Transparent);
 	m_border.setOutlineThickness(10.f);
 
-	loadSprites();
+	for (int i = 0; i < t_icons.size(); i++)
+	{
+		m_spriteIcons.emplace_back(t_icons[i]);
+	}
 }
 
 void MiniMap::update()
 {
-	m_miniMapView.setCenter(m_player->m_body.getPosition());
+	m_miniMapView.setCenter(m_player.m_spriteRef.getPosition());
 
+	m_player.updateToReference();
 
-	m_playerSprite.setPosition(m_player->m_body.getPosition());
-	m_playerSprite.setRotation(m_player->m_body.getRotation());
-
-	sf::Vector2f viewHalfSize = m_miniMapView.getSize() / 2.f;
-
-	float distanceFromCenterX = std::abs((*m_base)->m_cells[0][0].m_body.getPosition().x - m_miniMapView.getCenter().x);
-	float distanceFromCenterY = std::abs((*m_base)->m_cells[0][0].m_body.getPosition().y - m_miniMapView.getCenter().y);
-	// Calculate if base is outside the minimap view bounds
-
-	if (distanceFromCenterX  > viewHalfSize.x || distanceFromCenterY > viewHalfSize.y)
-	{
-		// Base is offscreen — clamp to minimap edge
-		m_baseSprite.setPosition(clampToEdge((*m_base)->m_cells[0][0].m_body.getPosition(), m_miniMapView.getCenter(), viewHalfSize));
-	}
-	else
-	{
-		// Base is within bounds — draw normally
-		m_baseSprite.setPosition((*m_base)->m_cells[0][0].m_body.getPosition());
-	}
+	setPositionsOfWorldIcons();
+	
 	m_border.setPosition(m_miniMapView.getViewport().left * m_window.getSize().x, m_miniMapView.getViewport().top * m_window.getSize().y);
 }
 
@@ -48,8 +34,12 @@ void MiniMap::drawContents()
 	m_window.setView(m_miniMapView);
 
 
-	m_window.draw(m_playerSprite);
-	m_window.draw(m_baseSprite);
+	m_window.draw(m_player.m_iconSprite);
+	
+	for (int i = 0; i < m_spriteIcons.size(); i++)
+	{
+		m_window.draw(m_spriteIcons[i].m_iconSprite);
+	}
 	
 }
 
@@ -90,17 +80,26 @@ sf::Vector2f MiniMap::clampToEdge(sf::Vector2f t_objectPos, sf::Vector2f t_viewC
 
 	return clampedPosition;
 }
-void MiniMap::loadSprites()
+void MiniMap::setPositionsOfWorldIcons()
 {
-	Loader* loader = Loader::getInstance();
+	for (int i = 0; i < m_spriteIcons.size(); i++)
+	{
+		sf::Vector2f viewHalfSize = m_miniMapView.getSize() / 2.f;
 
-	Texture* playerShip = loader->loadTexture("ASSETS/IMAGES/Minimap/ship.png");
-	Texture* base = loader->loadTexture("ASSETS/IMAGES/Minimap/home.png");
+		float distanceFromCenterX = std::abs(m_spriteIcons[i].m_spriteRef.getPosition().x - m_miniMapView.getCenter().x);
+		float distanceFromCenterY = std::abs(m_spriteIcons[i].m_spriteRef.getPosition().y - m_miniMapView.getCenter().y);
+		// Calculate if base is outside the minimap view bounds
 
-	m_playerSprite.setTexture(playerShip->texture);
-	m_playerSprite.setOrigin({ playerShip->texture.getSize().x / 2.0f,playerShip->texture.getSize().y / 2.0f });
-
-	m_baseSprite.setTexture(base->texture);
-	m_baseSprite.setOrigin({ base->texture.getSize().x / 2.0f,base->texture.getSize().y / 2.0f });
+		if (distanceFromCenterX > viewHalfSize.x || distanceFromCenterY > viewHalfSize.y)
+		{
+			// Base is offscreen — clamp to minimap edge
+			m_spriteIcons[i].m_iconSprite.setPosition(clampToEdge(m_spriteIcons[i].m_spriteRef.getPosition(), m_miniMapView.getCenter(), viewHalfSize));
+		}
+		else
+		{
+			// Base is within bounds — draw normally
+			m_spriteIcons[i].m_iconSprite.setPosition(m_spriteIcons[i].m_spriteRef.getPosition());
+		}
+	}
 
 }

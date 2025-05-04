@@ -2,7 +2,7 @@
 
 Ship::Ship()
 {
-	
+	m_tag = Player_ship;
 }
 
 void Ship::update(float deltaTime)

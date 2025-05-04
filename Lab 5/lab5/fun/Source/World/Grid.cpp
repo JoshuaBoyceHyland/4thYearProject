@@ -7,7 +7,7 @@ Grid::Grid()
 Grid::Grid(int t_rows, int t_columns, float t_width, float t_height, sf::Vector2f t_startPosition) :
 	MAX_ROWS( t_rows ), MAX_COLUMS( t_columns ), m_cellWidth( t_width ), m_cellHeight( t_height)
 {
-
+	m_tag = Player_Base;
 	t_startPosition.x += t_width / 2;
 	t_startPosition.y += t_height / 2;
 
@@ -46,7 +46,7 @@ bool Grid::isInGrid(sf::Vector2f t_position)
 
 void Grid::draw(sf::RenderWindow& t_window)
 {
-	
+	m_body.setPosition(m_cells[0][0].m_body.getPosition());
 
 	sf::View view = t_window.getView();
 

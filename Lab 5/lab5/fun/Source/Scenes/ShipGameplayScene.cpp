@@ -3,14 +3,14 @@
 ShipGameplayScene::ShipGameplayScene(sf::RenderWindow& t_window) : 
 	Scene(t_window), 
 	m_uiBorder( "Gameplay"),
-	m_camera( m_window), 
-	m_minimap(t_window, &m_player, &m_grid)
+	m_camera( m_window)
 {
 	GameData* gameData = GameData::getInstance();
 
 	m_player = (*gameData->m_player);
 	m_grid = gameData->m_currentMap;
 
+	m_minimap = new MiniMap(t_window, &m_player, {m_grid});
 }
 
 void ShipGameplayScene::update(sf::Time t_deltaTime)
@@ -20,7 +20,7 @@ void ShipGameplayScene::update(sf::Time t_deltaTime)
 	m_camera.follow(m_player.getPosition());
 	m_camera.update();
 	m_player.update(t_deltaTime.asMilliseconds());
-	m_minimap.update();
+	m_minimap->update();
 }
 
 void ShipGameplayScene::render()
@@ -32,9 +32,9 @@ void ShipGameplayScene::render()
 	m_grid->draw(m_window);
 	
 
-	m_minimap.drawContents();
+	m_minimap->drawContents();
 	
-	m_minimap.drawBorder();
+	m_minimap->drawBorder();
 	//m_uiBorder.draw(m_window);
 	
 	

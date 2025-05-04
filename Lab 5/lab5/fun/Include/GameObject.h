@@ -1,7 +1,7 @@
 #pragma once
 #include "SFML/Graphics.hpp"
 
-enum Tag {Bullet_Player, Bullet_Enemy, Player, Enemy  };
+enum Tag {Bullet_Player, Bullet_Enemy, Player, Enemy, Player_ship, Enemy_Base, Player_Base, Goal  };
 
 class GameObject
 {
