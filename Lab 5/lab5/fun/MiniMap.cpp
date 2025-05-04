@@ -24,7 +24,22 @@ void MiniMap::update()
 	m_playerSprite.setPosition(m_player->m_body.getPosition());
 	m_playerSprite.setRotation(m_player->m_body.getRotation());
 
-	m_baseSprite.setPosition((*m_base)->m_cells[0][0].m_body.getPosition());
+	sf::Vector2f viewHalfSize = m_miniMapView.getSize() / 2.f;
+
+	float distanceFromCenterX = std::abs((*m_base)->m_cells[0][0].m_body.getPosition().x - m_miniMapView.getCenter().x);
+	float distanceFromCenterY = std::abs((*m_base)->m_cells[0][0].m_body.getPosition().y - m_miniMapView.getCenter().y);
+	// Calculate if base is outside the minimap view bounds
+
+	if (distanceFromCenterX  > viewHalfSize.x || distanceFromCenterY > viewHalfSize.y)
+	{
+		// Base is offscreen — clamp to minimap edge
+		m_baseSprite.setPosition(clampToEdge((*m_base)->m_cells[0][0].m_body.getPosition(), m_miniMapView.getCenter(), viewHalfSize));
+	}
+	else
+	{
+		// Base is within bounds — draw normally
+		m_baseSprite.setPosition((*m_base)->m_cells[0][0].m_body.getPosition());
+	}
 	m_border.setPosition(m_miniMapView.getViewport().left * m_window.getSize().x, m_miniMapView.getViewport().top * m_window.getSize().y);
 }
 
@@ -44,6 +59,37 @@ void MiniMap::drawBorder()
 	m_window.draw(m_border);
 }
 
+sf::Vector2f MiniMap::clampToEdge(sf::Vector2f t_objectPos, sf::Vector2f t_viewCenter, sf::Vector2f t_viewHalfSize)
+{
+	
+	const float padding = 10.f;
+
+	sf::Vector2f directionFromCenter = t_objectPos - t_viewCenter;
+
+	float maxDistanceFromCenterX = t_viewHalfSize.x - padding;
+	float maxDistanceFromCenterY = t_viewHalfSize.y - padding;
+
+	// value for 
+	float scaledX = 1.0f;
+	float scaledY = 1.0f;
+
+	if (directionFromCenter.x != 0)
+	{
+		scaledX = maxDistanceFromCenterX / std::abs(directionFromCenter.x);
+	}
+	if (directionFromCenter.y != 0)
+	{
+		scaledY = maxDistanceFromCenterY / std::abs(directionFromCenter.y);
+	}
+
+
+	float boundsScaler = std::min(1.f, std::min(scaledX, scaledY));
+
+	sf::Vector2f clampedPosition = t_viewCenter + directionFromCenter * boundsScaler;
+
+
+	return clampedPosition;
+}
 void MiniMap::loadSprites()
 {
 	Loader* loader = Loader::getInstance();

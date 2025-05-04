@@ -22,6 +22,7 @@ class MiniMap
 
 	private:
 
+		sf::Vector2f clampToEdge(sf::Vector2f position, sf::Vector2f viewCenter, sf::Vector2f viewHalfSize);
 		void loadSprites();
 
 		sf::Color m_darkBlue = sf::Color(14, 34, 99);
