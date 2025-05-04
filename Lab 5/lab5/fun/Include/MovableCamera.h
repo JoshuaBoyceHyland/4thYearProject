@@ -25,7 +25,7 @@ class MovableCamera
 
 		sf::Vector2f getPosition();
 
-		
+		sf::View& getView() { return m_camera; };
 	private:
 
 		/// <summary>

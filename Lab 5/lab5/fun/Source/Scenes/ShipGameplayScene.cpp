@@ -24,14 +24,15 @@ void ShipGameplayScene::update(sf::Time t_deltaTime)
 void ShipGameplayScene::render()
 {
 	m_window.clear(sf::Color::Black);
+	m_window.setView(m_camera.getView());
 	m_player.draw(m_window);
 	m_grid->draw(m_window);
-	m_window.display();
+	
 	//m_uiBorder.draw(m_window);
 	
-	//m_window.setView(m_minimap.miniMapView);
-	//m_player.draw(m_window);
-	
+	m_window.setView(m_minimap.miniMapView);
+	m_player.draw(m_window);
+	m_window.display();
 }
 
 void ShipGameplayScene::processKeys(sf::Event t_event)
