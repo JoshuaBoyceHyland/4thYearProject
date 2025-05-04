@@ -496,3 +496,7 @@ Cell* Grid::getRandomTraverableCell()
 	
 	return m_traversableCells[randomCell];
 }
+
+void Grid::collisionWith(Tag t_tag)
+{
+}

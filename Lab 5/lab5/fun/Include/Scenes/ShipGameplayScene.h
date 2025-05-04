@@ -22,7 +22,7 @@ class ShipGameplayScene : public Scene
 
 		UIScreenBorder m_uiBorder;
 		Ship m_player;
-		Grid* m_grid;
+		Grid* m_grid = nullptr;
 		MovableCamera m_camera;
 		MiniMap m_minimap;
 		// Inherited via Scene

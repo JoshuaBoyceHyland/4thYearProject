@@ -42,7 +42,10 @@ void Ship::update(float deltaTime)
 	}
 
 	m_speed *= 0.99f;
-
+	// not used for actual ship, used for minimap to gather info
+	m_body.setPosition(m_position);
+	m_body.setRotation(m_rotation);
+	
 	
 }
 	
@@ -81,6 +84,10 @@ void Ship::setPart(ShipPart t_part)
 void Ship::setOrigin(sf::Vector2f t_originPos)
 {
 	m_position = t_originPos;
+}
+
+void Ship::collisionWith(Tag t_tag)
+{
 }
 
 

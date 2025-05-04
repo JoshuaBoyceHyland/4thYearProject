@@ -1,10 +1,10 @@
 #pragma once
 #include"Tile.h"
+#include "GameObject.h"
 
 
 
-
-class Grid
+class Grid : public GameObject 
 {
 	public:
 
@@ -56,7 +56,7 @@ class Grid
 
 		std::vector<Cell*> m_traversableCells;
 		std::vector<std::vector<Cell>> m_cells;
-
+		void collisionWith(Tag t_tag) override;
 	private:
 
 		
@@ -69,5 +69,9 @@ class Grid
 		int MAX_ROWS;
 		int MAX_COLUMS;
 		
+
+		// Inherited via GameObject
+		
+
 };
 
