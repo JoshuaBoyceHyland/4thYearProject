@@ -52,6 +52,7 @@ void GeneratedDungionNPCTestScene::render()
 	}
 	m_player->draw(m_window);
 
+	m_minimap->drawBackground();
 	m_minimap->drawContents();
 	m_minimap->drawBorder();
 

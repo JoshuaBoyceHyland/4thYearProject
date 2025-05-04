@@ -27,6 +27,8 @@ class GeneratedDungionNPCTestScene : public Scene
 		std::vector<NPC*> m_npc;
 		Grid* m_dungeon;
 		MovableCamera m_camera;
+
+
 		DungeonGeneration m_dungeonGenerator;
 		/*std::unique_ptr<*/MiniMap*/*>*/ m_minimap;
 		

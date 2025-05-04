@@ -49,7 +49,7 @@ class MiniMapGrid
 			{
 				m_cells.push_back((*t_grid->m_traversableCells[i]));
 				m_cells[i].m_body.setTexture(nullptr);
-				m_cells[i].setColor(sf::Color(209, 255, 255));
+				m_cells[i].setColor(sf::Color(20, 20, 50));
 		
 			}
 
@@ -58,7 +58,7 @@ class MiniMapGrid
 			{
 				m_cells.push_back((*t_grid->m_wallCells[i]));
 				m_cells[m_cells.size() - 1].m_body.setTexture(nullptr);
-				m_cells[m_cells.size() - 1].setColor(sf::Color(14, 34, 99));
+				m_cells[m_cells.size() - 1].setColor(sf::Color(90, 90, 120));
 
 			}
 		}
@@ -81,6 +81,7 @@ class MiniMap
 
 		void update();
 
+		void drawBackground();
 		void drawContents();
 
 		void drawBorder();
@@ -95,6 +96,8 @@ class MiniMap
 
 		sf::Color m_darkBlue = sf::Color(14, 34, 99);
 		sf::Color m_lightBlue = sf::Color(209, 255, 255);
+		
+		sf::RectangleShape m_background;
 		sf::RectangleShape m_border;
 
 		sf::View m_miniMapView;

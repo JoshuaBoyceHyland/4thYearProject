@@ -8,9 +8,14 @@ MiniMap::MiniMap(sf::RenderWindow& t_window, GameObject* t_player, std::vector<G
 	m_miniMapView.setViewport(sf::FloatRect(0.75f, 0.75f, 0.2f, 0.2f));
 
 	m_border.setSize({ m_miniMapView.getViewport().width * m_window.getSize().x, m_miniMapView.getViewport().height * m_window.getSize().y });
-	m_border.setOutlineColor(m_darkBlue);
+	m_border.setOutlineColor(sf::Color(14, 34, 99));
 	m_border.setFillColor(sf::Color::Transparent);
 	m_border.setOutlineThickness(10.f);
+
+	m_background.setSize(m_border.getSize());
+	m_background.setPosition(m_border.getPosition());
+	m_background.setFillColor(sf::Color(0, 0, 50, 255));
+
 
 	for (int i = 0; i < t_icons.size(); i++)
 	{
@@ -31,6 +36,13 @@ void MiniMap::update()
 	setPositionsOfWorldIcons();
 	
 	m_border.setPosition(m_miniMapView.getViewport().left * m_window.getSize().x, m_miniMapView.getViewport().top * m_window.getSize().y);
+	m_background.setPosition(m_border.getPosition());
+}
+
+void MiniMap::drawBackground()
+{
+	m_window.setView(m_window.getDefaultView()); 
+	m_window.draw(m_background);
 }
 
 void MiniMap::drawContents()
