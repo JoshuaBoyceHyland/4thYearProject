@@ -4,6 +4,7 @@
 #include "MovableCamera.h"
 #include "BasePlayer.h"
 #include "DungeonGeneration/DungeonGeneration.h"
+#include "MiniMap.h"
 class GeneratedDungionNPCTestScene : public Scene
 {
 	
@@ -27,6 +28,7 @@ class GeneratedDungionNPCTestScene : public Scene
 		Grid* m_dungeon;
 		MovableCamera m_camera;
 		DungeonGeneration m_dungeonGenerator;
+		/*std::unique_ptr<*/MiniMap*/*>*/ m_minimap;
 		
 };
 

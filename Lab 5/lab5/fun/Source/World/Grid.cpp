@@ -119,6 +119,10 @@ void Grid::setForGamePlay()
 			{
 				m_traversableCells.push_back(&m_cells[row][column]);
 			}
+			else if (m_cells[row][column].getProperty() == TraversalProperty::Unwalkable && m_cells[row][column].getTexture() != nullptr)
+			{
+				m_wallCells.push_back(&m_cells[row][column]);
+			}
 		}
 	}
 	

@@ -10,12 +10,20 @@ m_camera(m_window)
 
 	Cell* randCell = m_dungeon->getRandomTraverableCell();
 	m_player->setPosition(randCell->getNode()->getPosition());
+
+
+	std::vector<GameObject*> upcastedNpcs;
 	for (int i = 0; i < 1; i++)
 	{
 
 		
 		m_npc.push_back(new NPC(m_dungeon,m_player, randCell->m_body.getPosition()));
+	
+		upcastedNpcs.push_back(m_npc[i]);
 	}
+
+	m_minimap = new MiniMap(m_window, m_player, upcastedNpcs, { m_dungeon });
+
 }
 
 void GeneratedDungionNPCTestScene::update(sf::Time t_deltaTime)
@@ -30,18 +38,23 @@ void GeneratedDungionNPCTestScene::update(sf::Time t_deltaTime)
 	m_camera.follow(m_player->getPosition());
 	m_camera.update();
 	m_player->update(t_deltaTime.asMilliseconds());
+	m_minimap->update();
 }
 
 void GeneratedDungionNPCTestScene::render()
 {
 	m_window.clear();
-	
+	m_window.setView(m_camera.getView());
 	m_dungeon->draw(m_window);
 	for (int i = 0; i < m_npc.size(); i++)
 	{
 		m_npc[i]->draw(m_window);
 	}
 	m_player->draw(m_window);
+
+	m_minimap->drawContents();
+	m_minimap->drawBorder();
+
 	m_window.display();
 }
 
@@ -87,6 +100,7 @@ void GeneratedDungionNPCTestScene::processMouseRelease(sf::Event t_event)
 
 void GeneratedDungionNPCTestScene::processMouseMove(sf::Event t_event)
 {
+	m_window.setView(m_camera.getView());
 	m_player->rotateWeapon(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)));
 	//m_camera.move();
 }

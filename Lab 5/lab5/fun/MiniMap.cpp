@@ -1,10 +1,10 @@
 #include "MiniMap.h"
 
-MiniMap::MiniMap(sf::RenderWindow& t_window, GameObject* t_player, std::vector<GameObject*> t_icons) :
+MiniMap::MiniMap(sf::RenderWindow& t_window, GameObject* t_player, std::vector<GameObject*> t_icons, std::vector<Grid*> t_grids) :
 	m_window(t_window), 
 	m_player(t_player)
 {
-	m_miniMapView.setSize(Globals::SCREEN_WIDTH, Globals::SCREEN_HEIGHT);
+	m_miniMapView.setSize(Globals::SCREEN_WIDTH * 2, Globals::SCREEN_HEIGHT * 2);
 	m_miniMapView.setViewport(sf::FloatRect(0.75f, 0.75f, 0.2f, 0.2f));
 
 	m_border.setSize({ m_miniMapView.getViewport().width * m_window.getSize().x, m_miniMapView.getViewport().height * m_window.getSize().y });
@@ -15,6 +15,10 @@ MiniMap::MiniMap(sf::RenderWindow& t_window, GameObject* t_player, std::vector<G
 	for (int i = 0; i < t_icons.size(); i++)
 	{
 		m_spriteIcons.emplace_back(t_icons[i]);
+	}
+	for (int i = 0; i < t_grids.size(); i++)
+	{
+		m_grdOutlines.emplace_back(t_grids[i]);
 	}
 }
 
@@ -32,7 +36,10 @@ void MiniMap::update()
 void MiniMap::drawContents()
 {
 	m_window.setView(m_miniMapView);
-
+	for (int i = 0; i < m_grdOutlines.size(); i++)
+	{
+		m_grdOutlines[i].draw(m_window);
+	}
 
 	m_window.draw(m_player.m_iconSprite);
 	
@@ -47,6 +54,7 @@ void MiniMap::drawBorder()
 {
 	m_window.setView(m_window.getDefaultView());
 	m_window.draw(m_border);
+	
 }
 
 sf::Vector2f MiniMap::clampToEdge(sf::Vector2f t_objectPos, sf::Vector2f t_viewCenter, sf::Vector2f t_viewHalfSize)

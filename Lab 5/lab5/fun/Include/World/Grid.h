@@ -54,6 +54,7 @@ class Grid : public GameObject
 
 		sf::Vector2i getRowsInView();
 
+		std::vector<Cell*> m_wallCells;
 		std::vector<Cell*> m_traversableCells;
 		std::vector<std::vector<Cell>> m_cells;
 		void collisionWith(Tag t_tag) override;
