@@ -8,7 +8,7 @@
 class MiniMap
 {
 	public:
-		MiniMap(sf::RenderWindow& t_window, Ship* t_player, Grid** t_base);
+		MiniMap(sf::RenderWindow& t_window, GameObject* t_player, Grid** t_base);
 
 
 		void update();
@@ -22,6 +22,8 @@ class MiniMap
 
 	private:
 
+		void loadSprites();
+
 		sf::Color m_darkBlue = sf::Color(14, 34, 99);
 		sf::Color m_lightBlue = sf::Color(209, 255, 255);
 		sf::RectangleShape m_border;
@@ -29,7 +31,14 @@ class MiniMap
 		sf::View m_miniMapView;
 		sf::RenderWindow& m_window;
 
-		Ship* m_player;
+		
+		sf::Sprite m_baseSprite;
+		sf::Sprite m_playerSprite;
+
+		GameObject* m_player;
 		Grid** m_base;
+
+		std::map< Tag, sf::Sprite> m_spriteIcons;
+
 };
 
