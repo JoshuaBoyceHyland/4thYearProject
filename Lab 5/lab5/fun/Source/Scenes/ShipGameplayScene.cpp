@@ -65,9 +65,13 @@ void ShipGameplayScene::update(sf::Time t_deltaTime)
 	}
 
 	closestCell = closestRoom->getClosestCellTo(m_playerShip.getPosition());
-
-	
 	closestCell->m_body.setFillColor(sf::Color::Yellow);
+	
+	if (VectorMath::vectorLength(m_playerShip.getPosition(), closestCell->m_body.getPosition()))
+	{
+
+	}
+	
 	
 
 }

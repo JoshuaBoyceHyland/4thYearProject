@@ -205,17 +205,23 @@ Cell* Room::getClosestCellTo(sf::Vector2f t_position)
     {
         for (int column = 0; column < cellsOccupied[row].size(); column++)
         {
-            float distance = VectorMath::vectorLength(t_position, cellsOccupied[row][column]->m_body.getPosition());
-
-            if (distance < closestDistance)
+            if (cellsOccupied[row][column]->getProperty() == TraversalProperty::Walkable)
             {
-                closestDistance = distance;
+                
+                float distance = VectorMath::vectorLength(t_position, cellsOccupied[row][column]->m_body.getPosition());
 
-                closestRow = row;
-                closestColum = column;
+                if (distance < closestDistance)
+                {
+                    closestDistance = distance;
+
+                    closestRow = row;
+                    closestColum = column;
+                }
             }
+           
         }
     }
+    std::cout << "Dist: " << VectorMath::vectorLength(t_position, cellsOccupied[closestRow][closestColum]->m_body.getPosition()) << std::endl;;
 
     return cellsOccupied[closestRow][closestColum];
 }
