@@ -1,10 +1,10 @@
 #include "MiniMap.h"
 
-MiniMap::MiniMap(sf::RenderWindow& t_window, GameObject* t_player, std::vector<GameObject*> t_icons, std::vector<Grid*> t_grids) :
+MiniMap::MiniMap(sf::RenderWindow& t_window, float t_zoomFActor, GameObject* t_player, std::vector<GameObject*> t_icons, std::vector<Grid*> t_grids) :
 	m_window(t_window), 
 	m_player(t_player)
 {
-	m_miniMapView.setSize(Globals::SCREEN_WIDTH * 2, Globals::SCREEN_HEIGHT * 2);
+	m_miniMapView.setSize(Globals::SCREEN_WIDTH * t_zoomFActor, Globals::SCREEN_HEIGHT * t_zoomFActor);
 	m_miniMapView.setViewport(sf::FloatRect(0.75f, 0.75f, 0.2f, 0.2f));
 
 	m_border.setSize({ m_miniMapView.getViewport().width * m_window.getSize().x, m_miniMapView.getViewport().height * m_window.getSize().y });

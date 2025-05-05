@@ -6,6 +6,8 @@
 #include "World/Grid.h"
 #include "MovableCamera.h"
 #include "Minimap.h"
+#include "DungeonGeneration/DungeonGeneration.h"
+
 class ShipGameplayScene : public Scene
 {
 	public:
@@ -21,11 +23,12 @@ class ShipGameplayScene : public Scene
 	private:
 
 		UIScreenBorder m_uiBorder;
-		Ship m_player;
+		Ship m_playerShip;
 		Grid* m_grid = nullptr;
 		MovableCamera m_camera;
 		MiniMap* m_minimap;
-		// Inherited via Scene
-		
+	
+		Grid* m_dungeon = nullptr;
+		DungeonGeneration m_dungeonGeneratior;
 };
 

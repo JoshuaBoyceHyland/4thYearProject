@@ -34,6 +34,7 @@ public:
 	sf::Sprite& m_spriteRef;
 	std::map<Tag, std::string> texturePaths = { {Player_ship, "ASSETS/IMAGES/Minimap/ship.png"},
 												{Player_Base, "ASSETS/IMAGES/Minimap/home.png"},
+												{Enemy_Base, "ASSETS/IMAGES/Minimap/base.png"},
 												{Player, "ASSETS/IMAGES/Minimap/player.png" },
 												{Enemy, "ASSETS/IMAGES/Minimap/enemy.png" } };
 };
@@ -77,7 +78,7 @@ class MiniMapGrid
 class MiniMap
 {
 	public:
-		MiniMap(sf::RenderWindow& t_window, GameObject* t_player, std::vector<GameObject*> t_icons, std::vector<Grid*> t_grids = {});
+		MiniMap(sf::RenderWindow& t_window, float t_zoomFActor, GameObject* t_player, std::vector<GameObject*> t_icons, std::vector<Grid*> t_grids = {});
 
 		void update();
 

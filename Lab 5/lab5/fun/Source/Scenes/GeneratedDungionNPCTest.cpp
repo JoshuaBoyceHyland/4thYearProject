@@ -22,7 +22,7 @@ m_camera(m_window)
 		upcastedNpcs.push_back(m_npc[i]);
 	}
 
-	m_minimap = new MiniMap(m_window, m_player, upcastedNpcs, { m_dungeon });
+	m_minimap = new MiniMap(m_window,2,m_player, upcastedNpcs, { m_dungeon });
 
 }
 

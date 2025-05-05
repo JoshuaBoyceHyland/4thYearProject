@@ -32,12 +32,26 @@ void Ship::update(float deltaTime)
 	m_velocity.y = std::sin(radian) * m_speed * (deltaTime / 1000);
 
 
-	m_position += m_velocity;
-	std::cout << "X: " << m_velocity.x << " Y: "<<m_velocity.y << std::endl;
+
+	std::vector<Cell*> projectedCells = getCurrentCells(m_position + m_velocity);
+
+	bool isCollision = projectPositionIsCollision();
+
+	if (isCollision)
+	{
+		m_velocity = { 0, 0 };
+		m_speed = 0;
+	}
+	else
+	{
+		m_position += m_velocity;
+		
+	}
+	
 	for (int i = 0; i < m_parts.size(); i++)
 	{
-		m_parts[i].setPosition(m_position + RotationMath::rotatedVector( m_offsets[i], m_rotation));
-		m_parts[i].m_body.setRotation( m_rotation);
+		m_parts[i].setPosition(m_position + RotationMath::rotatedVector(m_offsets[i], m_rotation));
+		m_parts[i].m_body.setRotation(m_rotation);
 		m_parts[i].update();
 	}
 
@@ -45,8 +59,19 @@ void Ship::update(float deltaTime)
 	// not used for actual ship, used for minimap to gather info
 	m_body.setPosition(m_position);
 	m_body.setRotation(m_rotation);
-	
-	
+
+	for (int i = 0; i < m_currentCells.size(); i++)
+	{
+		m_currentCells[i]->removeGameObject(this);
+	}
+
+	m_currentCells = getCurrentCells(m_position);
+
+	for (int i = 0; i < m_currentCells.size(); i++)
+	{
+		m_currentCells[i]->addToGameObjects(this);
+	}
+
 }
 	
 
@@ -88,7 +113,49 @@ void Ship::setOrigin(sf::Vector2f t_originPos)
 
 void Ship::collisionWith(Tag t_tag)
 {
+
 }
+
+std::vector<Cell*> Ship::getCurrentCells(sf::Vector2f t_position)
+{
+	std::vector<Cell*> currentCells;
+
+	
+	for (int i = 0; i < m_grids.size(); i++)
+	{
+		for (int k = 0; k < m_parts.size(); k++)
+		{
+			Cell* currentCell = m_grids[i]->cellSelection(t_position + RotationMath::rotatedVector(m_offsets[k], m_rotation));
+			//sf::FloatRect bounds = m_parts[k].m_body.getGlobalBounds();
+
+			if (currentCell != nullptr)
+			{
+				currentCells.push_back( currentCell);
+			}
+
+		}
+	}
+	
+	return  currentCells;
+}
+
+bool Ship::projectPositionIsCollision()
+{
+
+	sf::Vector2f projectedPos = m_position + m_velocity;
+	
+	std::vector<Cell*> projectedCells = getCurrentCells(projectedPos);
+
+	for (int  i = 0; i < projectedCells.size(); i++)
+	{
+		if (projectedCells[i]->getTexture() != nullptr) {
+			return true;
+		}
+	}
+	return false;
+}
+
+
 
 
 
