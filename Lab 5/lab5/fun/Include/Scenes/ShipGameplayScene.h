@@ -28,7 +28,10 @@ class ShipGameplayScene : public Scene
 		MovableCamera m_camera;
 		MiniMap* m_minimap;
 	
-		Grid* m_dungeon = nullptr;
+		Dungeon* m_dungeon = nullptr;
 		DungeonGeneration m_dungeonGeneratior;
+
+		Cell* closestCell = nullptr;
+		Room* closestRoom = nullptr;
 };
 

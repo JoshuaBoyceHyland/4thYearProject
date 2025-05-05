@@ -172,7 +172,50 @@ void Room::setWalkable()
     }
 }
 
+Cell* Room::getCenterCell()
+{
+
+
+    return cellsOccupied[cellsOccupied.size() / 2][cellsOccupied.size() / 2];
+}
+
 Grid Room::getGrid()
 {
     return m_grid;
+}
+
+void Room::setColourOfOccupiedCells(sf::Color t_color)
+{
+
+    for (int row = 0; row < cellsOccupied.size(); row++)
+    {
+        for (int column = 0; column < cellsOccupied[row].size(); column++)
+        {
+            cellsOccupied[row][column]->m_body.setFillColor(t_color);
+        }
+    }
+}
+
+Cell* Room::getClosestCellTo(sf::Vector2f t_position)
+{
+    int closestRow = 0;
+    int closestColum = 0;
+    float closestDistance = VectorMath::vectorLength(t_position, cellsOccupied[0][0]->m_body.getPosition());
+    for (int row = 0; row < cellsOccupied.size(); row++)
+    {
+        for (int column = 0; column < cellsOccupied[row].size(); column++)
+        {
+            float distance = VectorMath::vectorLength(t_position, cellsOccupied[row][column]->m_body.getPosition());
+
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+
+                closestRow = row;
+                closestColum = column;
+            }
+        }
+    }
+
+    return cellsOccupied[closestRow][closestColum];
 }

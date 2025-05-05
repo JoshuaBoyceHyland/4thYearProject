@@ -28,7 +28,7 @@ class Ship : public GameObject
 	private:
 		
 		bool projectPositionIsCollision();
-		bool projectPositionIsCollision2();
+	
 		float m_speed = 0;
 		float m_rotation = 0; 
 		sf::Vector2f m_velocity = { 0, 0 };

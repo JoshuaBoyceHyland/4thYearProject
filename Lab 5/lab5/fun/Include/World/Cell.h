@@ -28,9 +28,9 @@ class Cell
 
 		void setProperty(TraversalProperty t_property);
 
-		void addToGameObjects(GameObject* t_gameObject) { m_body.setFillColor(sf::Color::Green); m_gameObjects.insert(t_gameObject); };
+		void addToGameObjects(GameObject* t_gameObject) { /*m_body.setFillColor(sf::Color::Green);*/ m_gameObjects.insert(t_gameObject); };
 
-		void removeGameObject(GameObject* t_gameObject) { m_body.setFillColor(sf::Color::White); m_gameObjects.erase(t_gameObject); };
+		void removeGameObject(GameObject* t_gameObject) { /*m_body.setFillColor(sf::Color::White);*/ m_gameObjects.erase(t_gameObject); };
 
 		void setColor(sf::Color t_color) { m_body.setFillColor(t_color); }
 

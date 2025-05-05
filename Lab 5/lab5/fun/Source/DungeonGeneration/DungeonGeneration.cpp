@@ -75,7 +75,7 @@ sf::Vector2f DungeonGeneration::getRandomPointInARadius(float t_radius)
 	return randPoint;
 }
 
-Grid* DungeonGeneration::generate()
+Dungeon* DungeonGeneration::generate()
 {
 
 	generateInitialGrids();
@@ -124,7 +124,7 @@ Grid* DungeonGeneration::generate()
 	}
 	
 
-	return m_dungeon;
+	return new Dungeon(m_dungeon, m_mainRooms);
 }
 
 void DungeonGeneration::generationLoopStepThrough()

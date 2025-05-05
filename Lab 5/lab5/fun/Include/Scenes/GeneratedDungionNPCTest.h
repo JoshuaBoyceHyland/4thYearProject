@@ -25,7 +25,7 @@ class GeneratedDungionNPCTestScene : public Scene
 		Cell* prev;
 		BasePlayer* m_player;
 		std::vector<NPC*> m_npc;
-		Grid* m_dungeon;
+		Dungeon* m_dungeon;
 		MovableCamera m_camera;
 
 

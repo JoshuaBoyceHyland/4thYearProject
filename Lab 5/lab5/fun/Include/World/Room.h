@@ -10,6 +10,7 @@
 #include "Utility/RotationMath.h"
 
 enum class ResourceType{  Electricty, Happinness, Water, Oxygen, None};
+
 class CircumCircle
 {
 public:
@@ -326,11 +327,15 @@ class Room
 
 		void setWalkable();
 
+		Cell* getCenterCell();
+
 		Grid getGrid();
 
+		void setColourOfOccupiedCells(sf::Color t_color);
+
+		Cell* getClosestCellTo(sf::Vector2f t_position);
+
 		Grid m_grid;
-
-
 
 		int roomId = -1;
 

@@ -6,7 +6,7 @@
 #include <algorithm>
 #include <unordered_set>
 #include <queue>
-#include "World/Room.h"
+#include "Dungeon.h"
 #include "World/Search.h"
 enum class GenerationState { RoomSeperation, RoomCulling, DelauneyTriangulation, MinSpanningTree, HallwayGen,TextureApplication, Done };
 
@@ -26,7 +26,7 @@ class DungeonGeneration
 		/// Generates a Dungeon and returns it
 		/// </summary>
 		/// <returns></returns>
-		Grid* generate();
+		Dungeon* generate();
 
 		/// <summary>
 		/// looping through states of seperation step by step using keys

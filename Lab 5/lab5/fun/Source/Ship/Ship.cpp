@@ -35,19 +35,15 @@ void Ship::update(float deltaTime)
 
 	std::vector<Cell*> projectedCells = getCurrentCells(m_position + m_velocity);
 
-	bool isCollision = projectPositionIsCollision();
 
-	if (isCollision)
+	if (projectPositionIsCollision())
 	{
-		m_velocity = { 0, 0 };
-		m_speed = 0;
-	}
-	else
-	{
+		m_velocity *= -0.3f;
+		m_speed *= 0.5f;
 		m_position += m_velocity;
-		
 	}
 	
+	m_position += m_velocity;
 	for (int i = 0; i < m_parts.size(); i++)
 	{
 		m_parts[i].setPosition(m_position + RotationMath::rotatedVector(m_offsets[i], m_rotation));
@@ -125,13 +121,35 @@ std::vector<Cell*> Ship::getCurrentCells(sf::Vector2f t_position)
 	{
 		for (int k = 0; k < m_parts.size(); k++)
 		{
-			Cell* currentCell = m_grids[i]->cellSelection(t_position + RotationMath::rotatedVector(m_offsets[k], m_rotation));
-			//sf::FloatRect bounds = m_parts[k].m_body.getGlobalBounds();
 
-			if (currentCell != nullptr)
+		
+
+			sf::Vector2f partCenter = t_position + RotationMath::rotatedVector(m_offsets[k], m_rotation);
+			sf::Vector2f halfBounds(m_parts[k].m_body.getGlobalBounds().width / 2.f, m_parts[k].m_body.getGlobalBounds().height / 2.f);
+			std::vector<sf::Vector2f> boundsCourners = {
+														{ -halfBounds.x, -halfBounds.y },  
+														{  halfBounds.x, -halfBounds.y },
+														{ -halfBounds.x,  halfBounds.y },
+														{  halfBounds.x,  halfBounds.y }
+													};
+
+			for (int j = 0; j < boundsCourners.size(); j++)
 			{
-				currentCells.push_back( currentCell);
+				sf::Vector2f rotatedCorner = RotationMath::rotatedVector(boundsCourners[j], m_rotation);
+				sf::Vector2f worldCorner = partCenter + rotatedCorner;
+			
+				Cell* cell = m_grids[i]->cellSelection(worldCorner);
+
+				if (cell != nullptr)
+				{
+					if (std::find(currentCells.begin(), currentCells.end(), cell) == currentCells.end())
+					{
+						currentCells.push_back(cell);
+					}
+				}
+			
 			}
+		
 
 		}
 	}
@@ -148,8 +166,11 @@ bool Ship::projectPositionIsCollision()
 
 	for (int  i = 0; i < projectedCells.size(); i++)
 	{
-		if (projectedCells[i]->getTexture() != nullptr) {
+		if (projectedCells[i]->getTexture() != nullptr)
+		{
+
 			return true;
+				
 		}
 	}
 	return false;

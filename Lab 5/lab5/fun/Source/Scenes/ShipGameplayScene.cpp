@@ -7,8 +7,8 @@ ShipGameplayScene::ShipGameplayScene(sf::RenderWindow& t_window) :
 {
 	m_dungeon = m_dungeonGeneratior.generate();
 
-	m_dungeon->m_tag = Enemy_Base;
-	m_dungeon->setForGamePlay();
+
+	m_dungeon->m_grid->setForGamePlay();
 
 	
 	
@@ -33,10 +33,11 @@ ShipGameplayScene::ShipGameplayScene(sf::RenderWindow& t_window) :
 
 	sf::Vector2 randomPointAroundBase = startPosition + rotatedVector;
 
-	m_dungeon->setPosition(randomPointAroundBase);
+	m_dungeon->m_grid->setPosition(randomPointAroundBase);
 
-	m_playerShip.m_grids = { m_grid, m_dungeon };
-	m_minimap = new MiniMap(t_window, 1.5f, &m_playerShip, {m_grid, m_dungeon }, { m_grid, m_dungeon });
+	m_dungeon->updateIconPos();
+	m_playerShip.m_grids = { m_grid, m_dungeon->m_grid };
+	m_minimap = new MiniMap(t_window, 1.5f, &m_playerShip, {m_grid, m_dungeon->m_grid }, { m_grid, m_dungeon->m_grid });
 }
 
 void ShipGameplayScene::update(sf::Time t_deltaTime)
@@ -47,6 +48,28 @@ void ShipGameplayScene::update(sf::Time t_deltaTime)
 	m_camera.update();
 	m_playerShip.update(t_deltaTime.asMilliseconds());
 	m_minimap->update();
+
+
+	if (closestRoom != nullptr)
+	{
+		closestRoom->setColourOfOccupiedCells(sf::Color::White);
+	}
+	closestRoom = m_dungeon->closestRoomTo(m_playerShip.getPosition());
+
+	closestRoom->setColourOfOccupiedCells(sf::Color::Green);
+
+
+	if (closestCell != nullptr)
+	{
+		closestCell->m_body.setFillColor(sf::Color::White);
+	}
+
+	closestCell = closestRoom->getClosestCellTo(m_playerShip.getPosition());
+
+	
+	closestCell->m_body.setFillColor(sf::Color::Yellow);
+	
+
 }
 
 void ShipGameplayScene::render()
@@ -56,7 +79,7 @@ void ShipGameplayScene::render()
 	m_window.setView(m_camera.getView());
 	m_playerShip.draw(m_window);
 	m_grid->draw(m_window);
-	m_dungeon->draw(m_window);
+	m_dungeon->m_grid->draw(m_window);
 
 	m_minimap->drawBackground();
 	m_minimap->drawContents();

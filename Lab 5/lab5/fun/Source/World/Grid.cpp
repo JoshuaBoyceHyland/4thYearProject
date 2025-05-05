@@ -24,7 +24,7 @@ Grid::Grid(int t_rows, int t_columns, float t_width, float t_height, sf::Vector2
 		t_startPosition.y += m_cellHeight;
 	}
 
-	
+	m_body.setPosition(m_cells[0][0].m_body.getPosition());
 }
 
 bool Grid::isInGrid(sf::Vector2f t_position)
@@ -46,7 +46,7 @@ bool Grid::isInGrid(sf::Vector2f t_position)
 
 void Grid::draw(sf::RenderWindow& t_window)
 {
-	m_body.setPosition(m_cells[0][0].m_body.getPosition());
+	
 
 	sf::View view = t_window.getView();
 

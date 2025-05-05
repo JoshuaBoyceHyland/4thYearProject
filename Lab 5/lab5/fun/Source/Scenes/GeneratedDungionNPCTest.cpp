@@ -5,10 +5,10 @@ Scene( t_window),
 m_camera(m_window)
 {
 	m_dungeon = m_dungeonGenerator.generate();
-	m_dungeon->setForGamePlay();
-	m_player = new BasePlayer(m_dungeon);
+	m_dungeon->m_grid->setForGamePlay();
+	m_player = new BasePlayer(m_dungeon->m_grid);
 
-	Cell* randCell = m_dungeon->getRandomTraverableCell();
+	Cell* randCell = m_dungeon->m_grid->getRandomTraverableCell();
 	m_player->setPosition(randCell->getNode()->getPosition());
 
 
@@ -17,12 +17,12 @@ m_camera(m_window)
 	{
 
 		
-		m_npc.push_back(new NPC(m_dungeon,m_player, randCell->m_body.getPosition()));
+		m_npc.push_back(new NPC(m_dungeon->m_grid,m_player, randCell->m_body.getPosition()));
 	
 		upcastedNpcs.push_back(m_npc[i]);
 	}
 
-	m_minimap = new MiniMap(m_window,2,m_player, upcastedNpcs, { m_dungeon });
+	m_minimap = new MiniMap(m_window,2,m_player, upcastedNpcs, { m_dungeon->m_grid });
 
 }
 
@@ -45,7 +45,7 @@ void GeneratedDungionNPCTestScene::render()
 {
 	m_window.clear();
 	m_window.setView(m_camera.getView());
-	m_dungeon->draw(m_window);
+	m_dungeon->m_grid->draw(m_window);
 	for (int i = 0; i < m_npc.size(); i++)
 	{
 		m_npc[i]->draw(m_window);
@@ -66,7 +66,7 @@ void GeneratedDungionNPCTestScene::processKeys(sf::Event t_event)
 
 void GeneratedDungionNPCTestScene::processMousePress(sf::Event t_event)
 {
-	Cell* cell = m_dungeon->cellSelection(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)));
+	Cell* cell = m_dungeon->m_grid->cellSelection(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)));
 	
 
 	if (sf::Mouse::Left == t_event.mouseButton.button)
@@ -95,7 +95,7 @@ void GeneratedDungionNPCTestScene::processMouseRelease(sf::Event t_event)
 {
 	if (sf::Mouse::Middle == t_event.mouseButton.button)
 	{
-		m_npc.push_back(new NPC(m_dungeon, m_player, m_dungeon->cellSelection(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)))->getNode()->getPosition()));
+		m_npc.push_back(new NPC(m_dungeon->m_grid, m_player, m_dungeon->m_grid->cellSelection(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window)))->getNode()->getPosition()));
 	}
 }
 
