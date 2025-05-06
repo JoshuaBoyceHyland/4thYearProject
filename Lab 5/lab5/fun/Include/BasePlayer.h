@@ -46,6 +46,7 @@ private:
 		sf::Vector2f m_gunHoldPoint = { 0,0 };
 		Weapon* m_currentWeapon;
 
-		
+		ShotGun* m_shotgun;
+		MachineGun* m_machineGun;
 };
 

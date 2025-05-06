@@ -11,7 +11,7 @@ class NPC : public GameObject
 {
 
 	public:
-		NPC(Grid* t_map,  BasePlayer* player, sf::Vector2f t_position= {-500, -500});
+		NPC(Grid* t_map,  BasePlayer* player, sf::Vector2f t_position= {-500, -500}, Tag t_tag = Enemy);
 
 		void update(float deltatime);
 
@@ -42,6 +42,6 @@ class NPC : public GameObject
 
 		bool m_startedAttacking = false;
 		bool m_startDashing = false;
-		
+		bool m_dashed = false;
 };
 

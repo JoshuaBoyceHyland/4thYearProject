@@ -6,10 +6,10 @@ ShipGameplayScene::ShipGameplayScene(sf::RenderWindow& t_window, std::function<v
 	m_camera( m_window), 
 	m_sceneChangeFunction(t_sceneChangeFunction)
 {
-	m_dungeon = m_dungeonGeneratior.generate();
+	
 
 
-	m_dungeon->m_grid->setForGamePlay();
+	
 
 	GameData* gameData = GameData::getInstance();
 
@@ -18,21 +18,36 @@ ShipGameplayScene::ShipGameplayScene(sf::RenderWindow& t_window, std::function<v
 	
 	m_grid = gameData->m_currentMap;
 
-	m_playerShip.setPosition(m_grid->m_cells[0][0].m_body.getPosition());
-	sf::Vector2f t_centerPosition = m_grid->m_cells[0][0].m_body.getPosition();
-	float radiusFromBase = 10000;
-	float randoMAngle = rand() % 360;
 
-	sf::Vector2f startPosition = { radiusFromBase, 0.0f };
+	if (gameData->m_currentDungeon == nullptr)
+	{
+		m_dungeon = m_dungeonGeneratior.generate();
+		m_dungeon->m_grid->setForGamePlay();
 
-	sf::Vector2f rotatedVector = RotationMath::rotatedVector(startPosition, randoMAngle);
+		m_playerShip.setPosition(m_grid->m_cells[0][0].m_body.getPosition());
+		sf::Vector2f t_centerPosition = m_grid->m_cells[0][0].m_body.getPosition();
+		float radiusFromBase = 10000;
+		float randoMAngle = rand() % 360;
 
-	sf::Vector2 randomPointAroundBase = startPosition + rotatedVector;
+		sf::Vector2f startPosition = { radiusFromBase, 0.0f };
 
-	m_dungeon->m_grid->setPosition(randomPointAroundBase);
+		sf::Vector2f rotatedVector = RotationMath::rotatedVector(startPosition, randoMAngle);
+
+		sf::Vector2 randomPointAroundBase = startPosition + rotatedVector;
+
+		m_dungeon->m_grid->setPosition(randomPointAroundBase);
+	}
+	else
+	{
+		m_dungeon = gameData->m_currentDungeon;
+	}
+	
+
+	
 
 	m_dungeon->updateIconPos();
 	m_playerShip.m_grids = { m_grid, m_dungeon->m_grid };
+
 	m_minimap = new MiniMap(t_window, 1.5f, &m_playerShip, {m_grid, m_dungeon->m_grid }, { m_grid, m_dungeon->m_grid });
 }
 
@@ -72,6 +87,7 @@ void ShipGameplayScene::update(sf::Time t_deltaTime)
 			gameData->m_player->setPosition(closestCell->m_body.getPosition());
 			gameData->m_currentDungeon = m_dungeon;
 			gameData->m_playerShip->setPosition(m_playerShip.getPosition());
+			gameData->m_playerShip->setRotation(m_playerShip.getRotation());
 			m_sceneChangeFunction(EnemyBase);
 		}
 	}

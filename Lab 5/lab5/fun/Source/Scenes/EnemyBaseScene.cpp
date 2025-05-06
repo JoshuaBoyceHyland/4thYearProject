@@ -13,7 +13,7 @@ EnemyBaseScene::EnemyBaseScene(sf::RenderWindow& t_window, std::function<void(Sc
 	std::vector<GameObject*> upcastedNpcs;
 
 	m_ship->update(0.0f);
-	for (int i = 0; i < 1; i++)
+	for (int i = 0; i < 30; i++)
 	{
 
 		Cell* randCell = m_dungeon->m_grid->getRandomTraverableCell();
@@ -27,15 +27,23 @@ EnemyBaseScene::EnemyBaseScene(sf::RenderWindow& t_window, std::function<void(Sc
 
 void EnemyBaseScene::update(sf::Time t_deltaTime)
 {
-	//for (int i = 0; i < m_npc.size(); i++)
-	//{
-	//	m_npc[i]->update(t_deltaTime.asMilliseconds());
-	//}
+	for (int i = 0; i < m_npc.size(); i++)
+	{
+		m_npc[i]->update(t_deltaTime.asMilliseconds());
+	}
+
 
 	m_camera.follow(m_player->getPosition());
 	m_camera.update();
 	m_player->update(t_deltaTime.asMilliseconds());
 	m_minimap->update();
+
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
+	{
+		m_sceneChangeFunction(ShipGameplay);
+	}
+
 }
 
 void EnemyBaseScene::render()

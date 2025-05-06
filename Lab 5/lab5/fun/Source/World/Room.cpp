@@ -210,7 +210,7 @@ Cell* Room::getClosestCellTo(sf::Vector2f t_position)
                 
                 float distance = VectorMath::vectorLength(t_position, cellsOccupied[row][column]->m_body.getPosition());
 
-                if (distance < closestDistance)
+                if (distance < closestDistance || cellsOccupied[closestRow][closestColum]->getProperty() != TraversalProperty::Walkable)
                 {
                     closestDistance = distance;
 

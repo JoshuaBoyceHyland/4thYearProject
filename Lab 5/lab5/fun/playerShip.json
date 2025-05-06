@@ -13,12 +13,48 @@
          0
       ],
       [
+         "PartType",
+         3,
+         "Texture: ",
+         0
+      ],
+      [
+         "PartType",
+         3,
+         "Texture: ",
+         1
+      ],
+      [
+         "PartType",
+         4,
+         "Texture: ",
+         0
+      ],
+      [
+         "PartType",
+         0,
+         "Texture: ",
+         0
+      ],
+      [
+         "PartType",
+         2,
+         "Texture: ",
+         0
+      ],
+      [
+         "PartType",
+         2,
+         "Texture: ",
+         1
+      ],
+      [
          "ShipOriginX: ",
-         772.0
+         792.0
       ],
       [
          "ShipOriginY: ",
-         397.0
+         497.0
       ]
    ]
 ]

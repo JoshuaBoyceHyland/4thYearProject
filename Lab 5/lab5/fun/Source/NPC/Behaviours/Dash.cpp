@@ -17,11 +17,11 @@ void Dash::startDash()
 	m_animator->m_elapseReset = 4;
 	m_animator->m_currentState = 3;
 
-
-	if (!tryDash(m_dashDirection))
+	tryDash(m_dashDirection);
+	/*if (!)
 	{
 		tryDash(-m_dashDirection);
-	}
+	}*/
 
 
 	std::cout << "Dash started on " << m_animator->m_animations[m_animator->m_currentState].m_currentFrame << std::endl;

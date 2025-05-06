@@ -19,9 +19,10 @@ class Ship : public GameObject
 		
 		std::vector<Cell*> getCurrentCells(sf::Vector2f t_position);
 
+		void setRotation(float t_rotation) { m_rotation = t_rotation; };
 		void setPosition(sf::Vector2f t_position) { m_position = t_position; };
 		sf::Vector2f getPosition() { return m_position; };
-
+		float getRotation() { return m_rotation; };
 		std::vector<sf::Vector2f> m_offsets;
 		std::vector<ShipPart> m_parts;
 		std::vector<Grid*> m_grids;
