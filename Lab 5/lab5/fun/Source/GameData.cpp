@@ -17,5 +17,5 @@ GameData* GameData::getInstance()
 
 Ship* GameData::getPlayerShip()
 {
-    return m_player;
+    return m_playerShip;
 }

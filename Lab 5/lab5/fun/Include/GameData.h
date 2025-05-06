@@ -1,6 +1,8 @@
 #pragma once
+#include "DungeonGeneration/Dungeon.h"
 #include "Ship/Ship.h"
 #include "World/Grid.h"
+#include "BasePlayer.h"
 /// <summary>
 /// Holds pieces of data that need to be transfered between scenes
 /// </summary>
@@ -12,12 +14,17 @@ class GameData
 
 		static GameData* getInstance();
 
-		Ship* m_player;
+		BasePlayer* m_player;
+
+		Ship* m_playerShip;
 
 		Grid* m_currentMap;
 
 		Ship* getPlayerShip();
+		
+		Dungeon* m_currentDungeon;
 
+		std::vector<Dungeon*> m_dungeons;
 	private:
 
 		GameData();

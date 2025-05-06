@@ -25,6 +25,7 @@ class BasePlayer : public GameObject
 		
 		void collisionWith(Tag t_tag) override;
 
+		void setMap(Grid* t_grid);
 private:
 
 		void input(float t_deltaTime);

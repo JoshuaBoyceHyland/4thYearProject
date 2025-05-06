@@ -1,23 +1,19 @@
 #include "Scenes/ShipGameplayScene.h"
 
-ShipGameplayScene::ShipGameplayScene(sf::RenderWindow& t_window) : 
+ShipGameplayScene::ShipGameplayScene(sf::RenderWindow& t_window, std::function<void(SceneType)> t_sceneChangeFunction) :
 	Scene(t_window), 
 	m_uiBorder( "Gameplay"),
-	m_camera( m_window)
+	m_camera( m_window), 
+	m_sceneChangeFunction(t_sceneChangeFunction)
 {
 	m_dungeon = m_dungeonGeneratior.generate();
 
 
 	m_dungeon->m_grid->setForGamePlay();
 
-	
-	
-
-
-
 	GameData* gameData = GameData::getInstance();
 
-	m_playerShip = (*gameData->m_player);
+	m_playerShip = (*gameData->m_playerShip);
 
 	
 	m_grid = gameData->m_currentMap;
@@ -67,9 +63,17 @@ void ShipGameplayScene::update(sf::Time t_deltaTime)
 	closestCell = closestRoom->getClosestCellTo(m_playerShip.getPosition());
 	closestCell->m_body.setFillColor(sf::Color::Yellow);
 	
-	if (VectorMath::vectorLength(m_playerShip.getPosition(), closestCell->m_body.getPosition()))
+	if (VectorMath::vectorLength(m_playerShip.getPosition(), closestCell->m_body.getPosition()) < 500)
 	{
-
+		std::cout << "Can land" << std::endl;
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
+		{
+			GameData* gameData = GameData::getInstance();
+			gameData->m_player->setPosition(closestCell->m_body.getPosition());
+			gameData->m_currentDungeon = m_dungeon;
+			gameData->m_playerShip->setPosition(m_playerShip.getPosition());
+			m_sceneChangeFunction(EnemyBase);
+		}
 	}
 	
 	

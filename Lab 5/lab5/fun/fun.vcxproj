@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Include\Scenes\EnemyBaseScene.h" />
     <ClInclude Include="Include\DungeonGeneration\Dungeon.h" />
     <ClInclude Include="Include\NPC\Behaviours\Dash.h" />
     <ClInclude Include="Include\NPC\Actors\Agent.h" />
@@ -152,6 +153,7 @@
     <None Include="map.json" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Scenes\EnemyBaseScene.cpp" />
     <ClCompile Include="Source\DungeonGeneration\Dungeon.cpp" />
     <ClCompile Include="MiniMap.cpp" />
     <ClCompile Include="Source\NPC\Behaviours\Dash.cpp" />

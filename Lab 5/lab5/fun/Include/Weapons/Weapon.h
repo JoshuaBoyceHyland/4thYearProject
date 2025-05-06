@@ -33,7 +33,7 @@ class Weapon
 		
 		float updateWeaponRotation(sf::Vector2f t_lookDirection);
 
-
+		void setGrid(Grid* t_grid) { m_grid = t_grid; };
 		sf::Sprite m_body;
 	protected:
 		

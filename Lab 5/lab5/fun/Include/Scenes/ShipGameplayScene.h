@@ -11,7 +11,7 @@
 class ShipGameplayScene : public Scene
 {
 	public:
-		ShipGameplayScene(sf::RenderWindow& t_window);
+		ShipGameplayScene(sf::RenderWindow& t_window, std::function<void(SceneType)> t_sceneChangeFunction);
 
 		void update(sf::Time t_deltaTime) override;
 		void render() override;
@@ -33,5 +33,8 @@ class ShipGameplayScene : public Scene
 
 		Cell* closestCell = nullptr;
 		Room* closestRoom = nullptr;
+
+
+		std::function<void(SceneType)> m_sceneChangeFunction;
 };
 

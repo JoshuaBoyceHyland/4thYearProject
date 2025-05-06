@@ -9,7 +9,7 @@
 #include "Scenes/BaseGameplayScene.h"
 #include "Scenes/DungeonGenerationTest.h"
 #include "Scenes/GeneratedDungionNPCTest.h"
-
+#include "Scenes/EnemyBaseScene.h"
 
 class SceneManager
 {

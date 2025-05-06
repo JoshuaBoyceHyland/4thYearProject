@@ -10,6 +10,9 @@ BaseGameplayScene::BaseGameplayScene(sf::RenderWindow& t_window) :
 	saver.loadMapJson(m_grid);
 	m_grid->setForGamePlay();
 	m_player = new BasePlayer(m_grid);
+
+	gamedata->m_player = m_player;
+
 	for (int i = 0; i < 10; i++)
 	{
 		m_npc.push_back(new NPC(m_grid, m_player,{ 2500, 900 }));

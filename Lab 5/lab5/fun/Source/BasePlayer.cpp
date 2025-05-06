@@ -167,3 +167,9 @@ void BasePlayer::collisionWith(Tag t_tag)
 
 	}
 }
+
+void BasePlayer::setMap(Grid* t_grid)
+{
+	m_map = t_grid; 
+	m_currentWeapon->setGrid(m_map);
+}

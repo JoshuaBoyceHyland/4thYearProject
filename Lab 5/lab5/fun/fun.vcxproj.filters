@@ -111,6 +111,7 @@
     <ClInclude Include="Include\NPC\Behaviours\Dash.h" />
     <ClInclude Include="Include\MiniMap.h" />
     <ClInclude Include="Include\DungeonGeneration\Dungeon.h" />
+    <ClInclude Include="Include\Scenes\EnemyBaseScene.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="fun.rc" />
@@ -191,6 +192,7 @@
     <ClCompile Include="Source\NPC\Behaviours\Dash.cpp" />
     <ClCompile Include="MiniMap.cpp" />
     <ClCompile Include="Source\DungeonGeneration\Dungeon.cpp" />
+    <ClCompile Include="Source\Scenes\EnemyBaseScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="map.txt" />

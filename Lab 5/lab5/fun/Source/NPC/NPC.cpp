@@ -7,6 +7,7 @@ m_animator("ASSETS/IMAGES/NPC/1", { "/Idle", "/Run", "/Death", "/Dash"}, m_body,
 {
 	m_tag = Enemy;
 	setUpBehaviourTree(t_map, player);
+	m_body.setPosition(m_agent.m_position);
 
 }
 

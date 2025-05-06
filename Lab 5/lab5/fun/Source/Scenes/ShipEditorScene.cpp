@@ -140,7 +140,7 @@ void ShipEditorScene::saveCreatedShip()
 	}
 
 	saver.saveShip(&createdShip);
-	gameData->m_player = new Ship(createdShip);
+	gameData->m_playerShip = new Ship(createdShip);
 }
 
 void ShipEditorScene::processMouseWheel(sf::Event t_event)
