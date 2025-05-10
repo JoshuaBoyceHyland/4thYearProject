@@ -4,10 +4,6 @@ Agent::Agent(Grid* t_map, sf::Vector2f t_position) : m_map(t_map), m_position(t_
 {
 }
 
-Agent::Agent(AgentUser* t_user, Grid* t_map, sf::Vector2f t_position) : m_user( t_user), m_map(t_map), m_position(t_position)
-{
-
-}
 
 void Agent::update(float t_deltaTime)
 {

@@ -204,12 +204,12 @@ void Grid::highlightNeighbours(sf::Vector2f t_mouseCLick)
 	}
 }
 
-Cell* Grid::cellSelection(sf::Vector2f t_mouseCLick)
+Cell* Grid::cellSelection(sf::Vector2f t_position)
 {
 
 	sf::Vector2f gridStart = m_cells[0][0].m_body.getPosition() - (m_cells[0][0].m_body.getSize() / 2.0f);
 
-	sf::Vector2f offsettedClick = t_mouseCLick - gridStart;
+	sf::Vector2f offsettedClick = t_position - gridStart;
 
 
 	if (offsettedClick.y < 0) { return nullptr; }

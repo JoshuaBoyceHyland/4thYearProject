@@ -9,7 +9,6 @@ class Agent
 	public:
 
 		Agent( Grid* t_map, sf::Vector2f t_position);
-		Agent(AgentUser* t_user, Grid* t_map, sf::Vector2f t_position);
 
 		void update(float t_deltaTime);
 

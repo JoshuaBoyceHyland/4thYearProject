@@ -33,7 +33,6 @@ class Node
 
 		void setMarked(bool t_marked) { m_marked = t_marked; }
 		void setBeingChecked(bool t_beingChecked) { m_beingChecked = t_beingChecked; }
-		void setCost(int t_cost) { m_cost = t_cost; };
 		void setManhattan(int t_manhanttan) { m_manhanttan = t_manhanttan; }
 		void setEudclidian(float t_euclidian) { m_euclidian = t_euclidian; }
 		void setHeuristic(float t_heuristic) { m_heuristic = t_heuristic; }
@@ -44,7 +43,6 @@ class Node
 
 		bool isWallNode();
 
-		int getCost() { return m_cost; };
 		int getManhattan() { return m_manhanttan; }
 
 		int getEudclidian() { return m_euclidian; }
@@ -64,8 +62,6 @@ class Node
 		int m_euclidian = -1;
 		int m_manhanttan = -1;
 		int m_heuristic = -1;
-
-		int  m_cost = -1;
 
 		bool m_marked = false;
 		bool m_beingChecked = false;

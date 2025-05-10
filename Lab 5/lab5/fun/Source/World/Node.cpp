@@ -5,7 +5,6 @@ void Node::resetCosts()
 {
 	m_euclidian = -1;
 	m_manhanttan = -1;
-	m_cost = -1;
 
 
 }
