@@ -16,7 +16,7 @@ void NPC::update(float deltatime)
 {
 	
 
-	BehaviourNode* newDecision = m_behaviourTree->decide(deltatime);
+	DecisionNode* newDecision = m_behaviourTree->decide(deltatime);
 
 	if ( newDecision && newDecision != m_currentBehaviour )
 	{
@@ -84,7 +84,7 @@ void NPC::draw(sf::RenderWindow& t_window)
 
 void NPC::setUpBehaviourTree(Grid* t_map, BasePlayer* t_player)
 {
-	std::vector<std::unique_ptr<BehaviourNode>> selectorChildren;
+	std::vector<std::unique_ptr<DecisionNode>> selectorChildren;
 	Wander* wander = new Wander(t_map, &m_agent, &m_animator);
 	if (m_tag == Enemy)
 	{
@@ -96,22 +96,22 @@ void NPC::setUpBehaviourTree(Grid* t_map, BasePlayer* t_player)
 		attack->m_player = t_player;
 
 		// dead die
-		std::vector<std::unique_ptr<BehaviourNode>> deathSequenceChildren;
+		std::vector<std::unique_ptr<DecisionNode>> deathSequenceChildren;
 		deathSequenceChildren.push_back(std::make_unique<Condition>(std::bind(&NPC::dead, this)));
 		deathSequenceChildren.push_back(std::make_unique<DeathNode>(death));
 		std::unique_ptr<Sequence> deathSequence = std::make_unique<Sequence>(std::move(deathSequenceChildren));
 
 		//
-		std::vector<std::unique_ptr<BehaviourNode>> dashSequenceChildren;
+		std::vector<std::unique_ptr<DecisionNode>> dashSequenceChildren;
 		dashSequenceChildren.push_back(std::make_unique<Condition>(std::bind(&NPC::bulletDetected, this)));
 		dashSequenceChildren.push_back(std::make_unique<DashNode>(m_dashBehaviour));
 		std::unique_ptr<Sequence> dashSequence = std::make_unique<Sequence>(std::move(dashSequenceChildren));
 
-		std::vector<std::unique_ptr<BehaviourNode>> attackSequenceChildren;
+		std::vector<std::unique_ptr<DecisionNode>> attackSequenceChildren;
 		// should we attack
 		attackSequenceChildren.push_back(std::make_unique<Condition>(std::bind(&NPC::attackPlayer, this)));
 
-		std::vector<std::unique_ptr<BehaviourNode>> attackDodgeSequence;
+		std::vector<std::unique_ptr<DecisionNode>> attackDodgeSequence;
 		attackDodgeSequence.push_back(std::move(dashSequence));// check dodge
 		attackDodgeSequence.push_back(std::make_unique<AttackingNode>(attack)); // else attack
 

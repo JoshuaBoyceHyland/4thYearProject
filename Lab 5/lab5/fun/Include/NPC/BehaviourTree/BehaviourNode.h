@@ -6,28 +6,26 @@
 #include "NPC/Behaviours/Death.h"
 #include "NPC/Behaviours/Dash.h"
 
-enum class BehaviourState{ Failed, Running, Succeeded};
 
-
-class BehaviourNode
+class DecisionNode
 {
 	public:
 
-		virtual BehaviourNode* decide(float t_deltaTime)= 0;
+		virtual DecisionNode* decide(float t_deltaTime)= 0;
         virtual void onEnter() {}
         virtual void preform(float t_deltaTime) {}
         virtual void onExit() {}
         virtual Behaviour* getBehaviour() { return nullptr; };
 
-        virtual ~BehaviourNode() = default;
+        virtual ~DecisionNode() = default;
 };
 
 
-class WanderNode : public BehaviourNode {
+class WanderNode : public DecisionNode {
 public:
     WanderNode(Wander* wander) : m_wander(wander) {}
 
-    BehaviourNode* decide(float t_deltaTime) override {
+    DecisionNode* decide(float t_deltaTime) override {
 
         //std::cout << "Wandering" << std::endl;
         return this;
@@ -51,11 +49,11 @@ public:
         Wander* m_wander;
 };
 
-class TalkingNode : public BehaviourNode {
+class TalkingNode : public DecisionNode {
 public:
     TalkingNode(Talking* talking) : m_talking(talking){}
 
-    BehaviourNode* decide(float t_deltaTime) override {
+    DecisionNode* decide(float t_deltaTime) override {
 
        // std::cout << "talking" << std::endl;
         return this;
@@ -80,11 +78,11 @@ public:
 };
 
 
-class AttackingNode : public BehaviourNode {
+class AttackingNode : public DecisionNode {
 public:
     AttackingNode(Attack* t_attack) : m_attacking(t_attack) {}
 
-    BehaviourNode* decide(float t_deltaTime) override {
+    DecisionNode* decide(float t_deltaTime) override {
 
        // std::cout << "attacking" << std::endl;
         return this;
@@ -108,11 +106,11 @@ private:
    Attack* m_attacking;
 };
 
-class DeathNode : public BehaviourNode {
+class DeathNode : public DecisionNode {
 public:
     DeathNode(Death* t_dying) : m_dying(t_dying) {}
 
-    BehaviourNode* decide(float t_deltaTime) override {
+    DecisionNode* decide(float t_deltaTime) override {
 
         //std::cout << "Dying" << std::endl;
         return this;
@@ -138,11 +136,11 @@ private:
 };
 
 
-class DashNode : public BehaviourNode {
+class DashNode : public DecisionNode {
 public:
     DashNode(Dash* t_dying) : m_dash(t_dying) {}
 
-    BehaviourNode* decide(float t_deltaTime) override {
+    DecisionNode* decide(float t_deltaTime) override {
 
       //  std::cout << "Dashing" << std::endl;
         return this;
@@ -168,11 +166,11 @@ private:
 };
 
 
-class EmptyNode : public BehaviourNode {
+class EmptyNode : public DecisionNode {
 public:
     EmptyNode() {}
 
-    BehaviourNode* decide(float t_deltaTime) override {
+    DecisionNode* decide(float t_deltaTime) override {
 
        // std::cout << "Emptu" << std::endl;
         return this;

@@ -3,13 +3,13 @@
 #include <functional>
 
 
-class Condition : public BehaviourNode
+class Condition : public DecisionNode
 {
 	public:
 		Condition(std::function<bool()> t_condition) :m_condition(t_condition) {}
 
 	
-		BehaviourNode* decide(float t_deltaTime) override
+		DecisionNode* decide(float t_deltaTime) override
 		{
 			if (m_condition())
 			{

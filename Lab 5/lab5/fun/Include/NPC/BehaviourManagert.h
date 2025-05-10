@@ -19,7 +19,7 @@ class BehaviourManager
 		bool closeToPlayer() { return false; };
 		Grid* m_grid = nullptr;
 		Behaviour* m_currentBehaviour = nullptr;
-		BehaviourNode* m_behaviourTree;
+		DecisionNode* m_behaviourTree;
 		
 
 };

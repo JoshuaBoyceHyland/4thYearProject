@@ -1,18 +1,18 @@
 #pragma once
 #include "BehaviourNode.h"
-class Sequence : public BehaviourNode
+class Sequence : public DecisionNode
 {
 	public:
-		Sequence(std::vector<std::unique_ptr<BehaviourNode>>&& t_children) : m_children(std::move(t_children)) {}
+		Sequence(std::vector<std::unique_ptr<DecisionNode>>&& t_children) : m_children(std::move(t_children)) {}
 		
-		BehaviourNode* decide(float t_deltaTime) override
+		DecisionNode* decide(float t_deltaTime) override
 		{
-			BehaviourNode* finalDecicion = nullptr;
+			DecisionNode* finalDecicion = nullptr;
 			for (int i = 0; i < m_children.size(); i++)
 			{
 				// check condition if condition is true
 				// if true it will coninue onto next loop which bring us to next node
-				BehaviourNode* decision = m_children[i]->decide(t_deltaTime);
+				DecisionNode* decision = m_children[i]->decide(t_deltaTime);
 
 				// if condition failed then we want to return and go down different branch
 				if (decision == nullptr)
@@ -29,7 +29,7 @@ class Sequence : public BehaviourNode
 			return finalDecicion;
 		}
 	private:
-		std::vector<std::unique_ptr<BehaviourNode>> m_children;
+		std::vector<std::unique_ptr<DecisionNode>> m_children;
 
 	
 };

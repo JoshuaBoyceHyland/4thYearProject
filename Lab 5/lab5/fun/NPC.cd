@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="NPC" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAgUQAACAAAACAAABIAAwAEEAAgAAAIAAEBAAAEAAA=</HashCode>
+      <FileName>Include\NPC\NPC.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Agent" Collapsed="true">
+    <Position X="6" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAEACAIACAEAAEAAAAAAAIBAwABAAQAAAEEABA=</HashCode>
+      <FileName>Include\NPC\Actors\Agent.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Animator" Collapsed="true">
+    <Position X="7.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAgAAAAAAAAAAgAAAAAAgAAAEAAAAAAAgAAQAAAA=</HashCode>
+      <FileName>Include\NPC\Actors\Animator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameObject" Collapsed="true">
+    <Position X="2.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAAAAAAAAABAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Include\GameObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="Animation" Collapsed="true">
+    <Position X="4" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAgBAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Include\NPC\Actors\Animator.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="SpriteState" Collapsed="true">
+    <Position X="4" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAI=</HashCode>
+      <FileName>Include\NPC\Actors\Animator.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

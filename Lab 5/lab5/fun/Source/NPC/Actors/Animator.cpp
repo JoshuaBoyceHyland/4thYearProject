@@ -56,9 +56,5 @@ bool Animator::animate(bool t_debug)
 	return false; // animation not finished a loop
 }
 
-bool Animator::onLastFrame()
-{
-	return m_animations[m_currentState].m_currentFrame ==m_animations[m_currentState].m_maxFrames - 1;
-}
 
 

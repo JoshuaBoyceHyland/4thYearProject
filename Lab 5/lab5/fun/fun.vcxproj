@@ -149,8 +149,11 @@
     <ResourceCompile Include="fun.rc" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+    <None Include="Include\NPC\BehaviourTree\DecisionNode.cd" />
     <None Include="fun.aps" />
     <None Include="map.json" />
+    <None Include="NPC.cd" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Scenes\EnemyBaseScene.cpp" />

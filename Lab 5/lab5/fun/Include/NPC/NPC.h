@@ -36,8 +36,8 @@ class NPC : public GameObject
 		Grid* m_grid;
 		Agent m_agent;
 		Animator m_animator;
-		BehaviourNode* m_currentBehaviour = nullptr;
-		std::unique_ptr<BehaviourNode> m_behaviourTree;
+		DecisionNode* m_currentBehaviour = nullptr;
+		std::unique_ptr<DecisionNode> m_behaviourTree;
 		float m_health = 100;
 
 		bool m_startedAttacking = false;

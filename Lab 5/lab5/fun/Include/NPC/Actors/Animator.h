@@ -29,7 +29,6 @@ class Animator
 
 		bool animate(bool t_debug = false);
 
-		bool onLastFrame();
 
 		int m_currentState = 0;
 

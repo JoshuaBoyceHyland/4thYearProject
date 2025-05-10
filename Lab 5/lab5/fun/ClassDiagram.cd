@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DecisionNode" Collapsed="true">
+    <Position X="7.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAEAAAAAAABAAAAAAAABAEAAAAACAAAA=</HashCode>
+      <FileName>Include\NPC\BehaviourTree\BehaviourNode.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WanderNode" Collapsed="true">
+    <Position X="6.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAEAACAAAABAAAAAAAAAAEABAAACAAAA=</HashCode>
+      <FileName>Include\NPC\BehaviourTree\BehaviourNode.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TalkingNode" Collapsed="true">
+    <Position X="11.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIQAAAAAAAAAEAAAAAAABAAAAAAAAAAEAAAAACAAAE=</HashCode>
+      <FileName>Include\NPC\BehaviourTree\BehaviourNode.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AttackingNode" Collapsed="true">
+    <Position X="2.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAQBAAAAAAAAEAAAAAAABAAAAAAAAAAEAAAAACAAAA=</HashCode>
+      <FileName>Include\NPC\BehaviourTree\BehaviourNode.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DeathNode">
+    <Position X="9" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAEAAAAAgABAAAAAAAAAAEAAAAACAQAA=</HashCode>
+      <FileName>Include\NPC\BehaviourTree\BehaviourNode.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DashNode" Collapsed="true">
+    <Position X="13.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAEAAAAAAARAEAAAAAAAAEAAAAACAAAA=</HashCode>
+      <FileName>Include\NPC\BehaviourTree\BehaviourNode.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EmptyNode" Collapsed="true">
+    <Position X="4.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAEAAAAAAABAAAAAAAAAAEAAAABCAAAA=</HashCode>
+      <FileName>Include\NPC\BehaviourTree\BehaviourNode.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Attack" Collapsed="true">
+    <Position X="16" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YAAAAAAIAAAAAAAAAAIEAAABAqAAAAAABAAAACAEAAA=</HashCode>
+      <FileName>Include\NPC\Behaviours\Attack.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
