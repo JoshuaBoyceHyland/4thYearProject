@@ -1,7 +1,9 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "Globals.h"
-
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 /// <summary>
 /// Interface of UI
 /// </summary>

@@ -2,7 +2,9 @@
 #define ROTATIONMATHS_H
 
 #include <SFML/Graphics.hpp>
-
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 namespace RotationMath
 {
 

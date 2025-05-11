@@ -3,6 +3,9 @@
 #include "Utility/RotationMath.h"
 #include "Utility/VectorMath.h"
 #include <iostream>
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 class ParticleExplosion
 {
 

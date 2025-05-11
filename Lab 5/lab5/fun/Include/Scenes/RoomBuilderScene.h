@@ -11,7 +11,9 @@
 #include "Utility/VectorMath.h"
 #include "TextureSplitter.h"
 #include "Librarys/RoomLibrary.h"
-
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 class RoomBuilderScene : public Scene
 {
 	public:

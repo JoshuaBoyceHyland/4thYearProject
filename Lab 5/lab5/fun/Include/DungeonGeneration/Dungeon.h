@@ -1,7 +1,9 @@
 #pragma once
 #include "World/Room.h"
 #include "Gameobject.h"
-
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 class Dungeon
 {
 	public:

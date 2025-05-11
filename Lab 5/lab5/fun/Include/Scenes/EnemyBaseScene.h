@@ -6,6 +6,10 @@
 #include "BasePlayer.h"
 #include "DungeonGeneration/DungeonGeneration.h"
 #include "MiniMap.h"
+
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 class EnemyBaseScene : public Scene
 {
 

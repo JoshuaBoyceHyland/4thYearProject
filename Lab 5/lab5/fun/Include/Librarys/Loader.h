@@ -7,7 +7,9 @@
 #include <iostream>
 #include <filesystem>
 
-
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 /// <summary>
 /// Singleton font and texture loading class
 /// Ensures a resource will only be loaded once

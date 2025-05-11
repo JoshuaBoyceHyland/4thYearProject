@@ -2,7 +2,9 @@
 #define VECTORMATHS_H
 
 #include <SFML/Graphics.hpp>
-
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 namespace VectorMath {
 
 	sf::Vector2f unitVector(sf::Vector2f a);

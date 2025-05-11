@@ -1,6 +1,9 @@
 #pragma once
 #include "Bullet.h"
 #include "Weapons/Weapon.h"
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 class ShotGun :  public Weapon
 {
 	public:

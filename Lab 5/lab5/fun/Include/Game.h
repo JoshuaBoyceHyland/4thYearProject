@@ -5,7 +5,9 @@
 /// same as #pragma once
 /// Don't forget the endif at the bottom
 /// </summary>
-
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 #include "Globals.h"
 #include <SFML/Graphics.hpp>
 

@@ -6,7 +6,12 @@
 #include "NPC/Behaviours/Death.h"
 #include "NPC/Behaviours/Dash.h"
 
-
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 class DecisionNode
 {
 	public:

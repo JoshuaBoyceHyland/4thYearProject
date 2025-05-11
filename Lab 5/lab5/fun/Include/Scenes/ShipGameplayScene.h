@@ -7,7 +7,9 @@
 #include "MovableCamera.h"
 #include "Minimap.h"
 #include "DungeonGeneration/DungeonGeneration.h"
-
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 class ShipGameplayScene : public Scene
 {
 	public:

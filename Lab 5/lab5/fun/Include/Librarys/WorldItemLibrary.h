@@ -1,5 +1,7 @@
 #pragma once
-
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 #include "WorldItems/ShipBuilderTerminal.h"
 
 class WorldItemLibrary

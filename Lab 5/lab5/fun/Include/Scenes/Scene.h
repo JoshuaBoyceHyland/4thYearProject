@@ -2,7 +2,9 @@
 #include <SFML/Graphics.hpp>
 #include "GameData.h"
 
-
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 /// <summary>
 /// Interface Class that all scenes that will inherit from
 /// </summary>

@@ -1,7 +1,9 @@
 #pragma once
 #include "UI/UIEditorBox.h"
 #include "Librarys/RoomLibrary.h"
-
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 class RoomBuilderEditorBox : public UIEditorBox
 {
 	// Inherited via UIEditorBox

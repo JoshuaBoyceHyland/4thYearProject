@@ -3,7 +3,9 @@
 #include <functional>
 #include "Librarys/Loader.h"
 #include "Scenes/SceneTypes.h"
-
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 class Button
 {
 	public:

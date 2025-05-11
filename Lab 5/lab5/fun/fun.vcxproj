@@ -34,8 +34,8 @@
     <ClInclude Include="Include\NPC\Death.h" />
     <ClInclude Include="Include\Weapons\Bullet.h" />
     <ClInclude Include="Include\GameObject.h" />
-    <ClInclude Include="Include\NPC\BehaviourTree\ConditionNodes.h" />
-    <ClInclude Include="Include\NPC\BehaviourTree\BehaviourNode.h" />
+    <ClInclude Include="Include\NPC\DecisionTree\ConditionNodes.h" />
+    <ClInclude Include="Include\NPC\DecisionTree\DecisonNode.h" />
     <ClInclude Include="GeneratedRoom.h" />
     <ClInclude Include="Include\DungeonGeneration\DungeonGeneration.h" />
     <ClInclude Include="Include\Scenes\DungeonGenerationTest.h" />
@@ -126,8 +126,8 @@
     <ClInclude Include="Include\MiniMap.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Include\World\ShipBuilderTerminal.h" />
-    <ClInclude Include="Include\NPC\BehaviourTree\Selector.h" />
-    <ClInclude Include="Include\NPC\BehaviourTree\Sequence.h" />
+    <ClInclude Include="Include\NPC\DecisionTree\Selector.h" />
+    <ClInclude Include="Include\NPC\DecisionTree\Sequence.h" />
     <ClInclude Include="Include\NPC\Talking.h" />
     <ClInclude Include="Include\Weapons\Weapon.h" />
     <ClInclude Include="Include\Weapons\ShotGun.h" />
@@ -151,7 +151,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
-    <None Include="Include\NPC\BehaviourTree\DecisionNode.cd" />
+    <None Include="Include\NPC\DecisionTree\DecisionNode.cd" />
     <None Include="fun.aps" />
     <None Include="map.json" />
     <None Include="NPC.cd" />

@@ -2,7 +2,9 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "Globals.h"
-
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 class MovableCamera
 {
 	public:

@@ -2,6 +2,10 @@
 #include "Cell.h"
 #include "Utility/Texture.h"
 #include "WorldItems/EditorItem.h"
+
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 class Tile : public EditorItem
 {
 

@@ -1,5 +1,8 @@
 #pragma once
 #include "World/Tile.h"
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 class TileLibrary
 {
 	public:

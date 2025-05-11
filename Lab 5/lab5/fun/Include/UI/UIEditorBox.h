@@ -4,7 +4,9 @@
 #include "Librarys/Loader.h"
 
 #include "Button.h"
-
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 class UIEditorBox : public UI
 {
 	public:

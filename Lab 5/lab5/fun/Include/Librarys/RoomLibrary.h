@@ -1,7 +1,9 @@
 #pragma once
 #include "World/Room.h"
 #include "Utility/FileReader.h"
-
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 class RoomLibrary
 {
 public:

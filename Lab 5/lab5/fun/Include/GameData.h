@@ -3,6 +3,10 @@
 #include "Ship/Ship.h"
 #include "World/Grid.h"
 #include "BasePlayer.h"
+
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 /// <summary>
 /// Holds pieces of data that need to be transfered between scenes
 /// </summary>

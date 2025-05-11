@@ -8,7 +8,9 @@
 #include "Librarys/TileLibrary.h"
 #include "Utility/VectorMath.h"
 #include "Utility/RotationMath.h"
-
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 enum class ResourceType{  Electricty, Happinness, Water, Oxygen, None};
 
 class CircumCircle

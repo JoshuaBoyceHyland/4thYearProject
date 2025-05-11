@@ -2,7 +2,9 @@
 #include "Bullet.h"
 #include "Weapons/Weapon.h"
 #include "Particles/ParticleSystem.h"
-
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 class MachineGun : public Weapon
 {
 	public:

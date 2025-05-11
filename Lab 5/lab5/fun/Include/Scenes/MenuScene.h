@@ -1,7 +1,9 @@
 #pragma once
 #include "Scene.h"
 #include "Librarys/Loader.h"
-
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 class MenuScene : Scene
 {
 	public:

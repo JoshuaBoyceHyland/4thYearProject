@@ -4,6 +4,11 @@
 #include "Utility/VectorMath.h"
 #include "Ship/Connector.h"
 #include "Particles/ParticleExplosion.h"
+
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
+
 /// <summary>
 /// Will track mouse position and is in charge of selecting any ShipPart and connecting it to another.
 /// </summary>

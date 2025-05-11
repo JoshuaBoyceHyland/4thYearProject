@@ -3,7 +3,9 @@
 #include "Ship/ShipPart.h"
 
 
-
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 
 /// <summary>
 /// Holds every ship part that can be made.

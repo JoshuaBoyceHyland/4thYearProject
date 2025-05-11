@@ -7,7 +7,9 @@
 #include "Librarys/TileLibrary.h"
 #include "json.hpp"
 #include "Ship/Ship.h"
-
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 
 class MapSaver
 {

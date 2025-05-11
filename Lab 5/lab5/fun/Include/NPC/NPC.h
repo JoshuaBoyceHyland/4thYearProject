@@ -3,10 +3,10 @@
 #include "Actors/Animator.h"
 #include "Behaviours/Attack.h"
 #include "Behaviours/Death.h"
-#include "BehaviourTree/ConditionNodes.h"
-#include "BehaviourTree/Selector.h"
-#include "BehaviourTree/Sequence.h"
-#include "BehaviourTree/BehaviourNode.h"
+#include "decisionTree/ConditionNodes.h"
+#include "decisionTree/Selector.h"
+#include "decisionTree/Sequence.h"
+
 class NPC : public GameObject
 {
 

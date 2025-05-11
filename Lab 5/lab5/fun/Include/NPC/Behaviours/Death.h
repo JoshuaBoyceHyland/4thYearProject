@@ -1,6 +1,8 @@
 #pragma once
 #include "NPC/Behaviours/Behaviour.h"
-
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 class Death : public Behaviour
 {
 	public:

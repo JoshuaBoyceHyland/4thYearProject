@@ -1,8 +1,10 @@
 #pragma once
-#include "BehaviourNode.h"
+#include "DecisonNode.h"
 #include <functional>
 
-
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 class Condition : public DecisionNode
 {
 	public:

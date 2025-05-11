@@ -6,6 +6,10 @@
 #include "Ship/ShipPartEditiorBox.h"
 #include "Ship/Ship.h"
 #include "Utility/MapSaver.h"
+
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 /// <summary>
 /// Class for
 /// </summary>

@@ -1,4 +1,7 @@
 #pragma once
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 enum SceneType 
 { 
 	Menu, 

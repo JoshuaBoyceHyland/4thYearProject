@@ -2,7 +2,9 @@
 #include "Scene.h"
 #include "DungeonGeneration/DungeonGeneration.h"
 #include "MovableCamera.h"
-
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 class DungeonGenerationTestScene : public Scene
 {
 	public:

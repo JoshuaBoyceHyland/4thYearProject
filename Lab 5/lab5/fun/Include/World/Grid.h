@@ -2,7 +2,9 @@
 #include"Tile.h"
 #include "GameObject.h"
 
-
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 
 class Grid : public GameObject 
 {

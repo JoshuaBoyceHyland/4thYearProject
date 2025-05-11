@@ -2,7 +2,9 @@
 #include <SFML/Graphics.hpp>
 #include "Librarys/Loader.h"
 #include "WorldItems/EditorITem.h"
-
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 enum class Purpose{ PlayerInteractable, Resource };
 
 class WorldItem : public EditorItem

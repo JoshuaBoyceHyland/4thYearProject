@@ -6,6 +6,10 @@
 #include <map>
 
 /// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
+
+/// <summary>
 /// Uses to check what type of ship part this is
 /// </summary>
 enum class PartType { CockPit = 0, Hull = 1, Left_Wing = 2, Right_Wing = 3, Thruster = 4};

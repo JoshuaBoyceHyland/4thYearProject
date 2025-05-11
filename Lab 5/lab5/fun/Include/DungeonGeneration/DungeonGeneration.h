@@ -8,6 +8,11 @@
 #include <queue>
 #include "Dungeon.h"
 #include "World/Search.h"
+
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
+
 enum class GenerationState { RoomSeperation, RoomCulling, DelauneyTriangulation, MinSpanningTree, HallwayGen,TextureApplication, Done };
 
 

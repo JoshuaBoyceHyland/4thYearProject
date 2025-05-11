@@ -2,6 +2,9 @@
 #include <SFML/Graphics.hpp>
 
 #include "Librarys/Loader.h"
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 
 enum class SpriteState { Idle, Run, Dead };
 

@@ -2,7 +2,9 @@
 #include <functional>
 #include "WorldItems/WorldItem.h"
 #include "Scenes/SceneTypes.h"
-
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 class PlayerInteractableItem : public WorldItem
 {
 

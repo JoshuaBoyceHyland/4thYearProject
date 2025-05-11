@@ -1,5 +1,8 @@
 #pragma once
 #include "SFML/Graphics.hpp"
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 class EditorItem 
 {
 	public:

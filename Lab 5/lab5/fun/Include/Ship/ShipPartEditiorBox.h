@@ -1,7 +1,9 @@
 #pragma once
 #include "UI/UIEditorBox.h"
 #include "PartsLibarary.h"
-
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 class ShipPartEditiorBox : public UIEditorBox
 {
 

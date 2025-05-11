@@ -1,7 +1,9 @@
 #pragma once
 #include "ParticleExplosion.h"
 
-
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 
 class ParticleSystem
 {

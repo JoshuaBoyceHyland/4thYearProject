@@ -86,10 +86,10 @@
     <ClInclude Include="Include\DungeonGeneration\DungeonGeneration.h" />
     <ClInclude Include="GeneratedRoom.h" />
     <ClInclude Include="Include\Scenes\GeneratedDungionNPCTest.h" />
-    <ClInclude Include="Include\NPC\BehaviourTree\BehaviourNode.h" />
-    <ClInclude Include="Include\NPC\BehaviourTree\Selector.h" />
-    <ClInclude Include="Include\NPC\BehaviourTree\ConditionNodes.h" />
-    <ClInclude Include="Include\NPC\BehaviourTree\Sequence.h" />
+    <ClInclude Include="Include\NPC\DecisionTree\DecisonNode.h" />
+    <ClInclude Include="Include\NPC\DecisionTree\Selector.h" />
+    <ClInclude Include="Include\NPC\DecisionTree\ConditionNodes.h" />
+    <ClInclude Include="Include\NPC\DecisionTree\Sequence.h" />
     <ClInclude Include="Include\GameObject.h" />
     <ClInclude Include="Include\Weapons\Weapon.h" />
     <ClInclude Include="Include\Weapons\MachineGun.h" />
@@ -126,7 +126,7 @@
   <ItemGroup>
     <None Include="map.json" />
     <None Include="fun.aps" />
-    <None Include="Include\NPC\BehaviourTree\DecisionNode.cd" />
+    <None Include="Include\NPC\DecisionTree\DecisionNode.cd" />
     <None Include="NPC.cd" />
     <None Include="ClassDiagram.cd" />
   </ItemGroup>

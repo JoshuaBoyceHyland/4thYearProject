@@ -6,6 +6,9 @@
 #include "NPC/BaseNPC.h"
 #include "BasePlayer.h"
 #include "Utility/MapSaver.h"
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 class BaseGameplayScene : public Scene
 {
 

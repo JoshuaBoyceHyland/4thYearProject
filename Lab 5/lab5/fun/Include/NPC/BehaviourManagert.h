@@ -1,10 +1,12 @@
 #pragma once
 #include "Behaviours/Behaviour.h"
 #include "Behaviours/Wander.h"
-#include "BehaviourTree/Selector.h"
-#include "BehaviourTree/Sequence.h"
-#include "BehaviourTree/ConditionNodes.h"
-
+#include "decisionTree/Selector.h"
+#include "decisionTree/Sequence.h"
+#include "decisionTree/ConditionNodes.h"
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 class BehaviourManager
 {
 	public:

@@ -5,7 +5,9 @@
 #include "MovableCamera.h"
 #include "Utility/MapSaver.h"
 #include "Editor/RoomEditiorBox.h"
-
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 class BaseBuilderScene : public Scene
 {
 	public:

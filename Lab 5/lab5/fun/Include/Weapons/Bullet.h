@@ -6,7 +6,9 @@
 
 #include "World/Grid.h"
 #include "Particles/ParticleExplosion.h"
-
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 
 class Bullet : public GameObject
 {

@@ -1,5 +1,10 @@
 #pragma once
-#include "BehaviourNode.h"
+#include "decisonNode.h"
+
+
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 class Sequence : public DecisionNode
 {
 	public:

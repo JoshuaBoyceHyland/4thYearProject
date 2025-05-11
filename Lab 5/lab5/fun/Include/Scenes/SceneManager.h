@@ -10,7 +10,9 @@
 #include "Scenes/DungeonGenerationTest.h"
 #include "Scenes/GeneratedDungionNPCTest.h"
 #include "Scenes/EnemyBaseScene.h"
-
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 class SceneManager
 {
 	public:

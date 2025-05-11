@@ -1,6 +1,11 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
+
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
+
 /// <summary>
 /// Holds the various variables that will effect flights
 /// @param span 

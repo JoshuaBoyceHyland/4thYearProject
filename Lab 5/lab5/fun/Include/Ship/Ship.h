@@ -3,6 +3,10 @@
 #include "Globals.h"
 #include "GameObject.h"
 #include "World/Grid.h"
+
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 class Ship : public GameObject
 {
 

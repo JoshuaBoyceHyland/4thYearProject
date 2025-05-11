@@ -2,7 +2,9 @@
 #include "UI/UIEditorBox.h"
 #include  "Librarys/TileLibrary.h"
 #include  "Librarys/WorldItemLibrary.h"
-
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 class TileEditorBox : public UIEditorBox
 {
 	public :

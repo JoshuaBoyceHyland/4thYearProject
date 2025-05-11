@@ -3,7 +3,9 @@
 #include "World/Search.h"
 #include "Utility/VectorMath.h"
 #include "AgentUser.h"
-
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 class Agent
 {
 	public:

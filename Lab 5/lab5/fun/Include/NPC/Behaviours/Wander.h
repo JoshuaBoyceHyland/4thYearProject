@@ -2,7 +2,9 @@
  
 #include "Behaviour.h"
 
-
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 class Wander : public Behaviour
 {
 	public:

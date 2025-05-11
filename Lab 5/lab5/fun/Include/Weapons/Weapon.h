@@ -5,7 +5,9 @@
 #include "World/Grid.h"
 #include "Bullet.h"
 #include "Particles/ParticleSystem.h"
-
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 class Weapon
 {
 	public :

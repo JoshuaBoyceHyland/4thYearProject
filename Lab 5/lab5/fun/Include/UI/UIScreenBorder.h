@@ -2,7 +2,9 @@
 #include "UI.h"
 #include "Globals.h"
 #include "Librarys/Loader.h"
-
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 class UIScreenBorder : public UI
 {
 	public:

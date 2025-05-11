@@ -1,6 +1,10 @@
 #pragma once
 #include <vector>
-#include "BehaviourNode.h"
+#include "decisonNode.h"
+
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 class Selector : public DecisionNode
 {
 	public:

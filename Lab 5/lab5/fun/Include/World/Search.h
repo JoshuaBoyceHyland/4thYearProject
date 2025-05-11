@@ -4,6 +4,9 @@
 #include <queue>
 #include "Utility/VectorMath.h"
 #include <iostream>
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 class Search
 {
 	public:

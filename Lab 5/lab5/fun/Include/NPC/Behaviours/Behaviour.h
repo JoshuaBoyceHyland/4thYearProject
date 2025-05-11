@@ -3,7 +3,9 @@
 #include "NPC/Actors/Agent.h"
 #include "NPC/Actors/AgentUser.h"
 #include "NPC/Actors/Animator.h"
-
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 class Behaviour : public AgentUser
 {
 	public:

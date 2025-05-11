@@ -1,7 +1,9 @@
   #pragma once
 #include "Behaviour.h"
 #include "BasePlayer.h"
-
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 class Attack : public Behaviour
 {
 	public:

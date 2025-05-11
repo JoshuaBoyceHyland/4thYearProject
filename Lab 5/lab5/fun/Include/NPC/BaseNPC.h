@@ -1,5 +1,8 @@
 #pragma once
 #include "NPC/NPC.h"
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 class BaseNPC : public NPC
 {
 public:

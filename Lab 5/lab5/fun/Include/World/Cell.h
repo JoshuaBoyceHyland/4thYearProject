@@ -5,7 +5,9 @@
 #include "WorldItems/WorldITem.h"
 #include <unordered_set>
 #include "GameObject.h"
-
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 enum class TraversalProperty { Walkable, Unwalkable, Job };
 
 class Cell

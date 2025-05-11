@@ -5,6 +5,10 @@
 #include "WorldItems/ShipBuilderTerminal.h"
 #include "Weapons/MachineGun.h"
 #include "Weapons/ShotGun.h"
+
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 class BasePlayer : public GameObject
 {
 	public:

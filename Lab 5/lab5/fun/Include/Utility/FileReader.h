@@ -7,7 +7,9 @@
 #include <iostream>
 #include <vector>
 #include <filesystem>
-
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 namespace FileReading {
 
 	/// <summary>

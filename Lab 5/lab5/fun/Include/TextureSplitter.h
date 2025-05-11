@@ -1,6 +1,10 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "World/Cell.h"
+
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 class TextureSplitter
 {
 	public:

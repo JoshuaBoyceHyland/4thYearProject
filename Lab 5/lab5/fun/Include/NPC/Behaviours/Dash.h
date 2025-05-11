@@ -1,6 +1,8 @@
 #pragma once
 #include "Behaviour.h"
-
+/// <summary>
+/// @author Joshua Boyce Hyland
+/// </summary>
 class Dash : public Behaviour
 {
 	public:
