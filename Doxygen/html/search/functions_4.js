@@ -1,16 +1,14 @@
 var searchData=
 [
-  ['game_0',['Game',['../class_game.html#ad59df6562a58a614fda24622d3715b65',1,'Game']]],
-  ['getclosestconnectionindex_1',['getClosestConnectionIndex',['../class_editor_mouse.html#a08efccf36e55015471456b0f71465f91',1,'EditorMouse']]],
-  ['getclosestconnectionpos_2',['getClosestConnectionPos',['../class_editor_mouse.html#ae987004bbf2a81f4e2efc3548bbbec62',1,'EditorMouse']]],
-  ['getclosestpart_3',['getClosestPart',['../class_editor_mouse.html#a78afb6fd5a86d863f41ea230276d59d3',1,'EditorMouse']]],
-  ['getcockpit_4',['getCockpit',['../class_parts_libarary.html#a3a498e80a90fe64f5e3fbe77c751f828',1,'PartsLibarary']]],
-  ['getconnectors_5',['getConnectors',['../class_ship_part.html#a396d68491ee95fcb75e4a0bbe6fe08f2',1,'ShipPart']]],
-  ['getgetthruster_6',['getGetThruster',['../class_parts_libarary.html#a8507a3e2c730cf160fbf04ecd82e9026',1,'PartsLibarary']]],
-  ['gethullpart_7',['getHullPart',['../class_parts_libarary.html#a7987333b4ac531ac0a244629f7b2a082',1,'PartsLibarary']]],
-  ['getinstance_8',['getInstance',['../class_loader.html#a1a5bb30605489282e45ddaf9e2565735',1,'Loader::getInstance()'],['../class_parts_libarary.html#ae25adc365057d9b9af35c6ac940878f8',1,'PartsLibarary::getInstance()']]],
-  ['getleftwing_9',['getLeftWing',['../class_parts_libarary.html#aa1117e8c65f4e76b0f0bd052398bc01c',1,'PartsLibarary']]],
-  ['getpart_10',['getPart',['../class_parts_libarary.html#a1e3010ecc5503cd52fc7ed588ddd81b3',1,'PartsLibarary']]],
-  ['getposition_11',['getPosition',['../class_ship_part.html#a99b9493445bb84ce2a1c62715fa00e19',1,'ShipPart']]],
-  ['getrightwing_12',['getRightWing',['../class_parts_libarary.html#a59084acb16b8c154ab882eef88ed855b',1,'PartsLibarary']]]
+  ['emplace_0',['emplace',['../structordered__map.html#af10e949a24c4732fd00cb562f2100bf2',1,'ordered_map::emplace(const key_type &amp;key, T &amp;&amp;t)'],['../structordered__map.html#a96f82e84243f3d17fb9d584262df183e',1,'ordered_map::emplace(KeyType &amp;&amp;key, T &amp;&amp;t)'],['../classbasic__json.html#af298488e59ff260d2ca950070cf19196',1,'basic_json::emplace(Args &amp;&amp;... args)']]],
+  ['emplace_5fback_1',['emplace_back',['../classbasic__json.html#ac5f0a15957842b188826aea98a9cfd3d',1,'basic_json']]],
+  ['empty_2',['empty',['../classjson__pointer.html#a5c3d08bd0a0e99c3377db33600c68a64',1,'json_pointer::empty()'],['../classbasic__json.html#ac1e01c92bcf41fb7d857f72e5de7ca11',1,'basic_json::empty()']]],
+  ['end_3',['end',['../classdetail_1_1iteration__proxy.html#a1037b697552341a5697fa15ee95250d1',1,'detail::iteration_proxy::end()'],['../classbasic__json.html#a4dbc83213b31a171aa8ba65ff00fa954',1,'basic_json::end() noexcept'],['../classbasic__json.html#a0c10232619bee4e73749dae621c01376',1,'basic_json::end() const noexcept']]],
+  ['end_5farray_4',['end_array',['../structjson__sax.html#a81fbddbf7dc96eab21ef916625ad5f3b',1,'json_sax::end_array()'],['../classdetail_1_1json__sax__dom__parser.html#abc555200fe32bcecc76d435a17ea732b',1,'detail::json_sax_dom_parser::end_array()'],['../classdetail_1_1json__sax__dom__callback__parser.html#a815c791c31c4dc3e6f4662e3216424cd',1,'detail::json_sax_dom_callback_parser::end_array()'],['../classdetail_1_1json__sax__acceptor.html#a78ce28c97dd3cb30e6c16a359eb4f9cc',1,'detail::json_sax_acceptor::end_array()']]],
+  ['end_5fobject_5',['end_object',['../structjson__sax.html#ac34854cab5e023c5d0e8b381a11aba5b',1,'json_sax::end_object()'],['../classdetail_1_1json__sax__dom__parser.html#acfee569536d31144551a9e37c0b07ee5',1,'detail::json_sax_dom_parser::end_object()'],['../classdetail_1_1json__sax__dom__callback__parser.html#a8598580c5e72641d3d5b7a471c727fd7',1,'detail::json_sax_dom_callback_parser::end_object()'],['../classdetail_1_1json__sax__acceptor.html#a0f6fdb3c1d975b49dfc92f5a41096855',1,'detail::json_sax_acceptor::end_object()']]],
+  ['endmove_6',['endMove',['../class_movable_camera.html#a98a294fc8c918f514aef837609223a45',1,'MovableCamera']]],
+  ['eof_7',['eof',['../structdetail_1_1char__traits_3_01unsigned_01char_01_4.html#a90bd94239fc3e2b1e0e18d7b654cc386',1,'detail::char_traits&lt; unsigned char &gt;::eof()'],['../structdetail_1_1char__traits_3_01signed_01char_01_4.html#ab4ffd2ae9bd24e23ef3edb3aacfd33d7',1,'detail::char_traits&lt; signed char &gt;::eof()']]],
+  ['erase_8',['erase',['../structordered__map.html#aaa50926fc8df543dbe294859db97514e',1,'ordered_map::erase(const key_type &amp;key)'],['../structordered__map.html#a7d72919fabb5f477e69add51877e415f',1,'ordered_map::erase(KeyType &amp;&amp;key)'],['../structordered__map.html#a4c3baa0920e81bd651ea01b9d735951b',1,'ordered_map::erase(iterator pos)'],['../structordered__map.html#a6945910b941f51c9a81250d99ae34441',1,'ordered_map::erase(iterator first, iterator last)'],['../classbasic__json.html#a7d0fef086b1b72372113db6ce7446189',1,'basic_json::erase(IteratorType pos)'],['../classbasic__json.html#a437b81c6e968a4192a22bc0de6c4df80',1,'basic_json::erase(IteratorType first, IteratorType last)'],['../classbasic__json.html#a05da3b93f2d4a7164589abffaa9acb33',1,'basic_json::erase(const typename object_t::key_type &amp;key)'],['../classbasic__json.html#a5f763336e84232f38e2d80e142f9820e',1,'basic_json::erase(KeyType &amp;&amp;key)'],['../classbasic__json.html#ac2c58b5f34c2ff56e27630214f5a9df4',1,'basic_json::erase(const size_type idx)']]],
+  ['escape_9',['escape',['../namespacedetail.html#af2a9ce4740e0b45d33129e2c8e53a0a8',1,'detail']]],
+  ['exception_10',['exception',['../classdetail_1_1exception.html#a528d6bc77e88490bbb84cde2222b7ff0',1,'detail::exception']]]
 ];

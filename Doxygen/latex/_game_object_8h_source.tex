@@ -1,0 +1,20 @@
+\doxysection{Game\+Object.\+h}
+\hypertarget{_game_object_8h_source}{}\label{_game_object_8h_source}\index{C:/Users/Joshua/Desktop/4thYearProject/Lab 5/lab5/fun/Include/GameObject.h@{C:/Users/Joshua/Desktop/4thYearProject/Lab 5/lab5/fun/Include/GameObject.h}}
+\mbox{\hyperlink{_game_object_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}SFML/Graphics.hpp"{}}}
+\DoxyCodeLine{00006\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{_game_object_8h_a305263dd89ad9fde1863aece00907351}{Tag}}\ \{\mbox{\hyperlink{_game_object_8h_a305263dd89ad9fde1863aece00907351a624f75da04fcf2d9477d5afa0ca03d95}{Bullet\_Player}},\ \mbox{\hyperlink{_game_object_8h_a305263dd89ad9fde1863aece00907351add9a987ed0c3c1d8c7f33470b1a08076}{Bullet\_Enemy}},\ \mbox{\hyperlink{_game_object_8h_a305263dd89ad9fde1863aece00907351a97a9c10ba67e86a8a88c5cc92c22112f}{Player}},\ \mbox{\hyperlink{_game_object_8h_a305263dd89ad9fde1863aece00907351a1d3a30883fde8ef6d1493b80155a870b}{Enemy}},\ \mbox{\hyperlink{_game_object_8h_a305263dd89ad9fde1863aece00907351a2c8e45aee4174c0c8de7548458066f53}{Player\_ship}},\ \mbox{\hyperlink{_game_object_8h_a305263dd89ad9fde1863aece00907351a1166f1d8ca100387a2c0b57ff894622b}{Enemy\_Base}},\ \mbox{\hyperlink{_game_object_8h_a305263dd89ad9fde1863aece00907351a0ecc1aa73999e78a665e6699af67b59f}{Player\_Base}},\ \mbox{\hyperlink{_game_object_8h_a305263dd89ad9fde1863aece00907351a30c2c354bcc661aa495c0155d3354d71}{Goal}},\ \mbox{\hyperlink{_game_object_8h_a305263dd89ad9fde1863aece00907351ab049c41555bad56cdeae347549a4b6c7}{Base\_NPC}}\ \ \};}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game_object}{GameObject}}}
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_game_object_8h_a305263dd89ad9fde1863aece00907351}{Tag}}\ \mbox{\hyperlink{class_game_object_a9b0635a0a07427cbd3cb9dacc9a2af8b}{m\_tag}};}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ sf::Sprite\ \mbox{\hyperlink{class_game_object_ab9f3598767553b274e98b2df36122bbd}{m\_body}};}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_game_object_a65307073834455243a8b339592245603}{m\_active}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_object_a656d6bdb7fe5ba7df57bfcbcc110d65e}{collisionWith}}(\mbox{\hyperlink{_game_object_8h_a305263dd89ad9fde1863aece00907351}{Tag}}\ t\_tag)\ =0;}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00016\ \};}
+\DoxyCodeLine{00017\ }
+
+\end{DoxyCode}

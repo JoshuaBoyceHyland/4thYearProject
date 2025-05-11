@@ -1,0 +1,59 @@
+\doxysection{Base\+Player.\+h}
+\hypertarget{_base_player_8h_source}{}\label{_base_player_8h_source}\index{C:/Users/Joshua/Desktop/4thYearProject/Lab 5/lab5/fun/Include/BasePlayer.h@{C:/Users/Joshua/Desktop/4thYearProject/Lab 5/lab5/fun/Include/BasePlayer.h}}
+\mbox{\hyperlink{_base_player_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_game_object_8h}{GameObject.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}World/Grid.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}NPC/Actors/Animator.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}WorldItems/ShipBuilderTerminal.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Weapons/MachineGun.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}Weapons/ShotGun.h"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_base_player}{BasePlayer}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_game_object}{GameObject}}}
+\DoxyCodeLine{00013\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_base_player_a6d9ce3bf958482d99714fd8a59632de9}{BasePlayer}}(Grid*\ t\_map);}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_base_player_abe5f63b0076b38b6fc8c72ecfc956f49}{update}}(\textcolor{keywordtype}{float}\ t\_deltaTime);}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_base_player_a4ef09b75e2794fe2899bfeb4be50c1ff}{draw}}(sf::RenderWindow\&\ t\_window);}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_base_player_ab0f3fc59ea03bccbd1acb817da6a4f8b}{setPosition}}(sf::Vector2f\ t\_position)\ \{\ m\_animator.m\_sprite.setPosition(t\_position);\ \};}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ sf::Vector2f\ \mbox{\hyperlink{class_base_player_a8b84632029eb86ed410834bc532aeeec}{getPosition}}()\ \{\ \textcolor{keywordflow}{return}\ m\_animator.m\_sprite.getPosition();\ \}}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_base_player_af4992db91aea3e2748a550bf622bf3e9}{rotateWeapon}}(sf::Vector2f\ t\_lookAt);}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_base_player_a3998850297ad80295d4d23c9422e3bf5}{fireWeapon}}();}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_base_player_aa5cf5056bb31db9dcf391a84819b1aaa}{collisionWith}}(\mbox{\hyperlink{_game_object_8h_a305263dd89ad9fde1863aece00907351}{Tag}}\ t\_tag)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_base_player_a1dfb140fd4a8861168bc0e1bf3e0e342}{setMap}}(Grid*\ t\_grid);}
+\DoxyCodeLine{00033\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ input(\textcolor{keywordtype}{float}\ t\_deltaTime);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ cellManagement();}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ checkMapInteractions();}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ m\_speed\ =\ 0.5f;}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ sf::Vector2f\ m\_direction\ =\ \{\ 0,\ 0\ \};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ Cell*\ m\_currentCell\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ Grid*\ m\_map;}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ Animator\ m\_animator;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ sf::Vector2f\ m\_characterMidOffset\ =\ \{\ -\/10,\ \ 15\ \};}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ sf::Vector2f\ m\_gunHoldPoint\ =\ \{\ 0,0\ \};}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ Weapon*\ m\_currentWeapon;}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ ShotGun*\ m\_shotgun;}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ MachineGun*\ m\_machineGun;}
+\DoxyCodeLine{00055\ \};}
+\DoxyCodeLine{00056\ }
+
+\end{DoxyCode}

@@ -1,0 +1,119 @@
+\doxysection{Base\+Player Class Reference}
+\hypertarget{class_base_player}{}\label{class_base_player}\index{BasePlayer@{BasePlayer}}
+
+
+{\ttfamily \#include $<$Base\+Player.\+h$>$}
+
+Inheritance diagram for Base\+Player\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_base_player}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_base_player_a6d9ce3bf958482d99714fd8a59632de9}{Base\+Player}} (Grid \texorpdfstring{$\ast$}{*}t\+\_\+map)
+\item 
+void \mbox{\hyperlink{class_base_player_abe5f63b0076b38b6fc8c72ecfc956f49}{update}} (float t\+\_\+delta\+Time)
+\item 
+void \mbox{\hyperlink{class_base_player_a4ef09b75e2794fe2899bfeb4be50c1ff}{draw}} (sf\+::\+Render\+Window \&t\+\_\+window)
+\item 
+void \mbox{\hyperlink{class_base_player_ab0f3fc59ea03bccbd1acb817da6a4f8b}{set\+Position}} (sf\+::\+Vector2f t\+\_\+position)
+\item 
+sf\+::\+Vector2f \mbox{\hyperlink{class_base_player_a8b84632029eb86ed410834bc532aeeec}{get\+Position}} ()
+\item 
+void \mbox{\hyperlink{class_base_player_af4992db91aea3e2748a550bf622bf3e9}{rotate\+Weapon}} (sf\+::\+Vector2f t\+\_\+look\+At)
+\item 
+void \mbox{\hyperlink{class_base_player_a3998850297ad80295d4d23c9422e3bf5}{fire\+Weapon}} ()
+\item 
+void \mbox{\hyperlink{class_base_player_aa5cf5056bb31db9dcf391a84819b1aaa}{collision\+With}} (\mbox{\hyperlink{_game_object_8h_a305263dd89ad9fde1863aece00907351}{Tag}} t\+\_\+tag) override
+\item 
+void \mbox{\hyperlink{class_base_player_a1dfb140fd4a8861168bc0e1bf3e0e342}{set\+Map}} (Grid \texorpdfstring{$\ast$}{*}t\+\_\+grid)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_game_object}{Game\+Object}}}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_game_object}{Game\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_game_object_8h_a305263dd89ad9fde1863aece00907351}{Tag}} \mbox{\hyperlink{class_game_object_a9b0635a0a07427cbd3cb9dacc9a2af8b}{m\+\_\+tag}}
+\item 
+sf\+::\+Sprite \mbox{\hyperlink{class_game_object_ab9f3598767553b274e98b2df36122bbd}{m\+\_\+body}}
+\item 
+bool \mbox{\hyperlink{class_game_object_a65307073834455243a8b339592245603}{m\+\_\+active}} = true
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Joshua Boyce Hyland 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_base_player_a6d9ce3bf958482d99714fd8a59632de9}\index{BasePlayer@{BasePlayer}!BasePlayer@{BasePlayer}}
+\index{BasePlayer@{BasePlayer}!BasePlayer@{BasePlayer}}
+\doxysubsubsection{\texorpdfstring{BasePlayer()}{BasePlayer()}}
+{\footnotesize\ttfamily \label{class_base_player_a6d9ce3bf958482d99714fd8a59632de9} 
+Base\+Player\+::\+Base\+Player (\begin{DoxyParamCaption}\item[{Grid \texorpdfstring{$\ast$}{*}}]{t\+\_\+map}{}\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_base_player_aa5cf5056bb31db9dcf391a84819b1aaa}\index{BasePlayer@{BasePlayer}!collisionWith@{collisionWith}}
+\index{collisionWith@{collisionWith}!BasePlayer@{BasePlayer}}
+\doxysubsubsection{\texorpdfstring{collisionWith()}{collisionWith()}}
+{\footnotesize\ttfamily \label{class_base_player_aa5cf5056bb31db9dcf391a84819b1aaa} 
+void Base\+Player\+::collision\+With (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_game_object_8h_a305263dd89ad9fde1863aece00907351}{Tag}}}]{t\+\_\+tag}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_game_object_a656d6bdb7fe5ba7df57bfcbcc110d65e}{Game\+Object}}.
+
+\Hypertarget{class_base_player_a4ef09b75e2794fe2899bfeb4be50c1ff}\index{BasePlayer@{BasePlayer}!draw@{draw}}
+\index{draw@{draw}!BasePlayer@{BasePlayer}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily \label{class_base_player_a4ef09b75e2794fe2899bfeb4be50c1ff} 
+void Base\+Player\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{t\+\_\+window}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_base_player_a3998850297ad80295d4d23c9422e3bf5}\index{BasePlayer@{BasePlayer}!fireWeapon@{fireWeapon}}
+\index{fireWeapon@{fireWeapon}!BasePlayer@{BasePlayer}}
+\doxysubsubsection{\texorpdfstring{fireWeapon()}{fireWeapon()}}
+{\footnotesize\ttfamily \label{class_base_player_a3998850297ad80295d4d23c9422e3bf5} 
+void Base\+Player\+::fire\+Weapon (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_base_player_a8b84632029eb86ed410834bc532aeeec}\index{BasePlayer@{BasePlayer}!getPosition@{getPosition}}
+\index{getPosition@{getPosition}!BasePlayer@{BasePlayer}}
+\doxysubsubsection{\texorpdfstring{getPosition()}{getPosition()}}
+{\footnotesize\ttfamily \label{class_base_player_a8b84632029eb86ed410834bc532aeeec} 
+sf\+::\+Vector2f Base\+Player\+::get\+Position (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_base_player_af4992db91aea3e2748a550bf622bf3e9}\index{BasePlayer@{BasePlayer}!rotateWeapon@{rotateWeapon}}
+\index{rotateWeapon@{rotateWeapon}!BasePlayer@{BasePlayer}}
+\doxysubsubsection{\texorpdfstring{rotateWeapon()}{rotateWeapon()}}
+{\footnotesize\ttfamily \label{class_base_player_af4992db91aea3e2748a550bf622bf3e9} 
+void Base\+Player\+::rotate\+Weapon (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{t\+\_\+look\+At}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_base_player_a1dfb140fd4a8861168bc0e1bf3e0e342}\index{BasePlayer@{BasePlayer}!setMap@{setMap}}
+\index{setMap@{setMap}!BasePlayer@{BasePlayer}}
+\doxysubsubsection{\texorpdfstring{setMap()}{setMap()}}
+{\footnotesize\ttfamily \label{class_base_player_a1dfb140fd4a8861168bc0e1bf3e0e342} 
+void Base\+Player\+::set\+Map (\begin{DoxyParamCaption}\item[{Grid \texorpdfstring{$\ast$}{*}}]{t\+\_\+grid}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_base_player_ab0f3fc59ea03bccbd1acb817da6a4f8b}\index{BasePlayer@{BasePlayer}!setPosition@{setPosition}}
+\index{setPosition@{setPosition}!BasePlayer@{BasePlayer}}
+\doxysubsubsection{\texorpdfstring{setPosition()}{setPosition()}}
+{\footnotesize\ttfamily \label{class_base_player_ab0f3fc59ea03bccbd1acb817da6a4f8b} 
+void Base\+Player\+::set\+Position (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{t\+\_\+position}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_base_player_abe5f63b0076b38b6fc8c72ecfc956f49}\index{BasePlayer@{BasePlayer}!update@{update}}
+\index{update@{update}!BasePlayer@{BasePlayer}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_base_player_abe5f63b0076b38b6fc8c72ecfc956f49} 
+void Base\+Player\+::update (\begin{DoxyParamCaption}\item[{float}]{t\+\_\+delta\+Time}{}\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Joshua/\+Desktop/4th\+Year\+Project/\+Lab 5/lab5/fun/\+Include/\mbox{\hyperlink{_base_player_8h}{Base\+Player.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,117 @@
+\doxysection{Mini\+Map.\+h}
+\hypertarget{_mini_map_8h_source}{}\label{_mini_map_8h_source}\index{C:/Users/Joshua/Desktop/4thYearProject/Lab 5/lab5/fun/Include/MiniMap.h@{C:/Users/Joshua/Desktop/4thYearProject/Lab 5/lab5/fun/Include/MiniMap.h}}
+\mbox{\hyperlink{_mini_map_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_globals_8h}{Globals.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Ship/Ship.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}World/Grid.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include"{}SFMl/Graphics.hpp"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_mini_map_icon}{MiniMapIcon}}}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{class_mini_map_icon_a0b870b89f97c7d2eb3dd23a296501190}{MiniMapIcon}}(\mbox{\hyperlink{class_game_object}{GameObject}}*\ t\_gameObject)\ :\ \mbox{\hyperlink{class_mini_map_icon_a960abced87ffd44bbf0ef654e280f822}{m\_spriteRef}}(t\_gameObject-\/>m\_body)}
+\DoxyCodeLine{00017\ \ \ \ \ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ Loader*\ loader\ =\ Loader::getInstance();}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ Texture*\ texture\ =\ loader-\/>loadTexture(\mbox{\hyperlink{class_mini_map_icon_afdf5dd6cf03dd91339222c9fec9afa23}{texturePaths}}[t\_gameObject-\/>\mbox{\hyperlink{class_game_object_a9b0635a0a07427cbd3cb9dacc9a2af8b}{m\_tag}}]);}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_mini_map_icon_a8cc4a770acaf3808d17dec5734e024bd}{m\_iconSprite}}.setTexture(texture-\/>texture);}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_mini_map_icon_a8cc4a770acaf3808d17dec5734e024bd}{m\_iconSprite}}.setOrigin(\{\ texture-\/>texture.getSize().x\ /\ 2.0f,texture-\/>texture.getSize().y\ /\ 2.0f\ \});}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_mini_map_icon_a8cc4a770acaf3808d17dec5734e024bd}{m\_iconSprite}}.setPosition(\mbox{\hyperlink{class_mini_map_icon_a960abced87ffd44bbf0ef654e280f822}{m\_spriteRef}}.getPosition());}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_mini_map_icon_a8cc4a770acaf3808d17dec5734e024bd}{m\_iconSprite}}.setRotation(\mbox{\hyperlink{class_mini_map_icon_a960abced87ffd44bbf0ef654e280f822}{m\_spriteRef}}.getRotation());}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_mini_map_icon_a8cc4a770acaf3808d17dec5734e024bd}{m\_iconSprite}}.setScale(0.5,\ 0.5);}
+\DoxyCodeLine{00025\ \ \ \ \ \}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mini_map_icon_a39ba6a89a649ef489d80c48699c27e3d}{updateToReference}}()}
+\DoxyCodeLine{00029\ \ \ \ \ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_mini_map_icon_a8cc4a770acaf3808d17dec5734e024bd}{m\_iconSprite}}.setPosition(\mbox{\hyperlink{class_mini_map_icon_a960abced87ffd44bbf0ef654e280f822}{m\_spriteRef}}.getPosition());}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_mini_map_icon_a8cc4a770acaf3808d17dec5734e024bd}{m\_iconSprite}}.setRotation(\mbox{\hyperlink{class_mini_map_icon_a960abced87ffd44bbf0ef654e280f822}{m\_spriteRef}}.getRotation());}
+\DoxyCodeLine{00032\ \ \ \ \ \}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ sf::Sprite\ \mbox{\hyperlink{class_mini_map_icon_a8cc4a770acaf3808d17dec5734e024bd}{m\_iconSprite}};}
+\DoxyCodeLine{00036\ \ \ \ \ sf::Sprite\&\ \mbox{\hyperlink{class_mini_map_icon_a960abced87ffd44bbf0ef654e280f822}{m\_spriteRef}};}
+\DoxyCodeLine{00037\ \ \ \ \ std::map<Tag,\ std::string>\ \mbox{\hyperlink{class_mini_map_icon_afdf5dd6cf03dd91339222c9fec9afa23}{texturePaths}}\ =\ \{\ \{\mbox{\hyperlink{_game_object_8h_a305263dd89ad9fde1863aece00907351a2c8e45aee4174c0c8de7548458066f53}{Player\_ship}},\ \textcolor{stringliteral}{"{}ASSETS/IMAGES/Minimap/ship.png"{}}\},}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\mbox{\hyperlink{_game_object_8h_a305263dd89ad9fde1863aece00907351a0ecc1aa73999e78a665e6699af67b59f}{Player\_Base}},\ \textcolor{stringliteral}{"{}ASSETS/IMAGES/Minimap/home.png"{}}\},}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\mbox{\hyperlink{_game_object_8h_a305263dd89ad9fde1863aece00907351a1166f1d8ca100387a2c0b57ff894622b}{Enemy\_Base}},\ \textcolor{stringliteral}{"{}ASSETS/IMAGES/Minimap/base.png"{}}\},}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\mbox{\hyperlink{_game_object_8h_a305263dd89ad9fde1863aece00907351a97a9c10ba67e86a8a88c5cc92c22112f}{Player}},\ \textcolor{stringliteral}{"{}ASSETS/IMAGES/Minimap/player.png"{}}\ \},}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\mbox{\hyperlink{_game_object_8h_a305263dd89ad9fde1863aece00907351a1d3a30883fde8ef6d1493b80155a870b}{Enemy}},\ \textcolor{stringliteral}{"{}ASSETS/IMAGES/Minimap/enemy.png"{}}\ \}\ \};}
+\DoxyCodeLine{00042\ \};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_mini_map_grid}{MiniMapGrid}}}
+\DoxyCodeLine{00046\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_mini_map_grid_af54e26bd10e06ba69c7eed2bf8bbb93f}{MiniMapGrid}}(Grid*\ t\_grid)}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ t\_grid-\/>m\_traversableCells.size();\ i++)}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_mini_map_grid_a39b580d4524426cf4b0d5e22093ea2d6}{m\_cells}}.push\_back((*t\_grid-\/>m\_traversableCells[i]));}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_mini_map_grid_a39b580d4524426cf4b0d5e22093ea2d6}{m\_cells}}[i].m\_body.setTexture(\textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_mini_map_grid_a39b580d4524426cf4b0d5e22093ea2d6}{m\_cells}}[i].setColor(sf::Color(20,\ 20,\ 50));}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ t\_grid-\/>m\_wallCells.size();\ i++)}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_mini_map_grid_a39b580d4524426cf4b0d5e22093ea2d6}{m\_cells}}.push\_back((*t\_grid-\/>m\_wallCells[i]));}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_mini_map_grid_a39b580d4524426cf4b0d5e22093ea2d6}{m\_cells}}[\mbox{\hyperlink{class_mini_map_grid_a39b580d4524426cf4b0d5e22093ea2d6}{m\_cells}}.size()\ -\/\ 1].m\_body.setTexture(\textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_mini_map_grid_a39b580d4524426cf4b0d5e22093ea2d6}{m\_cells}}[\mbox{\hyperlink{class_mini_map_grid_a39b580d4524426cf4b0d5e22093ea2d6}{m\_cells}}.size()\ -\/\ 1].setColor(sf::Color(90,\ 90,\ 120));}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mini_map_grid_a08af9191ff5d3fe01983bfcdb1f5a1fc}{draw}}(sf::RenderWindow\&\ t\_window)}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{class_mini_map_grid_a39b580d4524426cf4b0d5e22093ea2d6}{m\_cells}}.size();\ i++)}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_mini_map_grid_a39b580d4524426cf4b0d5e22093ea2d6}{m\_cells}}[i].draw(t\_window);}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ std::vector<Cell>\ \mbox{\hyperlink{class_mini_map_grid_a39b580d4524426cf4b0d5e22093ea2d6}{m\_cells}};}
+\DoxyCodeLine{00077\ \};}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_mini_map}{MiniMap}}}
+\DoxyCodeLine{00080\ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_mini_map_a15ea88966ee3883257d2a83d380b4cc0}{MiniMap}}(sf::RenderWindow\&\ t\_window,\ \textcolor{keywordtype}{float}\ t\_zoomFActor,\ \mbox{\hyperlink{class_game_object}{GameObject}}*\ t\_player,\ std::vector<GameObject*>\ t\_icons,\ std::vector<Grid*>\ t\_grids\ =\ \{\});}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mini_map_a872ce4918799805cc8b31b954fab20c2}{update}}();}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mini_map_a52194629885344a98be1ff062291b001}{drawBackground}}();}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mini_map_a73e2991d3a9caa1bc1ccbc5cfa8b23fe}{drawContents}}();}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mini_map_a0df1295ab11a3e6de0272aea0b0077a8}{drawBorder}}();}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ sf::View\&\ \mbox{\hyperlink{class_mini_map_aaaf04a35c1a5fea4635a2fded9dd0fdf}{getView}}()\ \{\ \textcolor{keywordflow}{return}\ m\_miniMapView;\ \};}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ sf::Vector2f\ clampToEdge(sf::Vector2f\ position,\ sf::Vector2f\ viewCenter,\ sf::Vector2f\ viewHalfSize);}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setPositionsOfWorldIcons();}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ sf::Color\ m\_darkBlue\ =\ sf::Color(14,\ 34,\ 99);}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ sf::Color\ m\_lightBlue\ =\ sf::Color(209,\ 255,\ 255);}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ sf::RectangleShape\ m\_background;}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ sf::RectangleShape\ m\_border;}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ sf::View\ m\_miniMapView;}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ sf::RenderWindow\&\ m\_window;}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_mini_map_icon}{MiniMapIcon}}\ m\_player;}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ std::vector<MiniMapGrid>m\_grdOutlines;}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ std::vector<MiniMapIcon>\ m\_spriteIcons;}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \};}
+\DoxyCodeLine{00114\ }
+
+\end{DoxyCode}

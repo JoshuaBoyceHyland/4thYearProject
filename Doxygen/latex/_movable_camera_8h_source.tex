@@ -1,0 +1,55 @@
+\doxysection{Movable\+Camera.\+h}
+\hypertarget{_movable_camera_8h_source}{}\label{_movable_camera_8h_source}\index{C:/Users/Joshua/Desktop/4thYearProject/Lab 5/lab5/fun/Include/MovableCamera.h@{C:/Users/Joshua/Desktop/4thYearProject/Lab 5/lab5/fun/Include/MovableCamera.h}}
+\mbox{\hyperlink{_movable_camera_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_globals_8h}{Globals.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_movable_camera}{MovableCamera}}}
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_movable_camera_a54520a4681cdcef9303a5c7dda0810c6}{MovableCamera}}(sf::RenderWindow\&\ t\_window);}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_movable_camera_aa046de510786173e5815e7475c8a099e}{update}}();}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_movable_camera_a1d7230a371e88ae23b51b1e07424729a}{startMove}}();}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_movable_camera_ab450a11cebbf691c787ec9a07be6eeef}{move}}();}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_movable_camera_a98a294fc8c918f514aef837609223a45}{endMove}}();}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_movable_camera_a3cb2220945400c6aa39a36ddaf3a563f}{follow}}(sf::Vector2f\ t\_position);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_movable_camera_a96349a6d610e1c519ed10a6c8a51642d}{zoom}}(\textcolor{keywordtype}{float}\ t\_mouseWheelDelta);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_movable_camera_a54c42fd59407eb2164fab1ca415f1741}{setPosition}}(sf::Vector2f\ t\_position);\ }
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ sf::Vector2f\ \mbox{\hyperlink{class_movable_camera_a6515fae36a2e82f53ab3c1b763cb5623}{getPosition}}();}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ sf::View\&\ \mbox{\hyperlink{class_movable_camera_af18e67a7015a25f391b840c798c20888}{getView}}()\ \{\ \textcolor{keywordflow}{return}\ m\_camera;\ \};}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ sf::RenderWindow\&\ m\_window;}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ sf::View\ m\_camera;}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_mouseDown\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ m\_literalZoom\ =\ 1;}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ m\_currentZoom\ =\ 0;}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ MAX\_ZOOM\_IN\ =\ 10000;}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ MAX\_ZOOM\_OUT\ =\ -\/10000;}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ sf::Vector2f\ m\_mouseClickPoint;}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ sf::Vector2f\ m\_mouseDelta;}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ sf::Vector2f\ m\_mouseCurrentPosition;}
+\DoxyCodeLine{00069\ \};}
+\DoxyCodeLine{00070\ }
+
+\end{DoxyCode}

@@ -1,0 +1,39 @@
+\doxysection{Game\+Data.\+h}
+\hypertarget{_game_data_8h_source}{}\label{_game_data_8h_source}\index{C:/Users/Joshua/Desktop/4thYearProject/Lab 5/lab5/fun/Include/GameData.h@{C:/Users/Joshua/Desktop/4thYearProject/Lab 5/lab5/fun/Include/GameData.h}}
+\mbox{\hyperlink{_game_data_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}DungeonGeneration/Dungeon.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Ship/Ship.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}World/Grid.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_base_player_8h}{BasePlayer.h}}"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game_data}{GameData}}}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_game_data_aa26d8c0990bbc86205fa61e3f31000d8}{GameData}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_game_data}{GameData}}\&\ other)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_game_data}{GameData}}*\ \mbox{\hyperlink{class_game_data_ac67ee69a2be2c5841b0c39616b2fc275}{getInstance}}();}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_base_player}{BasePlayer}}*\ \mbox{\hyperlink{class_game_data_ac0f3dbbc5db47831316a92f294a4b979}{m\_player}};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ Ship*\ \mbox{\hyperlink{class_game_data_a58c019e76d87d981d447b8d7fb746c47}{m\_playerShip}};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ Grid*\ \mbox{\hyperlink{class_game_data_aa407a70dce8b3dee99c2cf564e8c6f28}{m\_currentMap}};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ Ship*\ \mbox{\hyperlink{class_game_data_a2c02534940acb4e282bc80f03f899210}{getPlayerShip}}();}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ Dungeon*\ \mbox{\hyperlink{class_game_data_a0eaa83e9e4536e2e897295f1c54f6a02}{m\_currentDungeon}};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ std::vector<Dungeon*>\ \mbox{\hyperlink{class_game_data_adf74d2e2e0d39c6d37bb782f742e4135}{m\_dungeons}};}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_game_data}{GameData}}();}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_game_data}{GameData}}*\ instance;}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00038\ \};}
+\DoxyCodeLine{00039\ }
+
+\end{DoxyCode}

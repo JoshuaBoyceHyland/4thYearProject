@@ -1,0 +1,106 @@
+\doxysection{Game\+Data Class Reference}
+\hypertarget{class_game_data}{}\label{class_game_data}\index{GameData@{GameData}}
+
+
+Holds pieces of data that need to be transfered between scenes.  
+
+
+
+
+{\ttfamily \#include $<$Game\+Data.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_game_data_aa26d8c0990bbc86205fa61e3f31000d8}{Game\+Data}} (const \mbox{\hyperlink{class_game_data}{Game\+Data}} \&other)=delete
+\item 
+Ship \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_game_data_a2c02534940acb4e282bc80f03f899210}{get\+Player\+Ship}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_game_data}{Game\+Data}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_game_data_ac67ee69a2be2c5841b0c39616b2fc275}{get\+Instance}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_base_player}{Base\+Player}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_game_data_ac0f3dbbc5db47831316a92f294a4b979}{m\+\_\+player}}
+\item 
+Ship \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_game_data_a58c019e76d87d981d447b8d7fb746c47}{m\+\_\+player\+Ship}}
+\item 
+Grid \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_game_data_aa407a70dce8b3dee99c2cf564e8c6f28}{m\+\_\+current\+Map}}
+\item 
+Dungeon \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_game_data_a0eaa83e9e4536e2e897295f1c54f6a02}{m\+\_\+current\+Dungeon}}
+\item 
+std\+::vector$<$ Dungeon \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_game_data_adf74d2e2e0d39c6d37bb782f742e4135}{m\+\_\+dungeons}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Holds pieces of data that need to be transfered between scenes. 
+
+\begin{DoxyAuthor}{Author}
+Joshua Boyce Hyland 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_game_data_aa26d8c0990bbc86205fa61e3f31000d8}\index{GameData@{GameData}!GameData@{GameData}}
+\index{GameData@{GameData}!GameData@{GameData}}
+\doxysubsubsection{\texorpdfstring{GameData()}{GameData()}}
+{\footnotesize\ttfamily \label{class_game_data_aa26d8c0990bbc86205fa61e3f31000d8} 
+Game\+Data\+::\+Game\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_game_data}{Game\+Data}} \&}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_game_data_ac67ee69a2be2c5841b0c39616b2fc275}\index{GameData@{GameData}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!GameData@{GameData}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily \label{class_game_data_ac67ee69a2be2c5841b0c39616b2fc275} 
+static \mbox{\hyperlink{class_game_data}{Game\+Data}} \texorpdfstring{$\ast$}{*} Game\+Data\+::get\+Instance (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{class_game_data_a2c02534940acb4e282bc80f03f899210}\index{GameData@{GameData}!getPlayerShip@{getPlayerShip}}
+\index{getPlayerShip@{getPlayerShip}!GameData@{GameData}}
+\doxysubsubsection{\texorpdfstring{getPlayerShip()}{getPlayerShip()}}
+{\footnotesize\ttfamily \label{class_game_data_a2c02534940acb4e282bc80f03f899210} 
+Ship \texorpdfstring{$\ast$}{*} Game\+Data\+::get\+Player\+Ship (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_game_data_a0eaa83e9e4536e2e897295f1c54f6a02}\index{GameData@{GameData}!m\_currentDungeon@{m\_currentDungeon}}
+\index{m\_currentDungeon@{m\_currentDungeon}!GameData@{GameData}}
+\doxysubsubsection{\texorpdfstring{m\_currentDungeon}{m\_currentDungeon}}
+{\footnotesize\ttfamily \label{class_game_data_a0eaa83e9e4536e2e897295f1c54f6a02} 
+Dungeon\texorpdfstring{$\ast$}{*} Game\+Data\+::m\+\_\+current\+Dungeon}
+
+\Hypertarget{class_game_data_aa407a70dce8b3dee99c2cf564e8c6f28}\index{GameData@{GameData}!m\_currentMap@{m\_currentMap}}
+\index{m\_currentMap@{m\_currentMap}!GameData@{GameData}}
+\doxysubsubsection{\texorpdfstring{m\_currentMap}{m\_currentMap}}
+{\footnotesize\ttfamily \label{class_game_data_aa407a70dce8b3dee99c2cf564e8c6f28} 
+Grid\texorpdfstring{$\ast$}{*} Game\+Data\+::m\+\_\+current\+Map}
+
+\Hypertarget{class_game_data_adf74d2e2e0d39c6d37bb782f742e4135}\index{GameData@{GameData}!m\_dungeons@{m\_dungeons}}
+\index{m\_dungeons@{m\_dungeons}!GameData@{GameData}}
+\doxysubsubsection{\texorpdfstring{m\_dungeons}{m\_dungeons}}
+{\footnotesize\ttfamily \label{class_game_data_adf74d2e2e0d39c6d37bb782f742e4135} 
+std\+::vector$<$Dungeon\texorpdfstring{$\ast$}{*}$>$ Game\+Data\+::m\+\_\+dungeons}
+
+\Hypertarget{class_game_data_ac0f3dbbc5db47831316a92f294a4b979}\index{GameData@{GameData}!m\_player@{m\_player}}
+\index{m\_player@{m\_player}!GameData@{GameData}}
+\doxysubsubsection{\texorpdfstring{m\_player}{m\_player}}
+{\footnotesize\ttfamily \label{class_game_data_ac0f3dbbc5db47831316a92f294a4b979} 
+\mbox{\hyperlink{class_base_player}{Base\+Player}}\texorpdfstring{$\ast$}{*} Game\+Data\+::m\+\_\+player}
+
+\Hypertarget{class_game_data_a58c019e76d87d981d447b8d7fb746c47}\index{GameData@{GameData}!m\_playerShip@{m\_playerShip}}
+\index{m\_playerShip@{m\_playerShip}!GameData@{GameData}}
+\doxysubsubsection{\texorpdfstring{m\_playerShip}{m\_playerShip}}
+{\footnotesize\ttfamily \label{class_game_data_a58c019e76d87d981d447b8d7fb746c47} 
+Ship\texorpdfstring{$\ast$}{*} Game\+Data\+::m\+\_\+player\+Ship}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Joshua/\+Desktop/4th\+Year\+Project/\+Lab 5/lab5/fun/\+Include/\mbox{\hyperlink{_game_data_8h}{Game\+Data.\+h}}\end{DoxyCompactItemize}

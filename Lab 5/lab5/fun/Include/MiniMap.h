@@ -47,7 +47,7 @@ class MiniMapGrid
 	public:
 		MiniMapGrid(Grid* t_grid)
 		{
-			// floor
+
 			for (int i = 0; i < t_grid->m_traversableCells.size(); i++)
 			{
 				m_cells.push_back((*t_grid->m_traversableCells[i]));
@@ -56,7 +56,6 @@ class MiniMapGrid
 		
 			}
 
-			// wallks
 			for (int i = 0; i < t_grid->m_wallCells.size(); i++)
 			{
 				m_cells.push_back((*t_grid->m_wallCells[i]));
