@@ -3,7 +3,7 @@
 #include "GameData.h"
 #include "World/Grid.h"
 #include "MovableCamera.h"
-#include "NPC/NPC.h"
+#include "NPC/BaseNPC.h"
 #include "BasePlayer.h"
 #include "Utility/MapSaver.h"
 class BaseGameplayScene : public Scene
@@ -26,7 +26,7 @@ class BaseGameplayScene : public Scene
 		BasePlayer* m_player;
 		MovableCamera m_camera;
 		std::vector<NPC*> m_npc;
-		PlayerDataLoader saver;
+		MapSaver saver;
 		std::vector<WorldItem*> jobs;
 };
 

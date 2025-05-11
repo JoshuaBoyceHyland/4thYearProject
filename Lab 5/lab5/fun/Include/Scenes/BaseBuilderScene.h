@@ -24,7 +24,7 @@ class BaseBuilderScene : public Scene
 
 		Room* m_room;
 		Grid* m_grid;
-		PlayerDataLoader saver;
+		MapSaver saver;
 		MovableCamera m_camera;
 		RoomBuilderEditorBox m_editor;
 		

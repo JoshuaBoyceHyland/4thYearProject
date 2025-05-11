@@ -90,7 +90,7 @@ class ShipEditorScene : public Scene
 
 		UIScreenBorder m_uiBorder;
 
-		PlayerDataLoader saver;
+		MapSaver saver;
 		
 
 

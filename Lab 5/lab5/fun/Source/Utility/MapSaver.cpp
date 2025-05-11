@@ -1,6 +1,6 @@
 #include "Utility/MapSaver.h"
 
-void PlayerDataLoader::saveMap(Grid* t_grid)
+void MapSaver::saveMap(Grid* t_grid)
 {
 	std::ofstream file;
 	file.open("og.txt");
@@ -24,7 +24,7 @@ void PlayerDataLoader::saveMap(Grid* t_grid)
 	}
 }
 
-void PlayerDataLoader::saveMapJson(Grid* t_grid)
+void MapSaver::saveMapJson(Grid* t_grid)
 {
 
     std::ofstream file("og.json");
@@ -61,7 +61,7 @@ void PlayerDataLoader::saveMapJson(Grid* t_grid)
     }
 }
 
-void PlayerDataLoader::loadMap(Grid* t_grid)
+void MapSaver::loadMap(Grid* t_grid)
 {
     std::ifstream file;
     file.open("og.txt");
@@ -89,7 +89,7 @@ void PlayerDataLoader::loadMap(Grid* t_grid)
     file.close();
 }
 
-void PlayerDataLoader::loadMapJson(Grid* t_grid)
+void MapSaver::loadMapJson(Grid* t_grid)
 {
     std::ifstream file("og.json");
 
@@ -148,7 +148,7 @@ void PlayerDataLoader::loadMapJson(Grid* t_grid)
 
 }
 
-void PlayerDataLoader::saveShip(Ship* t_ship)
+void MapSaver::saveShip(Ship* t_ship)
 {
 
     std::ofstream file("playerShip.json");

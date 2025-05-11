@@ -9,7 +9,7 @@
 #include "Ship/Ship.h"
 
 
-class PlayerDataLoader
+class MapSaver
 {
 	public:
 

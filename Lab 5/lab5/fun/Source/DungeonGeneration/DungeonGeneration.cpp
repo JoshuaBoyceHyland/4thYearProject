@@ -19,7 +19,7 @@ void DungeonGeneration::generateInitialGrids()
 
 
 
-	for (int i = 0; i < 20; i++)
+	for (int i = 0; i < 30; i++)
 	{
 
 		int randWidth = rand() % m_maxWidthGridGen + m_minWidthGridGen;
@@ -679,25 +679,7 @@ void DungeonGeneration::draw(sf::RenderWindow& t_window)
 
 
 
-bool DungeonGeneration::inCircle(sf::Vector2f A, sf::Vector2f B, sf::Vector2f C, sf::Vector2f P)
-{
-	double ax = A.x - P.x;
-	double ay = A.y - P.y;
-	double bx = B.x - P.x;
-	double by = B.y - P.y;
-	double cx = C.x - P.x;
-	double cy = C.y - P.y;
 
-	double a2 = ax * ax + ay * ay;
-	double b2 = bx * bx + by * by;
-	double c2 = cx * cx + cy * cy;
-
-	double det = ax * (by * c2 - cy * b2)
-		- ay * (bx * c2 - cx * b2)
-		+ a2 * (bx * cy - cx * by);
-
-	return det > 1e-9;  // Ensure correct precision handling
-}
 
 std::vector<PointEdge> DungeonGeneration::minSpanning()
 {

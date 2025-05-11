@@ -112,6 +112,7 @@
     <ClInclude Include="Include\MiniMap.h" />
     <ClInclude Include="Include\DungeonGeneration\Dungeon.h" />
     <ClInclude Include="Include\Scenes\EnemyBaseScene.h" />
+    <ClInclude Include="Include\NPC\BaseNPC.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="fun.rc" />
@@ -196,6 +197,7 @@
     <ClCompile Include="MiniMap.cpp" />
     <ClCompile Include="Source\DungeonGeneration\Dungeon.cpp" />
     <ClCompile Include="Source\Scenes\EnemyBaseScene.cpp" />
+    <ClCompile Include="BaseNPC.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="map.txt" />

@@ -11,7 +11,7 @@ class NPC : public GameObject
 {
 
 	public:
-		NPC(Grid* t_map,  BasePlayer* player, sf::Vector2f t_position= {-500, -500}, Tag t_tag = Enemy);
+		NPC(Grid* t_map,  BasePlayer* player, sf::Vector2f t_position= {-500, -500}, Tag t_tag = Enemy, std::string t_texturePath = "1", sf::Vector2f t_spriteOrigin = {20, 100});
 
 		void update(float deltatime);
 

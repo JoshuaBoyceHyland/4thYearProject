@@ -2,6 +2,11 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
 
+/// <summary>
+/// @author Joshua Boyce Hyland 
+/// C00270917
+/// </summary>
+
 
 
 enum class Direction {

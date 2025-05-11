@@ -1,9 +1,9 @@
 #include "NPC/NPC.h"
 
-NPC::NPC(Grid* t_map, BasePlayer* player, sf::Vector2f t_position, Tag t_tag) :
+NPC::NPC(Grid* t_map, BasePlayer* player, sf::Vector2f t_position, Tag t_tag, std::string t_texturePath, sf::Vector2f t_spriteOrigin) :
 m_grid(t_map),
 m_agent(t_map, t_position),
-m_animator("ASSETS/IMAGES/NPC/1", { "/Idle", "/Run", "/Death", "/Dash"}, m_body, {20.0f, 100.0f})
+m_animator("ASSETS/IMAGES/NPC/" + t_texturePath, { "/Idle", "/Run", "/Death", "/Dash"}, m_body, t_spriteOrigin)
 {
 	m_tag = t_tag;
 	setUpBehaviourTree(t_map, player);
@@ -68,7 +68,7 @@ void NPC::draw(sf::RenderWindow& t_window)
 	t.setOrigin({ 5, 5 });
 	t.setFillColor(sf::Color::Magenta);
 	t.setPosition(m_agent.m_position);
-	t_window.draw(t);
+	//t_window.draw(t);
 	t_window.draw(m_body);
 	if (m_currentBehaviour)
 	{
