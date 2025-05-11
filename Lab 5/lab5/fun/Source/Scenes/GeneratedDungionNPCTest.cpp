@@ -13,11 +13,12 @@ m_camera(m_window)
 
 
 	std::vector<GameObject*> upcastedNpcs;
-	for (int i = 0; i < 1; i++)
+	for (int i = 0; i < 10; i++)
 	{
 
 		
-		m_npc.push_back(new NPC(m_dungeon->m_grid,m_player, randCell->m_body.getPosition()));
+		Cell* randCell = m_dungeon->m_grid->getRandomTraverableCell();
+		m_npc.push_back(new NPC(m_dungeon->m_grid, m_player, randCell->m_body.getPosition()));
 	
 		upcastedNpcs.push_back(m_npc[i]);
 	}

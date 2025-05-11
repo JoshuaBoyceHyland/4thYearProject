@@ -55,7 +55,7 @@ void ShipPart::move(sf::Vector2f t_moveBy, float t_rotation)
 void ShipPart::draw(sf::RenderWindow& t_window)
 {
 	t_window.draw(m_body);
-	m_connectors.visualisePoints(t_window);
+	//m_connectors.visualisePoints(t_window);
 }
 
 void ShipPart::setPosition(sf::Vector2f t_position)

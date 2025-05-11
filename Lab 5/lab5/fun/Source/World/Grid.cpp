@@ -142,9 +142,14 @@ void Grid::deletePiece(sf::Vector2f t_mouseCLick, TraversalProperty t_currentEdi
 	}
 	else
 	{
-		delete selectedCell->m_cellJob;
+		if (selectedCell->m_cellJob != nullptr)
+		{
+			delete selectedCell->m_cellJob;
+			selectedCell->m_cellJob = nullptr;
+		}
+		
 
-		selectedCell->m_cellJob = nullptr;
+		
 	}
 }
 

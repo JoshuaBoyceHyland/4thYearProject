@@ -29,7 +29,7 @@ class NPC : public GameObject
 
 		bool attackPlayer();
 
-		bool dead() { return m_health <= 0; };
+		bool dead();
 
 
 		Dash* m_dashBehaviour = nullptr;

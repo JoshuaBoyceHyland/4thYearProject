@@ -41,7 +41,7 @@ class DungeonGeneration
 		/// <summary>
 		/// Halway width
 		/// </summary>
-		int m_hallWayPadding = 2;
+		int m_hallWayPadding = 3;
 
 		// intial generation of grids parameters
 		int m_minWidthGridGen = 8;
@@ -124,16 +124,6 @@ class DungeonGeneration
 		/// <param name="yEnd">end cell row</param>
 		/// <param name="col">column of strip</param>
 		void verticalStrip(int yStart, int yEnd, int col, bool corner);
-
-		/// <summary>
-		/// Tells us whether a point lies with in a circle
-		/// </summary>
-		/// <param name="A"></param>
-		/// <param name="B"></param>
-		/// <param name="C"></param>
-		/// <param name="P"></param>
-		/// <returns></returns>
-		bool inCircle(sf::Vector2f A, sf::Vector2f B, sf::Vector2f C, sf::Vector2f P);
 
 		/// <summary>
 		/// Gets a random point from within a radius

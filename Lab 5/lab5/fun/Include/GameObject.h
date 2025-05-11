@@ -8,6 +8,7 @@ class GameObject
 	public:
 		Tag m_tag;
 		sf::Sprite m_body;
+		bool m_active = true;
 		virtual void collisionWith(Tag t_tag) =0;
 		
 };

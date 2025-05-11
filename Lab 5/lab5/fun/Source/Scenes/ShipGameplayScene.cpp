@@ -63,20 +63,20 @@ void ShipGameplayScene::update(sf::Time t_deltaTime)
 
 	if (closestRoom != nullptr)
 	{
-		closestRoom->setColourOfOccupiedCells(sf::Color::White);
+		//closestRoom->setColourOfOccupiedCells(sf::Color::White);
 	}
 	closestRoom = m_dungeon->closestRoomTo(m_playerShip.getPosition());
 
-	closestRoom->setColourOfOccupiedCells(sf::Color::Green);
+	//closestRoom->setColourOfOccupiedCells(sf::Color::Green);
 
 
 	if (closestCell != nullptr)
 	{
-		closestCell->m_body.setFillColor(sf::Color::White);
+		//closestCell->m_body.setFillColor(sf::Color::White);
 	}
 
 	closestCell = closestRoom->getClosestCellTo(m_playerShip.getPosition());
-	closestCell->m_body.setFillColor(sf::Color::Yellow);
+	//closestCell->m_body.setFillColor(sf::Color::Yellow);
 	
 	if (VectorMath::vectorLength(m_playerShip.getPosition(), closestCell->m_body.getPosition()) < 500)
 	{

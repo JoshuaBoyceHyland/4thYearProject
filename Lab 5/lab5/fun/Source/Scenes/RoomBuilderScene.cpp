@@ -51,7 +51,7 @@ void RoomBuilderScene::render()
 		m_selectedTiles->draw(m_window);
 	}
 
-	m_window.draw(t);
+	//m_window.draw(t);
 	m_window.display();
 }
 

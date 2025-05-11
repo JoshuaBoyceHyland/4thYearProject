@@ -49,7 +49,7 @@ void BasePlayer::draw(sf::RenderWindow& t_window)
 
 
 	//t_window.draw(t);
-	//t_window.draw(m_body);
+	t_window.draw(m_body);
 
 	if (m_currentWeapon != nullptr)
 	{

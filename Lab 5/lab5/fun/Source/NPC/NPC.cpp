@@ -241,6 +241,12 @@ bool NPC::attackPlayer()
 	return m_startedAttacking;
 }
 
+bool NPC::dead()
+{
+	m_active = false; 
+	return m_health <= 0;
+}
+
 void NPC::collisionWith(Tag t_tag)
 {
 

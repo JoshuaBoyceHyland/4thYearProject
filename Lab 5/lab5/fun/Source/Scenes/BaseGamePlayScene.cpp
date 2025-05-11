@@ -13,7 +13,7 @@ BaseGameplayScene::BaseGameplayScene(sf::RenderWindow& t_window) :
 
 	gamedata->m_player = m_player;
 
-	for (int i = 0; i < 1; i++)
+	for (int i = 0; i < 10; i++)
 	{
 		m_npc.push_back(new BaseNPC(m_grid, m_player,{ 2500, 900 }));
 	}

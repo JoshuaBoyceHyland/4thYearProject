@@ -11,7 +11,7 @@ DungeonGenerationTestScene::DungeonGenerationTestScene(sf::RenderWindow& t_windo
 void DungeonGenerationTestScene::update(sf::Time t_deltaTime)
 {
 	m_camera.update();
-	//m_dg.generationLoopStepThrough(); uncomment to step through the generation
+	//m_dg.generationLoopStepThrough(); //uncomment to step through the generation
 
 }
 

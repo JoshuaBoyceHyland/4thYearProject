@@ -86,7 +86,7 @@ void Ship::draw(sf::RenderWindow& t_window)
 	display.setSize({ 10, 10, });
 	display.setOrigin(50, 50);
 	display.setPosition(m_position);
-	t_window.draw(display);
+	//t_window.draw(display);
 
 
 

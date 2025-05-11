@@ -24,7 +24,7 @@ void Agent::update(float t_deltaTime)
 void Agent::followPath(float t_deltaTime)
 {
 
-    m_map->m_cells[m_target->m_row][m_target->m_column].setColor(sf::Color::Yellow);
+   // m_map->m_cells[m_target->m_row][m_target->m_column].setColor(sf::Color::Yellow);
     m_direction = VectorMath::directionVector( m_position, m_target->getPosition());
 
     m_position += m_direction * m_speed;
@@ -47,7 +47,7 @@ void Agent::followPath(float t_deltaTime)
             
             while (!m_previousPath.empty())
             {
-                m_map->m_cells[m_previousPath.front()->m_row][m_previousPath.front()->m_column].setColor(sf::Color::White);
+               // m_map->m_cells[m_previousPath.front()->m_row][m_previousPath.front()->m_column].setColor(sf::Color::White);
                 m_previousPath.pop();
                 m_hasTarget = false;
             }
@@ -105,7 +105,7 @@ std::deque<Node*>Agent::pathFindTo(Node* t_goalNode)
 
         while (!path.empty())
         {
-            m_map->m_cells[path.front()->m_row][path.front()->m_column].setColor(sf::Color::Green);
+           // m_map->m_cells[path.front()->m_row][path.front()->m_column].setColor(sf::Color::Green);
             path.pop_front();
         }
     }

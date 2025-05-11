@@ -53,12 +53,12 @@ class MovableCamera
 		/// <summary>
 		/// Max zoom in we can have
 		/// </summary>
-		const int MAX_ZOOM_IN = 10;
+		const int MAX_ZOOM_IN = 10000;
 
 		/// <summary>
 		/// Max xoom out we can have
 		/// </summary>
-		const int MAX_ZOOM_OUT = -40;
+		const int MAX_ZOOM_OUT = -10000;
 
 
 		sf::Vector2f m_mouseClickPoint;
